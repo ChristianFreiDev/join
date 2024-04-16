@@ -1,6 +1,8 @@
 :root{
-    --color-main: hsl(215, 25%, 22%);
-    --color-main-activ: hsl(216, 69%, 11%);
+    --color-menu: hsl(215, 25%, 22%);
+    --color-menu-active: hsl(216, 69%, 11%);
+    --color-menu-font: hsl(0, 0%, 80%);
+    --color-menu-font-active: hsl(0, 0%, 100%);
     --coler-accent: hsl(198, 76%, 53%);
     --color-urgent: hsl(14, 100%, 50%);
     --color-medium: hsl(40, 100%, 50%);
@@ -27,4 +29,34 @@
 
 body{
     background-color: var(--color-main);
+    margin: 0;
+}
+
+.outer-container {
+    margin: auto;
+    display: flex;
+    min-height: 100vh;
+    max-width: 1920px;
+}
+
+#desktop-menu, #mobile-menu {
+    color: var(--color-menu-font);
+    background-color: var(--color-menu);
+}
+
+#mobile-menu {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@media (max-width: 600px) {
+    #desktop-menu {
+        display: none;
+    }
+    #mobile-menu {
+        display: block;
+    }
 }
