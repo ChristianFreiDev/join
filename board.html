@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Board</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/nav.css">
     <script src="script.js"></script>
 </head>
 <body onload="includeHTML()">
     <div class="outer-container">
-        <div id="mobile-menu" class="display-none">Mobile</div>
-        <div id="desktop-menu">Desktop</div>
+        <nav id="mobile-menu" class="display-none">Mobile</nav>
+        <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
             <div>Board content</div>

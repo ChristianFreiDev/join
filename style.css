@@ -44,6 +44,14 @@ body{
     background-color: var(--color-menu);
 }
 
+#desktop-menu {
+    width: 232px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
 #mobile-menu {
     display: none;
     position: fixed;
