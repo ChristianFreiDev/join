@@ -1,0 +1,30 @@
+:root{
+    --color-main: hsl(215, 25%, 22%);
+    --color-main-activ: hsl(216, 69%, 11%);
+    --coler-accent: hsl(198, 76%, 53%);
+    --color-urgent: hsl(14, 100%, 50%);
+    --color-medium: hsl(40, 100%, 50%);
+    --color-low: hsl(94, 76%, 53%);
+    --color-user-story: hsl(227, 100%, 50%);
+    --color-technical-task: hsl(173, 75%, 48%);
+    --color-user0: hsl(29, 100%, 50%);
+    --color-user1: hsl(328, 100%, 69%);
+    --color-user2: hsl(250, 100%, 66%);
+    --color-user3: hsl(270, 100%, 58%);
+    --color-user4: hsl(191, 100%, 45%);
+    --color-user5: hsl(173, 75%, 48%);
+    --color-user6: hsl(8, 100%, 69%);
+    --color-user7: hsl(26, 100%, 69%);
+    --color-user8: hsl(299, 100%, 72%);
+    --color-user9: hsl(47, 100%, 50%);
+    --color-user10: hsl(227, 100%, 50%);
+    --color-user11: hsl(77, 100%, 58%);
+    --color-user12: hsl(53, 100%, 58%);
+    --color-user13: hsl(0, 100%, 64%);
+    --color-user14: hsl(41, 100%, 58%);
+    --box-shadow: box-shadow: 0px 4px 4px 0px #0000001A;
+}
+
+body{
+    background-color: var(--color-main);
+}
