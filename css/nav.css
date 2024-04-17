@@ -12,7 +12,7 @@ nav a {
 }
 
 .nav-button-list a:hover {
-    background-color: var(--color-menu-active);
+    background-color: var(--color-menu-hover);
 }
 
 .logo {
@@ -36,6 +36,10 @@ nav a {
 
 .privacy-and-legal-links-container a {
     padding: 8px;
+}
+
+.privacy-and-legal-links-container a:hover {
+    color: var(--color-accent);
 }
 
 .mobile-nav-button-list {

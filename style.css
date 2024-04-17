@@ -1,6 +1,7 @@
 :root{
     --color-main: hsl(210, 13%, 97%);
     --color-menu: hsl(215, 25%, 22%);
+    --color-menu-hover: hsl(216, 36%, 26%);
     --color-menu-active: hsl(216, 69%, 11%);
     --color-menu-font: hsl(0, 0%, 80%);
     --color-menu-font-active: hsl(0, 0%, 100%);
