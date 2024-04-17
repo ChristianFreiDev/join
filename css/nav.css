@@ -11,7 +11,7 @@ nav a {
     padding: 8px 56px 8px 56px;
 }
 
-nav a:hover {
+.nav-button-list a:hover {
     background-color: var(--color-menu-active);
 }
 
