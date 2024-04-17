@@ -1,4 +1,4 @@
-user = [
+users = [
     {
         firstName: 'Bernd',
         lastName: 'Muster',

@@ -7,5 +7,18 @@
 
 .summary-header-seperator {
     font-size: 61px;
-    color: var(--coler-accent);
+    color: var(--color-accent);
+}
+
+.summary-overview-container {
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.summary-overview-container-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

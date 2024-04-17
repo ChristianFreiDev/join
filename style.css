@@ -3,7 +3,7 @@
     --color-menu-active: hsl(216, 69%, 11%);
     --color-menu-font: hsl(0, 0%, 80%);
     --color-menu-font-active: hsl(0, 0%, 100%);
-    --coler-accent: hsl(198, 76%, 53%);
+    --color-accent: hsl(198, 76%, 53%);
     --color-urgent: hsl(14, 100%, 50%);
     --color-medium: hsl(40, 100%, 50%);
     --color-low: hsl(94, 76%, 53%);
@@ -40,6 +40,12 @@ body{
 
 h1 {
     font-size: 61px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .outer-container {
