@@ -1,0 +1,16 @@
+header {
+    height: 96px;
+    padding-left: var(--padding-content-left);
+    padding-right: 40px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-img-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}

@@ -24,7 +24,13 @@
     --color-user12: hsl(53, 100%, 58%);
     --color-user13: hsl(0, 100%, 64%);
     --color-user14: hsl(41, 100%, 58%);
-    --box-shadow: box-shadow: 0px 4px 4px 0px #0000001A;
+    --box-shadow: 0px 4px 4px 0px #0000001A;
+    --padding-content-top: 110px;
+    --padding-content-left: 96px;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body{
@@ -32,11 +38,26 @@ body{
     margin: 0;
 }
 
+h1 {
+    font-size: 61px;
+}
+
 .outer-container {
     margin: auto;
     display: flex;
     min-height: 100vh;
     max-width: 1920px;
+    width: 100%;
+}
+
+.main-container {
+    width: 100%;
+}
+
+.content-container {
+    padding-top: var(--padding-content-top);
+    padding-left: var(--padding-content-left);
+    width: 100%;
 }
 
 #desktop-menu, #mobile-menu {

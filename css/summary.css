@@ -1,0 +1,11 @@
+.summary-header {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-size: 27px;
+}
+
+.summary-header-seperator {
+    font-size: 61px;
+    color: var(--coler-accent);
+}
