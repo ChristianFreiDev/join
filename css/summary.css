@@ -22,3 +22,38 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.summary-overview-seperator {
+    height: 100px;
+    width: 2px;
+    background-color: hsl(0, 0%, 82%);
+}
+
+.summary-amount {
+    font-size: 64px;
+}
+
+.summary-staus-icon-box {
+    height: 69px;
+    width: 69px;
+    border-radius: 35px;
+    background-color: var(--color-menu);
+}
+
+.summary-staus-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hook-icon {
+    height: 29px;
+    width: 37px;
+}
+
+.summary-button {
+    background-color: white;
+    border-radius: 30px;
+    padding: 38px 19px;
+}
