@@ -75,8 +75,9 @@ h1 {
     width: 232px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 64px 0;
 }
 
 #mobile-menu {
