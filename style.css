@@ -84,6 +84,7 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 64px 0;
+    font-size: 16px;
 }
 
 #mobile-menu {
@@ -100,5 +101,24 @@ p {
     }
     #mobile-menu {
         display: block;
+    }
+}
+
+@media (max-height: 680px) {
+    #desktop-menu {
+        padding: 32px 0;
+    }
+}
+
+@media (max-height: 520px) {
+    #desktop-menu {
+        padding: 24px 0;
+        font-size: 14px;
+    }
+}
+
+@media (max-height: 420px) {
+    #desktop-menu {
+        padding: 16px 0;
     }
 }

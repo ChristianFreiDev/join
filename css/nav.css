@@ -37,3 +37,33 @@ nav a {
 .privacy-and-legal-links-container a {
     padding: 8px;
 }
+
+@media (max-height: 560px) {
+    .nav-button-list {
+        gap: 8px;
+    }
+}
+
+@media (max-height: 520px) {
+    .nav-button-list {
+        gap: 4px;
+    }
+    .logo {
+        width: 80px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-height: 420px) {
+    .nav-button-list {
+        gap: 0;
+    }
+    .nav-button-list a {
+        padding: 0px 56px;
+        height: 36px;
+    }
+    .logo {
+        width: 60px;
+        margin-bottom: 5px;
+    }
+}
