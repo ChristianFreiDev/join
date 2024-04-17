@@ -66,4 +66,7 @@ nav a {
         width: 60px;
         margin-bottom: 5px;
     }
+    .privacy-and-legal-links-container {
+        gap: 0;
+    }
 }
