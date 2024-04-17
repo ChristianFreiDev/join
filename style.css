@@ -94,7 +94,7 @@ p {
     left: 0;
     right: 0;
     height: 80px;
-    padding: 16px 66px;
+    padding: 16px;
 }
 
 @media (max-width: 600px) {
