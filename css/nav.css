@@ -38,6 +38,28 @@ nav a {
     padding: 8px;
 }
 
+.mobile-nav-button-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.mobile-nav-button-list a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 76px;
+    height: 76px;
+    padding: 0 15px;
+    border-radius: 8px;
+    gap: 4px;
+}
+
+.mobile-nav-button-list img {
+    height: 22px;
+}
+
 @media (max-height: 560px) {
     .nav-button-list {
         gap: 8px;

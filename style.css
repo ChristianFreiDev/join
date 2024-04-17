@@ -93,6 +93,8 @@ p {
     bottom: 0;
     left: 0;
     right: 0;
+    height: 80px;
+    padding: 16px 66px;
 }
 
 @media (max-width: 600px) {
@@ -100,7 +102,7 @@ p {
         display: none;
     }
     #mobile-menu {
-        display: block;
+        display: flex;
     }
 }
 
