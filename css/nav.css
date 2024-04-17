@@ -60,6 +60,12 @@ nav a {
     height: 22px;
 }
 
+@media (max-width: 380px) {
+    .mobile-nav-button-list {
+        gap: 0;
+    }
+}
+
 @media (max-height: 560px) {
     .nav-button-list {
         gap: 8px;
