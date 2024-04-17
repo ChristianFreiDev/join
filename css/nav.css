@@ -29,7 +29,7 @@ nav a {
 .privacy-and-legal-links-container {
     display: flex;
     flex-direction: column;
-    padding-left: 96px;
+    padding: 8px 56px 8px 56px;
     width: 100%;
     gap: 4px;
 }
