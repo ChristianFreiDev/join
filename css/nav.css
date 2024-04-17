@@ -46,11 +46,13 @@ nav a {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 15px;
 }
 
 .mobile-nav-button-list a {
     display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 76px;
