@@ -44,3 +44,19 @@
 .search-icon {
     margin-left: -65px;
 }
+
+.board-columns-container {
+    padding: 0 64px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.board-column {
+    width: 252px;
+}
+
+@media (max-width: 1072px) {
+    .board-columns-container {
+        flex-direction: column;
+    }
+}
