@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Board</title>
+    <link rel="shortcut icon" href="./assets/img/light-logo.svg" type="image/x-icon" id="light-scheme-icon" />
+    <link rel="shortcut icon" href="./assets/img/dark-logo.svg" type="image/x-icon" id="dark-scheme-icon"/>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/board.css">
     <script src="script.js"></script>
 </head>
 <body onload="init()">
@@ -15,7 +19,20 @@
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
-            <div>Board content</div>
+            <div>
+                <div class="board-top-container">
+                    <h2>Board</h2>
+                    <div class="board-actions-container">
+                        <div class="board-search-input-container">
+                            <form>
+                                <input class="board-search-input" type="text" placeholder="Find Task" maxlength="32">
+                            </form>
+                            <img class="search-icon" src="assets/img/search-icon.svg" alt="search icon">
+                        </div>
+                        <button class="medium-dark-button">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

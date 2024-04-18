@@ -33,6 +33,7 @@
 
 * {
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 body{
@@ -90,58 +91,27 @@ p {
     width: 100%;
 }
 
-#desktop-menu, #mobile-menu {
-    color: var(--color-menu-font);
-    background-color: var(--color-menu);
-}
-
-#desktop-menu {
-    width: 232px;
-    height: 100vh;
+.medium-dark-button {
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: #FFFFFF;
+    background-color: var(--color-menu-active);
+    font-size: 21px;
+    font-weight: 700;
+    border: none;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 64px 0;
-    font-size: 16px;
-    position: sticky;
-    top: 0;
+    gap: 4px;
 }
 
-#mobile-menu {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    padding: 0 16px;
+.medium-dark-button:hover {
+    background-color: var(--color-accent);
+    box-shadow: 0px 4px 4px 0px #00000040;
 }
 
-@media (max-width: 600px) {
-    #desktop-menu {
-        display: none;
-    }
-    #mobile-menu {
-        display: flex;
-    }
-}
-
-@media (max-height: 680px) {
-    #desktop-menu {
-        padding: 32px 0;
-    }
-}
-
-@media (max-height: 520px) {
-    #desktop-menu {
-        padding: 24px 0;
-        font-size: 14px;
-    }
-}
-
-@media (max-height: 420px) {
-    #desktop-menu {
-        padding: 16px 0;
-    }
+.medium-dark-button-icon {
+    padding: 7px;
+    height: 32px;
+    width: 32px;
 }

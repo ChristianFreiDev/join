@@ -38,3 +38,24 @@ async function init() {
     await includeHTML();
     highlightActiveLink();
 }
+
+
+/**
+ * This function changes the fav icon between light- and dark mode, but does not work jet.
+ */
+
+let lightSchemeIcon = document.querySelector('link#light-scheme-icon');
+let darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
+matcher = window.matchMedia('(prefers-color-scheme: dark)');
+matcher.addListener(onUpdate);
+onUpdate();
+
+function onUpdate() {
+  if (matcher.matches) {
+    lightSchemeIcon.remove();
+    document.head.append(darkSchemeIcon);
+  } else {
+    document.head.append(lightSchemeIcon);
+    darkSchemeIcon.remove();
+  }
+}
