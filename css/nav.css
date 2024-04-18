@@ -29,12 +29,14 @@ nav a {
 .privacy-and-legal-links-container {
     display: flex;
     flex-direction: column;
-    padding: 8px 56px 8px 56px;
+    padding: 8px 0;
     width: 100%;
     gap: 4px;
 }
 
 .privacy-and-legal-links-container a {
+    display: flex;
+    justify-content: center;
     padding: 8px;
 }
 
@@ -62,8 +64,9 @@ nav a {
     gap: 4px;
 }
 
-.mobile-nav-button-list a:active {
+.active {
     background-color: var(--color-menu-active);
+    pointer-events: none;
 }
 
 .mobile-nav-button-list img {
