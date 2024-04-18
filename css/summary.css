@@ -62,15 +62,32 @@
 }
 
 .summary-button:hover {
-    background-color: var(--color-menu-hover);
-    scale: 1.1;
+    background-color: var(--color-menu);
+    scale: 1.05;
     color: white;
 }
 
-#summary-to-do-button {
+.summary-button:hover .summary-status-icon-box {
+    background-color: white;
+}
 
+.summary-button:hover .summary-status-icon {
+    filter: invert(15%) sepia(11%) saturate(2092%) hue-rotate(174deg) brightness(30%) contrast(100%);
+}
+
+.summary-left-button:hover {
+    transform: translateX(5px);
+}
+
+.summary-right-button:hover {
+    transform: translateX(-5px);
 }
 
 #summary-priority-button {
     justify-content: space-around;
+}
+
+#summary-priority-button:hover {
+    transform: translateX(10px);
+    
 }
