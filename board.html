@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/board.css">
     <script src="script.js"></script>
 </head>
 <body onload="init()">
@@ -18,7 +19,15 @@
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
-            <div>Board content</div>
+            <div>
+                <div class="board-top-container">
+                    <h2>Board</h2>
+                    <div class="board-actions-container">
+                        <input class="board-search-input" type="text" placeholder="Find Task">
+                        <button class="medium-dark-button">Add task</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
