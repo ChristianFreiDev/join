@@ -90,11 +90,22 @@ p {
     padding: 12px 16px;
     color: #FFFFFF;
     background-color: var(--color-menu-active);
+    font-size: 21px;
     font-weight: 700;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 }
 
 .medium-dark-button:hover {
     background-color: var(--color-accent);
     box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.medium-dark-button-icon {
+    padding: 7px;
+    height: 32px;
+    width: 32px;
 }
