@@ -100,9 +100,20 @@
     transform: translateX(10px) translateY(5px);
 }
 
+.summary-priority-icon-box {
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background-color: var(--color-urgent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .summary-priority-icon {
-    width: 24px;
-    height: 24px;
+    width: 34px;
+    height: 15px;
     object-fit: cover;
     object-position: center;
 }
@@ -114,4 +125,12 @@
 #summary-greeding-name {
     font-size: 64px;
     color: var(--color-accent);
+}
+
+#summary-deadline {
+    text-align: start;
+}
+
+.summary-priority-box {
+    gap: 18px;
 }
