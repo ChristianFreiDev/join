@@ -87,6 +87,8 @@ p {
     align-items: center;
     padding: 64px 0;
     font-size: 16px;
+    position: sticky;
+    top: 0;
 }
 
 #mobile-menu {

@@ -19,8 +19,9 @@
 
 .summary-overview-container-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    gap: 28px;
 }
 
 .summary-overview-seperator {
@@ -33,14 +34,14 @@
     font-size: 64px;
 }
 
-.summary-staus-icon-box {
+.summary-status-icon-box {
     height: 69px;
     width: 69px;
     border-radius: 35px;
     background-color: var(--color-menu);
 }
 
-.summary-staus-icon {
+.summary-status-icon {
     width: 24px;
     height: 24px;
     object-fit: cover;
@@ -56,4 +57,20 @@
     background-color: white;
     border-radius: 30px;
     padding: 38px 19px;
+    flex: 1;
+    gap: 18px;
+}
+
+.summary-button:hover {
+    background-color: var(--color-menu-hover);
+    scale: 1.1;
+    color: white;
+}
+
+#summary-to-do-button {
+
+}
+
+#summary-priority-button {
+    justify-content: space-around;
 }
