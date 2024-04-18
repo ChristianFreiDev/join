@@ -53,6 +53,15 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.no-gap {
+    gap: 0 !important;
 }
 
 .outer-container {
