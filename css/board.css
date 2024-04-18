@@ -28,3 +28,18 @@
     background: #FFFFFF;
     border: 1px solid #A8A8A8;
 }
+
+.board-search-input:focus {
+    outline: none;
+    border: 1px solid var(--color-accent);
+}
+
+.board-search-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    margin-left: -65px;
+}
