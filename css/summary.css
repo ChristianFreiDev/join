@@ -3,6 +3,12 @@
     gap: 30px;
     align-items: center;
     font-size: 27px;
+    margin-bottom: 56px;
+}
+
+.summary-content {
+    display: flex;
+    align-items: center;
 }
 
 .summary-header-seperator {
@@ -60,6 +66,7 @@
     padding: 38px 19px;
     flex: 1;
     gap: 18px;
+    transition: all 125ms ease-in-out;
 }
 
 .summary-button:hover {

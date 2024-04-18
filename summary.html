@@ -1,85 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Summary</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/summary.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/summary.css" />
     <script src="script.js"></script>
-</head>
-<body onload="init()">
+  </head>
+  <body onload="init()">
     <div class="outer-container">
-        <nav id="mobile-menu" class="display-none" w3-include-html="assets/templates/mobile-menu.html"></nav>
-        <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
-        <div id="main">
-            <header w3-include-html="assets/templates/header.html"></header>
-            <div class="content-container">
-                <div class="summary-header">
-                    <h1>Join 360</h1> <span class="summary-header-seperator">|</span> <span>Key Metrics at a Glance</span>
+      <nav
+        id="mobile-menu"
+        class="display-none"
+        w3-include-html="assets/templates/mobile-menu.html"
+      ></nav>
+      <nav
+        id="desktop-menu"
+        w3-include-html="assets/templates/desktop-menu.html"
+      ></nav>
+      <div id="main">
+        <header w3-include-html="assets/templates/header.html"></header>
+        <div class="content-container">
+          <div class="summary-header">
+            <h1>Join 360</h1>
+            <span class="summary-header-seperator">|</span>
+            <span>Key Metrics at a Glance</span>
+          </div>
+          <div class="summary-content">
+            <div class="summary-overview-container">
+              <section class="summary-overview-container-section">
+                <div
+                  id="summary-to-do-button"
+                  class="flex-center summary-button summary-left-button"
+                >
+                  <div class="summary-status-icon-box flex-center">
+                    <img
+                      class="summary-status-icon"
+                      src="./assets/img/edit.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <p class="summary-amount">1</p>
+                    <p>To-do</p>
+                  </div>
                 </div>
-                <div>
-                    <div class="summary-overview-container">
-                        <section class="summary-overview-container-section">
-                            <div id="summary-to-do-button" class="flex-center summary-button summary-left-button">
-                                <div class="summary-status-icon-box flex-center">
-                                    <img class="summary-status-icon" src="./assets/img/edit.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="summary-amount">1</p>
-                                    <p>To-do</p>
-                                </div>
-                            </div>
-                            <div class="flex-center summary-button summary-right-button">
-                                <div class="summary-status-icon-box flex-center">
-                                    <img class="summary-status-icon hook-icon" src="./assets/img/hook.svg" alt="">
-                                </div>
-                                <div>
-                                    <p class="summary-amount">1</p>
-                                    <p>Done</p>
-                                </div>
-                            </div>
-                        </section>
-                        <section id="summary-priority-button" class="summary-overview-container-section summary-button">
-                            <div class="flex-center">
-                                <div class="summary-priority-icon"></div>
-                                <div>
-                                    <p class="summary-amount">1</p>
-                                    <p>Urgent</p>
-                                </div>
-                            </div>
-                            <div class="flex-center summary-overview-seperator"></div>
-                            <div class="flex-center">
-                                <div>
-                                    <p>October 16, 2022</p>
-                                    <p>Upcoming Deadline</p>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="summary-overview-container-section">
-                            <div class="flex-center column no-gap summary-button summary-left-button">
-                                <p id="amount-task-board" class="summary-amount">5</p>
-                                <p>Tasks In Board</p>
-                            </div>
-                            <div class="flex-center column no-gap summary-button">
-                                <p id="amount-task-progress" class="summary-amount">2</p>
-                                <p>Tasks In Progress</p>
-                            </div>
-                            <div class="flex-center column no-gap summary-button summary-right-button">
-                                <p id="amount-task-feedback" class="summary-amount">2</p>
-                                <p>Awaiting Feedback</p>
-                            </div>
-                        </section>
-                    </div>
-                    <div>
-                            <p>Good morning,</p>
-                            <p>Sofia Müller</p>
-                    </div>
+                <div class="flex-center summary-button summary-right-button">
+                  <div class="summary-status-icon-box flex-center">
+                    <img
+                      class="summary-status-icon hook-icon"
+                      src="./assets/img/hook.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <p class="summary-amount">1</p>
+                    <p>Done</p>
+                  </div>
                 </div>
+              </section>
+              <section
+                id="summary-priority-button"
+                class="summary-overview-container-section summary-button"
+              >
+                <div class="flex-center">
+                  <div class="summary-priority-icon"></div>
+                  <div>
+                    <p class="summary-amount">1</p>
+                    <p>Urgent</p>
+                  </div>
+                </div>
+                <div class="flex-center summary-overview-seperator"></div>
+                <div class="flex-center">
+                  <div>
+                    <p>October 16, 2022</p>
+                    <p>Upcoming Deadline</p>
+                  </div>
+                </div>
+              </section>
+              <section class="summary-overview-container-section">
+                <div
+                  class="flex-center column no-gap summary-button summary-left-button"
+                >
+                  <p id="amount-task-board" class="summary-amount">5</p>
+                  <p>Tasks In Board</p>
+                </div>
+                <div class="flex-center column no-gap summary-button">
+                  <p id="amount-task-progress" class="summary-amount">2</p>
+                  <p>Tasks In Progress</p>
+                </div>
+                <div
+                  class="flex-center column no-gap summary-button summary-right-button"
+                >
+                  <p id="amount-task-feedback" class="summary-amount">2</p>
+                  <p>Awaiting Feedback</p>
+                </div>
+              </section>
             </div>
+            <div>
+                <p>Good morning,</p>
+                <p>Sofia Müller</p>
+              </div>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

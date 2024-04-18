@@ -42,6 +42,8 @@ body{
 
 h1 {
     font-size: 64px;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 p {
