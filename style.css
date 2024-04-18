@@ -92,9 +92,9 @@ p {
     background-color: var(--color-menu-active);
     font-weight: 700;
     border: none;
-    box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .medium-dark-button:hover {
     background-color: var(--color-accent);
+    box-shadow: 0px 4px 4px 0px #00000040;
 }

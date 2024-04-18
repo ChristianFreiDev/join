@@ -7,6 +7,10 @@
     font-size: 2rem;
 }
 
+.board-top-container h2 {
+    margin: 0;
+}
+
 .board-actions-container {
     display: flex;
     gap: 32px;
