@@ -9,6 +9,7 @@
 .summary-content {
     display: flex;
     align-items: center;
+    gap: 80px;
 }
 
 .summary-header-seperator {
@@ -96,6 +97,21 @@
 }
 
 #summary-priority-button:hover {
-    transform: translateX(10px);
-    
+    transform: translateX(10px) translateY(5px);
+}
+
+.summary-priority-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#summary-greeding {
+    font-size: 47px;
+}
+
+#summary-greeding-name {
+    font-size: 64px;
+    color: var(--color-accent);
 }
