@@ -251,3 +251,17 @@
         object-fit: contain;
     }
 }
+
+@media (max-width: 360px) {
+    .summary-button {
+        gap: 8px;
+    }
+
+    .summary-overview-container {
+        gap: 8px;
+    }
+
+    .summary-overview-container-section {
+        gap: 8px;
+    }
+}
