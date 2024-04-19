@@ -4,12 +4,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 3.2rem; /*2rem*/
+    font-size: 3.2rem;
 }
 
 .board-top-container h2 {
     margin: 0;
-    font-size: 6.1rem; /*3.8125rem*/
+    font-size: 6.1rem;
 }
 
 .board-actions-container {
@@ -55,7 +55,7 @@
     width: 252px;
 }
 
-@media (max-width: 1208px) {
+@media (max-width: 1439px) {
     .board-columns-container {
         flex-direction: column;
     }
