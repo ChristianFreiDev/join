@@ -2,7 +2,7 @@
     display: flex;
     gap: 30px;
     align-items: center;
-    font-size: 27px;
+    font-size: 2.7rem;
     margin-bottom: 56px;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .summary-header-seperator {
-    font-size: 61px;
+    font-size: 6rem;
     color: var(--color-accent);
 }
 
@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     gap: 28px;
-    font-size: 21px;
+    font-size: 2.1rem;
 }
 
 .summary-overview-container-section {
@@ -39,7 +39,7 @@
 }
 
 .summary-amount {
-    font-size: 64px;
+    font-size: 6.4rem;
 }
 
 .summary-status-icon-box {
@@ -119,11 +119,11 @@
 }
 
 #summary-greeding {
-    font-size: 47px;
+    font-size: 4.7rem;
 }
 
 #summary-greeding-name {
-    font-size: 64px;
+    font-size: 6.4rem;
     color: var(--color-accent);
 }
 

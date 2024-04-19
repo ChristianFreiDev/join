@@ -4,12 +4,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 2rem;
+    font-size: 3.2rem; /*2rem*/
 }
 
 .board-top-container h2 {
     margin: 0;
-    font-size: 3.8125rem;
+    font-size: 6.1rem; /*3.8125rem*/
 }
 
 .board-actions-container {
