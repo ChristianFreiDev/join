@@ -1,4 +1,5 @@
-:root{
+:root {
+    --color-large-screen-background: hsl(198, 76%, 85%);
     --color-main: hsl(210, 13%, 97%);
     --color-menu: hsl(214, 25%, 22%);
     --color-menu-hover: hsl(216, 36%, 26%);
@@ -37,8 +38,7 @@
     font-family: "Inter", sans-serif;
 }
 
-body{
-    background-color: var(--color-main);
+body {
     margin: 0;
 }
 
@@ -64,7 +64,7 @@ p {
     text-align: center;
 }
 
-.flex-center-center{
+.flex-center-center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,6 +79,7 @@ p {
 }
 
 .outer-container {
+    background-color: var(--color-main);
     margin: auto;
     display: flex;
     min-height: 100vh;
@@ -124,5 +125,14 @@ p {
 @media (max-width: 1280px) {
     :root {
         font-size: 50%;
+    }
+}
+
+@media (min-width: 1921px) {
+    body {
+        background-color: var(--color-large-screen-background);
+    }
+    .outer-container {
+        box-shadow: rgba(100, 100, 100, 0.2) 0px 2px 8px 0px;
     }
 }
