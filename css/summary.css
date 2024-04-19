@@ -72,6 +72,7 @@
     flex: 1;
     gap: 18px;
     transition: all 125ms ease-in-out;
+    cursor: pointer;
 }
 
 .summary-button:hover {
@@ -220,7 +221,7 @@
     .summary-overview-container-section {
         gap: 8px;
     }
-    
+
     .summary-priority-icon-box {
         height: 40px;
         width: 40px;
