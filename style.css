@@ -130,6 +130,7 @@ p {
 
 @media (max-width: 600px) {
     :root {
+        /* This means the font size is 90% of the standard size */
         font-size: 56.25%;
     }
 }
