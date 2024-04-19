@@ -84,6 +84,10 @@ p {
     gap: 0 !important;
 }
 
+.display-none {
+    display: none;
+}
+
 .outer-container {
     background-color: var(--color-main);
     margin: auto;
@@ -128,10 +132,31 @@ p {
     width: 32px;
 }
 
+@media (max-width: 700px) {
+    :root {
+        --padding-content-top: 48px;
+        --padding-content-left: 8px;
+        font-size: 56.25%;
+    }
+
+    .content-container {
+        padding-top: var(--padding-content-top);
+        padding-left: var(--padding-content-left);
+        padding-right: var(--padding-content-left);
+    }
+}
+
 @media (max-width: 600px) {
     :root {
         /* This means the font size is 90% of the standard size */
-        font-size: 56.25%;
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    :root {
+        /* This means the font size is 90% of the standard size */
+        font-size: 43.75%;
     }
 }
 
