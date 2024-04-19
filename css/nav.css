@@ -103,9 +103,10 @@ nav a {
     right: 0;
     height: 80px;
     padding: 0 16px;
+    z-index: 1;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 920px) {
     #desktop-menu {
         display: none;
     }
