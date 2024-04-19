@@ -26,3 +26,36 @@ header {
     color: var(--color-accent);
     font-weight: bold;
 }
+
+.header-user-icon:hover {
+    cursor: pointer;
+    background-color: var(--color-main);
+}
+
+#header-help-icon {
+    cursor: pointer;
+}
+
+#header-logo {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 20px 16px;
+    }
+
+    #header-help-icon {
+        display: none;
+    }
+
+    #header-logo {
+        display: block;
+        height: 39px;
+        width: 32px;
+    }
+
+    h1 {
+        display: none;
+    }
+}
