@@ -35,6 +35,9 @@ nav a {
 }
 
 .privacy-and-legal-links-container a {
+    line-height: 19.2px;
+    font-size: 16px;
+    font-weight: 400;
     display: flex;
     justify-content: center;
     padding: 8px;
@@ -42,6 +45,7 @@ nav a {
 
 .privacy-and-legal-links-container a:hover {
     color: var(--color-accent);
+    font-weight: 700;
 }
 
 .mobile-nav-button-list {
