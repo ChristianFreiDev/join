@@ -55,7 +55,7 @@
     width: 252px;
 }
 
-@media (max-width: 1072px) {
+@media (max-width: 1208px) {
     .board-columns-container {
         flex-direction: column;
     }
