@@ -20,3 +20,11 @@ function openLogInMenu() {
     document.getElementById('login-signup-box-header').classList.remove('display-none');
     document.getElementById('signup-feld').classList.add('display-none');
 }
+
+function login() {
+    
+}
+
+function signup() {
+    
+}
