@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/board.css">
     <script src="script.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/board.js"></script>
 </head>
-<body onload="init()">
+<body onload="initBoard()">
     <div class="outer-container">
         <nav id="mobile-menu" class="display-none" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
@@ -25,7 +27,7 @@
                     <div class="board-actions-container">
                         <div class="board-search-input-container">
                             <form>
-                                <input class="board-search-input" type="text" placeholder="Find Task" maxlength="32">
+                                <input id="board-search-input" type="text" placeholder="Find Task" maxlength="32" oninput="searchTasks()">
                             </form>
                             <img class="search-icon" src="assets/img/search-icon.svg" alt="search icon">
                         </div>
@@ -35,45 +37,51 @@
                 <div class="board-columns-container">
                     <div class="board-column">
                         <h3>To do</h3>
-                        <div class="task">
-                            <div class="task-category user-story">Category</div>
-                            <div class="task-title-and-description-container">
-                                <div class="task-title">Title</div>
-                                <div class="task-description">Description</div>
-                            </div>
-                            <div>
-                                <progress class="task-progress" max="100" value="50"></progress>
-                                <span>1/2</span>
-                            </div>
-                            <div class="profile-icons-and-priority-container">
-                                <div class="profile-icons"></div>
-                                <img src="" class="priority-icon">
+                        <div id="to-do" class="board-column-tasks-container">
+                            <div class="task">
+                                <div class="task-category user-story">Category</div>
+                                <div class="task-title-and-description-container">
+                                    <div class="task-title">Title</div>
+                                    <div class="task-description">Description</div>
+                                </div>
+                                <div>
+                                    <progress class="task-progress" max="100" value="50"></progress>
+                                    <span>1/2</span>
+                                </div>
+                                <div class="profile-icons-and-priority-container">
+                                    <div class="profile-icons"></div>
+                                    <img src="" class="priority-icon">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="board-column">
                         <h3>In progress</h3>
-                        <div class="task">
-                            <div class="task-category technical-task">Category</div>
-                            <div class="task-title-and-description-container">
-                                <div class="task-title">Title</div>
-                                <div class="task-description">Description</div>
-                            </div>
-                            <div>
-                                <progress class="task-progress" max="100" value="50"></progress>
-                                <span>1/2</span>
-                            </div>
-                            <div class="profile-icons-and-priority-container">
-                                <div class="profile-icons"></div>
-                                <img src="" class="priority-icon">
+                        <div id="in-progress" class="board-column-tasks-container">
+                            <div class="task">
+                                <div class="task-category technical-task">Category</div>
+                                <div class="task-title-and-description-container">
+                                    <div class="task-title">Title</div>
+                                    <div class="task-description">Description</div>
+                                </div>
+                                <div>
+                                    <progress class="task-progress" max="100" value="50"></progress>
+                                    <span>1/2</span>
+                                </div>
+                                <div class="profile-icons-and-priority-container">
+                                    <div class="profile-icons"></div>
+                                    <img src="" class="priority-icon">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="board-column">
                         <h3>Await feedback</h3>
+                        <div id="await-feedback" class="board-column-tasks-container"></div>
                     </div>
                     <div class="board-column">
                         <h3>Done</h3>
+                        <div id="done" class="board-column-tasks-container"></div>
                     </div>
                 </div>
             </div>
