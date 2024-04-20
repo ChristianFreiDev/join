@@ -7,7 +7,7 @@
 function taskTemplate(task, doneSubtasks) {
     return /* html */ `
         <div class="task">
-            <div class="task-category ${task.category === 'Technical task' ? 'technical-task' : 'user-story'}">${task.category}</div>
+            <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
             <div class="task-title-and-description-container">
                 <div class="task-title">${task.title}</div>
                 <div class="task-description">${task.description}</div>
