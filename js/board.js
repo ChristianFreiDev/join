@@ -18,7 +18,7 @@ function taskTemplate(task, doneSubtasks) {
             </div>
             <div class="profile-icons-and-priority-container">
                 <div class="profile-icons"></div>
-                <img src="${'../assets/img/' + task.priority.toLowerCase() + '-icon.svg'}" class="priority-icon">
+                <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">
             </div>
         </div>
     `;
