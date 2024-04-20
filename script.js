@@ -59,3 +59,48 @@ function onUpdate() {
     darkSchemeIcon.remove();
   }
 }
+
+
+/**
+ * This function opens or closes the drop down menu in the header.
+ */
+
+function showHideDropDownMenu() {
+    let nav = document.getElementById('drop-down-menu');
+    if (navIsClosed(nav)) {
+        openNav(nav);
+    } else {
+        closeNav(nav);
+    }
+}
+
+
+/**
+ * This function returns true, when the drop down menu is hidden.
+ * @param {DOM-Element} nav 
+ * @returns boolean
+ */
+
+function navIsClosed(nav) {
+    return nav.classList.contains('display-none')
+}
+
+
+/**
+ * This function shows the drop down menu, by removing the class "display-none"
+ * @param {DOM-Element} nav 
+ */
+
+function openNav(nav) {
+    nav.classList.remove('display-none')
+}
+
+
+/**
+ * This function hides the drop down menu, by adding the class "display-none"
+ * @param {DOM-Element} nav 
+ */
+
+function closeNav(nav) {
+    nav.classList.add('display-none')
+}
