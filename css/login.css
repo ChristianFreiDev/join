@@ -1,0 +1,32 @@
+#login-content-box {
+    padding: 67px 122px 40px 77px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-main);
+}
+
+#login-feld {
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 155px;
+    gap: 20px;
+}
+
+#login-seperator {
+    border: 3px solid var(--color-accent);
+    width: 150px;
+    border-radius: 3px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+#login-buttonbox {
+    margin-top: 12px;
+}
+
