@@ -1,7 +1,5 @@
 #login-content-box {
     padding: 67px 122px 40px 77px;
-    height: 100vh;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +10,6 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    font-size: 2rem;
 }
 
 #login-logo {
@@ -60,6 +57,11 @@
     gap: 35px;
     align-items: center;
     align-self: flex-start;
+    font-size: 20px;
+}
+
+#login-signup-box-footer {
+    display: none;
 }
 
 #login-sign-up-button {
@@ -147,4 +149,53 @@ a {
 a:hover {
     color: var(--color-accent);
     font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    #login-content-box {
+        padding: 40px;
+    }
+
+    .login-feld {
+        padding: 32px 16px;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 700px) {
+    #login-signup-box-footer {
+        display: flex;
+        align-self: center;
+    }
+
+    #login-signup-box-header {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .login-input {
+        width: 364px;
+    }
+
+    #login-content-box {
+        padding: 37px 16px 22px 16px;
+        gap: 16px;
+    }
+
+    #login-button-box {
+        flex-direction: column;
+        gap: 21px;
+    }
+}
+
+@media (max-width: 405px) {
+    .login-input {
+        width: 100%;
+    }
+
+    #login-content-box {
+        padding: 8px;
+        gap: 16px;
+    }
 }
