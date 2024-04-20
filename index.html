@@ -32,9 +32,29 @@
                     <input id="login-checkbox" type="checkbox">
                     <label for="login-checkbox">Remember me</label>
                 </div>
-                <div id="login-button-box">
+                <div class="login-button-box">
                     <button type="submit" class="login-button login-dark-button" id="login-button">Log in</button>
                     <button type="button" class="login-button login-light-button" id="login-as-guest-button">Guest Log in</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="login-feld display-none">
+            <div class="flex-center column">
+                <h2 id="login-headline">Sign up</h2>
+                <div id="login-seperator"></div>
+            </div>
+            <form onsubmit="signup(); return false;">
+                <input class="login-input" type="text" placeholder="Name" required>
+                <input class="login-input" type="email" placeholder="Email" required>
+                <input class="login-input" type="password" placeholder="Password" required>
+                <input class="login-input" type="password" placeholder="Confirm Password" required>
+                <div id="signup-checkbox-box" class="login-checkbox-box">
+                    <input id="login-checkbox" type="checkbox">
+                    <label for="login-checkbox">I sccept the <span>Privacy policy</span></label>
+                </div>
+                <div id="login-button-box">
+                    <button type="submit" class="login-button login-dark-button" id="login-button">Sign up</button>
                 </div>
             </form>
         </section>

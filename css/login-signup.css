@@ -93,6 +93,10 @@ input {
     cursor: pointer;
 }
 
+input[type="text"] {
+    background-image: url('./../assets/img/person.svg');
+}
+
 input[type="email"] {
     background-image: url('./../assets/img/mail.svg');
 }
@@ -101,13 +105,18 @@ input[type="password"] {
     background-image: url('./../assets/img/lock.svg');
 }
 
-#login-checkbox-box {
+.login-checkbox-box {
     margin-top: 12px;
     margin-left: 39px;
     align-self: start;
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+#signup-checkbox-box {
+    margin-left: 0;
+    align-self: center;
 }
 
 input[type="checkbox"] {
@@ -130,7 +139,7 @@ form {
     align-items: center;
 }
 
-#login-button-box {
+.login-button-box {
     display: flex;
     gap: 35px;
 }
@@ -183,7 +192,7 @@ a:hover {
         gap: 16px;
     }
 
-    #login-button-box {
+    .login-button-box {
         flex-direction: column;
         gap: 21px;
     }
