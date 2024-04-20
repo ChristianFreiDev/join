@@ -180,6 +180,10 @@ a:hover {
     #login-signup-box-header {
         display: none;
     }
+
+    #login-content-box {
+        gap: 16px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -189,7 +193,6 @@ a:hover {
 
     #login-content-box {
         padding: 37px 16px 22px 16px;
-        gap: 16px;
     }
 
     .login-button-box {
@@ -198,7 +201,7 @@ a:hover {
     }
 }
 
-@media (max-width: 405px) {
+@media (max-width: 420px) {
     .login-input {
         width: 100%;
     }
