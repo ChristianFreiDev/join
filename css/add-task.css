@@ -1,4 +1,4 @@
-.flex-center-center{
+.add-task-center-center{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -269,7 +269,6 @@
 
 .add-task-vector {
     /* Vector 4 */
-    position: absolute;
     width: 0px;
     height: 424px;
     left: 816.25px;
