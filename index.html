@@ -25,21 +25,23 @@
                 <h2 id="login-headline">Log in</h2>
                 <div id="login-seperator"></div>
             </div>
-            <input class="login-input" type="email" placeholder="Email">
-            <input class="login-input" type="password" placeholder="Password">
-            <div id="login-checkbox-box">
-                <input id="login-checkbox" type="checkbox">
-                <label for="login-checkbox">Remember me</label>
-            </div>
-            <div id="login-buttonbox">
-                <button class="login-button login-dark-button" id="login-button">Log in</button>
-                <button class="login-button login-light-button" id="login-as-guest-button">Guest Log in</button>
-            </div>
+            <form onsubmit="login(); return false;">
+                <input class="login-input" type="email" placeholder="Email">
+                <input class="login-input" type="password" placeholder="Password">
+                <div id="login-checkbox-box">
+                    <input id="login-checkbox" type="checkbox">
+                    <label for="login-checkbox">Remember me</label>
+                </div>
+                <div id="login-button-box">
+                    <button type="submit" class="login-button login-dark-button" id="login-button">Log in</button>
+                    <button type="button" class="login-button login-light-button" id="login-as-guest-button">Guest Log in</button>
+                </div>
+            </form>
         </section>
 
         <section id="login-link-box">
-            <a href="./privacy-policy.html">Privacy Policy</a>
-            <a href="./legal-notice.html">Legal notice</a>
+                <a href="./privacy-policy.html">Privacy Policy</a>
+                <a href="./legal-notice.html">Legal notice</a>
         </section>
     </div>
 </body>

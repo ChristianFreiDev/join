@@ -22,7 +22,15 @@
 .login-button {
     padding: 15px 24px;
     font-size: 2.1rem;
+    border: unset;
     border-radius: 8px;
+    outline: unset;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-button:hover {
+    box-shadow: var(--box-shadow);
 }
 
 .login-dark-button {
@@ -30,9 +38,21 @@
     color: white;
 }
 
+.login-dark-button:hover {
+    background-color: var(--color-accent);
+    color: white;
+}
+
 .login-light-button {
     background-color: white;
     color: var(--color-menu);
+    outline: 1px solid var(--color-menu);
+    border: unset;
+}
+
+.login-light-button:hover {
+    color: var(--color-accent);
+    outline: 2px solid var(--color-accent);
 }
 
 .login-signup-box {
@@ -65,10 +85,33 @@
     margin-top: 16px;
 }
 
+input {
+    background-repeat: no-repeat;
+    background-position: 90%;
+    cursor: pointer;
+}
+
+input[type="email"] {
+    background-image: url('./../assets/img/mail.svg');
+}
+
+input[type="password"] {
+    background-image: url('./../assets/img/lock.svg');
+}
+
 #login-checkbox-box {
     margin-top: 12px;
     margin-left: 39px;
     align-self: start;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--color-menu);
+    height: 16px;
+    width: 16px;
 }
 
 .login-input {
@@ -76,4 +119,32 @@
     width: 422px;
     border-radius: 10px;
     border: 1px solid hsl(0, 0%, 66%);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+
+#login-button-box {
+    display: flex;
+    gap: 35px;
+}
+
+#login-link-box {
+    display: flex;
+    justify-content: space-between;
+    width: 240px;
+}
+
+a {
+    text-decoration: none;
+    color: hsl(0, 0%, 66%);
+}
+
+a:hover {
+    color: var(--color-accent);
+    font-weight: bold;
 }
