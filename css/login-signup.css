@@ -8,14 +8,32 @@
     background-color: var(--color-main);
 }
 
-#login-feld {
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#login-logo {
+    margin-top: 13px;
+}
+
+
+
+
+
+
+
+
+.login-feld {
     background-color: white;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 48px 155px;
-    gap: 20px;
+    gap: 32px;
+    box-shadow: 0px 0px 14px 3px #0000000A;
 }
 
 #login-seperator {
@@ -23,10 +41,17 @@
     width: 150px;
     border-radius: 3px;
     margin-top: 16px;
-    margin-bottom: 12px;
 }
 
-#login-buttonbox {
+#login-checkbox-box {
     margin-top: 12px;
+    margin-left: 39px;
+    align-self: start;
 }
 
+.login-input {
+    padding: 12px 21px;
+    width: 422px;
+    border-radius: 10px;
+    border: 1px solid hsl(0, 0%, 66%);
+}

@@ -6,27 +6,28 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/login-signup.css" />
     <link rel="shortcut icon" href="./assets/img/light-logo.svg" type="image/x-icon" id="light-scheme-icon" />
     <link rel="shortcut icon" href="./assets/img/dark-logo.svg" type="image/x-icon" id="dark-scheme-icon"/>
 </head>
 <body>
     <div id="login-content-box">
-        <section id="login-header">
-            <img src="./assets/img/dark-logo.svg" alt="logo">
+        <section class="login-header">
+            <img id="login-logo" src="./assets/img/dark-logo.svg" alt="logo">
             <div class="sign-up-box">
                 <span>Not a Join user?</span>
                 <button id="login-sign-up-button">Sign up</button>
             </div>
         </section>
-        <section id="login-feld">
+
+        <section class="login-feld">
             <div class="flex-center column">
                 <h2 id="login-headline">Log in</h2>
                 <div id="login-seperator"></div>
             </div>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <div>
+            <input class="login-input" type="email" placeholder="Email">
+            <input class="login-input" type="password" placeholder="Password">
+            <div id="login-checkbox-box">
                 <input id="login-checkbox" type="checkbox">
                 <label for="login-checkbox">Remember me</label>
             </div>
@@ -35,6 +36,7 @@
                 <button id="login-as-guest-button">Guest Log in</button>
             </div>
         </section>
+
         <section id="login-link-box">
             <a href="./privacy-policy.html">Privacy Policy</a>
             <a href="./legal-notice.html">Legal notice</a>
