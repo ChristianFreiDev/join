@@ -2,8 +2,14 @@
 <img id="header-logo" src="./assets/img/dark-logo.svg" alt="logo">
 <div class="header-img-box">
     <img id="header-help-icon" src="./assets/img/help.svg" alt="help" title="help">
-    <div class="flex-center header-user-icon">
+    <div onclick="showHideDropDownMenu()" class="flex-center header-user-icon">
         <span id="firstname-first-character">S</span>
         <span id="lastname-first-character">M</span>
     </div>
 </div>
+<nav id="drop-down-menu" class="display-none">
+    <a id="header-nav-help-link" href="./help.html">Help</a>
+    <a href="./legal-notice.html">Legal Notice</a>
+    <a href="./privacy-policy">Privacy Policy</a>
+    <a href="./index.html">Log out</a>
+</nav>

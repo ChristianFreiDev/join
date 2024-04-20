@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: 28px;
     font-size: 2rem;
+    margin-bottom: 127px;
 }
 
 .summary-overview-container-section {
@@ -72,6 +73,7 @@
     flex: 1;
     gap: 18px;
     transition: all 125ms ease-in-out;
+    cursor: pointer;
 }
 
 .summary-button:hover {
@@ -169,13 +171,7 @@
     }
 }
 
-@media (max-width: 920px) {
-    .summary-content {
-        margin-bottom: 100px;
-    }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 750px) {
 
     .summary-button:hover {
         background-color: white;
@@ -214,13 +210,14 @@
     }
 
     .summary-overview-container {
-        gap: 8px;
+        gap: 24px;
+        margin-bottom: 16px;
     }
 
     .summary-overview-container-section {
-        gap: 8px;
+        gap: 24px;
     }
-    
+
     .summary-priority-icon-box {
         height: 40px;
         width: 40px;
@@ -248,5 +245,19 @@
         height: 12px;
         width: 17px;
         object-fit: contain;
+    }
+}
+
+@media (max-width: 360px) {
+    .summary-button {
+        gap: 8px;
+    }
+
+    .summary-overview-container {
+        gap: 8px;
+    }
+
+    .summary-overview-container-section {
+        gap: 8px;
     }
 }

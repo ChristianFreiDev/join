@@ -1,4 +1,4 @@
-.flex-center-center{
+.add-task-center-center{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,6 +11,7 @@
 
     width: 278px;
     height: 73px;
+    margin-bottom: 48px;
 
     /* Version 2/t1 */
     font-family: 'Inter';
@@ -26,6 +27,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+
 }
 
 .add-task-text {
@@ -269,7 +271,6 @@
 
 .add-task-vector {
     /* Vector 4 */
-    position: absolute;
     width: 0px;
     height: 424px;
     left: 816.25px;

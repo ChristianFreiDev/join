@@ -4,10 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/login-signup.css" />
     <link rel="shortcut icon" href="./assets/img/light-logo.svg" type="image/x-icon" id="light-scheme-icon" />
     <link rel="shortcut icon" href="./assets/img/dark-logo.svg" type="image/x-icon" id="dark-scheme-icon"/>
+    <script src="./js/login.js"></script>
 </head>
 <body>
-    
+    <div id="login-content-box" class="outer-container">
+        <section class="login-header">
+            <img id="login-logo" src="./assets/img/dark-logo.svg" alt="logo">
+            <div id="login-signup-box-header" class="login-signup-box">
+                <span>Not a Join user?</span>
+                <button onclick="openSignUpMenu()" class="login-button login-dark-button" id="login-sign-up-button">Sign up</button>
+            </div>
+        </section>
+
+        <section id="login-feld" class="login-feld">
+            <div class="flex-center column">
+                <h2 id="login-headline">Log in</h2>
+                <div id="login-seperator"></div>
+            </div>
+            <form onsubmit="login(); return false;">
+                <input class="login-input" type="email" autocomplete="email" placeholder="Email" required>
+                <input class="login-input" type="password" autocomplete="current-password" placeholder="Password" required>
+                <div id="login-checkbox-box" class="login-checkbox-box">
+                    <input id="login-checkbox" type="checkbox">
+                    <label for="login-checkbox">Remember me</label>
+                </div>
+                <div class="login-button-box">
+                    <button type="submit" class="login-button login-dark-button" id="login-button">Log in</button>
+                    <button type="button" class="login-button login-light-button" id="login-as-guest-button">Guest Log in</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="signup-feld" class="login-feld display-none">
+            <img id="back-to-login-button" onclick="openLogInMenu()" src="./assets/img/arrow-left.svg" alt="back">
+            <div class="flex-center column">
+                <h2 id="login-headline">Sign up</h2>
+                <div id="login-seperator"></div>
+            </div>
+            <form onsubmit="signup(); return false;">
+                <input class="login-input" type="text" autocomplete="username" placeholder="Name" required>
+                <input class="login-input" type="email" autocomplete="email" placeholder="Email" required>
+                <input class="login-input" type="password" autocomplete="new-password" placeholder="Password" required>
+                <input class="login-input" type="password" autocomplete="new-password" placeholder="Confirm Password" required>
+                <div id="signup-checkbox-box" class="login-checkbox-box">
+                    <input id="signup-checkbox" type="checkbox" required>
+                    <label for="login-checkbox">I sccept the <span>Privacy policy</span></label>
+                </div>
+                <div class="login-button-box">
+                    <button type="submit" class="login-button login-dark-button" id="signup-button">Sign up</button>
+                </div>
+            </form>
+        </section>
+
+        <div id="login-signup-box-footer" class="login-signup-box">
+            <span>Not a Join user?</span>
+            <button onclick="openSignUpMenu()" class="login-button login-dark-button" id="login-sign-up-button">Sign up</button>
+        </div>
+
+        <section id="login-link-box">
+            <a href="./privacy-policy.html">Privacy Policy</a>
+            <a href="./legal-notice.html">Legal notice</a>
+        </section>
+    </div>
 </body>
 </html>

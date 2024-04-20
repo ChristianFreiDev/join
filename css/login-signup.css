@@ -1,0 +1,234 @@
+#login-content-box {
+    padding: 67px 122px 40px 77px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-main);
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#login-logo {
+    margin-top: 13px;
+}
+
+.login-button {
+    padding: 15px 24px;
+    font-size: 2.1rem;
+    border: unset;
+    border-radius: 8px;
+    outline: unset;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-button:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.login-dark-button {
+    background-color: var(--color-menu);
+    color: white;
+}
+
+.login-dark-button:hover {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.login-light-button {
+    background-color: white;
+    color: var(--color-menu);
+    outline: 1px solid var(--color-menu);
+    border: unset;
+}
+
+.login-light-button:hover {
+    color: var(--color-accent);
+    outline: 2px solid var(--color-accent);
+}
+
+.login-signup-box {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    align-self: flex-start;
+    font-size: 20px;
+}
+
+#login-signup-box-footer {
+    display: none;
+}
+
+#login-sign-up-button {
+    padding: 15px 16px;
+    font-size: 16px;
+}
+
+.login-feld {
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 155px;
+    gap: 32px;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    margin-bottom: 122px;
+}
+
+#login-seperator {
+    border: 3px solid var(--color-accent);
+    width: 150px;
+    border-radius: 3px;
+    margin-top: 16px;
+}
+
+input {
+    background-repeat: no-repeat;
+    background-position: 90%;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    background-image: url('./../assets/img/person.svg');
+}
+
+input[type="email"] {
+    background-image: url('./../assets/img/mail.svg');
+}
+
+input[type="password"] {
+    background-image: url('./../assets/img/lock.svg');
+}
+
+.login-checkbox-box {
+    margin-top: 12px;
+    margin-left: 39px;
+    align-self: start;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#signup-checkbox-box {
+    margin-left: 0;
+    align-self: center;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--color-menu);
+    height: 16px;
+    width: 16px;
+}
+
+.login-input {
+    padding: 12px 21px;
+    width: 422px;
+    border-radius: 10px;
+    border: 1px solid hsl(0, 0%, 66%);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+
+.login-button-box {
+    display: flex;
+    gap: 35px;
+}
+
+#login-link-box {
+    display: flex;
+    justify-content: space-between;
+    width: 240px;
+}
+
+a {
+    text-decoration: none;
+    color: hsl(0, 0%, 66%);
+}
+
+a:hover {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+#signup-feld {
+    position: relative;
+}
+
+#back-to-login-button {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 64px;
+    left: 48px;
+    cursor: pointer;
+    border-radius: 16px;
+    object-fit: contain;
+}
+
+#back-to-login-button:hover {
+    background-color: var(--color-main);
+    scale: 1.05;
+}
+
+@media (max-width: 900px) {
+    #login-content-box {
+        padding: 40px;
+    }
+
+    .login-feld {
+        padding: 32px 16px;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 700px) {
+    #login-signup-box-footer {
+        display: flex;
+        align-self: center;
+    }
+
+    #login-signup-box-header {
+        display: none;
+    }
+
+    #login-content-box {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .login-input {
+        width: 364px;
+    }
+
+    #login-content-box {
+        padding: 37px 16px 22px 16px;
+    }
+
+    .login-button-box {
+        flex-direction: column;
+        gap: 21px;
+    }
+}
+
+@media (max-width: 420px) {
+    .login-input {
+        width: 100%;
+    }
+
+    #login-content-box {
+        padding: 8px;
+        gap: 16px;
+    }
+}

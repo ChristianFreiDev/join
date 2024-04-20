@@ -85,7 +85,7 @@ p {
 }
 
 .display-none {
-    display: none;
+    display: none !important;
 }
 
 .outer-container {
@@ -135,7 +135,7 @@ p {
 @media (max-width: 700px) {
     :root {
         --padding-content-top: 48px;
-        --padding-content-left: 8px;
+        --padding-content-left: 16px;
         font-size: 56.25%;
     }
 
