@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/login-signup.css" />
     <link rel="shortcut icon" href="./assets/img/light-logo.svg" type="image/x-icon" id="light-scheme-icon" />
     <link rel="shortcut icon" href="./assets/img/dark-logo.svg" type="image/x-icon" id="dark-scheme-icon"/>
+    <script src="./js/login.js"></script>
 </head>
 <body>
     <div id="login-content-box" class="outer-container">
@@ -16,11 +17,11 @@
             <img id="login-logo" src="./assets/img/dark-logo.svg" alt="logo">
             <div id="login-signup-box-header" class="login-signup-box">
                 <span>Not a Join user?</span>
-                <button class="login-button login-dark-button" id="login-sign-up-button">Sign up</button>
+                <button onclick="openSignUpMenu()" class="login-button login-dark-button" id="login-sign-up-button">Sign up</button>
             </div>
         </section>
 
-        <section class="login-feld">
+        <section id="login-feld" class="login-feld">
             <div class="flex-center column">
                 <h2 id="login-headline">Log in</h2>
                 <div id="login-seperator"></div>
@@ -39,7 +40,8 @@
             </form>
         </section>
 
-        <section class="login-feld display-none">
+        <section id="signup-feld" class="login-feld display-none">
+            <img id="back-to-login-button" onclick="openLogInMenu()" src="./assets/img/arrow-left.svg" alt="back">
             <div class="flex-center column">
                 <h2 id="login-headline">Sign up</h2>
                 <div id="login-seperator"></div>
@@ -50,7 +52,7 @@
                 <input class="login-input" type="password" autocomplete="new-password" placeholder="Password" required>
                 <input class="login-input" type="password" autocomplete="new-password" placeholder="Confirm Password" required>
                 <div id="signup-checkbox-box" class="login-checkbox-box">
-                    <input id="signup-checkbox" type="checkbox">
+                    <input id="signup-checkbox" type="checkbox" required>
                     <label for="login-checkbox">I sccept the <span>Privacy policy</span></label>
                 </div>
                 <div class="login-button-box">
@@ -61,7 +63,7 @@
 
         <div id="login-signup-box-footer" class="login-signup-box">
             <span>Not a Join user?</span>
-            <button class="login-button login-dark-button" id="login-sign-up-button">Sign up</button>
+            <button onclick="openSignUpMenu()" class="login-button login-dark-button" id="login-sign-up-button">Sign up</button>
         </div>
 
         <section id="login-link-box">
