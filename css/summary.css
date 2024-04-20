@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: 28px;
     font-size: 2rem;
+    margin-bottom: 127px;
 }
 
 .summary-overview-container-section {
@@ -170,13 +171,7 @@
     }
 }
 
-@media (max-width: 920px) {
-    .summary-content {
-        margin-bottom: 100px;
-    }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 750px) {
 
     .summary-button:hover {
         background-color: white;
@@ -216,6 +211,7 @@
 
     .summary-overview-container {
         gap: 24px;
+        margin-bottom: 16px;
     }
 
     .summary-overview-container-section {

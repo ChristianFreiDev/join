@@ -8,6 +8,7 @@ header {
     justify-content: space-between;
     align-items: center;
     font-size: 2rem;
+    position: relative;
 }
 
 .header-img-box {
@@ -25,10 +26,10 @@ header {
     font-size: 2rem;
     color: var(--color-accent);
     font-weight: bold;
+    cursor: pointer;
 }
 
 .header-user-icon:hover {
-    cursor: pointer;
     background-color: var(--color-main);
 }
 
@@ -40,13 +41,54 @@ header {
     display: none;
 }
 
-@media (max-width: 500px) {
-    header {
-        padding: 20px 16px;
+header nav {
+    position: absolute;
+    top: 96px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-menu);
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 16px;
+    gap: 27px;
+    border-top-right-radius: unset;
+    z-index: 1;
+}
+
+header nav a {
+    padding: 8px 16px;
+}
+
+header nav a:hover {
+    background-color: var(--color-menu-hover);
+}
+
+#header-nav-help-link {
+    display: none;
+}
+
+@media (max-width: 750px) {
+    #header-nav-help-link {
+        display: block;
+    }
+
+    header nav a:hover {
+        background-color: var(--color-menu);
+    }
+
+    .header-user-icon:hover {
+        background-color: white;
     }
 
     #header-help-icon {
         display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 20px 16px;
     }
 
     #header-logo {
