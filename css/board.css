@@ -249,7 +249,7 @@ progress::-webkit-progress-value {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .large-board-add-task-button-mobile-container {
         display: flex;
         justify-content: center;
@@ -262,7 +262,7 @@ progress::-webkit-progress-value {
         width: 100%;
     }
     .board-top-container, .board-columns-container {
-        padding: 0 32px;
+        padding: 0 40px;
     }
     .board-actions-container, .board-search-input-container, .board-search-input-container form, #board-search-input {
         width: 100%;
