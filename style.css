@@ -171,7 +171,7 @@ p {
     border-radius: 10px;
     padding: 12px 16px;
     color: #FFFFFF;
-    background-color: var(--color-menu-active);
+    background-color: var(--color-menu);
     font-size: 21px;
     font-weight: 700;
     border: none;

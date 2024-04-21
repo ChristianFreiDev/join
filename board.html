@@ -23,7 +23,13 @@
             <header w3-include-html="assets/templates/header.html"></header>
             <div>
                 <div class="board-top-container">
-                    <h2>Board</h2>
+                    <div class="page-heading-and-mobile-button-container">
+                        <h2>Board</h2>
+                        <button class="medium-dark-button add-task-button-tablet">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
+                        <div class="large-board-add-task-button-mobile-container">
+                            <img class="large-board-add-task-button-mobile" src="assets/img/large-board-add-task-button-mobile.svg" alt="add-task button">
+                        </div>
+                    </div>
                     <div class="board-actions-container">
                         <div class="board-search-input-container">
                             <form onsubmit="return false">
