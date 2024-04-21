@@ -33,6 +33,66 @@
     font-size: 62.5%;
 }
 
+.user-color0 {
+    background-color: var(--color-user0);
+}
+
+.user-color1 {
+    background-color: var(--color-user1);
+}
+
+.user-color2 {
+    background-color: var(--color-user2);
+}
+
+.user-color3 {
+    background-color: var(--color-user3);
+}
+
+.user-color4 {
+    background-color: var(--color-user4);
+}
+
+.user-color5 {
+    background-color: var(--color-user5);
+}
+
+.user-color6 {
+    background-color: var(--color-user6);
+}
+
+.user-color7 {
+    background-color: var(--color-user7);
+}
+
+.user-color8 {
+    background-color: var(--color-user8);
+}
+
+.user-color9 {
+    background-color: var(--color-user9);
+}
+
+.user-color10 {
+    background-color: var(--color-user10);
+}
+
+.user-color11 {
+    background-color: var(--color-user11);
+}
+
+.user-color12 {
+    background-color: var(--color-user12);
+}
+
+.user-color13 {
+    background-color: var(--color-user13);
+}
+
+.user-color14 {
+    background-color: var(--color-user14);
+}
+
 * {
     box-sizing: border-box;
     font-family: "Inter", sans-serif;

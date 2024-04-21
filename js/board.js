@@ -1,12 +1,11 @@
 /**
  * This function returns an HTML template of a task
- * @param {*} task 
- * @param {*} doneSubtasks 
- * @returns 
+ * @param {Object} task
+ * @param {number} doneSubtasks number of completed subtasks
+ * @returns task HTML template
  */
 function taskTemplate(task, doneSubtasks) {
-    return /* html */ `
-        <div class="task">
+    return /* html */ `<div class="task">
             <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
             <div class="task-title-and-description-container">
                 <div class="task-title">${task.title}</div>
@@ -16,29 +15,39 @@ function taskTemplate(task, doneSubtasks) {
                 <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
                 <span>${doneSubtasks}/${task.subtasks.length}</span>
             </div>
-            <div class="profile-icons-and-priority-container">
-                <div class="profile-icons"></div>
+            <div class="initial-avatars-and-priority-container">
+                <div id="initial-avatars">${generateInitialAvatarsTemplate(task)}</div>
                 <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">
             </div>
-        </div>
-    `;
+        </div>`;
 }
 
+
 /**
- * This function renders the tasks of all users
+ * This function grabs the initials of a user
+ * @param {Object} user 
+ * @returns {string} initial string
  */
-function renderTasksOfAllUsers() {
-    for (let i = 0; i < users.length; i++) {
-        let user = users[i];
-        renderTasksOfSingleUser(user);
-    }
+function getInitials(user) {
+    let initials = user.firstName.charAt(0) + user.lastName.charAt(0);
+    return initials;
 }
 
 
 /**
- * This function calculates the number of subtasks of a task
- * @param {*} task 
- * @returns 
+ * This function returns an initial avatar HTML template for a user
+ * @param {Object} user 
+ * @returns {string} inital avatar HTML template
+ */
+function initialAvatarTemplate(user) {
+    return /* html */ `<div class="initial-avatar ${user.color}">${getInitials(user)}</div>`;
+}
+
+
+/**
+ * This function calculates the number of completed subtasks of a task
+ * @param {Object} task 
+ * @returns {number} number of done subtasks
  */
 function calculateSubtasks(task) {
     let doneSubtasks = 0;
@@ -51,21 +60,44 @@ function calculateSubtasks(task) {
     return doneSubtasks;
 }
 
+
 /**
- * This function renders the tasks of one user
- * @param {*} user 
+ * This function returns all the collaborators of a task
+ * @param {Object} task 
+ * @returns {Array} collaborators
  */
-function renderTasksOfSingleUser(user) {
-    for (let i = 0; i < user.tasks.length; i++) {
-        let task = user.tasks[i];
-        renderTask(task);
+function getCollaborators(task) {
+    let collaborators = [];
+    for (let i = 0; i < task.collaborators.length; i++) {
+        let collaboratorId = task.collaborators[i];
+        let user = users.filter(user => user.id === collaboratorId)[0];
+        collaborators.push(user);
     }
+    return collaborators;
+}
+
+
+/**
+ * This function returns an HTML template with inital avatars of all the collaborators of a task
+ * @param {Object} task 
+ * @returns {string} HTML string of initial avatar divs
+ */
+function generateInitialAvatarsTemplate(task) {
+    let collaborators = getCollaborators(task);
+    let HTMLString = '';
+    if (collaborators) {
+        for (let i = 0; i < collaborators.length; i++) {
+            let collaborator = collaborators[i];
+            HTMLString += initialAvatarTemplate(collaborator);
+        }
+    }
+    return HTMLString;
 }
 
 
 /**
  * This function renders one task
- * @param {*} task 
+ * @param {Object} task 
  */
 function renderTask(task) {
     let doneSubtasks = calculateSubtasks(task);
@@ -88,7 +120,7 @@ function renderTask(task) {
 
 /**
  * This function renders an array of tasks
- * @param {*} tasks 
+ * @param {Array} tasks 
  */
 function renderTasks(tasks) {
     clearTasks();
@@ -112,11 +144,11 @@ function clearTasks() {
 
 
 /**
- * This function initializes the board by calling init() and rendering the tasks of all users
+ * This function initializes the board by calling init() and rendering all tasks
  */
 async function initBoard() {
     await init();
-    renderTasksOfAllUsers();
+    renderTasks(tasks);
 }
 
 
@@ -126,11 +158,7 @@ async function initBoard() {
 function searchTasks() {
     let searchInput = document.getElementById('board-search-input');
     let searchString = searchInput.value.toLowerCase();
-    let foundTasks = [];
-    for (let i = 0; i < users.length; i++) {
-        let user = users[i];
-        foundTasks = [...foundTasks, ...user.tasks.filter(task => task.description.toLowerCase().includes(searchString) || task.title.toLowerCase().includes(searchString))];
-    }
+    foundTasks = tasks.filter(task => task.description.toLowerCase().includes(searchString) || task.title.toLowerCase().includes(searchString));
     if (foundTasks.length > 0) {
         document.getElementById('no-results').style.display = 'none';
         document.getElementById('board-columns-container').style.display = 'flex';
