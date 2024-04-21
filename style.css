@@ -223,6 +223,7 @@ p {
     :root {
         /* This means the font size is 90% of the standard size */
         font-size: 43.75%;
+        --padding-content-left: 16px;
     }
 }
 
