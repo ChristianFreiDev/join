@@ -118,8 +118,8 @@
 }
 
 .summary-priority-icon {
-    width: 34px;
-    height: 15px;
+    width: 35px;
+    height: 26px;
     object-fit: cover;
     object-position: center;
 }
@@ -224,8 +224,9 @@
     }
     
     .summary-priority-icon {
-        width: 22px;
-        height: 10px;
+        width: 35px;
+        height: 26px;
+        object-fit: cover;
     }
 
     .summary-status-icon-box {
