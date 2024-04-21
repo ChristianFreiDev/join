@@ -1,4 +1,5 @@
 .board-top-container {
+    position: relative;
     height: 232px;
     padding: 0 64px;
     display: flex;
@@ -53,19 +54,31 @@
     display: none;
 }
 
-.board-columns-container {
+.board-columns-container, #board-columns-container-desktop {
     display: flex;
     justify-content: space-between;
+}
+
+#board-columns-container-desktop {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 8px;
 }
 
 .board-column {
     width: 252px;
 }
 
+.board-column h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
 .board-column-tasks-container {
     display: flex;
     flex-direction: column;
-    /* gap size needs to be checked */
     gap: 16px;
 }
 
@@ -157,8 +170,23 @@ progress::-webkit-progress-value {
     font-weight: 400;
 }
 
+.mobile-board-column-heading {
+    display: none;
+}
+
 @media (max-width: 1439px) {
     .board-columns-container {
         flex-direction: column;
+    }
+    #board-columns-container-desktop {
+        display: none;
+    }
+    .board-column h3 {
+        margin-top: 26px;
+        margin-bottom: 16px;
+        font-size: 27px;
+    }
+    .mobile-board-column-heading {
+        display: block;
     }
 }
