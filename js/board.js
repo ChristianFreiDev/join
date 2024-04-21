@@ -2,7 +2,7 @@
  * This function returns an HTML template of a task
  * @param {Object} task
  * @param {number} doneSubtasks number of completed subtasks
- * @returns task HTML template
+ * @returns {string} task HTML template
  */
 function taskTemplate(task, doneSubtasks) {
     return /* html */ `<div class="task">
