@@ -1,4 +1,4 @@
-users = [
+let users = [
     {
         firstName: 'Guest',
         lastName: '',
