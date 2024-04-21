@@ -74,6 +74,8 @@
     gap: 18px;
     transition: all 125ms ease-in-out;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .summary-button:hover {
