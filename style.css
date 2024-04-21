@@ -192,6 +192,12 @@ p {
     width: 32px;
 }
 
+@media (max-width: 1439px) {
+    :root {
+        --padding-content-left: 64px;
+    }
+}
+
 @media (max-width: 700px) {
     :root {
         --padding-content-top: 48px;
