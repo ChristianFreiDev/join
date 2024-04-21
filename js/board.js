@@ -131,5 +131,12 @@ function searchTasks() {
         let user = users[i];
         foundTasks = [...foundTasks, ...user.tasks.filter(task => task.description.toLowerCase().includes(searchString) || task.title.toLowerCase().includes(searchString))];
     }
-    renderTasks(foundTasks);
+    if (foundTasks.length > 0) {
+        document.getElementById('no-results').style.display = 'none';
+        document.getElementById('board-columns-container').style.display = 'flex';
+        renderTasks(foundTasks);
+    } else {
+        document.getElementById('board-columns-container').style.display = 'none';
+        document.getElementById('no-results').style.display = 'block';
+    }
 }

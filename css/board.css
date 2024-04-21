@@ -45,8 +45,15 @@
     margin-left: -65px;
 }
 
-.board-columns-container {
+#no-results, .board-columns-container {
     padding: 0 64px;
+}
+
+#no-results {
+    display: none;
+}
+
+.board-columns-container {
     display: flex;
     justify-content: space-between;
 }
