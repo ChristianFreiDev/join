@@ -45,7 +45,7 @@ let tasks = [
     {
         title: 'Contact Form & Imprint',
         description: 'Create a contact form and imprint page.',
-        collaborators: [1, 2, 3], // user id
+        collaborators: [1, 2], // user id
         dueDate: 'May 06, 2024',
         priority: 'Urgent',
         category: 'User Story',
@@ -66,7 +66,7 @@ let tasks = [
     {
         title: 'Kochwelt Page & Recipe Recommender',
         description: 'Build start page with recipe recommendation',
-        collaborators: [1, 2, 3], // user id
+        collaborators: [1, 3], // user id
         dueDate: 'May 06, 2024',
         priority: 'Medium',
         category: 'User Story',
@@ -87,7 +87,7 @@ let tasks = [
     {
         title: 'HTML Base Templates Creation',
         description: 'Create reusable HTML base templates for Header and footer.',
-        collaborators: [1, 2, 3], // user id
+        collaborators: [2, 3], // user id
         dueDate: 'May 05, 2024',
         priority: 'Low',
         category: 'Technical Task',
@@ -107,7 +107,7 @@ let tasks = [
     {
         title: 'CSS Architecture Planning',
         description: 'Define CSS naming conventions and structure.',
-        collaborators: [1, 2, 3], // user id
+        collaborators: [1, 2, 0], // user id
         dueDate: 'May 01, 2024',
         priority: 'Urgent',
         category: 'Technical Task',
