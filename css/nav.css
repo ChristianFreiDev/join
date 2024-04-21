@@ -121,6 +121,12 @@ nav a {
     }
 }
 
+@media (max-width: 340px) {
+    #mobile-menu {
+        padding: 2px;
+    }
+}
+
 @media (max-height: 680px) {
     #desktop-menu {
         padding: 32px 0;
