@@ -17,7 +17,7 @@
 </head>
 <body onload="initBoard()">
     <div class="outer-container">
-        <nav id="mobile-menu" class="display-none" w3-include-html="assets/templates/mobile-menu.html"></nav>
+        <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
@@ -33,37 +33,61 @@
                         </div>
                         <button class="medium-dark-button">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
                     </div>
-                    <div id="board-columns-container-desktop" class="board-columns-container">
+                    <div id="board-column-headers-container-desktop" class="board-columns-container">
                         <div class="board-column">
-                            <h3>To do</h3>
+                            <div class="board-column-header">
+                                <h3 class="board-column-heading-desktop">To do</h3>
+                                <img src="assets/img/small-board-add-task-button.svg" alt="add-task button">
+                            </div>
                         </div>
                         <div class="board-column">
-                            <h3>In progress</h3>
+                            <div class="board-column-header">
+                                <h3 class="board-column-heading-desktop">In progress</h3>
+                                <img src="assets/img/small-board-add-task-button.svg" alt="add-task button">
+                            </div>
                         </div>
                         <div class="board-column">
-                            <h3>Await feedback</h3>
+                            <div class="board-column-header">
+                                <h3 class="board-column-heading-desktop">Await feedback</h3>
+                                <img src="assets/img/small-board-add-task-button.svg" alt="add-task button">
+                            </div>
                         </div>
                         <div class="board-column">
-                            <h3>Done</h3>
+                            <div class="board-column-header">
+                                <h3 class="board-column-heading-desktop">Done</h3>
+                                <img src="assets/img/small-board-add-task-button.svg" alt="add-task button">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div id="no-results">Keine Treffer gefunden</div>
                 <div id="board-columns-container" class="board-columns-container">
                     <div class="board-column">
-                        <h3 class="mobile-board-column-heading">To do</h3>
+                        <div class="board-column-header board-column-header-mobile">
+                            <h3 class="board-column-heading-mobile">To do</h3>
+                            <img src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button">
+                        </div>
                         <div id="to-do" class="board-column-tasks-container"></div>
                     </div>
                     <div class="board-column">
-                        <h3 class="mobile-board-column-heading">In progress</h3>
+                        <div class="board-column-header board-column-header-mobile">
+                            <h3 class="board-column-heading-mobile">In progress</h3>
+                            <img src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button">
+                        </div>
                         <div id="in-progress" class="board-column-tasks-container"></div>
                     </div>
                     <div class="board-column">
-                        <h3 class="mobile-board-column-heading">Await feedback</h3>
+                        <div class="board-column-header board-column-header-mobile">
+                            <h3 class="board-column-heading-mobile">Await feedback</h3>
+                            <img src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button">
+                        </div>
                         <div id="await-feedback" class="board-column-tasks-container"></div>
                     </div>
                     <div class="board-column">
-                        <h3 class="mobile-board-column-heading">Done</h3>
+                        <div class="board-column-header board-column-header-mobile">
+                            <h3 class="board-column-heading-mobile">Done</h3>
+                            <img src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button">
+                        </div>
                         <div id="done" class="board-column-tasks-container"></div>
                     </div>
                 </div>
