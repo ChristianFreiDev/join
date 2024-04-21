@@ -249,6 +249,12 @@ progress::-webkit-progress-value {
     }
 }
 
+@media (max-width: 920px) {
+    .board-columns-container {
+        margin-bottom: 128px;
+    }
+}
+
 @media (max-width: 700px) {
     .large-board-add-task-button-mobile-container {
         display: flex;
