@@ -69,6 +69,8 @@
     width: 440px;
     height: 48px;
     background: #FFFFFF;
+    margin-top: 8px;
+    margin-bottom: 16px;
 
     /* Style */
     border: 1px solid #D1D1D1;
@@ -95,6 +97,8 @@
     width: 440px;
     height: 120px;
     background: #FFFFFF;
+    margin-top: 8px;
+    margin-bottom: 16px;
 
     /* Style */
     border: 1px solid #D1D1D1;
@@ -119,6 +123,7 @@
     padding: 12px 16px;
     width: 440px;
     height: 48px;
+    margin-top: 8px;
 
     /* white */
     background: #FFFFFF;
@@ -147,6 +152,7 @@
     width: 440px;
     height: 48px;
     background: #FFFFFF;
+    margin: 8px 0 16px 0;
 
     /* Style */
     border: 1px solid #D1D1D1;
@@ -188,6 +194,8 @@
 
 .priority-button {
     display: flex;
+    margin: 8px 0 16px 0;
+    gap: 8px;
 }
 
 #input-category {
@@ -201,9 +209,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 16px;
-
     width: 440px;
     height: 48px;
+    margin: 8px 0 16px 0;
 
     /* white */
     background: #FFFFFF;
@@ -220,7 +228,6 @@
 
 #input-subtasks {
     /* Frame 14 */
-
     box-sizing: border-box;
 
     /* Auto layout */
@@ -230,11 +237,11 @@
     align-items: center;
     padding: 12px 16px;
     gap: 10px;
-
     width: 440px;
     height: 48px;
-
     background: #FFFFFF;
+    margin-top: 8px;
+
     /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
@@ -292,4 +299,8 @@
 .formular{
     display: flex;
     gap: 96.25px;
+}
+
+.this-field-is-required{
+    margin-top: 223px;
 }
