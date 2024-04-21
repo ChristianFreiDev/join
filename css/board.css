@@ -119,6 +119,7 @@ h2 {
     gap: 24px;
     background-color: #FFFFFF;
     width: 252px;
+    min-width: 252px;
     border-radius: 24px;
     padding: 16px;
     box-shadow: 0px 0px 10px 3px #00000014;
@@ -210,6 +211,14 @@ progress::-webkit-progress-value {
     }
     .board-column-header-mobile {
         display: flex;
+    }
+    .board-column {
+        width: auto;
+        /* This makes the task card shadows less pretty but is needed for horizontal scrolling: */
+        overflow-x: auto;
+    }
+    .board-column-tasks-container {
+        flex-direction: row;
     }
 }
 
