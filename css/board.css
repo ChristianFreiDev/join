@@ -269,7 +269,7 @@ progress::-webkit-progress-value {
     }
 }
 
-@media (max-width: 428px) {
+@media (max-width: 500px) {
     .board-top-container, .board-columns-container {
         padding: 0 16px;
     }
