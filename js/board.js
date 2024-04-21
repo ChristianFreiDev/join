@@ -124,9 +124,34 @@ function renderTask(task) {
  */
 function renderTasks(tasks) {
     clearTasks();
+    addNoTasksMessage();
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         renderTask(task);
+    }
+}
+
+
+function addNoTasksMessage() {
+    let statuses = ['To do', 'In progress', 'Await feedback', 'Done'];
+    for (let i = 0; i < statuses.length; i++) {
+        let status = statuses[i];
+        let tasksWithStatusX = tasks.filter(task => task.status === status);
+        if (tasksWithStatusX.length === 0) {
+            if (status === 'To do') {
+                console.log(true)
+                id = 'to-do';
+            } else if (status === 'In progress') {
+                id = 'in-progress';
+            } else if (status === 'Await feedback') {
+                id = 'await-feedback';
+            } else if (status === 'Done') {
+                id = 'done';
+            } else {
+                console.error('Invalid task status');
+            }
+            document.getElementById(id).innerHTML = `<div>Test</div>`
+        } 
     }
 }
 

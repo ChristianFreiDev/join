@@ -42,27 +42,27 @@ users = [
 ];
 
 let tasks = [
-    {
-        title: 'Contact Form & Imprint',
-        description: 'Create a contact form and imprint page.',
-        collaborators: [1, 2], // user id
-        dueDate: 'May 06, 2024',
-        priority: 'Urgent',
-        category: 'User Story',
-        status: 'To do',
-        subtasks: [
-            {
-                title: 'Create contact form',
-                description: 'Create contact form. Add "return flase;" after the onsubmit function and style the form.',
-                done: false
-            },
-            {
-                title: 'Create imprint page.',
-                description: 'Search for a imprint generator and style the imprint page',
-                done: false
-            }
-        ]
-    },
+    // {
+    //     title: 'Contact Form & Imprint',
+    //     description: 'Create a contact form and imprint page.',
+    //     collaborators: [1, 2], // user id
+    //     dueDate: 'May 06, 2024',
+    //     priority: 'Urgent',
+    //     category: 'User Story',
+    //     status: 'To do',
+    //     subtasks: [
+    //         {
+    //             title: 'Create contact form',
+    //             description: 'Create contact form. Add "return flase;" after the onsubmit function and style the form.',
+    //             done: false
+    //         },
+    //         {
+    //             title: 'Create imprint page.',
+    //             description: 'Search for a imprint generator and style the imprint page',
+    //             done: false
+    //         }
+    //     ]
+    // },
     {
         title: 'Kochwelt Page & Recipe Recommender',
         description: 'Build start page with recipe recommendation',

@@ -51,9 +51,8 @@ nav a {
 .mobile-nav-button-list {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    gap: 15px;
 }
 
 .mobile-nav-button-list a {
@@ -115,9 +114,9 @@ nav a {
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
     .mobile-nav-button-list {
-        gap: 0;
+        justify-content: space-between;
     }
 }
 
