@@ -34,21 +34,12 @@ function renderDoneButton() {
 
 
 function renderPriorityAndDueDateButton() {
-    choosePriorityIconAndGetAmount();
-}
-
-
-function choosePriorityIconAndGetAmount() {
-    let priorityCounter = 0;
-    let priorityCounterUrgent = 0;
-    let priorityCounterMedium = 0;
-    let priorityCounterLow = 0;
-    let urgentFound = false;
-    let mediumFound = false;
-    let lowFound = false;
     if (tasks.length > 0) {
         let foundTasks = findTasks();
         renderPriorityIcon(foundTasks[0].priority);
+        renderPriorityAmount(foundTasks);
+        renderPriorityValue(foundTasks);
+        rednerUpcomingDeadline(foundTasks);
     } else {
 
     }
@@ -83,8 +74,8 @@ function renderPriorityIcon(prio) {
         case 'Medium':
             icon.src = './assets/img/prio-medium-white.svg';
             icon.style.transform = 'unset';
-            icon.style.width = '21px';
-            icon.style.height = '8px';
+            icon.style.width = '30px';
+            icon.style.height = '16px';
             break;
         case 'Low':
             icon.src = './assets/img/summary-priority-up-down.svg';
@@ -107,6 +98,30 @@ function foundPriority(prio) {
         }
     }
     return results;
+}
+
+
+function renderPriorityAmount(foundTasks) {
+    document.getElementById('summary-priority-amount').innerHTML = foundTasks.length;
+}
+
+
+function renderPriorityValue(foundTasks) {
+    document.getElementById('summary-priority-value').innerHTML = foundTasks[0].priority;
+}
+
+
+function rednerUpcomingDeadline(foundTasks) {
+    let date = Infinity;
+    let taskIndex = 0;
+    for (let i = 0; i < foundTasks.length; i++) {
+        let taskDate = new Date(foundTasks[i].dueDate);
+        if (taskDate < date){
+            date = taskDate;
+            taskIndex = i;
+        }
+    }
+    document.getElementById('summary-due-date').innerHTML = foundTasks[taskIndex].dueDate;
 }
 
 
