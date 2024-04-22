@@ -119,9 +119,9 @@ h2 {
 }
 
 .drop-area-highlight {
-    border: 1px solid #A8A8A8;
+    outline: 1px solid #A8A8A8;
     border-radius: 10px;
-    border-style: dashed;
+    outline-style: dashed;
 }
 
 .no-tasks-message {
