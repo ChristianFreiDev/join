@@ -49,39 +49,6 @@ function choosePriorityIconAndGetAmount() {
     if (tasks.length > 0) {
         let foundTasks = findTasks();
 
-
-
-
-        // if (foundPriority('Urgent')) {
-        //     getTasks('Urgent');
-        // } else if (foundPriority('Medium')) {
-        //     getTasks('Medium');
-
-        // } else if (foundPriority('Low')) {
-        //     getTasks('Low');
-
-        // }
-        // for (let i = 0; i < tasks.length; i++) {
-        //     if (tasks[i].status != 'Done') {
-        //         if (tasks[i].priority === 'Urgent') {
-        //             priorityCounterUrgent++;
-        //             urgentFound = true;
-        //         } else if (!urgentFound && tasks[i].priority === 'Medium') {
-        //             priorityCounterMedium++;
-        //             mediumFound = true;
-        //         } else if (!urgentFound && !mediumFound && tasks[i].priority === 'Low') {
-        //             priorityCounterLow++;
-        //             lowFound = true;
-        //         }
-        //     }
-        // }
-        // if (urgentFound && !mediumFound && !lowFound) {
-        //     return
-        // } else if (mediumFound && !lowFound) {
-
-        // } else if (lowFound) {
-
-        // }
     } else {
 
     }
