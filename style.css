@@ -93,6 +93,10 @@
     background-color: var(--color-user14);
 }
 
+.color-red{
+    color: #FF8190;
+}
+
 * {
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
