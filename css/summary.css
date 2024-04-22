@@ -108,7 +108,7 @@
     transform: translateX(10px) translateY(5px);
 }
 
-.summary-priority-icon-box {
+#summary-priority-icon-box {
     height: 60px;
     width: 60px;
     border-radius: 30px;
@@ -119,7 +119,7 @@
     justify-content: center;
 }
 
-.summary-priority-icon {
+#summary-priority-icon {
     width: 35px;
     height: 26px;
     object-fit: cover;
@@ -135,7 +135,7 @@
     color: var(--color-accent);
 }
 
-#summary-deadline {
+.summary-deadline {
     text-align: start;
 }
 
@@ -221,13 +221,13 @@
 @media (max-width: 500px) {
 
 
-    .summary-priority-icon-box {
+    #summary-priority-icon-box {
         height: 40px;
         width: 40px;
         border-radius: 20px;
     }
     
-    .summary-priority-icon {
+    #summary-priority-icon {
         width: 35px;
         height: 26px;
         object-fit: cover;
