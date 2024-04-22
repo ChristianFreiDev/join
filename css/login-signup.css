@@ -231,4 +231,9 @@ a:hover {
         padding: 8px;
         gap: 16px;
     }
+
+    #back-to-login-button {
+        top: 16px;
+        left: 16px;
+    }
 }
