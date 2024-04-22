@@ -43,7 +43,6 @@ async function init() {
 /**
  * This function changes the fav icon between light- and dark mode, but does not work jet.
  */
-
 let lightSchemeIcon = document.querySelector('link#light-scheme-icon');
 let darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
 matcher = window.matchMedia('(prefers-color-scheme: dark)');
@@ -64,7 +63,6 @@ function onUpdate() {
 /**
  * This function opens or closes the drop down menu in the header.
  */
-
 function showHideDropDownMenu() {
     let nav = document.getElementById('drop-down-menu');
     if (navIsClosed(nav)) {
@@ -80,7 +78,6 @@ function showHideDropDownMenu() {
  * @param {DOM-Element} nav 
  * @returns boolean
  */
-
 function navIsClosed(nav) {
     return nav.classList.contains('display-none')
 }
@@ -90,7 +87,6 @@ function navIsClosed(nav) {
  * This function shows the drop down menu, by removing the class "display-none"
  * @param {DOM-Element} nav 
  */
-
 function openNav(nav) {
     nav.classList.remove('display-none')
 }
@@ -100,7 +96,6 @@ function openNav(nav) {
  * This function hides the drop down menu, by adding the class "display-none"
  * @param {DOM-Element} nav 
  */
-
 function closeNav(nav) {
     nav.classList.add('display-none')
 }

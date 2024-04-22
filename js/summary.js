@@ -2,7 +2,6 @@
  * This function initialize the summary page by implementing header and nav.
  * Also by showing the right values of users tasks.
  */
-
 async function initSummary() {
     await init();
     showSummaryValues();
@@ -12,7 +11,6 @@ async function initSummary() {
 /**
  * This function fill the summary with the actual values.
  */
-
 function showSummaryValues() {
     renderToDoButton();
     renderDoneButton();
@@ -26,7 +24,6 @@ function showSummaryValues() {
 /**
  * This function outputs the amount of task with status "To do".
  */
-
 function renderToDoButton() {
     document.getElementById('summary-to-do-amount').innerHTML = getToDosAmount();
 }
@@ -35,7 +32,6 @@ function renderToDoButton() {
 /**
  * This function outputs the amount of task with status "Done".
  */
-
 function renderDoneButton() {
     document.getElementById('summary-done-amount').innerHTML = getDonesAmount();
 }
@@ -44,7 +40,6 @@ function renderDoneButton() {
 /**
  * This function renders the mid button.
  */
-
 function renderPriorityAndDueDateButton() {
     if (tasks.length > 0) {
         let foundTasks = findTasks();
@@ -66,7 +61,6 @@ function renderPriorityAndDueDateButton() {
  * 
  * @returns the tasks with highest priority as an array.
  */
-
 function findTasks() {
     let results = foundPriority('Urgent');
     if (results.length > 0) {
@@ -92,7 +86,6 @@ function findTasks() {
  * 
  * @param {string} prio 
  */
-
 function renderPriorityIcon(prio = 'main') {
     let icon = document.getElementById('summary-priority-icon');
     document.getElementById('summary-priority-icon-box').style.backgroundColor = `var(--color-${prio.toLocaleLowerCase()})`;
@@ -118,7 +111,6 @@ function renderPriorityIcon(prio = 'main') {
  * 
  * @param {Element} icon 
  */
-
 function setIconStylesToUrgent(icon) {
     icon.src = './assets/img/summary-priority-up-down.svg';
     icon.style.transform = 'unset';
@@ -133,7 +125,6 @@ function setIconStylesToUrgent(icon) {
  * 
  * @param {Element} icon 
  */
-
 function setIconStylesToMedium(icon) {
     icon.src = './assets/img/prio-medium-white.svg';
     icon.style.transform = 'unset';
@@ -148,7 +139,6 @@ function setIconStylesToMedium(icon) {
  * 
  * @param {Element} icon 
  */
-
 function setIconStylesToLow(icon) {
     icon.src = './assets/img/summary-priority-up-down.svg';
     icon.style.transform = 'rotateZ(180deg)';
@@ -163,7 +153,6 @@ function setIconStylesToLow(icon) {
  * 
  * @param {Element} icon 
  */
-
 function setIconStylesToDefault(icon) {
     icon.style.display = 'none';
 }
@@ -175,7 +164,6 @@ function setIconStylesToDefault(icon) {
  * @param {string} prio 
  * @returns the tasks with the same priority as an array.
  */
-
 function foundPriority(prio) {
     let results = [];
     for (let i = 0; i < tasks.length; i++) {
@@ -192,7 +180,6 @@ function foundPriority(prio) {
  * 
  * @param {Array} foundTasks 
  */
-
 function renderPriorityAmount(foundTasks = []) {
     document.getElementById('summary-priority-amount').innerHTML = foundTasks.length;
 }
@@ -203,7 +190,6 @@ function renderPriorityAmount(foundTasks = []) {
  * 
  * @param {Array} foundTasks 
  */
-
 function renderPriorityValue(foundTasks = [{ priority: '' }]) {
     document.getElementById('summary-priority-value').innerHTML = foundTasks[0].priority;
 }
@@ -214,7 +200,6 @@ function renderPriorityValue(foundTasks = [{ priority: '' }]) {
  * 
  * @param {Array} foundTasks 
  */
-
 function rednerUpcomingDeadline(foundTasks) {
     if (foundTasks) {
         let date = Infinity;
@@ -238,7 +223,6 @@ function rednerUpcomingDeadline(foundTasks) {
 /**
  * This function outputs the amount of all tasks on Board.
  */
-
 function renderTaskButton() {
     document.getElementById('summary-tasks-amount').innerHTML = tasks.length;
 }
@@ -247,7 +231,6 @@ function renderTaskButton() {
 /**
  * This function outputs the amount of tasks with status "In progress".
  */
-
 function renderProgressButton() {
     document.getElementById('summary-in-progress-amount').innerHTML = getInProgressAmount();
 }
@@ -256,7 +239,6 @@ function renderProgressButton() {
 /**
  * This function outputs the amount of tasks with status "Await feedback".
  */
-
 function renderFeedbackButton() {
     document.getElementById('summary-await-feedback-amount').innerHTML = getAwaitFeedbackAmount();
 }
@@ -266,7 +248,6 @@ function renderFeedbackButton() {
  *  This function iterates through the array tasks and increases its counter when a task is found including status "To do".
  * @returns the amount of actual tasks with status "To do".
  */
-
 function getToDosAmount() {
     let toDoCount = 0;
     for (let i = 0; i < tasks.length; i++) {
@@ -282,7 +263,6 @@ function getToDosAmount() {
  *  This function iterates through the array tasks and increases its counter when a task is found including status "Done".
  * @returns the amount of actual tasks with status "Done".
  */
-
 function getDonesAmount() {
     let doneCount = 0;
     for (let i = 0; i < tasks.length; i++) {
@@ -298,7 +278,6 @@ function getDonesAmount() {
  *  This function iterates through the array tasks and increases its counter when a task is found including status "In progress".
  * @returns the amount of actual tasks with status "In progress".
  */
-
 function getInProgressAmount() {
     let inProgressCount = 0;
     for (let i = 0; i < tasks.length; i++) {
@@ -314,7 +293,6 @@ function getInProgressAmount() {
  *  This function iterates through the array tasks and increases its counter when a task is found including status "Await feedback".
  * @returns the amount of actual tasks with status "Await feedback".
  */
-
 function getAwaitFeedbackAmount() {
     let awaitFeedbackCount = 0;
     for (let i = 0; i < tasks.length; i++) {
