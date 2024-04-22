@@ -131,7 +131,9 @@ function renderTasks(tasks) {
     }
 }
 
-
+/**
+ * This function displays a message in the appropriate column (or row) when there are no tasks with that status
+ */
 function addNoTasksMessage() {
     let statuses = ['To do', 'In progress', 'Await feedback', 'Done'];
     for (let i = 0; i < statuses.length; i++) {
