@@ -48,17 +48,31 @@ function choosePriorityIconAndGetAmount() {
     let lowFound = false;
     if (tasks.length > 0) {
         let foundTasks = findTasks();
-
+        renderPriorityIcon(foundTasks[0].priority);
     } else {
 
     }
-
-
-
 }
+
+
+function findTasks() {
+    let results = foundPriority('Urgent');
+    if (results.length > 0) {
+        return results;
+    } else {
+        results = foundPriority('Medium')
+        if (results.length > 0) {
+            return results;
+        } else {
+            results = foundPriority('Low');
+        }
+    }
+}
+
 
 function renderPriorityIcon(prio) {
     let icon = document.getElementById('summary-priority-icon');
+    document.getElementById('summary-priority-icon-box').style.backgroundColor = `var(--color-${prio.toLocaleLowerCase()})`;
     switch (prio) {
         case 'Urgent':
             icon.src = './assets/img/summary-priority-up-down.svg';
@@ -86,12 +100,13 @@ function renderPriorityIcon(prio) {
 
 
 function foundPriority(prio) {
+    let results = [];
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].priority === prio && tasks[i].status != 'Done') {
-            return true;
+            results.push(tasks[i]);
         }
     }
-    return false;
+    return results;
 }
 
 
