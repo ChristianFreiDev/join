@@ -73,28 +73,28 @@
                             <h3 class="board-column-heading-mobile">To do</h3>
                             <img src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button">
                         </div>
-                        <div id="to-do" class="board-column-tasks-container"></div>
+                        <div id="to-do" class="board-column-tasks-container" ondrop="dropTaskInArea('to-do', 'To do')" ondragover="allowTaskDrop(event); highlightArea('to-do')" ondragleave="stopHighlightingArea('to-do')"></div>
                     </div>
                     <div class="board-column">
                         <div class="board-column-header board-column-header-mobile">
                             <h3 class="board-column-heading-mobile">In progress</h3>
                             <img src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button">
                         </div>
-                        <div id="in-progress" class="board-column-tasks-container"></div>
+                        <div id="in-progress" class="board-column-tasks-container" ondrop="dropTaskInArea('in-progress', 'In progress')" ondragover="allowTaskDrop(event); highlightArea('in-progress')" ondragleave="stopHighlightingArea('in-progress')"></div>
                     </div>
                     <div class="board-column">
                         <div class="board-column-header board-column-header-mobile">
                             <h3 class="board-column-heading-mobile">Await feedback</h3>
                             <img src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button">
                         </div>
-                        <div id="await-feedback" class="board-column-tasks-container"></div>
+                        <div id="await-feedback" class="board-column-tasks-container" ondrop="dropTaskInArea('await-feedback', 'Await feedback')" ondragover="allowTaskDrop(event); highlightArea('await-feedback')" ondragleave="stopHighlightingArea('await-feedback')"></div>
                     </div>
                     <div class="board-column">
                         <div class="board-column-header board-column-header-mobile">
                             <h3 class="board-column-heading-mobile">Done</h3>
                             <img src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button">
                         </div>
-                        <div id="done" class="board-column-tasks-container"></div>
+                        <div id="done" class="board-column-tasks-container" ondrop="dropTaskInArea('done', 'Done')" ondragover="allowTaskDrop(event); highlightArea('done')" ondragleave="stopHighlightingArea('done')"></div>
                     </div>
                 </div>
             </div>

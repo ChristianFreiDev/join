@@ -1,3 +1,54 @@
+let draggedTaskId;
+
+/**
+ * This function enables dropping a task into the respective area by preventing the default action that occurs when something is dropped
+ * @param {Event} event 
+ */
+function allowTaskDrop(event) {
+    event.preventDefault();
+}
+
+
+/**
+ * This function stores the ID of the task that is currently being dragged in a global variable
+ * @param {number} id 
+ */
+function startDraggingTask(id) {
+    draggedTaskId = id;
+}
+
+
+/**
+ * This function drops a task in an area
+ * @param {Event} event 
+ */
+function dropTaskInArea(id, status) {
+    tasks[draggedTaskId].status = status;
+    renderTasks(tasks);
+    stopHighlightingArea(id)
+}
+
+
+/**
+ * This function highlights an area when a task hovers over it
+ * @param {string} id drop area/task column (or row)
+ */
+function highlightArea(id) {
+    let area = document.getElementById(id);
+    area.classList.add('drop-area-highlight');
+}
+
+
+/**
+ * This function removes the highlight from a drop area
+ * @param {string} id drop area/task column (or row)
+ */
+function stopHighlightingArea(id) {
+    let area = document.getElementById(id);
+    area.classList.remove('drop-area-highlight');
+}
+
+
 /**
  * This function returns an HTML template of a task
  * @param {Object} task
@@ -5,7 +56,7 @@
  * @returns {string} task HTML template
  */
 function taskTemplate(task, doneSubtasks) {
-    return /* html */ `<div class="task">
+    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(${task.id})">
             <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
             <div class="task-title-and-description-container">
                 <div class="task-title">${task.title}</div>
@@ -130,6 +181,7 @@ function renderTasks(tasks) {
         renderTask(task);
     }
 }
+
 
 /**
  * This function displays a message in the appropriate column (or row) when there are no tasks with that status
