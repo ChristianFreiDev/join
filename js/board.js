@@ -139,7 +139,6 @@ function addNoTasksMessage() {
         let tasksWithStatusX = tasks.filter(task => task.status === status);
         if (tasksWithStatusX.length === 0) {
             if (status === 'To do') {
-                console.log(true)
                 id = 'to-do';
             } else if (status === 'In progress') {
                 id = 'in-progress';
@@ -150,7 +149,7 @@ function addNoTasksMessage() {
             } else {
                 console.error('Invalid task status');
             }
-            document.getElementById(id).innerHTML = `<div>Test</div>`
+            document.getElementById(id).innerHTML = `<div class="no-tasks-message">No tasks ${status.toLowerCase()}</div>`
         } 
     }
 }

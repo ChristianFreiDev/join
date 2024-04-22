@@ -74,6 +74,8 @@
     gap: 18px;
     transition: all 125ms ease-in-out;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .summary-button:hover {
@@ -118,8 +120,8 @@
 }
 
 .summary-priority-icon {
-    width: 34px;
-    height: 15px;
+    width: 35px;
+    height: 26px;
     object-fit: cover;
     object-position: center;
 }
@@ -169,6 +171,22 @@
         border-radius: 3px;
         margin-top: 8px;
     }
+
+    .summary-button {
+        border-radius: 20px;
+        padding: 24px 12px;
+        flex: 1;
+        gap: 12px;
+        transition: unset;
+    }
+
+    .summary-overview-container {
+        gap: 24px;
+    }
+
+    .summary-overview-container-section {
+        gap: 24px;
+    }
 }
 
 @media (max-width: 750px) {
@@ -201,21 +219,7 @@
 }
 
 @media (max-width: 500px) {
-    .summary-button {
-        border-radius: 20px;
-        padding: 24px 12px;
-        flex: 1;
-        gap: 12px;
-        transition: unset;
-    }
 
-    .summary-overview-container {
-        gap: 24px;
-    }
-
-    .summary-overview-container-section {
-        gap: 24px;
-    }
 
     .summary-priority-icon-box {
         height: 40px;
@@ -224,8 +228,9 @@
     }
     
     .summary-priority-icon {
-        width: 22px;
-        height: 10px;
+        width: 35px;
+        height: 26px;
+        object-fit: cover;
     }
 
     .summary-status-icon-box {
