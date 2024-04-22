@@ -53,7 +53,10 @@ function renderPriorityAndDueDateButton() {
         renderPriorityValue(foundTasks);
         rednerUpcomingDeadline(foundTasks);
     } else {
-
+        renderPriorityIcon();
+        renderPriorityAmount();
+        renderPriorityValue();
+        rednerUpcomingDeadline();
     }
 }
 
@@ -74,6 +77,11 @@ function findTasks() {
             return results;
         } else {
             results = foundPriority('Low');
+            if (results.length > 0) {
+                return results;
+            } else {
+                return [];
+            }
         }
     }
 }
@@ -85,7 +93,7 @@ function findTasks() {
  * @param {string} prio 
  */
 
-function renderPriorityIcon(prio) {
+function renderPriorityIcon(prio = 'main') {
     let icon = document.getElementById('summary-priority-icon');
     document.getElementById('summary-priority-icon-box').style.backgroundColor = `var(--color-${prio.toLocaleLowerCase()})`;
     switch (prio) {
@@ -99,6 +107,7 @@ function renderPriorityIcon(prio) {
             setIconStylesToLow(icon);
             break;
         default:
+            setIconStylesToDefault(icon);
             break;
     }
 }
@@ -115,6 +124,7 @@ function setIconStylesToUrgent(icon) {
     icon.style.transform = 'unset';
     icon.style.width = '35px';
     icon.style.height = '26px';
+    icon.style.display = 'flex';
 }
 
 
@@ -129,6 +139,7 @@ function setIconStylesToMedium(icon) {
     icon.style.transform = 'unset';
     icon.style.width = '30px';
     icon.style.height = '16px';
+    icon.style.display = 'flex';
 }
 
 
@@ -143,6 +154,18 @@ function setIconStylesToLow(icon) {
     icon.style.transform = 'rotateZ(180deg)';
     icon.style.width = '35px';
     icon.style.height = '26px';
+    icon.style.display = 'flex';
+}
+
+
+/**
+ * This function set the icon styles to "Low".
+ * 
+ * @param {Element} icon 
+ */
+
+function setIconStylesToDefault(icon) {
+    icon.style.display = 'none';
 }
 
 
@@ -170,7 +193,7 @@ function foundPriority(prio) {
  * @param {Array} foundTasks 
  */
 
-function renderPriorityAmount(foundTasks) {
+function renderPriorityAmount(foundTasks = []) {
     document.getElementById('summary-priority-amount').innerHTML = foundTasks.length;
 }
 
@@ -181,7 +204,7 @@ function renderPriorityAmount(foundTasks) {
  * @param {Array} foundTasks 
  */
 
-function renderPriorityValue(foundTasks) {
+function renderPriorityValue(foundTasks = [{ priority: '' }]) {
     document.getElementById('summary-priority-value').innerHTML = foundTasks[0].priority;
 }
 
@@ -193,16 +216,22 @@ function renderPriorityValue(foundTasks) {
  */
 
 function rednerUpcomingDeadline(foundTasks) {
-    let date = Infinity;
-    let taskIndex = 0;
-    for (let i = 0; i < foundTasks.length; i++) {
-        let taskDate = new Date(foundTasks[i].dueDate);
-        if (taskDate < date) {
-            date = taskDate;
-            taskIndex = i;
+    if (foundTasks) {
+        let date = Infinity;
+        let taskIndex = 0;
+        for (let i = 0; i < foundTasks.length; i++) {
+            let taskDate = new Date(foundTasks[i].dueDate);
+            if (taskDate < date) {
+                date = taskDate;
+                taskIndex = i;
+            }
         }
+        document.getElementById('summary-due-date').innerHTML = foundTasks[taskIndex].dueDate;
+        document.getElementById('summary-due-date-text').innerHTML = 'Upcoming Deadline';
+    } else {
+        document.getElementById('summary-due-date').innerHTML = 'No date has been specified for this task.';
+        document.getElementById('summary-due-date-text').innerHTML = '';
     }
-    document.getElementById('summary-due-date').innerHTML = foundTasks[taskIndex].dueDate;
 }
 
 
