@@ -59,6 +59,10 @@ h2 {
     display: none;
 }
 
+.board-columns-container {
+    margin-bottom: 96px;
+}
+
 #no-results, .board-columns-container {
     padding: 0 64px;
 }
@@ -110,6 +114,22 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.no-tasks-message {
+    background-color: #E7E7E7;
+    color: #A8A8A8;
+    border: 1px solid #A8A8A8;
+    box-shadow: 0px 0px 4px 0px #00000029;
+    border-radius: 10px;
+    border-style: dashed;
+    height: 48px;
+    width: 252px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .task {
