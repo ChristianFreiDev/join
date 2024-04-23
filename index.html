@@ -28,7 +28,10 @@
             </div>
             <form onsubmit="login(); return false;">
                 <input class="login-input" type="email" autocomplete="email" placeholder="Email" required>
-                <input class="login-input" type="password" autocomplete="current-password" placeholder="Password" required>
+                <div class="login-password-box">
+                    <input onfocusout="resetPasswordIcon('login-password-icon', 'login-password-input')" oninput="changePasswordIcon('login-password-icon')" id="login-password-input" class="login-input" type="password" autocomplete="current-password" placeholder="Password" required>
+                    <img onclick="changePasswordVisibility('login-password-icon', 'login-password-input')" id="login-password-icon" src="./../assets/img/lock.svg">
+                </div>
                 <div id="login-checkbox-box" class="login-checkbox-box">
                     <input id="login-checkbox" type="checkbox">
                     <label for="login-checkbox">Remember me</label>

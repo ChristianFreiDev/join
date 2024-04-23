@@ -20,9 +20,41 @@ function openLogInMenu() {
 }
 
 function login() {
-    
+
 }
 
 function signup() {
-    
+
+}
+
+
+function changePasswordIcon(idIcon) {
+    let passwordInputIcon = document.getElementById(idIcon);
+    passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
+}
+
+function resetPasswordIcon(idIcon, idInput) {
+    let input = document.getElementById(idInput).value;
+    if (input.length == 0) {
+        let passwordInputIcon = document.getElementById(idIcon);
+        passwordInputIcon.src = `./../assets/img/lock.svg`;
+
+    }
+}
+
+function test() {
+    console.log('test succes')
+}
+
+function changePasswordVisibility(idIcon, idInput) {
+    let passwordInputIcon = document.getElementById(idIcon);
+    let input = document.getElementById(idInput);
+    if (passwordInputIcon.src.endsWith('visibility-off.svg')) {
+        passwordInputIcon.src = `./../assets/img/visibility-on.svg`;
+        input.type = 'text'
+    } else {
+        passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
+        input.type = 'password'
+    }
+
 }
