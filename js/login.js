@@ -30,7 +30,10 @@ function signup() {
 
 function changePasswordIcon(idIcon) {
     let passwordInputIcon = document.getElementById(idIcon);
-    passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
+    if (passwordInputIcon.src.endsWith('lock.svg')) {
+        passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
+        passwordInputIcon.style.cursor = 'pointer';
+    }
 }
 
 function resetPasswordIcon(idIcon, idInput) {
@@ -38,7 +41,7 @@ function resetPasswordIcon(idIcon, idInput) {
     if (input.length == 0) {
         let passwordInputIcon = document.getElementById(idIcon);
         passwordInputIcon.src = `./../assets/img/lock.svg`;
-
+        passwordInputIcon.style.cursor = 'default';
     }
 }
 
@@ -53,9 +56,11 @@ function changePasswordVisibility(idIcon, idInput) {
         if (passwordInputIcon.src.endsWith('visibility-off.svg')) {
             passwordInputIcon.src = `./../assets/img/visibility-on.svg`;
             input.type = 'text'
+            passwordInputIcon.style.cursor = 'pointer';
         } else {
             passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
             input.type = 'password'
+            passwordInputIcon.style.cursor = 'pointer';
         }
     }
 }
