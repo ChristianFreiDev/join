@@ -346,3 +346,12 @@ cursor: pointer;
     border-color: #29ABE2;
     color: #29ABE2;
 }
+
+/* funktionieren nicht - zur demonstration. */
+.clear-task:hover svg path{             
+    stroke: #29ABE2 !important;
+}
+
+#clear-x:hover svg path{
+    stroke: #29ABE2 !important;
+}
