@@ -24,6 +24,8 @@ function startDraggingTask(id) {
  */
 function centerPopup(id) {
     let addTaskPopup = document.getElementById(id);
+    let addTaskPopupContainer = document.getElementById('add-task-pop-up-container');
+    addTaskPopupContainer.style.display = 'block';
     addTaskPopup.classList.add('center-pop-up')
     document.body.style.overflow = 'hidden';
 }
