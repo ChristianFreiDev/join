@@ -196,6 +196,31 @@ p {
     width: 32px;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    border: none;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-menu);
+    border-radius: 10px;
+    cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-menu-active);
+    box-shadow: inset 0 0 5px grey;
+}
+
+::-webkit-scrollbar-thumb:active {
+    cursor: grabbing;
+    background: var(--color-accent);
+}
+
 @media (max-width: 1439px) {
     :root {
         --padding-content-left: 64px;
