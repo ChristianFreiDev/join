@@ -163,7 +163,7 @@ function generateInitialAvatarsTemplate(task) {
 
 
 /**
- * This function converts a status (e.g., "Await feedback" to an ID, e.g. "await-feedback")
+ * This function converts a status (e.g., "Await feedback") to an ID (e.g., "await-feedback")
  * @param {string} status 
  * @returns 
  */
