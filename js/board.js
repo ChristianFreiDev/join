@@ -163,24 +163,24 @@ function generateInitialAvatarsTemplate(task) {
 
 
 /**
+ * This function converts a status (e.g., "Await feedback" to an ID, e.g. "await-feedback")
+ * @param {string} status 
+ * @returns 
+ */
+function statusToId(status) {
+    let id = status.toLowerCase().replace(' ', '-');
+    return id;
+}
+
+
+/**
  * This function renders one task
  * @param {Object} task 
  */
 function renderTask(task) {
     let doneSubtasks = calculateSubtasks(task);
     let status = task.status;
-    let id = '';
-    if (status === 'To do') {
-        id = 'to-do';
-    } else if (status === 'In progress') {
-        id = 'in-progress';
-    } else if (status === 'Await feedback') {
-        id = 'await-feedback';
-    } else if (status === 'Done') {
-        id = 'done';
-    } else {
-        console.error('Invalid task status');
-    }
+    let id = statusToId(status);
     document.getElementById(id).innerHTML += taskTemplate(task, doneSubtasks);
 }
 
@@ -208,17 +208,7 @@ function addNoTasksMessage() {
         let status = statuses[i];
         let tasksWithStatusX = tasks.filter(task => task.status === status);
         if (tasksWithStatusX.length === 0) {
-            if (status === 'To do') {
-                id = 'to-do';
-            } else if (status === 'In progress') {
-                id = 'in-progress';
-            } else if (status === 'Await feedback') {
-                id = 'await-feedback';
-            } else if (status === 'Done') {
-                id = 'done';
-            } else {
-                console.error('Invalid task status');
-            }
+            id = statusToId(status);
             document.getElementById(id).innerHTML = `<div class="no-tasks-message">No tasks ${status.toLowerCase()}</div>`
         } 
     }
