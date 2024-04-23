@@ -26,8 +26,11 @@ function centerPopup(id) {
     let addTaskPopup = document.getElementById(id);
     let addTaskPopupContainer = document.getElementById('add-task-pop-up-container');
     addTaskPopupContainer.style.display = 'block';
-    addTaskPopup.classList.add('center-pop-up')
-    document.body.style.overflow = 'hidden';
+    // This is needed for the function to work:
+    setTimeout(function() {
+        addTaskPopup.classList.add('center-pop-up')
+        document.body.style.overflow = 'hidden';
+    }, 0);
 }
 
 
