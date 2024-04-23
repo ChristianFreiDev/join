@@ -1,3 +1,37 @@
+
+.animate-overlay {
+    animation: 4s fade-out ease-in-out;
+}
+
+.animate-logo {
+    animation:2s move-to-corner ease-in-out;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        z-index: 2;
+    } 
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes move-to-corner {
+    from {
+        transform: translateX(calc(50vw - 274px)) translateY(calc(50vh - 234px));
+        width: 274px;
+        height: 334px;
+        z-index: 999;
+    }
+    to {
+        z-index: 1;
+        position: unset;
+        width: 100px;
+        height: 122px;
+    }
+}
+
 #login-content-box {
     padding: 67px 122px 40px 77px;
     flex-direction: column;
@@ -12,14 +46,19 @@
     width: 100%;
 }
 
+#login-logo-box {
+    height: 122px;
+}
+
 #login-logo {
-    /* margin-top: 13px; */
+    margin-top: 13px;
     z-index: 3;
-    position: absolute;
+    /* position: absolute;
     top: calc(50% - 167px);
     left: calc(50% - 137px);
     width: 274px;
     height: 334px;
+    transition: all 500ms ease-in-out; */
 }
 
 #login-overlay {
@@ -28,8 +67,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 2;
     background-color: var(--color-main);
+    z-index: -1;
 }
 
 .login-button {
@@ -94,7 +133,7 @@
     padding: 48px 155px;
     gap: 32px;
     box-shadow: 0px 0px 14px 3px #0000000A;
-    margin-bottom: 122px;
+    /* margin-bottom: 122px; */
 }
 
 #login-seperator {

@@ -1,3 +1,9 @@
+function initIndex() {
+    document.getElementById('login-overlay').classList.add('animate-overlay');
+    document.getElementById('login-logo').classList.add('animate-logo');
+}
+
+
 // async function init(){
 //     loadUsers();
 // }

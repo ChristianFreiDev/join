@@ -13,11 +13,13 @@
     <script src="./js/storage.js"></script>
     <script src="./js/login.js"></script>
 </head>
-<body>
-    <div id="login-overlay"></div>
+<body onload="initIndex()">
+    <div id="login-overlay" ></div>
     <div id="login-content-box" class="outer-container">
         <section class="login-header">
-            <img id="login-logo" src="./assets/img/dark-logo.svg" alt="logo">
+            <div id="login-logo-box">
+                <img id="login-logo" src="./assets/img/dark-logo.svg" alt="logo">
+            </div>
             <div id="login-signup-box-header" class="login-signup-box">
                 <span>Not a Join user?</span>
                 <button onclick="openSignUpMenu()" class="login-button login-dark-button" id="login-sign-up-button">Sign up</button>
