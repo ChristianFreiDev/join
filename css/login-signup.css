@@ -1,10 +1,10 @@
 
 .animate-overlay {
-    animation: 4s fade-out ease-in-out;
+    animation: 2s fade-out ease-in-out;
 }
 
 .animate-logo {
-    animation:2s move-to-corner ease-in-out;
+    animation: 2s move-to-corner ease-in-out;
 }
 
 @keyframes fade-out {
@@ -19,13 +19,14 @@
 
 @keyframes move-to-corner {
     from {
+        position: absolute;
         transform: translateX(calc(50vw - 274px)) translateY(calc(50vh - 234px));
         width: 274px;
         height: 334px;
         z-index: 999;
     }
     to {
-        z-index: 1;
+        z-index: 3;
         position: unset;
         width: 100px;
         height: 122px;
