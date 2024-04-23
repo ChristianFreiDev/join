@@ -27,7 +27,7 @@
         z-index: 999;
     }
     to {
-        z-index: 3;
+        z-index: 900;
         /* position: unset; */
         width: 100px;
         height: 122px;
