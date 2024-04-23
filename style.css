@@ -202,7 +202,8 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 10px;
+    border-radius: 5px;
+    background: var(--color-main);
 }
 
 ::-webkit-scrollbar-thumb {
