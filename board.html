@@ -19,15 +19,18 @@
     <div class="outer-container">
         <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
+        <div class="add-task-pop-up-container">
+            <div id="add-task-pop-up" class="add-task-pop-up"></div>
+        </div>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
             <div>
                 <div class="board-top-container">
                     <div class="page-heading-and-mobile-button-container">
                         <h2>Board</h2>
-                        <button class="medium-dark-button add-task-button-tablet">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
+                        <button class="medium-dark-button add-task-button-tablet" onclick="centerPopup('add-task-pop-up')">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
                         <div class="large-board-add-task-button-mobile-container">
-                            <img class="large-board-add-task-button-mobile" src="assets/img/large-board-add-task-button-mobile.svg" alt="add-task button">
+                            <img class="large-board-add-task-button-mobile" src="assets/img/large-board-add-task-button-mobile.svg" alt="add-task button" onclick="centerPopup('add-task-pop-up')">
                         </div>
                     </div>
                     <div class="board-actions-container">
@@ -37,7 +40,7 @@
                             </form>
                             <img class="search-icon" src="assets/img/search-icon.svg" alt="search icon">
                         </div>
-                        <button class="medium-dark-button">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
+                        <button class="medium-dark-button" onclick="centerPopup('add-task-pop-up')">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
                     </div>
                     <div id="board-column-headers-container-desktop" class="board-columns-container">
                         <div class="board-column">

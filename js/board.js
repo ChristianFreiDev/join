@@ -19,6 +19,17 @@ function startDraggingTask(id) {
 
 
 /**
+ * This function centers a pop-up with a certain id
+ * @param {string} id 
+ */
+function centerPopup(id) {
+    let addTaskPopup = document.getElementById(id);
+    addTaskPopup.classList.add('center-pop-up')
+    document.body.style.overflow = 'hidden';
+}
+
+
+/**
  * This function drops a task in an area
  * @param {Event} event 
  */
