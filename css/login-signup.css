@@ -33,16 +33,21 @@
 @keyframes move-to-corner {
     from {
         position: absolute;
-        transform: translateX(calc(50vw - 274px)) translateY(calc(50vh - 234px));
+        /* transform: translateX(calc(50vw - 100%)) translateY(calc(50vh - (100% - 67px))); */
+        top: calc(50vh - 167px);
+        left: calc(50vw - 137px);
+        
         width: 274px;
         height: 334px;
         z-index: 999;
     }
     to {
-        z-index: 900;
-        /* position: unset; */
+        position: absolute;
         width: 100px;
         height: 122px;
+        top: 67px;
+        left: 77px;
+        z-index: 900;
     }
 }
 
