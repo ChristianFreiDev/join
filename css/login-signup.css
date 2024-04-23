@@ -9,10 +9,22 @@
 
 @keyframes fade-out {
     from {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-main);
         opacity: 1;
         z-index: 2;
     } 
     to {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: transparent;
         z-index: -1;
         opacity: 0;
     }
@@ -61,16 +73,6 @@
     width: 274px;
     height: 334px;
     transition: all 500ms ease-in-out; */
-}
-
-#login-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: var(--color-main);
-    z-index: -1;
 }
 
 .login-button {
