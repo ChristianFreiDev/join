@@ -1,6 +1,6 @@
 
 .animate-overlay {
-    animation: 2s fade-out ease-in-out;
+    animation: 3s fade-out ease-in-out;
 }
 
 .animate-logo {
@@ -55,6 +55,7 @@
 
 #login-logo-box {
     height: 122px;
+    margin-bottom: 50px;
     position: relative;
 }
 
@@ -198,6 +199,7 @@ form {
 }
 
 #login-link-box {
+    margin-top: 108px;
     display: flex;
     justify-content: space-between;
     width: 240px;
