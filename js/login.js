@@ -73,12 +73,14 @@ function changePasswordIcon(idIcon) {
 }
 
 function resetPasswordIcon(idIcon, idInput) {
-    let input = document.getElementById(idInput).value;
-    if (input.length == 0) {
+    let input = document.getElementById(idInput);
+    let inputValue = input.value;
+    if (inputValue.length == 0) {
         let passwordInputIcon = document.getElementById(idIcon);
         passwordInputIcon.src = `./../assets/img/lock.svg`;
         passwordInputIcon.style.cursor = 'default';
     }
+    input.type = 'password'
 }
 
 function test() {
@@ -99,4 +101,5 @@ function changePasswordVisibility(idIcon, idInput) {
             passwordInputIcon.style.cursor = 'pointer';
         }
     }
+    input.focus(this.value);
 }

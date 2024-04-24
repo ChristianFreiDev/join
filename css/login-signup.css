@@ -143,15 +143,11 @@ input {
     cursor: pointer;
 }
 
-input[type="email"] {
-    background-image: url('./../assets/img/mail.svg');
-}
-
-.login-password-box {
+.login-input-box {
     position: relative;
 }
 
-#login-password-icon {
+.login-input-icon {
     position: absolute;
     width: 24px;
     height: 24px;
@@ -168,6 +164,10 @@ input[type="email"] {
     gap: 8px;
 }
 
+#login-password-icon {
+    z-index: 1;
+}
+
 #signup-checkbox-box {
     margin-left: 0;
     align-self: center;
@@ -180,10 +180,12 @@ input[type="checkbox"] {
 }
 
 .login-input {
+    background-color: transparent;
     padding: 12px 21px;
     width: 422px;
     border-radius: 10px;
     border: 1px solid hsl(0, 0%, 66%);
+    z-index: 1;
 }
 
 form {
