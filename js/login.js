@@ -8,10 +8,10 @@ function initIndex() {
 //     loadUsers();
 // }
 
-async function loadUsers(){
+async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
-    } catch(e){
+    } catch (e) {
         console.error('Loading error:', e);
     }
 }
@@ -91,8 +91,8 @@ function resetPasswordIcon(idIcon, idInput) {
         let passwordInputIcon = document.getElementById(idIcon);
         passwordInputIcon.src = `./../assets/img/lock.svg`;
         passwordInputIcon.style.cursor = 'default';
+        input.type = 'password'
     }
-    input.type = 'password'
 }
 
 
