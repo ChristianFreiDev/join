@@ -1,15 +1,17 @@
-// document.addEventListener('DOMContentLoaded', (event) => {
-//     setTimeout(function() {
-//         let clearX = document.getElementById('clear-x');
 
-//         clearX.addEventListener('mouseover', function() {
-//             clearX.src = "/assets/img/clear-x-blue.svg";
-//         });
+/** 
+ * This function is used to switch the color of the prio-button "urgent"
+ */
+function clickUrgentButton(){
+let button = document.getElementById('prio-urgent');
+let arrow = document.getElementById('prio-arrow-up');
 
-//         clearX.addEventListener('mouseout', function() {
-//             clearX.src = "/assets/img/clear-x.svg";
-//         });
-//     }, 1000); // Warten Sie 1 Sekunde, bevor Sie den Event-Listener hinzufügen
-// });
+button.classList.toggle('urgent-button-clicked');
 
-// nur zur Demonstration, was ich schon probiert habe.
+if(arrow.src.match('/assets/img/prio-up.svg')){
+    arrow.src = '/assets/img/prio-up-white.svg';
+} else {
+    arrow.src = '/assets/img/prio-up.svg'
+}
+
+}

@@ -191,6 +191,12 @@
     box-shadow: 0px 4px 4px 0px #00000040;
 }
 
+.urgent-button-clicked{
+    background-color: rgb(255, 61, 0);
+    border-color: rgb(255, 61, 0);
+    color: white;
+    font-weight: 700;
+}
 
 .priority-button {
     display: flex;
@@ -311,7 +317,7 @@ justify-content: center;
 align-items: center;
 padding: 16px;
 gap: 4px;
-width: 183px;
+width: 184px;
 height: 56px;
 background: #2A3647;
 border-radius: 10px;

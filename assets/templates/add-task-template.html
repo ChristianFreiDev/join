@@ -55,8 +55,8 @@
           <div class="add-task-priority">
             <span class="add-task-text">Prio</span>
             <div class="priority-button">
-              <button class="prio-button" id="prio-urgent">
-                Urgent <img src="/assets/img/prio-up.svg" />
+              <button class="prio-button" id="prio-urgent" onclick="clickUrgentButton()">
+                Urgent <img id="prio-arrow-up" src="/assets/img/prio-up.svg" />
               </button>
               <button class="prio-button" id="prio-medium">
                 Medium <img src="/assets/img/prio-medium-orange.svg" />
@@ -111,7 +111,7 @@
             </svg>
           </button>
           <button class="create-task">
-          Create Task
+            Create Task
             <img src="/assets/img/check-create-task.svg" alt="check" />
           </button>
         </div>
