@@ -41,28 +41,73 @@ async function init() {
 
 
 /**
- * This function changes the fav icon between light- and dark mode, but does not work jet.
+ * This function changes the fav icon between light- and dark mode, but only work on firefox.
  */
-let lightSchemeIcon = document.querySelector('link#light-scheme-icon');
-let darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
-matcher = window.matchMedia('(prefers-color-scheme: dark)');
-matcher.addListener(onUpdate);
-onUpdate();
+// let lightSchemeIcon = document.getElementById('light-scheme-icon');
+// let darkSchemeIcon = document.getElementById('dark-scheme-icon');
+// const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+// let faviconElement = document.querySelector("link[rel='shortcut icon']");
 
-function onUpdate() {
-  if (matcher.matches) {
-    lightSchemeIcon.remove();
-    document.head.append(darkSchemeIcon);
+// darkModeMediaQuery.addEventListener('change', (e) => {
+//   const darkModeOn = e.matches;
+//   if (darkModeOn) {
+//     lightSchemeIcon.remove();
+//     document.head.append(darkSchemeIcon);
+//   } else {
+//     document.head.append(lightSchemeIcon);
+//     darkSchemeIcon.remove();
+//   }
+//   console.log(`Dark mode is ${darkModeOn ? '🌒 on' : '☀️ off'}.`);
+// });
+
+// darkModeMediaQuery.addEventListener('change', (e) => {
+//     const darkModeOn = e.matches;
+//     if (darkModeOn) {
+//       changeFavicon(darkSchemeIcon.href);
+//     } else {
+//       changeFavicon(lightSchemeIcon.href);
+//     }
+//     console.log(`Dark mode is ${darkModeOn ? '🌒 on' : '☀️ off'}.`);
+//   });
+
+// function changeFavicon(href) {
+//     // Remove existing favicon
+//     if (faviconElement) {
+//       faviconElement.remove();
+//     }
+//     // Create new favicon link element
+//     const newFaviconElement = document.createElement('link');
+//     newFaviconElement.rel = 'shortcut icon';
+//     newFaviconElement.href = href;
+//     newFaviconElement.type = 'image/x-icon';
+//     document.head.appendChild(newFaviconElement);
+//     faviconElement = newFaviconElement; // Update reference to the new favicon element
+//   }
+
+
+
+// let lightSchemeIcon = document.getElementById('light-scheme-icon');
+// let darkSchemeIcon = document.getElementById('dark-scheme-icon');
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+let faviconElement = document.getElementById('favicon-icon');
+
+darkModeMediaQuery.addEventListener('change', (e) => {
+  const darkModeOn = e.matches;
+  if (darkModeOn) {
+    changeFavicon('./assets/img/light-logo.svg');
   } else {
-    document.head.append(lightSchemeIcon);
-    darkSchemeIcon.remove();
+    changeFavicon('./assets/img/dark-logo.svg');
   }
+  console.log(`Dark mode is ${darkModeOn ? '🌒 on' : '☀️ off'}.`);
+});
+
+function changeFavicon(href) {
+  faviconElement.setAttribute('href', href);
 }
 
-
-/**
- * This function opens or closes the drop down menu in the header.
- */
+// /**
+//  * This function opens or closes the drop down menu in the header.
+//  */
 function showHideDropDownMenu() {
     let nav = document.getElementById('drop-down-menu');
     if (navIsClosed(nav)) {

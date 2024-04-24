@@ -222,6 +222,18 @@ p {
     background: var(--color-accent);
 }
 
+@media (prefers-color-scheme: dark) {
+    #light-scheme-icon {
+        display: none;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    #dark-scheme-icon {
+        display: none;
+    }
+}
+
 @media (max-width: 1439px) {
     :root {
         --padding-content-left: 64px;
