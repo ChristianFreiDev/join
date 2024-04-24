@@ -64,6 +64,11 @@ function signup() {
 }
 
 
+/**
+ * This function change the icon in the input feld, by doing the first input.
+ * 
+ * @param {string} idIcon 
+ */
 function changePasswordIcon(idIcon) {
     let passwordInputIcon = document.getElementById(idIcon);
     if (passwordInputIcon.src.endsWith('lock.svg')) {
@@ -72,6 +77,13 @@ function changePasswordIcon(idIcon) {
     }
 }
 
+
+/**
+ * This function reset the input icon, when it´s empty and focused out.
+ * 
+ * @param {string} idIcon 
+ * @param {string} idInput 
+ */
 function resetPasswordIcon(idIcon, idInput) {
     let input = document.getElementById(idInput);
     let inputValue = input.value;
@@ -83,10 +95,13 @@ function resetPasswordIcon(idIcon, idInput) {
     input.type = 'password'
 }
 
-function test() {
-    console.log('test succes')
-}
 
+/**
+ * This function change the password visibility, when the input feld is not empty and set focus back on the input feld after last sign.
+ * 
+ * @param {string} idIcon 
+ * @param {string} idInput 
+ */
 function changePasswordVisibility(idIcon, idInput) {
     let passwordInputIcon = document.getElementById(idIcon);
     let input = document.getElementById(idInput);
