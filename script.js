@@ -93,7 +93,7 @@ let faviconElement = document.getElementById('favicon-icon');
 
 darkModeMediaQuery.addEventListener('change', (e) => {
   const darkModeOn = e.matches;
-  if (darkModeOn) {
+  if (window.matchMedia && darkModeOn) {
     changeFavicon('./assets/img/light-logo.svg');
   } else {
     changeFavicon('./assets/img/dark-logo.svg');
