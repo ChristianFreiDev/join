@@ -72,12 +72,12 @@
 #login-logo {
     margin-top: 13px;
     z-index: 3;
-    /* position: absolute;
-    top: calc(50% - 167px);
+    position: absolute;
+    /* top: calc(50% - 167px);
     left: calc(50% - 137px);
     width: 274px;
     height: 334px;
-    transition: all 500ms ease-in-out; */
+    transition: all 500ms ease-in-out; */ 
 }
 
 .login-button {

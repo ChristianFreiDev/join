@@ -198,6 +198,13 @@
     font-weight: 700;
 }
 
+.medium-button-clicked{
+    background-color: rgb(255,168,0);
+    border-color: rgb(255,168,0);
+    color: white;
+    font-weight: 700;
+}
+
 .priority-button {
     display: flex;
     margin: 8px 0 16px 0;
