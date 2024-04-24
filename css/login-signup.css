@@ -351,3 +351,25 @@ a:hover {
         left: 16px;
     }
 }
+
+@media (min-width: 1921px) {
+    @keyframes move-to-corner {
+        from {
+            /* position: absolute; */
+            top: calc(50vh - 234px);
+            left: calc(970px - 214px);
+            width: 274px;
+            height: 334px;
+            z-index: 999;
+        }
+    
+        to {
+            /* position: absolute; */
+            width: 100px;
+            height: 122px;
+            top: 0;
+            left: 0;
+            z-index: 900;
+        }
+    }   
+}
