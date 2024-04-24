@@ -44,11 +44,19 @@ const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 let faviconElement = document.getElementById('favicon-icon');
 
 
+/**
+ * This function changes the href attribute of the favicon element
+ * @param {string} href 
+ */
 function changeFavicon(href) {
     faviconElement.setAttribute('href', href);
 }
 
 
+/**
+ * This function checks if dark mode is enabled and exchanges the href of the favicon accordingly
+ * @param {boolean} isDarkModeOn 
+ */
 function checkForDarkMode(isDarkModeOn) {
     if (isDarkModeOn) {
         changeFavicon('./assets/img/light-logo.svg');
@@ -57,10 +65,11 @@ function checkForDarkMode(isDarkModeOn) {
       }
 }
 
-
+// Call checkForDarkMode every time script.js is loaded
 checkForDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
 
+// When the user changes the theme preference setting, call checkForDarkMode again
 darkModeMediaQuery.addEventListener('change', (event) => {
     const isDarkModeOn = event.matches;
     checkForDarkMode(isDarkModeOn);
