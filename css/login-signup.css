@@ -19,34 +19,23 @@
         z-index: 2;
     } 
     to {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: transparent;
-        z-index: -1;
         opacity: 0;
     }
 }
 
 @keyframes move-to-corner {
     from {
-        /* position: absolute; */
         top: calc(50vh - 234px);
         left: calc(50vw - 214px);
         width: 274px;
         height: 334px;
-        z-index: 999;
     }
 
     to {
-        /* position: absolute; */
         width: 100px;
         height: 122px;
         top: 0;
         left: 0;
-        z-index: 900;
     }
 }
 
@@ -73,11 +62,6 @@
     margin-top: 13px;
     z-index: 3;
     position: absolute;
-    /* top: calc(50% - 167px);
-    left: calc(50% - 137px);
-    width: 274px;
-    height: 334px;
-    transition: all 500ms ease-in-out; */ 
 }
 
 .login-button {
@@ -252,21 +236,17 @@ a:hover {
 @media (max-width: 900px) {
     @keyframes move-to-corner {
         from {
-            /* position: absolute; */
             top: calc(50vh - 234px);
             left: calc(50vw - 174px);
             width: 274px;
             height: 334px;
-            z-index: 999;
         }
     
         to {
-            /* position: absolute; */
             width: 100px;
             height: 122px;
             top: 0;
             left: 0;
-            z-index: 900;
         }
     }    
 
@@ -304,21 +284,17 @@ a:hover {
 @media (max-width: 500px) {
     @keyframes move-to-corner {
         from {
-            /* position: absolute; */
             top: calc(50vh - 234px);
             left: calc(50vw - 150px);
             width: 274px;
             height: 334px;
-            z-index: 999;
         }
     
         to {
-            /* position: absolute; */
             width: 100px;
             height: 122px;
             top: 0;
             left: 0;
-            z-index: 900;
         }
     }    
 
@@ -355,21 +331,17 @@ a:hover {
 @media (min-width: 1921px) {
     @keyframes move-to-corner {
         from {
-            /* position: absolute; */
             top: calc(50vh - 234px);
             left: calc(970px - 214px);
             width: 274px;
             height: 334px;
-            z-index: 999;
         }
     
         to {
-            /* position: absolute; */
             width: 100px;
             height: 122px;
             top: 0;
             left: 0;
-            z-index: 900;
         }
     }   
 }
