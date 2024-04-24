@@ -32,16 +32,16 @@
 
 @keyframes move-to-corner {
     from {
-        position: absolute;
-        top: calc(50vh - 167px);
-        left: calc(50vw - 137px);
+        /* position: absolute; */
+        top: calc(50vh - 234px);
+        left: calc(50vw - 214px);
         width: 274px;
         height: 334px;
         z-index: 999;
     }
 
     to {
-        position: absolute;
+        /* position: absolute; */
         width: 100px;
         height: 122px;
         top: 0;
@@ -250,6 +250,26 @@ a:hover {
 }
 
 @media (max-width: 900px) {
+    @keyframes move-to-corner {
+        from {
+            /* position: absolute; */
+            top: calc(50vh - 234px);
+            left: calc(50vw - 174px);
+            width: 274px;
+            height: 334px;
+            z-index: 999;
+        }
+    
+        to {
+            /* position: absolute; */
+            width: 100px;
+            height: 122px;
+            top: 0;
+            left: 0;
+            z-index: 900;
+        }
+    }    
+
     #login-content-box {
         padding: 40px;
     }
@@ -282,6 +302,26 @@ a:hover {
 }
 
 @media (max-width: 500px) {
+    @keyframes move-to-corner {
+        from {
+            /* position: absolute; */
+            top: calc(50vh - 234px);
+            left: calc(50vw - 150px);
+            width: 274px;
+            height: 334px;
+            z-index: 999;
+        }
+    
+        to {
+            /* position: absolute; */
+            width: 100px;
+            height: 122px;
+            top: 0;
+            left: 0;
+            z-index: 900;
+        }
+    }    
+
     .login-input {
         width: 364px;
     }
