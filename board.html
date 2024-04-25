@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/add-task.css">
     <link rel="stylesheet" href="css/board.css">
     <script src="script.js"></script>
     <script src="js/data.js"></script>
@@ -19,7 +20,10 @@
         <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="add-task-pop-up-container" class="add-task-pop-up-container">
-            <div id="add-task-pop-up" class="add-task-pop-up"></div>
+            <div id="add-task-pop-up" class="add-task-pop-up">
+                <div w3-include-html="assets/templates/add-task-template.html"></div>
+                <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('add-task-pop-up')">
+            </div>
         </div>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>

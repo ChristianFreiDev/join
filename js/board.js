@@ -35,6 +35,21 @@ function centerPopup(id) {
 
 
 /**
+ * This function removes a pop-up
+ * @param {string} id 
+ */
+function removePopup(id) {
+    let addTaskPopup = document.getElementById(id);
+    let addTaskPopupContainer = document.getElementById('add-task-pop-up-container');
+    addTaskPopup.classList.remove('center-pop-up');
+    setTimeout(function() {
+        addTaskPopupContainer.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }, 126);
+}
+
+
+/**
  * This function drops a task in an area
  * @param {Event} event 
  */
@@ -252,3 +267,10 @@ function searchTasks() {
         document.getElementById('no-results').style.display = 'block';
     }
 }
+
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        removePopup('add-task-pop-up');
+    }
+})
