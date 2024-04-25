@@ -1,34 +1,58 @@
+let priority = "none"
 
 /** 
- * This function is used to switch the color of the prio-button "urgent"
+ * This object is used to avoid repetitions at the prio buttons
  */
-function clickUrgentButton(){
-let button = document.getElementById('prio-urgent');
-let image = document.getElementById('prio-arrow-up');
 
-button.classList.toggle('urgent-button-clicked');
+const buttonActions = {
+    'urgent': {
+        'clicked': function() {
+            document.getElementById('prio-urgent').classList.add('urgent-button-clicked');
+            document.getElementById('prio-arrow-up').src = '/assets/img/prio-up-white.svg';
+        },
+        'unclicked': function() {
+            document.getElementById('prio-urgent').classList.remove('urgent-button-clicked');
+            document.getElementById('prio-arrow-up').src = '/assets/img/prio-up.svg';
+        }
+    },
+    'medium': {
+        'clicked': function() {
+            document.getElementById('prio-medium').classList.add('medium-button-clicked');
+            document.getElementById('prio-medium-equals').src = '/assets/img/prio-medium-white.svg';
+        },
+        'unclicked': function() {
+            document.getElementById('prio-medium').classList.remove('medium-button-clicked');
+            document.getElementById('prio-medium-equals').src = '/assets/img/prio-medium-orange.svg';
+        }
+    },
+    'low': {
+        'clicked': function() {
+            document.getElementById('prio-low').classList.add('low-button-clicked');
+            document.getElementById('prio-arrow-down').src = '/assets/img/prio-down-white.svg';
+        },
+        'unclicked': function() {
+            document.getElementById('prio-low').classList.remove('low-button-clicked');
+            document.getElementById('prio-arrow-down').src = '/assets/img/prio-down.svg';
+        }
+    }
+};
 
-if(image.src.match('/assets/img/prio-up.svg')){
-    image.src = '/assets/img/prio-up-white.svg';
-} else {
-    image.src = '/assets/img/prio-up.svg'
-}
-
-}
-
-/** 
- * This function is used to switch the color of the prio-button "urgent"
+/**
+ * This function is used to change the color of the priority buttons.
+ * 
+ * @param {string} newPriority - this is the name of the priority. (urgent, medium or low)
  */
-function clickMediumButton(){
-    let button = document.getElementById('prio-medium');
-    let image = document.getElementById('prio-medium-equals');
-    
-    button.classList.toggle('medium-button-clicked');
-    
-    if(image.src.match('/assets/img/prio-up.svg')){
-        image.src = '/assets/img/prio-up-white.svg';
+function clickButton(newPriority) {
+    if(priority == newPriority) {
+        buttonActions[newPriority].unclicked();
+        priority = "none";
     } else {
-        image.src = '/assets/img/prio-up.svg'
+        if(priority != "none") {
+            buttonActions[priority].unclicked();
+        }
+        buttonActions[newPriority].clicked();
+        priority = newPriority;
     }
-    
-    }
+}
+
+

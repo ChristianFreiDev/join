@@ -55,14 +55,14 @@
           <div class="add-task-priority">
             <span class="add-task-text">Prio</span>
             <div class="priority-button">
-              <button class="prio-button" id="prio-urgent" onclick="clickUrgentButton()">
+              <button class="prio-button" id="prio-urgent" onclick="clickButton('urgent')">
                 Urgent <img id="prio-arrow-up" src="/assets/img/prio-up.svg" />
               </button>
-              <button class="prio-button" id="prio-medium" onclick="clickMediumButton()">
+              <button class="prio-button" id="prio-medium" onclick="clickButton('medium')">
                 Medium <img id="prio-medium-equals" src="/assets/img/prio-medium-orange.svg" />
               </button>
-              <button class="prio-button" id="prio-low">
-                Low <img src="/assets/img/prio-down.svg" />
+              <button class="prio-button" id="prio-low" onclick="clickButton('low')">
+                Low <img id="prio-arrow-down" src="/assets/img/prio-down.svg" />
               </button>
             </div>
           </div>
