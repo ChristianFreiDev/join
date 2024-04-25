@@ -10,10 +10,15 @@ async function initSummary() {
     showSummaryValues();
 }
 
-function verifyUser() {
+async function verifyUser() {
+    await loadUsers();
     loadVariableFromLocalStorage('currentJoinUserId');
     loadVariableFromLocalStorage('currentJoinUserEmail');
     loadVariableFromLocalStorage('currentJoinUserPassword');
+    for (let i = 0; i < users.length; i++) {
+        const element = users[i];
+        
+    }
 }
 
 function filterTasks() {
