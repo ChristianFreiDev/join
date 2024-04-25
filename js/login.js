@@ -1,4 +1,8 @@
-function initIndex() {
+let responseTasks = [];
+
+
+
+async function initIndex() {
     loadUsers();
     loadTasks();
     document.getElementById('login-overlay').classList.add('animate-overlay');
@@ -11,6 +15,7 @@ function initIndex() {
 // }
 
 async function loadUsers() {
+    users = [];
     try {
         users = JSON.parse(await getItem('users'));
     } catch (e) {
@@ -19,25 +24,26 @@ async function loadUsers() {
 }
 
 
+
 async function loadTasks() {
-    let response = [];
     try {
         response = JSON.parse(await getItem('tasks'));
     } catch (e) {
         console.error('Loading error:', e);
     }
-    filterTasks(response);
 }
 
 
-function filterTasks(response) {
+
+function filterTasks() {
     tasks = [];
-    for (let i = 0; i < response.length; i++) {
-        if (response[i].collaborators.indexOf(users[0].id) > 0) {
-            tasks.push(response[i]);
+    for (let i = 0; i < responseTasks.length; i++) {
+        if (responseTasks[i].collaborators.indexOf(users[0].id) > 0) {
+            tasks.push(responseTasks[i]);
         }
     }
 }
+
 
 
 async function register() {
@@ -49,6 +55,8 @@ async function register() {
     await setItem('users', JSON.stringify(users));
     resetForm();
 }
+
+
 
 function resetForm() {
     email.value = '';
@@ -78,11 +86,14 @@ function openLogInMenu() {
     document.getElementById('signup-feld').classList.add('display-none');
 }
 
+
+
 function login() {
-    let email = document.getElementById('login-email-input');
-    let password = document.getElementById('login-password-input');
+    let email = document.getElementById('login-email-input').value;
+    let password = document.getElementById('login-password-input').value;
     for (let i = 0; i < users.length; i++) {
-        if (users[i].password === password && users[i].eMail === email) {
+        if (userLoggedInSuccessfully(email, password, i)) {
+            console.log('Erfolgreich angemeldet');
             /**
              * currentJoinUserId als Variable im localStorage speichern
              * Falls "Remember me" eingestellt ist, password und email im localStorage speichern unter rememberJoinUserPassword und rememberJoinUserEmail
@@ -90,10 +101,24 @@ function login() {
              * Falls "Remember me" deaktiviert ist, sollen diese Keys entfernt, oder mit einem Falsy- Wert gefüllt werden.
              * Sind die Werte vorhanden und truthy, soll der "Remember me" aktiviert sein.
              */
+        } else {
+            /** 
+             * Zeige einen Fehler an.
+             * Lasse "I forgot my password" erscheinen.
+            */
         }
         
     }
+    filterTasks();
 }
+
+
+
+function userLoggedInSuccessfully(email, password, i) {
+    return users[i].password === password && users[i].eMail === email
+}
+
+
 
 function signup() {
 
