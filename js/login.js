@@ -12,6 +12,10 @@ async function initIndex() {
 
 }
 
+
+/**
+ * This function check, if a user is remembered and wehn its true, fill the login felds with the useres data.
+ */
 function checkForRememberedUser() {
     if (rememberedUser()) {
         for (let i = 0; i < users.length; i++) {
@@ -23,19 +27,19 @@ function checkForRememberedUser() {
     }
 }
 
+
+/**
+ * This funktion
+ * 
+ * @returns the remembered user id.
+ */
 function rememberedUser() {
     return loadVariableFromLocalStorage('rememberUserId');
 }
+
 // async function init(){
 //     loadUsers();
 // }
-
-
-
-
-
-
-
 
 
 
@@ -80,7 +84,11 @@ function openLogInMenu() {
 }
 
 
-
+/**
+ * This function is logging the user or a guest in and give the user feedback, if its data were wrong.
+ * 
+ * @param {Boolean} guest 
+ */
 function login(guest = false) {
     if (guest) {
         saveVariableInLocalStorage('currentJoinUserId', 0);
@@ -112,14 +120,33 @@ function login(guest = false) {
     }
 }
 
+
+/**
+ * This funktion checks, if the checkbox "Remember me" is checked.
+ * 
+ * @returns a boolean.
+ */
 function rememberUser() {
     return document.getElementById('login-checkbox').checked;
 }
 
+
+/**
+ * This function checks the inputed User data.
+ * 
+ * @param {String} email 
+ * @param {String} password 
+ * @param {Number} i 
+ * @returns a boolean.
+ */
 function userLoggedInSuccessfully(email, password, i) {
     return users[i].password === password && users[i].eMail === email
 }
 
+
+/**
+ * This function links to the summary.html
+ */
 function goToSummary() {
     window.open('./summary.html', '_self');
 }
