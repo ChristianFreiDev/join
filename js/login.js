@@ -1,4 +1,3 @@
-let responseTasks = [];
 let loggedIn = false;
 
 
@@ -10,7 +9,7 @@ async function initIndex() {
     saveVariableInLocalStorage('currentJoinUserEmail', 0);
     saveVariableInLocalStorage('currentJoinUserPassword', 0);
     checkForRememberedUser();
-   
+
 }
 
 function checkForRememberedUser() {
@@ -31,24 +30,11 @@ function rememberedUser() {
 //     loadUsers();
 // }
 
-async function loadUsers() {
-    users = [];
-    try {
-        users = JSON.parse(await getItem('users'));
-    } catch (e) {
-        console.error('Loading error:', e);
-    }
-}
 
 
 
-async function loadTasks() {
-    try {
-        response = JSON.parse(await getItem('tasks'));
-    } catch (e) {
-        console.error('Loading error:', e);
-    }
-}
+
+
 
 
 
@@ -95,36 +81,34 @@ function openLogInMenu() {
 
 
 
-function login() {
-    let email = document.getElementById('login-email-input').value;
-    let password = document.getElementById('login-password-input').value;
-    for (let i = 0; i < users.length; i++) {
-        if (userLoggedInSuccessfully(email, password, i)) {
-            loggedIn = true;
-            saveVariableInLocalStorage('currentJoinUserId', users[i].id);
-            saveVariableInLocalStorage('currentJoinUserEmail', email);
-            saveVariableInLocalStorage('currentJoinUserPassword', password);
-            if (rememberUser()) {
-                saveVariableInLocalStorage('rememberUserId', users[i].id);
-            } else {
-                saveVariableInLocalStorage('rememberUserId', users[i].false);
-            }
-            /**
-             * currentJoinUserId als Variable im localStorage speichern
-             * Falls "Remember me" eingestellt ist, password und email im localStorage speichern unter rememberJoinUserPassword und rememberJoinUserEmail
-             * In der Init prüfen, ob diese Daten vorhanden sind und die Inputs damit automatisch befüllen
-             * Falls "Remember me" deaktiviert ist, sollen diese Keys entfernt, oder mit einem Falsy- Wert gefüllt werden.
-             * Sind die Werte vorhanden und truthy, soll der "Remember me" aktiviert sein.
-             */
-        }
-    }
-    if (loggedIn) {
-        
+function login(guest = false) {
+    if (guest) {
+        saveVariableInLocalStorage('currentJoinUserId', 0);
+        goToSummary();
     } else {
-        /** 
-         * Zeige einen Fehler an.
-         * Lasse "I forgot my password" erscheinen.
-        */
+        let email = document.getElementById('login-email-input').value;
+        let password = document.getElementById('login-password-input').value;
+        for (let i = 0; i < users.length; i++) {
+            if (userLoggedInSuccessfully(email, password, i)) {
+                loggedIn = true;
+                saveVariableInLocalStorage('currentJoinUserId', users[i].id);
+                saveVariableInLocalStorage('currentJoinUserEmail', email);
+                saveVariableInLocalStorage('currentJoinUserPassword', password);
+                if (rememberUser()) {
+                    saveVariableInLocalStorage('rememberUserId', users[i].id);
+                } else {
+                    saveVariableInLocalStorage('rememberUserId', users[i].false);
+                }
+            }
+        }
+        if (loggedIn) {
+            goToSummary();
+        } else {
+            /** 
+             * Zeige einen Fehler an.
+             * Lasse "I forgot my password" erscheinen.
+            */
+        }
     }
 }
 
@@ -136,7 +120,9 @@ function userLoggedInSuccessfully(email, password, i) {
     return users[i].password === password && users[i].eMail === email
 }
 
-
+function goToSummary() {
+    window.open('./summary.html', '_self');
+}
 
 function signup() {
 

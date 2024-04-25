@@ -19,7 +19,7 @@ function verifyUser() {
 function filterTasks() {
     tasks = [];
     for (let i = 0; i < responseTasks.length; i++) {
-        if (responseTasks[i].collaborators.indexOf(users[0].id) > 0) {
+        if (responseTasks[i].collaborators.indexOf(loadArrayFromLocalStorage('currentJoinUserId')) > -1) {
             tasks.push(responseTasks[i]);
         }
     }

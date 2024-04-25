@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/login-signup.css" />
     <link rel="shortcut icon" href="./assets/img/dark-logo.svg" type="image/x-icon" id="favicon-icon" />
-    <!-- <link rel="shortcut icon" href="./assets/img/light-logo.svg" type="image/x-icon" media="(prefers-color-scheme: dark)" id="dark-scheme-icon"/> -->
     <script src="./js/data.js"></script>
     <script src="./js/storage.js"></script>
     <script src="./script.js"></script>
@@ -47,7 +46,7 @@
                 </div>
                 <div class="login-button-box">
                     <button type="submit" class="login-button login-dark-button" id="login-button">Log in</button>
-                    <button type="button" class="login-button login-light-button" id="login-as-guest-button">Guest Log in</button>
+                    <button onclick="login(true)" type="button" class="login-button login-light-button" id="login-as-guest-button">Guest Log in</button>
                 </div>
             </form>
         </section>
