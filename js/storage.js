@@ -17,3 +17,19 @@ async function getItem(key) {
         } throw `Could not find data with key "${key}".`;
     });
 }
+
+function saveVariableInLocalStorage(key, variable) {
+    localStorage.setItem(key, variable)
+}
+
+function loadVariableFromLocalStorage(key) {
+    return localStorage.getItem(key)
+}
+
+function saveArrayInLocalStorage(key, array) {
+    localStorage.setItem(key, JSON.stringify(array));
+}
+
+function loadArrayFromLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+}
