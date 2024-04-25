@@ -1,4 +1,6 @@
 function initIndex() {
+    loadUsers();
+    loadTasks();
     document.getElementById('login-overlay').classList.add('animate-overlay');
     document.getElementById('login-logo').classList.add('animate-logo');
 }
@@ -13,6 +15,27 @@ async function loadUsers() {
         users = JSON.parse(await getItem('users'));
     } catch (e) {
         console.error('Loading error:', e);
+    }
+}
+
+
+async function loadTasks() {
+    let response = [];
+    try {
+        response = JSON.parse(await getItem('tasks'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
+    filterTasks(response);
+}
+
+
+function filterTasks(response) {
+    tasks = [];
+    for (let i = 0; i < response.length; i++) {
+        if (response[i].collaborators.indexOf(users[0].id) > 0) {
+            tasks.push(response[i]);
+        }
     }
 }
 
@@ -56,7 +79,20 @@ function openLogInMenu() {
 }
 
 function login() {
-
+    let email = document.getElementById('login-email-input');
+    let password = document.getElementById('login-password-input');
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].password === password && users[i].eMail === email) {
+            /**
+             * currentJoinUserId als Variable im localStorage speichern
+             * Falls "Remember me" eingestellt ist, password und email im localStorage speichern unter rememberJoinUserPassword und rememberJoinUserEmail
+             * In der Init prüfen, ob diese Daten vorhanden sind und die Inputs damit automatisch befüllen
+             * Falls "Remember me" deaktiviert ist, sollen diese Keys entfernt, oder mit einem Falsy- Wert gefüllt werden.
+             * Sind die Werte vorhanden und truthy, soll der "Remember me" aktiviert sein.
+             */
+        }
+        
+    }
 }
 
 function signup() {
