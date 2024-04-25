@@ -1,12 +1,15 @@
 let responseTasks = [];
-
+let loggedIn = false;
 
 
 async function initIndex() {
-    loadUsers();
-    loadTasks();
     document.getElementById('login-overlay').classList.add('animate-overlay');
     document.getElementById('login-logo').classList.add('animate-logo');
+    await loadUsers();
+    await loadTasks();
+    saveVariableInLocalStorage('currentJoinUserId', -1);
+
+   
 }
 
 
@@ -93,7 +96,8 @@ function login() {
     let password = document.getElementById('login-password-input').value;
     for (let i = 0; i < users.length; i++) {
         if (userLoggedInSuccessfully(email, password, i)) {
-            console.log('Erfolgreich angemeldet');
+            loggedIn = true;
+            saveVariableInLocalStorage('currentJoinUserId', users[i].id)
             /**
              * currentJoinUserId als Variable im localStorage speichern
              * Falls "Remember me" eingestellt ist, password und email im localStorage speichern unter rememberJoinUserPassword und rememberJoinUserEmail
@@ -101,15 +105,17 @@ function login() {
              * Falls "Remember me" deaktiviert ist, sollen diese Keys entfernt, oder mit einem Falsy- Wert gefüllt werden.
              * Sind die Werte vorhanden und truthy, soll der "Remember me" aktiviert sein.
              */
-        } else {
-            /** 
-             * Zeige einen Fehler an.
-             * Lasse "I forgot my password" erscheinen.
-            */
         }
-        
+
     }
-    filterTasks();
+    if (loggedIn) {
+        filterTasks();
+    } else {
+        /** 
+         * Zeige einen Fehler an.
+         * Lasse "I forgot my password" erscheinen.
+        */
+    }
 }
 
 
