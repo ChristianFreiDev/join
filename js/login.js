@@ -6,13 +6,27 @@ async function initIndex() {
     document.getElementById('login-overlay').classList.add('animate-overlay');
     document.getElementById('login-logo').classList.add('animate-logo');
     await loadUsers();
-    await loadTasks();
     saveVariableInLocalStorage('currentJoinUserId', -1);
-
+    saveVariableInLocalStorage('currentJoinUserEmail', 0);
+    saveVariableInLocalStorage('currentJoinUserPassword', 0);
+    checkForRememberedUser();
    
 }
 
+function checkForRememberedUser() {
+    if (rememberedUser()) {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].id == rememberedUser()) {
+                document.getElementById('login-email-input').value = users[i].eMail;
+                document.getElementById('login-password-input').value = users[i].password;
+            }
+        }
+    }
+}
 
+function rememberedUser() {
+    return loadVariableFromLocalStorage('rememberUserId');
+}
 // async function init(){
 //     loadUsers();
 // }
@@ -36,16 +50,6 @@ async function loadTasks() {
     }
 }
 
-
-
-function filterTasks() {
-    tasks = [];
-    for (let i = 0; i < responseTasks.length; i++) {
-        if (responseTasks[i].collaborators.indexOf(users[0].id) > 0) {
-            tasks.push(responseTasks[i]);
-        }
-    }
-}
 
 
 
@@ -97,7 +101,14 @@ function login() {
     for (let i = 0; i < users.length; i++) {
         if (userLoggedInSuccessfully(email, password, i)) {
             loggedIn = true;
-            saveVariableInLocalStorage('currentJoinUserId', users[i].id)
+            saveVariableInLocalStorage('currentJoinUserId', users[i].id);
+            saveVariableInLocalStorage('currentJoinUserEmail', email);
+            saveVariableInLocalStorage('currentJoinUserPassword', password);
+            if (rememberUser()) {
+                saveVariableInLocalStorage('rememberUserId', users[i].id);
+            } else {
+                saveVariableInLocalStorage('rememberUserId', users[i].false);
+            }
             /**
              * currentJoinUserId als Variable im localStorage speichern
              * Falls "Remember me" eingestellt ist, password und email im localStorage speichern unter rememberJoinUserPassword und rememberJoinUserEmail
@@ -106,10 +117,9 @@ function login() {
              * Sind die Werte vorhanden und truthy, soll der "Remember me" aktiviert sein.
              */
         }
-
     }
     if (loggedIn) {
-        filterTasks();
+        
     } else {
         /** 
          * Zeige einen Fehler an.
@@ -118,7 +128,9 @@ function login() {
     }
 }
 
-
+function rememberUser() {
+    return document.getElementById('login-checkbox').checked;
+}
 
 function userLoggedInSuccessfully(email, password, i) {
     return users[i].password === password && users[i].eMail === email

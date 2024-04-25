@@ -4,7 +4,25 @@
  */
 async function initSummary() {
     await init();
+    await loadTasks();
+    verifyUser();
+    filterTasks();
     showSummaryValues();
+}
+
+function verifyUser() {
+    loadVariableFromLocalStorage('currentJoinUserId');
+    loadVariableFromLocalStorage('currentJoinUserEmail');
+    loadVariableFromLocalStorage('currentJoinUserPassword');
+}
+
+function filterTasks() {
+    tasks = [];
+    for (let i = 0; i < responseTasks.length; i++) {
+        if (responseTasks[i].collaborators.indexOf(users[0].id) > 0) {
+            tasks.push(responseTasks[i]);
+        }
+    }
 }
 
 
