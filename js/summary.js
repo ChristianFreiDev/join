@@ -3,9 +3,18 @@
  * Also by showing the right values of users tasks.
  */
 async function initSummary() {
+    greetUser();
     await init();
     await loadTasks();
     showSummaryValues();
+}
+
+
+function greetUser() {
+    /**
+     * Check windowsize. Ab 1400px muss die Einblendung erfolgen
+     * Darüber soll der Name geändert werden und bei Gast soll beiden Enblendungen das Komma entfernt werden und der Name.
+     */
 }
 
 
