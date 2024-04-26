@@ -109,22 +109,31 @@ function login(guest = false) {
 }
 
 
+/**
+ * This function proofes the input values and saves its data to local storage by success.
+ */
 function checkUserValues() {
     let email = document.getElementById('login-email-input').value;
     let password = document.getElementById('login-password-input').value;
     for (let i = 0; i < users.length; i++) {
         if (userLoggedInSuccessfully(email, password, i)) {
             loggedIn = true;
-            saveVariableInLocalStorage('currentJoinUserId', users[i].id);
-            saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', getInitials('firstName', i));
-            saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', getInitials('lastName', i));
             setRememberMeValues(false, i);
         }
     }
 }
 
 
+/**
+ * This function sets the values if an user wants to be reminded.
+ * 
+ * @param {boolean} guest 
+ * @param {number} i 
+ */
 function setRememberMeValues(guest = false, i) {
+    saveVariableInLocalStorage('currentJoinUserId', users[i].id);
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', getInitials('firstName', i));
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', getInitials('lastName', i));
     if (rememberUser() && !guest) {
         saveVariableInLocalStorage('rememberUserId', users[i].id);
     } else if (!rememberUser()) {
@@ -133,6 +142,13 @@ function setRememberMeValues(guest = false, i) {
 }
 
 
+/**
+ * This function searches for the first character in a string, when a string exists.
+ * 
+ * @param {string} name 
+ * @param {number} i 
+ * @returns the first character in upper case of the string or an empty string.
+ */
 function getInitials(name, i) {
     if (users[i][`${name}`]) {
         return users[i][`${name}`][0].toLocaleUpperCase();
