@@ -247,7 +247,7 @@ function changePasswordVisibility(idIcon, idInput, init = false) {
 }
 
 /**
- * This function 
+ * This function changes Input icon, input type and cursor style to visibility on.
  * 
  * @param {Element} passwordInputIcon 
  * @param {Element} input 
@@ -259,6 +259,12 @@ function setPropertiesForVisibilityOn(passwordInputIcon, input) {
 }
 
 
+/**
+ * This function changes Input icon, input type and cursor style to visibility off.
+ * 
+ * @param {Element} passwordInputIcon 
+ * @param {Element} input 
+ */
 function setPropertiesForVisibilityOff(passwordInputIcon, input) {
     passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
     input.type = 'password'
@@ -266,11 +272,23 @@ function setPropertiesForVisibilityOff(passwordInputIcon, input) {
 }
 
 
+/**
+ * This function checks if the input icon is the visibility-off icon.
+ * 
+ * @param {Element} passwordInputIcon 
+ * @returns Boolean
+ */
 function visibilityOffIconIsShown(passwordInputIcon) {
     return passwordInputIcon.src.endsWith('visibility-off.svg');
 }
 
 
+/**
+ * This function checks if the input value is bigger than Zero.
+ * 
+ * @param {Element} input 
+ * @returns boolean.
+ */
 function imputIsFilled(input) {
     return input.value.length > 0;
 }
