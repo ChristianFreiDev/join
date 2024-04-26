@@ -110,7 +110,7 @@ function login(guest = false) {
 
 
 /**
- * This function proofes the input values and saves its data to local storage by success.
+ * This function checks the input values and saves its data to local storage by success.
  */
 function checkUserValues() {
     let email = document.getElementById('login-email-input').value;
@@ -194,7 +194,7 @@ function signup() {
 
 
 /**
- * This function change the icon in the input feld, by doing the first input.
+ * This function changes the icon in the input feld, by doing the first input.
  * 
  * @param {string} idIcon 
  */
@@ -208,7 +208,7 @@ function changePasswordIcon(idIcon) {
 
 
 /**
- * This function reset the input icon, when it´s empty and focused out.
+ * This function resets the input icon, when it´s empty and focused out.
  * 
  * @param {string} idIcon 
  * @param {string} idInput 
@@ -226,7 +226,7 @@ function resetPasswordIcon(idIcon, idInput) {
 
 
 /**
- * This function change the password visibility, when the input feld is not empty and set focus back on the input feld after last sign.
+ * This function changes the password visibility, when the input feld is not empty and set focus back on the input feld after last sign.
  * 
  * @param {string} idIcon 
  * @param {string} idInput 
