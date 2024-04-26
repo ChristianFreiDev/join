@@ -9,6 +9,7 @@ async function initIndex() {
     checkForRememberedUser();
     saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', 'G');
     saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', '');
+    changePasswordVisibility('login-password-icon', 'login-password-input', true);
 }
 
 
@@ -21,6 +22,7 @@ function checkForRememberedUser() {
             if (users[i].id == rememberedUser()) {
                 document.getElementById('login-email-input').value = users[i].eMail;
                 document.getElementById('login-password-input').value = users[i].password;
+                document.getElementById('login-checkbox').checked = true;
             }
         }
     }
@@ -202,7 +204,7 @@ function resetPasswordIcon(idIcon, idInput) {
  * @param {string} idIcon 
  * @param {string} idInput 
  */
-function changePasswordVisibility(idIcon, idInput) {
+function changePasswordVisibility(idIcon, idInput, init = false) {
     let passwordInputIcon = document.getElementById(idIcon);
     let input = document.getElementById(idInput);
     if (input.value.length > 0) {
@@ -216,5 +218,7 @@ function changePasswordVisibility(idIcon, idInput) {
             passwordInputIcon.style.cursor = 'pointer';
         }
     }
-    input.focus(this.value);
+    if (!init) {
+        input.focus(this.value);
+    }
 }
