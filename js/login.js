@@ -8,7 +8,7 @@ async function initIndex() {
     saveVariableInLocalStorage('currentJoinUserId', -1);
     checkForRememberedUser();
     saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', 'G');
-    saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', 0);
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', '');
 }
 
 
@@ -121,7 +121,11 @@ function login(guest = false) {
 
 
 function getInitials(name, i) {
-    return users[i][`${name}`][0].toLocaleUpperCase();
+    if (users[i][`${name}`]) {
+        return users[i][`${name}`][0].toLocaleUpperCase();
+    } else {
+        return '';
+    }
 }
 
 
