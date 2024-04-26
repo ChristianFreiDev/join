@@ -6,10 +6,9 @@ async function initIndex() {
     document.getElementById('login-logo').classList.add('animate-logo');
     await loadUsers();
     saveVariableInLocalStorage('currentJoinUserId', -1);
-    saveVariableInLocalStorage('currentJoinUserEmail', 0);
-    saveVariableInLocalStorage('currentJoinUserPassword', 0);
     checkForRememberedUser();
-
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', 'G');
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', 0);
 }
 
 
@@ -100,8 +99,8 @@ function login(guest = false) {
             if (userLoggedInSuccessfully(email, password, i)) {
                 loggedIn = true;
                 saveVariableInLocalStorage('currentJoinUserId', users[i].id);
-                saveVariableInLocalStorage('currentJoinUserEmail', email);
-                saveVariableInLocalStorage('currentJoinUserPassword', password);
+                saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', getInitials('firstName', i));
+                saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', getInitials('lastName', i));
                 if (rememberUser()) {
                     saveVariableInLocalStorage('rememberUserId', users[i].id);
                 } else {
@@ -118,6 +117,11 @@ function login(guest = false) {
             */
         }
     }
+}
+
+
+function getInitials(name, i) {
+    return users[i][`${name}`][0].toLocaleUpperCase();
 }
 
 

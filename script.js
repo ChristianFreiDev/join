@@ -37,6 +37,14 @@ function highlightActiveLink() {
 async function init() {
     await includeHTML();
     highlightActiveLink();
+    showUserInitials();
+}
+
+
+
+function showUserInitials() {
+    document.getElementById('firstname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterFirstName');
+    document.getElementById('lastname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterLastName');
 }
 
 
