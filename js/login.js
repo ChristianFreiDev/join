@@ -234,18 +234,43 @@ function resetPasswordIcon(idIcon, idInput) {
 function changePasswordVisibility(idIcon, idInput, init = false) {
     let passwordInputIcon = document.getElementById(idIcon);
     let input = document.getElementById(idInput);
-    if (input.value.length > 0) {
-        if (passwordInputIcon.src.endsWith('visibility-off.svg')) {
-            passwordInputIcon.src = `./../assets/img/visibility-on.svg`;
-            input.type = 'text'
-            passwordInputIcon.style.cursor = 'pointer';
+    if (imputIsFilled(input)) {
+        if (visibilityOffIconIsShown(passwordInputIcon)) {
+            setPropertiesForVisibilityOn(passwordInputIcon, input);
         } else {
-            passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
-            input.type = 'password'
-            passwordInputIcon.style.cursor = 'pointer';
+            setPropertiesForVisibilityOff(passwordInputIcon, input);
         }
     }
     if (!init) {
         input.focus(this.value);
     }
+}
+
+/**
+ * This function 
+ * 
+ * @param {Element} passwordInputIcon 
+ * @param {Element} input 
+ */
+function setPropertiesForVisibilityOn(passwordInputIcon, input) {
+    passwordInputIcon.src = `./../assets/img/visibility-on.svg`;
+    input.type = 'text'
+    passwordInputIcon.style.cursor = 'pointer';
+}
+
+
+function setPropertiesForVisibilityOff(passwordInputIcon, input) {
+    passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
+    input.type = 'password'
+    passwordInputIcon.style.cursor = 'pointer';
+}
+
+
+function visibilityOffIconIsShown(passwordInputIcon) {
+    return passwordInputIcon.src.endsWith('visibility-off.svg');
+}
+
+
+function imputIsFilled(input) {
+    return input.value.length > 0;
 }
