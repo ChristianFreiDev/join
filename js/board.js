@@ -50,6 +50,27 @@ function removePopup(id) {
 
 
 /**
+ * This function opens the add-task popup
+ * @param {string} statusId task status ID
+ */
+function openAddTaskPopup(statusId) {
+    centerPopup('add-task-pop-up');
+    // This should actually change the onsubmit attribute of the form once the form supports it
+    let createTaskButton = document.getElementById('create-task-button');
+    createTaskButton.setAttribute('onclick', createTaskFromBoard(statusId));
+}
+
+
+/**
+ * This function creates a task from the board's task pop-up
+ * @param {string} statusId task status ID
+ */
+function createTaskFromBoard(statusId) {
+    console.log(statusId);
+}
+
+
+/**
  * This function drops a task in an area
  * @param {Event} event 
  */
