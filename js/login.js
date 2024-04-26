@@ -92,24 +92,11 @@ function openLogInMenu() {
  */
 function login(guest = false) {
     if (guest) {
+        setRememberMeValues(guest, 0);
         saveVariableInLocalStorage('currentJoinUserId', 0);
         goToSummary();
     } else {
-        let email = document.getElementById('login-email-input').value;
-        let password = document.getElementById('login-password-input').value;
-        for (let i = 0; i < users.length; i++) {
-            if (userLoggedInSuccessfully(email, password, i)) {
-                loggedIn = true;
-                saveVariableInLocalStorage('currentJoinUserId', users[i].id);
-                saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', getInitials('firstName', i));
-                saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', getInitials('lastName', i));
-                if (rememberUser()) {
-                    saveVariableInLocalStorage('rememberUserId', users[i].id);
-                } else {
-                    saveVariableInLocalStorage('rememberUserId', users[i].false);
-                }
-            }
-        }
+        checkUserValues();
         if (loggedIn) {
             goToSummary();
         } else {
@@ -118,6 +105,30 @@ function login(guest = false) {
              * Lasse "I forgot my password" erscheinen.
             */
         }
+    }
+}
+
+
+function checkUserValues() {
+    let email = document.getElementById('login-email-input').value;
+    let password = document.getElementById('login-password-input').value;
+    for (let i = 0; i < users.length; i++) {
+        if (userLoggedInSuccessfully(email, password, i)) {
+            loggedIn = true;
+            saveVariableInLocalStorage('currentJoinUserId', users[i].id);
+            saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', getInitials('firstName', i));
+            saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', getInitials('lastName', i));
+            setRememberMeValues(false, i);
+        }
+    }
+}
+
+
+function setRememberMeValues(guest = false, i) {
+    if (rememberUser() && !guest) {
+        saveVariableInLocalStorage('rememberUserId', users[i].id);
+    } else if (!rememberUser()) {
+        saveVariableInLocalStorage('rememberUserId', false);
     }
 }
 
