@@ -1,6 +1,5 @@
 const STORAGE_TOKEN = '61W6LW4NFASNAZJK88YL44Q46FPJI5Q1QP8VE2QX';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
-let responseTasks = [];
 
 
 async function setItem(key, value) {
@@ -29,8 +28,9 @@ async function loadUsers() {
 }
 
 async function loadTasks() {
+    tasks = [];
     try {
-        responseTasks = JSON.parse(await getItem('tasks'));
+        tasks = JSON.parse(await getItem('tasks'));
     } catch (e) {
         console.error('Loading error:', e);
     }
