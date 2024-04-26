@@ -8,59 +8,26 @@
 
 .add-task-headline {
     /* Add Task */
-
     width: 278px;
     height: 73px;
     margin-bottom: 48px;
-
-    /* Version 2/t1 */
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 700;
     font-size: 61px;
     line-height: 120%;
-
-    /* or 73px */
     color: #000000;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
 }
 
 .add-task-text {
     /* Title */
-
-    width: 440px;
-    height: 24px;
-
-    /* Version 2/t6 */
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
-    /* identical to box height, or 24px */
-
-    /* Version 2/main color */
     color: #2A3647;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-
 }
 
 #input-title {
-    /* Frame 14 */
-    box-sizing: border-box;
-
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -71,52 +38,27 @@
     background: #FFFFFF;
     margin-top: 8px;
     margin-bottom: 16px;
-
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
 }
 
 #input-description {
-    /* Frame 17 */
-    box-sizing: border-box;
-
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 18px 16px;
     gap: 10px;
-    isolation: isolate;
     width: 440px;
     height: 120px;
     background: #FFFFFF;
     margin-top: 8px;
     margin-bottom: 16px;
     resize: none;
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
 }
 
-
 #input-assigned-to {
-    /* Frame 74 */
-    box-sizing: border-box;
-
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -125,25 +67,12 @@
     width: 440px;
     height: 48px;
     margin-top: 8px;
-
-    /* white */
     background: #FFFFFF;
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-
 }
 
 #input-due-date {
-    /* Frame 14 */
-    box-sizing: border-box;
-
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -154,16 +83,8 @@
     height: 48px;
     background: #FFFFFF;
     margin: 8px 0 16px 0;
-
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
 }
 
 .prio-button {
@@ -181,10 +102,6 @@
     border: 1px solid #D1D1D1;
     font-size: 20px;
     cursor: pointer;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
     flex-grow: 1;
 
 }
@@ -220,11 +137,6 @@
 }
 
 #input-category {
-    /* Frame 74 */
-
-    box-sizing: border-box;
-
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -233,25 +145,12 @@
     width: 440px;
     height: 48px;
     margin: 8px 0 16px 0;
-
-    /* white */
     background: #FFFFFF;
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-
 }
 
 #input-subtasks {
-    /* Frame 14 */
-    box-sizing: border-box;
-
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -262,51 +161,26 @@
     height: 48px;
     background: #FFFFFF;
     margin-top: 8px;
-
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-
 }
 
 ::placeholder {
-    /* Enter a title */
     width: 398px;
     height: 24px;
-
-    /* Version 2/t6 */
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
-    /* identical to box height, or 24px */
-
-    /* Style */
     color: #D1D1D1;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
     flex-grow: 1;
 }
 
 .add-task-vector {
-    /* Vector 4 */
     width: 0px;
     height: 424px;
     left: 816.25px;
     top: 327px;
-
-    /* Style */
     border: 1px solid #D1D1D1;
-
 }
 
 .formular{
@@ -372,12 +246,6 @@ cursor: pointer;
     color: #29ABE2;
 }
 
-/* funktionieren nicht - zur demonstration. */
 .clear-task:hover svg path{             
-    stroke: #29ABE2 !important;
+    stroke: #29ABE2;
 }
-
-#clear-x:hover svg path{
-    stroke: #29ABE2 !important;
-}
-
