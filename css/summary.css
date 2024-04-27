@@ -188,6 +188,10 @@
     .summary-header-seperator-horizontal {
         display: none;
     }
+
+    .summary-overview-container {
+        margin-bottom: 27px;
+    }
 }
 
 @media (max-width: 920px) {
