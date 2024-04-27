@@ -241,6 +241,7 @@ p {
 @media (max-width: 1439px) {
     :root {
         --padding-content-left: 64px;
+        --padding-content-top: 48px;
     }
 }
 
