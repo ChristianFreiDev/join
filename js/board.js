@@ -42,7 +42,7 @@ function removePopup(id) {
     let addTaskPopup = document.getElementById(id);
     let addTaskPopupContainer = document.getElementById('add-task-pop-up-container');
     addTaskPopup.classList.remove('center-pop-up');
-    // Wait for transition to end:
+    // Wait for transition to end, then hide pop-up container and enable scrolling again:
     setTimeout(function() {
         addTaskPopupContainer.style.display = 'none';
         document.body.style.overflow = 'auto';
