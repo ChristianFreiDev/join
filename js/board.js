@@ -13,8 +13,18 @@ function allowTaskDrop(event) {
  * This function stores the ID of the task that is currently being dragged in a global variable
  * @param {number} id 
  */
-function startDraggingTask(id) {
+function startDraggingTask(event, id) {
     draggedTaskId = id;
+    event.target.classList.add('rotate-task');
+}
+
+
+/**
+ * This function removes the task rotation if the drag event ends without the task being dropped anywhere
+ * @param {Event} event 
+ */
+function endDraggingTask(event) {
+    event.target.classList.remove('rotate-task');
 }
 
 
@@ -128,7 +138,7 @@ function generateTaskProgressContainerTemplate(task, doneSubtasks) {
  * @returns {string} task HTML template
  */
 function taskTemplate(task, doneSubtasks) {
-    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(${task.id})">
+    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)">
             <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
             <div class="task-title-and-description-container">
                 <div class="task-title">${task.title}</div>
