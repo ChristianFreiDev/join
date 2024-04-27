@@ -273,6 +273,12 @@ p {
     }
 }
 
+@media (max-width: 420px) {
+    :root {
+        --padding-content-top: 16px;
+    }
+}
+
 @media (min-width: 1921px) {
     body {
         background-color: var(--color-large-screen-background);
