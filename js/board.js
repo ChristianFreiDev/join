@@ -33,12 +33,13 @@ function endDraggingTask(event) {
  * @param {string} id 
  */
 function centerPopup(id) {
-    let addTaskPopup = document.getElementById(id);
-    let addTaskPopupContainer = document.getElementById('add-task-pop-up-container');
-    addTaskPopupContainer.style.display = 'block';
+    let popup = document.getElementById(id);
+    let popupContainer = document.getElementById('pop-up-container');
+    popupContainer.style.display = 'block';
+    popup.style.display = 'flex';
     // This is needed for the function to work:
     setTimeout(function() {
-        addTaskPopup.classList.add('center-pop-up')
+        popup.classList.add('center-pop-up')
         document.body.style.overflow = 'hidden';
     }, 0);
 }
@@ -49,12 +50,13 @@ function centerPopup(id) {
  * @param {string} id 
  */
 function removePopup(id) {
-    let addTaskPopup = document.getElementById(id);
-    let addTaskPopupContainer = document.getElementById('add-task-pop-up-container');
-    addTaskPopup.classList.remove('center-pop-up');
+    let popup = document.getElementById(id);
+    let popupContainer = document.getElementById('pop-up-container');
+    popup.classList.remove('center-pop-up');
     // Wait for transition to end, then hide pop-up container and enable scrolling again:
     setTimeout(function() {
-        addTaskPopupContainer.style.display = 'none';
+        popup.style.display = 'none';
+        popupContainer.style.display = 'none';
         document.body.style.overflow = 'auto';
     }, 126);
 }
@@ -81,14 +83,19 @@ function createTaskFromBoard(statusId) {
 }
 
 
+function moveTaskToStatus(taskId, status) {
+    tasks[taskId].status = status;
+}
+
+
 /**
  * This function drops a task in an area
  * @param {Event} event 
  */
 function dropTaskInArea(id, status) {
-    tasks[draggedTaskId].status = status;
+    moveTaskToStatus(draggedTaskId, status);
     renderTasks(tasks);
-    stopHighlightingArea(id)
+    stopHighlightingArea(id);
 }
 
 
@@ -109,6 +116,18 @@ function highlightArea(id) {
 function stopHighlightingArea(id) {
     let area = document.getElementById(id);
     area.classList.remove('drop-area-highlight');
+}
+
+
+function openMoveTaskPopup(taskId) {
+    draggedTaskId = taskId;
+    centerPopup('move-task-pop-up');
+}
+
+function moveTaskFromPopup(status) {
+    removePopup('move-task-pop-up');
+    moveTaskToStatus(draggedTaskId, status);
+    renderTasks(tasks);
 }
 
 
@@ -139,7 +158,10 @@ function generateTaskProgressContainerTemplate(task, doneSubtasks) {
  */
 function taskTemplate(task, doneSubtasks) {
     return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)">
-            <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
+            <div class="task-category-and-mobile-drag-arrows-container">
+                <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
+                <div class="move-arrows" onclick="openMoveTaskPopup(${task.id})">⇵</div>
+            </div>
             <div class="task-title-and-description-container">
                 <div class="task-title">${task.title}</div>
                 <div class="task-description">${task.description}</div>

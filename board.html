@@ -20,10 +20,20 @@
     <div class="outer-container">
         <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
-        <div id="add-task-pop-up-container" class="add-task-pop-up-container">
-            <div id="add-task-pop-up" class="add-task-pop-up">
+        <div id="pop-up-container" class="pop-up-container">
+            <div id="add-task-pop-up" class="add-task-pop-up pop-up">
                 <div w3-include-html="assets/templates/add-task-template.html"></div>
-                <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('add-task-pop-up')">
+                <img class="close-pop-up-icon close-add-task-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('add-task-pop-up')">
+            </div>
+            <div id="move-task-pop-up" class="medium-pop-up pop-up">
+                <div class="move-task-pop-up-header">
+                    <h2>Move Task</h2>
+                    <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('move-task-pop-up')">
+                </div>
+                <button class="medium-dark-button" onclick="moveTaskFromPopup('To do')">To "To do"</button>
+                <button class="medium-dark-button" onclick="moveTaskFromPopup('In progress')">To "In progress"</button>
+                <button class="medium-dark-button" onclick="moveTaskFromPopup('Await feedback')">To "Await feedback"</button>
+                <button class="medium-dark-button" onclick="moveTaskFromPopup('Done')">To "Done"</button>
             </div>
         </div>
         <div id="main">
@@ -44,7 +54,7 @@
                             </form>
                             <img class="search-icon" src="assets/img/search-icon.svg" alt="search icon">
                         </div>
-                        <button class="medium-dark-button" onclick="openAddTaskPopup('to-do')">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
+                        <button class="medium-dark-button add-task-button-desktop" onclick="openAddTaskPopup('to-do')">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
                     </div>
                     <div id="board-column-headers-container-desktop" class="board-columns-container">
                         <div class="board-column">

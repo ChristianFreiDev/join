@@ -176,6 +176,22 @@ h2 {
     font-weight: 400;
 }
 
+.task-category-and-mobile-drag-arrows-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.move-arrows {
+    font-size: 20px;
+    height: 32px;
+    width: 32px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
 .task-category {
     color: #FFFFFF;
     border-radius: 8px;
@@ -263,9 +279,10 @@ progress::-webkit-progress-value {
     font-weight: 400;
 }
 
-.add-task-pop-up-container {
+.pop-up-container {
     display: none;
-    position: absolute;
+    position: fixed;
+    z-index: 3;
     top: 0;
     left: 0;
     height: 100%;
@@ -274,16 +291,29 @@ progress::-webkit-progress-value {
 }
 
 .add-task-pop-up {
-    left: 50%;
     height: 870px;
     background-color: white;
     width: 1126px;
-    position: absolute;
-    top: 50%;
-    transform: translate(100%, -50%);
-    z-index: 2;
+}
+
+.medium-pop-up {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    width: 525px;
+    padding: 48px 40px;
+    background-color: white;
+}
+
+.pop-up {
+    display: none;
     border-radius: 30px;
     box-shadow: 0px 0px 4px 0px #0000001A;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(100%, -50%);
     transition: transform 125ms;
 }
 
@@ -292,11 +322,20 @@ progress::-webkit-progress-value {
 }
 
 .close-pop-up-icon {
+    cursor: pointer;
+}
+
+.close-add-task-pop-up-icon {
+    z-index: 3;
     position: absolute;
     top: 64px;
     right: 40px;
-    z-index: 3;
-    cursor: pointer;
+}
+
+.move-task-pop-up-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 @media (max-width: 1439px) {
@@ -321,7 +360,7 @@ progress::-webkit-progress-value {
 }
 
 @media (max-width: 1135px) {
-    .medium-dark-button {
+    .add-task-button-desktop {
         display: none;
     }
     .add-task-button-tablet {
@@ -351,6 +390,7 @@ progress::-webkit-progress-value {
     .board-columns-container {
         margin-bottom: 128px;
     }
+
 }
 
 @media (max-width: 700px) {
@@ -371,10 +411,29 @@ progress::-webkit-progress-value {
     .board-actions-container, .board-search-input-container, .board-search-input-container form, #board-search-input {
         width: 100%;
     }
+    .medium-pop-up {
+        padding: 32px 24px;
+        width: 396px;
+        gap: 16px;
+    }
+    .medium-pop-up h2 {
+        font-size: 36px;
+    }
 }
 
 @media (max-width: 500px) {
     .board-top-container, .board-columns-container {
         padding: 0 16px;
+    }
+    .medium-pop-up {
+        padding: 24px 16px;
+        width: 300px;
+        gap: 12px;
+    }
+}
+
+@media (pointer: coarse) {
+    .move-arrows {
+        display: flex;
     }
 }
