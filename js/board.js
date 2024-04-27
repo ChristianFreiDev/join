@@ -103,6 +103,24 @@ function stopHighlightingArea(id) {
 
 
 /**
+ * This function returns an HTML template showing the progress of a task or an empty string if there are no subtasks
+ * @param {Object} task 
+ * @param {number} doneSubtasks number of completed subtasks
+ * @returns 
+ */
+function generateTaskProgressContainerTemplate(task, doneSubtasks) {
+    if (task.subtasks.length > 0) {
+        return /* html */ `<div class="task-progress-container">
+            <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
+            <span>${doneSubtasks}/${task.subtasks.length} subtasks</span>
+        </div>`;
+    } else {
+        return '';
+    }
+}
+
+
+/**
  * This function returns an HTML template of a task
  * @param {Object} task
  * @param {number} doneSubtasks number of completed subtasks
@@ -115,10 +133,7 @@ function taskTemplate(task, doneSubtasks) {
                 <div class="task-title">${task.title}</div>
                 <div class="task-description">${task.description}</div>
             </div>
-            <div>
-                <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
-                <span>${doneSubtasks}/${task.subtasks.length}</span>
-            </div>
+            ${generateTaskProgressContainerTemplate(task, doneSubtasks)}
             <div class="initial-avatars-and-priority-container">
                 <div id="initial-avatars">${generateInitialAvatarsTemplate(task)}</div>
                 <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">

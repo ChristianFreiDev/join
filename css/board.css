@@ -193,7 +193,15 @@ h2 {
     color: #A8A8A8;
 }
 
+.task-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 12px;
+}
+
 .task-progress {
+    width: 128px;
     height: 8px;
     border: none;
 }
