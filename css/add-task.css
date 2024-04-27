@@ -70,6 +70,7 @@
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
+    font-size: 1.8rem;
 }
 
 #input-due-date {
@@ -249,3 +250,4 @@ cursor: pointer;
 .clear-task:hover svg path{             
     stroke: #29ABE2;
 }
+
