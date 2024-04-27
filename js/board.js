@@ -13,8 +13,18 @@ function allowTaskDrop(event) {
  * This function stores the ID of the task that is currently being dragged in a global variable
  * @param {number} id 
  */
-function startDraggingTask(id) {
+function startDraggingTask(event, id) {
     draggedTaskId = id;
+    event.target.classList.add('rotate-task');
+}
+
+
+/**
+ * This function removes the task rotation if the drag event ends without the task being dropped anywhere
+ * @param {Event} event 
+ */
+function endDraggingTask(event) {
+    event.target.classList.remove('rotate-task');
 }
 
 
@@ -23,12 +33,13 @@ function startDraggingTask(id) {
  * @param {string} id 
  */
 function centerPopup(id) {
-    let addTaskPopup = document.getElementById(id);
-    let addTaskPopupContainer = document.getElementById('add-task-pop-up-container');
-    addTaskPopupContainer.style.display = 'block';
+    let popup = document.getElementById(id);
+    let popupContainer = document.getElementById('pop-up-container');
+    popupContainer.style.display = 'block';
+    popup.style.display = 'flex';
     // This is needed for the function to work:
     setTimeout(function() {
-        addTaskPopup.classList.add('center-pop-up')
+        popup.classList.add('center-pop-up')
         document.body.style.overflow = 'hidden';
     }, 0);
 }
@@ -39,13 +50,41 @@ function centerPopup(id) {
  * @param {string} id 
  */
 function removePopup(id) {
-    let addTaskPopup = document.getElementById(id);
-    let addTaskPopupContainer = document.getElementById('add-task-pop-up-container');
-    addTaskPopup.classList.remove('center-pop-up');
+    let popup = document.getElementById(id);
+    let popupContainer = document.getElementById('pop-up-container');
+    popup.classList.remove('center-pop-up');
+    // Wait for transition to end, then hide pop-up container and enable scrolling again:
     setTimeout(function() {
-        addTaskPopupContainer.style.display = 'none';
+        popup.style.display = 'none';
+        popupContainer.style.display = 'none';
         document.body.style.overflow = 'auto';
     }, 126);
+}
+
+
+/**
+ * This function opens the add-task popup
+ * @param {string} statusId task status ID
+ */
+function openAddTaskPopup(statusId) {
+    centerPopup('add-task-pop-up');
+    // This should actually change the onsubmit attribute of the form once the form supports it
+    let createTaskButton = document.getElementById('create-task-button');
+    createTaskButton.setAttribute('onclick', createTaskFromBoard(statusId));
+}
+
+
+/**
+ * This function creates a task from the board's task pop-up
+ * @param {string} statusId task status ID
+ */
+function createTaskFromBoard(statusId) {
+    console.log(statusId);
+}
+
+
+function moveTaskToStatus(taskId, status) {
+    tasks[taskId].status = status;
 }
 
 
@@ -54,9 +93,9 @@ function removePopup(id) {
  * @param {Event} event 
  */
 function dropTaskInArea(id, status) {
-    tasks[draggedTaskId].status = status;
+    moveTaskToStatus(draggedTaskId, status);
     renderTasks(tasks);
-    stopHighlightingArea(id)
+    stopHighlightingArea(id);
 }
 
 
@@ -80,6 +119,37 @@ function stopHighlightingArea(id) {
 }
 
 
+function openMoveTaskPopup(taskId) {
+    draggedTaskId = taskId;
+    centerPopup('move-task-pop-up');
+}
+
+function moveTaskFromPopup(status) {
+    removePopup('move-task-pop-up');
+    moveTaskToStatus(draggedTaskId, status);
+    renderTasks(tasks);
+}
+
+
+/**
+ * This function returns an HTML template showing the progress of a task or an empty string if there are no subtasks
+ * @param {Object} task 
+ * @param {number} doneSubtasks number of completed subtasks
+ * @returns 
+ */
+function generateTaskProgressContainerTemplate(task, doneSubtasks) {
+    if (task.subtasks.length > 0) {
+        return /* html */ `<div class="task-progress-container">
+            <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
+            <span>${doneSubtasks}/${task.subtasks.length} subtasks</span>
+            <span class="subtask-tooltip">${doneSubtasks} of ${task.subtasks.length} subtasks completed</span>
+        </div>`;
+    } else {
+        return '';
+    }
+}
+
+
 /**
  * This function returns an HTML template of a task
  * @param {Object} task
@@ -87,16 +157,16 @@ function stopHighlightingArea(id) {
  * @returns {string} task HTML template
  */
 function taskTemplate(task, doneSubtasks) {
-    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(${task.id})">
-            <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
+    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)">
+            <div class="task-category-and-mobile-drag-arrows-container">
+                <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
+                <div class="move-arrows" onclick="openMoveTaskPopup(${task.id})">⇵</div>
+            </div>
             <div class="task-title-and-description-container">
                 <div class="task-title">${task.title}</div>
                 <div class="task-description">${task.description}</div>
             </div>
-            <div>
-                <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
-                <span>${doneSubtasks}/${task.subtasks.length}</span>
-            </div>
+            ${generateTaskProgressContainerTemplate(task, doneSubtasks)}
             <div class="initial-avatars-and-priority-container">
                 <div id="initial-avatars">${generateInitialAvatarsTemplate(task)}</div>
                 <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">

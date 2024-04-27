@@ -6,10 +6,10 @@ async function initIndex() {
     document.getElementById('login-logo').classList.add('animate-logo');
     await loadUsers();
     saveVariableInLocalStorage('currentJoinUserId', -1);
-    saveVariableInLocalStorage('currentJoinUserEmail', 0);
-    saveVariableInLocalStorage('currentJoinUserPassword', 0);
     checkForRememberedUser();
-
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', 'G');
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', '');
+    changePasswordVisibility('login-password-icon', 'login-password-input', true);
 }
 
 
@@ -22,6 +22,7 @@ function checkForRememberedUser() {
             if (users[i].id == rememberedUser()) {
                 document.getElementById('login-email-input').value = users[i].eMail;
                 document.getElementById('login-password-input').value = users[i].password;
+                document.getElementById('login-checkbox').checked = true;
             }
         }
     }
@@ -91,24 +92,11 @@ function openLogInMenu() {
  */
 function login(guest = false) {
     if (guest) {
+        setRememberMeValues(guest, 0);
         saveVariableInLocalStorage('currentJoinUserId', 0);
         goToSummary();
     } else {
-        let email = document.getElementById('login-email-input').value;
-        let password = document.getElementById('login-password-input').value;
-        for (let i = 0; i < users.length; i++) {
-            if (userLoggedInSuccessfully(email, password, i)) {
-                loggedIn = true;
-                saveVariableInLocalStorage('currentJoinUserId', users[i].id);
-                saveVariableInLocalStorage('currentJoinUserEmail', email);
-                saveVariableInLocalStorage('currentJoinUserPassword', password);
-                if (rememberUser()) {
-                    saveVariableInLocalStorage('rememberUserId', users[i].id);
-                } else {
-                    saveVariableInLocalStorage('rememberUserId', users[i].false);
-                }
-            }
-        }
+        checkUserValues();
         if (loggedIn) {
             goToSummary();
         } else {
@@ -117,6 +105,55 @@ function login(guest = false) {
              * Lasse "I forgot my password" erscheinen.
             */
         }
+    }
+}
+
+
+/**
+ * This function checks the input values and saves its data to local storage by success.
+ */
+function checkUserValues() {
+    let email = document.getElementById('login-email-input').value;
+    let password = document.getElementById('login-password-input').value;
+    for (let i = 0; i < users.length; i++) {
+        if (userLoggedInSuccessfully(email, password, i)) {
+            loggedIn = true;
+            setRememberMeValues(false, i);
+        }
+    }
+}
+
+
+/**
+ * This function sets the values if an user wants to be reminded.
+ * 
+ * @param {boolean} guest 
+ * @param {number} i 
+ */
+function setRememberMeValues(guest = false, i) {
+    saveVariableInLocalStorage('currentJoinUserId', users[i].id);
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', getInitials('firstName', i));
+    saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', getInitials('lastName', i));
+    if (rememberUser() && !guest) {
+        saveVariableInLocalStorage('rememberUserId', users[i].id);
+    } else if (!rememberUser()) {
+        saveVariableInLocalStorage('rememberUserId', false);
+    }
+}
+
+
+/**
+ * This function searches for the first character in a string, when a string exists.
+ * 
+ * @param {string} name 
+ * @param {number} i 
+ * @returns the first character in upper case of the string or an empty string.
+ */
+function getInitials(name, i) {
+    if (users[i][`${name}`]) {
+        return users[i][`${name}`][0].toLocaleUpperCase();
+    } else {
+        return '';
     }
 }
 
@@ -157,7 +194,7 @@ function signup() {
 
 
 /**
- * This function change the icon in the input feld, by doing the first input.
+ * This function changes the icon in the input feld, by doing the first input.
  * 
  * @param {string} idIcon 
  */
@@ -171,7 +208,7 @@ function changePasswordIcon(idIcon) {
 
 
 /**
- * This function reset the input icon, when it´s empty and focused out.
+ * This function resets the input icon, when it´s empty and focused out.
  * 
  * @param {string} idIcon 
  * @param {string} idInput 
@@ -189,24 +226,69 @@ function resetPasswordIcon(idIcon, idInput) {
 
 
 /**
- * This function change the password visibility, when the input feld is not empty and set focus back on the input feld after last sign.
+ * This function changes the password visibility, when the input feld is not empty and set focus back on the input feld after last sign.
  * 
  * @param {string} idIcon 
  * @param {string} idInput 
  */
-function changePasswordVisibility(idIcon, idInput) {
+function changePasswordVisibility(idIcon, idInput, init = false) {
     let passwordInputIcon = document.getElementById(idIcon);
     let input = document.getElementById(idInput);
-    if (input.value.length > 0) {
-        if (passwordInputIcon.src.endsWith('visibility-off.svg')) {
-            passwordInputIcon.src = `./../assets/img/visibility-on.svg`;
-            input.type = 'text'
-            passwordInputIcon.style.cursor = 'pointer';
+    if (imputIsFilled(input)) {
+        if (visibilityOffIconIsShown(passwordInputIcon)) {
+            setPropertiesForVisibilityOn(passwordInputIcon, input);
         } else {
-            passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
-            input.type = 'password'
-            passwordInputIcon.style.cursor = 'pointer';
+            setPropertiesForVisibilityOff(passwordInputIcon, input);
         }
     }
-    input.focus(this.value);
+    if (!init) {
+        input.focus(this.value);
+    }
+}
+
+/**
+ * This function changes Input icon, input type and cursor style to visibility on.
+ * 
+ * @param {Element} passwordInputIcon 
+ * @param {Element} input 
+ */
+function setPropertiesForVisibilityOn(passwordInputIcon, input) {
+    passwordInputIcon.src = `./../assets/img/visibility-on.svg`;
+    input.type = 'text'
+    passwordInputIcon.style.cursor = 'pointer';
+}
+
+
+/**
+ * This function changes Input icon, input type and cursor style to visibility off.
+ * 
+ * @param {Element} passwordInputIcon 
+ * @param {Element} input 
+ */
+function setPropertiesForVisibilityOff(passwordInputIcon, input) {
+    passwordInputIcon.src = `./../assets/img/visibility-off.svg`;
+    input.type = 'password'
+    passwordInputIcon.style.cursor = 'pointer';
+}
+
+
+/**
+ * This function checks if the input icon is the visibility-off icon.
+ * 
+ * @param {Element} passwordInputIcon 
+ * @returns Boolean
+ */
+function visibilityOffIconIsShown(passwordInputIcon) {
+    return passwordInputIcon.src.endsWith('visibility-off.svg');
+}
+
+
+/**
+ * This function checks if the input value is bigger than Zero.
+ * 
+ * @param {Element} input 
+ * @returns boolean.
+ */
+function imputIsFilled(input) {
+    return input.value.length > 0;
 }

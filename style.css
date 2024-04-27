@@ -152,6 +152,10 @@ p {
     display: none !important;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .outer-container {
     background-color: var(--color-main);
     margin: auto;

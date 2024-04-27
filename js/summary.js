@@ -3,31 +3,18 @@
  * Also by showing the right values of users tasks.
  */
 async function initSummary() {
+    greetUser();
     await init();
     await loadTasks();
-    verifyUser();
-    filterTasks();
     showSummaryValues();
 }
 
-async function verifyUser() {
-    await loadUsers();
-    loadVariableFromLocalStorage('currentJoinUserId');
-    loadVariableFromLocalStorage('currentJoinUserEmail');
-    loadVariableFromLocalStorage('currentJoinUserPassword');
-    for (let i = 0; i < users.length; i++) {
-        const element = users[i];
-        
-    }
-}
 
-function filterTasks() {
-    tasks = [];
-    for (let i = 0; i < responseTasks.length; i++) {
-        if (responseTasks[i].collaborators.indexOf(loadArrayFromLocalStorage('currentJoinUserId')) > -1) {
-            tasks.push(responseTasks[i]);
-        }
-    }
+function greetUser() {
+    /**
+     * Check windowsize. Ab 1400px muss die Einblendung erfolgen
+     * Darüber soll der Name geändert werden und bei Gast soll beiden Enblendungen das Komma entfernt werden und der Name.
+     */
 }
 
 
