@@ -194,6 +194,7 @@ h2 {
 }
 
 .task-progress-container {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 11px;
@@ -214,6 +215,22 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
     background-color: #4589FF;
     border-radius: 16px;
+}
+
+.subtask-tooltip {
+    color: #FFFFFF;
+    background-color: #4589FF;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px 3px #00000014;
+    position: absolute;
+    top: 26px;
+    right: 0;
+    visibility: hidden;
+}
+
+.task-progress-container:hover .subtask-tooltip {
+    visibility: visible;
 }
 
 .initial-avatars-and-priority-container {

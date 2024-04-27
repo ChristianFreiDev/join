@@ -113,6 +113,7 @@ function generateTaskProgressContainerTemplate(task, doneSubtasks) {
         return /* html */ `<div class="task-progress-container">
             <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
             <span>${doneSubtasks}/${task.subtasks.length} subtasks</span>
+            <span class="subtask-tooltip">${doneSubtasks} of ${task.subtasks.length} subtasks completed</span>
         </div>`;
     } else {
         return '';
