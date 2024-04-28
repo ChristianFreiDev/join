@@ -187,7 +187,7 @@ function contactProfileTemplate(contact, contactColor) {
     <div class="contact-information-facts-container">
         <div class="contact-information-fact">
             <div class="contact-information-fact-heading">Email</div>
-            <div>${contact.eMail}</div>
+            <a href="mailto:${contact.eMail}">${contact.eMail}</a>
         </div>
         <div class="contact-information-fact">
             <div class="contact-information-fact-heading">Phone</div>
