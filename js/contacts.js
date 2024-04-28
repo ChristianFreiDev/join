@@ -177,7 +177,7 @@ function contactProfileTemplate(contact, contactColor) {
                         <span>Edit</span>
                     </div>
                     <div class="contact-button cursor-pointer" onclick="deleteContact('${contact.eMail}')">
-                        <img src="assets/img/contact-edit-button-icon.svg" alt="contact edit button icon">
+                        <img src="assets/img/contact-delete-button-icon.svg" alt="contact delete button icon">
                         <span>Delete</span>
                     </div>
                 </div>
