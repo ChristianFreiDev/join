@@ -25,3 +25,36 @@
         align-items: center;
     }
 }
+
+@media(max-width: 460px){
+    .content-container{
+        display: block;
+    }
+    .add-task-headline{
+        margin-bottom: 16px;
+    }
+    #input-title{
+        width: 90%;
+    }
+    #input-description{
+        width: 90%;
+    }
+    #input-description{
+        width: 90%;
+    }
+    #input-assigned-to{
+        width: 90%;
+    }
+    #input-due-date{
+        width: 90%;
+    }
+    .add-task-priority{
+        width: 90%;
+    }
+    #input-category{
+        width: 90%;
+    }
+    #input-subtasks{
+        width: 90%;
+    }
+}
