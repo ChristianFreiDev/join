@@ -381,16 +381,15 @@ progress::-webkit-progress-value {
         align-items: center;
         margin-bottom: 40px;
     }
-    h2 {
-        font-size: 47px;
-    }
 }
 
 @media (max-width: 920px) {
     .board-columns-container {
         margin-bottom: 128px;
     }
-
+    h2 {
+        font-size: 47px;
+    }
 }
 
 @media (max-width: 700px) {
