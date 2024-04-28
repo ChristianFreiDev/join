@@ -190,11 +190,11 @@
 }
 
 .this-field-is-required{
-    margin-top: 223px;
+    margin-top: 139px;
 }
 
 .add-task-submit-butttons{
-    margin-top: 146px;
+    margin-top: 97px;
     margin-left: 131px;
     display: flex;
     gap: 16px;
@@ -251,3 +251,8 @@ cursor: pointer;
     stroke: #29ABE2;
 }
 
+
+.under-form{
+    display: flex;
+    gap: 472px;
+}
