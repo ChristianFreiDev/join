@@ -8,36 +8,6 @@ async function initContacts() {
 
 
 /**
- * This function generates an HTML template for the letter that is used as a heading for contacts with first names beginning with the same letter
- * @param {string} letter 
- * @returns {string} contact letter HTML template
- */
-function contactLetterTemplate(letter) {
-    return /* html */ `<div class="contact-letter">${letter}</div>
-                        <div class="contacts-separator-container">
-                            <hr>
-                        </div>`;
-}
-
-
-/**
- * This function generates an HTML template for the contact in the contacts list
- * @param {Object} contact 
- * @param {string} userColor 
- * @returns 
- */
-function contactInListTemplate(contact, contactColor, contactIndex) {
-    return /* html */ `<div class="contact-in-list cursor-pointer" onclick="openContact(${contactIndex})">
-        <div class="contact-initial-avatar-small ${contactColor}">${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}</div>
-        <div class="contact-in-list-info">
-            <div>${contact.firstName} ${contact.lastName}</div>
-            <a href="mailto:${contact.eMail}">${contact.eMail}</a>
-        </div>
-    </div>`;
-}
-
-
-/**
  * This function returns a random user color
  * @returns {string} random user color, values ranging from user-color0 to user-color14
  */
@@ -156,45 +126,6 @@ function deleteContact(contactEMail) {
     renderContacts();
     let contactProfile = document.getElementById('contact-profile');
     contactProfile.innerHTML = '';
-}
-
-
-/**
- * This function generates a contact profile HTML template
- * @param {Object} contact 
- * @param {string} contactColor
- * @returns {string} contact profile HTML template
- */
-function contactProfileTemplate(contact, contactColor) {
-    return /* html */ `
-    <div class="contact-profile-header">
-        <div class="contact-initial-avatar-large ${contactColor}">${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}</div>
-            <div class="contact-name-and-buttons-container">
-                <h3>${contact.firstName} ${contact.lastName}</h3>
-                <div class="contact-buttons">
-                    <div class="contact-button">
-                        <img src="assets/img/contact-edit-button-icon.svg" alt="contact edit button icon">
-                        <span>Edit</span>
-                    </div>
-                    <div class="contact-button cursor-pointer" onclick="deleteContact('${contact.eMail}')">
-                        <img src="assets/img/contact-delete-button-icon.svg" alt="contact delete button icon">
-                        <span>Delete</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <div class="contact-information-heading">Contact information</div>
-    <div class="contact-information-facts-container">
-        <div class="contact-information-fact">
-            <div class="contact-information-fact-heading">Email</div>
-            <a href="mailto:${contact.eMail}">${contact.eMail}</a>
-        </div>
-        <div class="contact-information-fact">
-            <div class="contact-information-fact-heading">Phone</div>
-            <div>${contact.phone}</div>
-        </div>
-    </div>
-    `;
 }
 
 
