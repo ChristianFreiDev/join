@@ -85,6 +85,7 @@ function createTaskFromBoard(statusId) {
 
 function moveTaskToStatus(taskId, status) {
     tasks[taskId].status = status;
+    storeTasks();
 }
 
 
