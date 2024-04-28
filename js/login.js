@@ -229,7 +229,8 @@ function resetPasswordIcon(idIcon, idInput) {
  * This function changes the password visibility, when the input feld is not empty and set focus back on the input feld after last sign.
  * 
  * @param {string} idIcon 
- * @param {string} idInput 
+ * @param {string} idInput
+ * @param {boolean} init
  */
 function changePasswordVisibility(idIcon, idInput, init = false) {
     let passwordInputIcon = document.getElementById(idIcon);

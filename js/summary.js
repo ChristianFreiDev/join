@@ -11,6 +11,10 @@ async function initSummary() {
 
 
 function greetUser() {
+    if (window.screen.width <= 1400) {
+        
+    }
+
     /**
      * Check windowsize. Ab 1400px muss die Einblendung erfolgen
      * Darüber soll der Name geändert werden und bei Gast soll beiden Enblendungen das Komma entfernt werden und der Name.

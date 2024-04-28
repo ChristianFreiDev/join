@@ -27,7 +27,6 @@
     flex-direction: column;
     gap: 28px;
     font-size: 2rem;
-    margin-bottom: 127px;
 }
 
 .summary-overview-container-section {
@@ -143,33 +142,10 @@
     gap: 18px;
 }
 
-@media (max-width: 1400px) {
-    #summary-greeding-box {
-        display: none;
-    }
-}
-
-@media (max-width: 1000px) {
-    .summary-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .summary-header-seperator-horizontal {
-        display: none;
-    }
-
+@media (max-width: 1439px) {
     .summary-header {
         gap: 8px;
         margin-bottom: 40px;
-    }
-
-    .summary-header-seperator-vertical {
-        display: block;
-        width: 90px;
-        border: 3px solid var(--color-accent);
-        border-radius: 3px;
-        margin-top: 8px;
     }
 
     .summary-button {
@@ -189,26 +165,60 @@
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1400px) {
+    #summary-greeding-box {
+        display: none;
+    }
+}
 
+@media (max-width: 1000px) {
+    .summary-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summary-header-seperator-vertical {
+        display: block;
+        width: 90px;
+        border: 3px solid var(--color-accent);
+        border-radius: 3px;
+        margin-top: 8px;
+    }
+
+    .summary-header-seperator-horizontal {
+        display: none;
+    }
+
+    .summary-overview-container {
+        margin-bottom: 27px;
+    }
+}
+
+@media (max-width: 920px) {
+    .summary-overview-container {
+        margin-bottom: 127px;
+    }
+}
+
+@media (max-width: 750px) {
     .summary-button:hover {
         background-color: white;
         scale: 1;
         color: var(--color-menu);
     }
-    
+
     .summary-button:hover .summary-status-icon-box {
         background-color: var(--color-menu);
     }
-    
+
     .summary-button:hover .summary-status-icon {
         filter: unset;
     }
-    
+
     .summary-left-button:hover {
         transform: unset;
     }
-    
+
     .summary-right-button:hover {
         transform: unset;
     }
@@ -219,14 +229,12 @@
 }
 
 @media (max-width: 500px) {
-
-
     #summary-priority-icon-box {
         height: 40px;
         width: 40px;
         border-radius: 20px;
     }
-    
+
     #summary-priority-icon {
         width: 35px;
         height: 26px;
@@ -238,13 +246,13 @@
         width: 40px;
         border-radius: 20px;
     }
-    
+
     .summary-status-icon {
         width: 16px;
         height: 18px;
         object-fit: contain;
     }
-    
+
     .hook-icon {
         height: 12px;
         width: 17px;

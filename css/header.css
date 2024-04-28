@@ -105,3 +105,17 @@ header nav a:hover {
         display: none;
     }
 }
+
+@media (max-width: 420px) {
+    header {
+        height: 80px;
+    }
+
+    #header-logo {
+        scale: 0.85;
+    }
+
+    .header-user-icon {
+        scale: 0.85;
+    }
+}
