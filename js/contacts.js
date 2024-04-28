@@ -3,6 +3,7 @@
  */
 async function initContacts() {
     await init();
+    await Promise.all([loadUsers(), loadTasks(), loadContacts()]);
     renderContacts();
 }
 
@@ -104,6 +105,8 @@ function removeUserFromAssignedTasks(contactEMail) {
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         let collaborators = task.collaborators;
+        console.log('collaborators', collaborators);
+        console.log('userId', userId);
         let collaboratorIndex = collaborators.indexOf(userId);
         if (collaboratorIndex > -1) {
             collaborators.splice(collaboratorIndex, 1);
@@ -116,13 +119,14 @@ function removeUserFromAssignedTasks(contactEMail) {
  * This function deletes a contact
  * @param {string} contactEMail e-mail adress of the contact
  */
-function deleteContact(contactEMail) {
+async function deleteContact(contactEMail) {
     let contact = contacts.find(contact => contact.eMail === contactEMail);
     let contactIndex = contacts.indexOf(contact);
     if (contactIndex > -1) {
         contacts.splice(contactIndex, 1);
     }
     removeUserFromAssignedTasks(contactEMail);
+    await Promise.all([storeTasks(), storeContacts()]);
     renderContacts();
     let contactProfile = document.getElementById('contact-profile');
     contactProfile.innerHTML = '';

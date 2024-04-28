@@ -132,50 +132,6 @@ function moveTaskFromPopup(status) {
 
 
 /**
- * This function returns an HTML template showing the progress of a task or an empty string if there are no subtasks
- * @param {Object} task 
- * @param {number} doneSubtasks number of completed subtasks
- * @returns 
- */
-function generateTaskProgressContainerTemplate(task, doneSubtasks) {
-    if (task.subtasks.length > 0) {
-        return /* html */ `<div class="task-progress-container">
-            <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
-            <span>${doneSubtasks}/${task.subtasks.length} subtasks</span>
-            <span class="subtask-tooltip">${doneSubtasks} of ${task.subtasks.length} subtasks completed</span>
-        </div>`;
-    } else {
-        return '';
-    }
-}
-
-
-/**
- * This function returns an HTML template of a task
- * @param {Object} task
- * @param {number} doneSubtasks number of completed subtasks
- * @returns {string} task HTML template
- */
-function taskTemplate(task, doneSubtasks) {
-    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)">
-            <div class="task-category-and-mobile-drag-arrows-container">
-                <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
-                <div class="move-arrows" onclick="openMoveTaskPopup(${task.id})">⇵</div>
-            </div>
-            <div class="task-title-and-description-container">
-                <div class="task-title">${task.title}</div>
-                <div class="task-description">${task.description}</div>
-            </div>
-            ${generateTaskProgressContainerTemplate(task, doneSubtasks)}
-            <div class="initial-avatars-and-priority-container">
-                <div id="initial-avatars">${generateInitialAvatarsTemplate(task)}</div>
-                <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">
-            </div>
-        </div>`;
-}
-
-
-/**
  * This function grabs the initials of a user
  * @param {Object} user 
  * @returns {string} initial string
@@ -183,16 +139,6 @@ function taskTemplate(task, doneSubtasks) {
 function getInitials(user) {
     let initials = user.firstName.charAt(0) + user.lastName.charAt(0);
     return initials;
-}
-
-
-/**
- * This function returns an initial avatar HTML template for a user
- * @param {Object} user 
- * @returns {string} inital avatar HTML template
- */
-function initialAvatarTemplate(user) {
-    return /* html */ `<div class="initial-avatar ${user.color}">${getInitials(user)}</div>`;
 }
 
 
@@ -226,24 +172,6 @@ function getCollaborators(task) {
         collaborators.push(user);
     }
     return collaborators;
-}
-
-
-/**
- * This function returns an HTML template with inital avatars of all the collaborators of a task
- * @param {Object} task 
- * @returns {string} HTML string of initial avatar divs
- */
-function generateInitialAvatarsTemplate(task) {
-    let collaborators = getCollaborators(task);
-    let HTMLString = '';
-    if (collaborators) {
-        for (let i = 0; i < collaborators.length; i++) {
-            let collaborator = collaborators[i];
-            HTMLString += initialAvatarTemplate(collaborator);
-        }
-    }
-    return HTMLString;
 }
 
 
@@ -317,6 +245,7 @@ function clearTasks() {
  */
 async function initBoard() {
     await init();
+    await Promise.all([loadTasks(), loadUsers()]);
     renderTasks(tasks);
 }
 

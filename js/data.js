@@ -1,4 +1,6 @@
-let users = [
+let users = [];
+
+let offlineUsers = [
     {
         firstName: 'Guest',
         lastName: '',
@@ -41,7 +43,9 @@ let users = [
     },
 ];
 
-let tasks = [
+let tasks = [];
+
+let offlineTasks = [
     {
         title: 'Contact Form & Imprint',
         description: 'Create a contact form and imprint page.',
@@ -132,7 +136,9 @@ let tasks = [
     },
 ];
 
-let contacts =  [
+let contacts =  [];
+
+let offlineContacts =  [
     {
         firstName: 'Alexander',
         lastName: 'Müller',
