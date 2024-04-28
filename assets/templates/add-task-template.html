@@ -5,9 +5,7 @@
       <div class="add-task-left-container">
         <div class="frame-219">
           <div class="title-v1">
-            <span class="add-task-text"
-              >Title<span class="color-red">*</span></span
-            >
+            <span class="add-task-text">Title<span class="color-red">*</span></span>
             <form>
               <input id="input-title" placeholder="Enter a title" type="text" />
             </form>
@@ -16,21 +14,20 @@
             <span class="add-task-text">Description</span>
             <form>
               <textarea id="input-description" placeholder="Enter a Description" type="text"></textarea>
-
             </form>
           </div>
-          <div class="assigned-to-v1">
+          <div class="assigned-to">
             <span class="add-task-text">Assigned to</span>
-            <form>
+            <div>
               <select id="input-assigned-to">
                 <option value="" disabled selected hidden>Select contacts to assign</option>
               </select>
-            </form>
+            </div>
+
+
           </div>
         </div>
-        <div class="this-field-is-required">
-          <span class="color-red">*</span>This field is required
-        </div>
+       
       </div>
 
       <div class="add-task-vector"></div>
@@ -38,9 +35,7 @@
       <div class="add-task-right-container">
         <div class="frame-39">
           <div class="due-date-v1">
-            <span class="add-task-text"
-              >Due date<span class="color-red">*</span></span
-            >
+            <span class="add-task-text">Due date<span class="color-red">*</span></span>
             <form>
               <input id="input-due-date" placeholder="dd/mm/yyyy" type="date" />
             </form>
@@ -50,29 +45,13 @@
           <div class="add-task-priority">
             <span class="add-task-text">Prio</span>
             <div class="priority-button">
-              <button
-                class="prio-button"
-                id="prio-urgent"
-                onclick="clickButton('urgent')"
-              >
+              <button class="prio-button" id="prio-urgent" onclick="clickButton('urgent')">
                 Urgent <img id="prio-arrow-up" src="/assets/img/prio-up.svg" />
               </button>
-              <button
-                class="prio-button"
-                id="prio-medium"
-                onclick="clickButton('medium')"
-              >
-                Medium
-                <img
-                  id="prio-medium-equals"
-                  src="/assets/img/prio-medium-orange.svg"
-                />
+              <button class="prio-button" id="prio-medium" onclick="clickButton('medium')">
+                Medium <img id="prio-medium-equals" src="/assets/img/prio-medium-orange.svg" />
               </button>
-              <button
-                class="prio-button"
-                id="prio-low"
-                onclick="clickButton('low')"
-              >
+              <button class="prio-button" id="prio-low" onclick="clickButton('low')">
                 Low <img id="prio-arrow-down" src="/assets/img/prio-down.svg" />
               </button>
             </div>
@@ -80,53 +59,39 @@
         </div>
         <div class="add-task-category">
           <div class="frame-74">
-            <span class="add-task-text"
-              >Category<span class="color-red">*</span></span
-            >
+            <span class="add-task-text">Category<span class="color-red">*</span></span>
             <form>
-              <input
-                id="input-category"
-                placeholder="Select a task category"
-                type="text"
-              />
+              <input id="input-category" placeholder="Select a task category" type="text" />
             </form>
           </div>
         </div>
         <div class="subtask-v1">
           <span class="add-task-text">Subtasks</span>
           <form>
-            <input
-              id="input-subtasks"
-              placeholder="Add new subtask"
-              type="text"
-            />
+            <input id="input-subtasks" placeholder="Add new subtask" type="text" />
           </form>
         </div>
-        <div class="add-task-submit-butttons">
-          <button class="clear-task">
-            Clear
-            <svg
-              width="13"
-              height="14"
-              viewBox="0 0 13 14"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z"
-                stroke="#2A3647"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-          <button id="create-task-button" class="create-task">
-            Create Task
-            <img src="/assets/img/check-create-task.svg" alt="check" />
-          </button>
-        </div>
+       
       </div>
+    </div>
+  </div>
+  <div class="under-form">
+    <div class="this-field-is-required">
+      <span class="color-red">*</span>This field is required
+    </div>
+    <div class="add-task-submit-butttons">
+      <button class="clear-task">
+        Clear
+        <svg width="13" height="14" viewBox="0 0 13 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z"
+            stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button id="create-task-button" class="create-task">
+        Create Task
+        <img src="/assets/img/check-create-task.svg" alt="check" />
+      </button>
     </div>
   </div>
 </section>
