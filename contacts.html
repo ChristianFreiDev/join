@@ -9,16 +9,38 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/summary.css">
+    <link rel="stylesheet" href="css/contacts.css">
     <script src="./js/storage.js"></script>
     <script src="script.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/contacts.js"></script>
 </head>
-<body onload="init()">
+<body onload="initContacts()">
     <div class="outer-container">
         <nav id="mobile-menu" class="display-none" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
-            <div>Contact content</div>
+            <div class="contacts-content-container">
+                <div class="contacts-left-side">
+                    <div class="add-contact-button-container">
+                        <button class="add-contact-button">Add new contact<img src="assets/img/add-contact-icon.svg" alt="add contact icon"></button>
+                    </div>
+                    <div id="contact-list"></div>
+                </div>
+                <div class="contacts-right-side content-container">
+                    <div class="contacts-header">
+                        <h2>Contacts</h2>
+                        <span class="contacts-header-separator-horizontal">|</span>
+                        <span>Better with a team</span>
+                        <div class="contacts-header-separator-vertical"></div>
+                    </div>
+                    <div id="contact-profile">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

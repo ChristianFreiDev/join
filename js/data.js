@@ -5,40 +5,40 @@ let users = [
         id: 0,
         color: 'user-color0',
         password: 'test123',
-        contacts: [2, 3], // user id
-        eMail: 'bernd-muster@example.de',
-        phone: '01451234567'
+        eMail: 'bernd-muster@example.de'
     },
     {
         firstName: 'Max',
-        lastName: 'Mustermann',
+        lastName: 'Zeller',
         id: 1,
         color: 'user-color1',
         password: 'test123',
-        contacts: [2, 3], // user id
-        eMail: 'max-mustermann@example.de',
-        phone: '43636574357'
+        eMail: 'max-zeller35@gmail.com'
     },
     {
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Johann',
+        lastName: 'Döhns',
         id: 2,
         color: 'user-color2',
         password: 'test123',
-        contacts: [1, 3], // user id
-        eMail: 'john-doe@example.de',
-        phone: '87658765'
+        eMail: 'johanndoehns@yahoo.com'
     },
     {
         firstName: 'Maria',
-        lastName: 'Musterfrau',
+        lastName: 'Heck',
         id: 3,
         color: 'user-color2',
         password: 'test123',
-        contacts: [1, 0], // user id
-        eMail: 'maria-musterfrau@example.de',
-        phone: '769786987698'
-    }
+        eMail: 'maria-heck@web.de'
+    },
+    {
+        firstName: 'Anne',
+        lastName: 'Wendt',
+        id: 4,
+        color: 'user-color9',
+        password: 'test123',
+        eMail: 'awendt95@gmail.com'
+    },
 ];
 
 let tasks = [
@@ -46,7 +46,7 @@ let tasks = [
         title: 'Contact Form & Imprint',
         description: 'Create a contact form and imprint page.',
         id: 0,
-        collaborators: [0, 1, 2], // user id
+        collaborators: [1, 2], // user id
         dueDate: 'May 06, 2024',
         priority: 'Urgent',
         category: 'User Story',
@@ -68,7 +68,7 @@ let tasks = [
         title: 'Kochwelt Page & Recipe Recommender',
         description: 'Build start page with recipe recommendation',
         id: 1,
-        collaborators: [0, 1, 3], // user id
+        collaborators: [1, 3, 4], // user id
         dueDate: 'May 06, 2024',
         priority: 'Medium',
         category: 'User Story',
@@ -90,7 +90,7 @@ let tasks = [
         title: 'HTML Base Templates Creation',
         description: 'Create reusable HTML base templates for Header and footer.',
         id: 2,
-        collaborators: [0, 2, 3], // user id
+        collaborators: [2, 3], // user id
         dueDate: 'May 05, 2024',
         priority: 'Low',
         category: 'Technical Task',
@@ -101,7 +101,7 @@ let tasks = [
         title: 'Daily Kochwelt Recipe',
         description: 'Implement daily recipe and portion calculator. Able to calculate are only positive values',
         id: 3,
-        collaborators: [0, 1, 2, 3], // user id
+        collaborators: [1, 2, 3, 4], // user id
         dueDate: 'May 03, 2024',
         priority: 'Medium',
         category: 'User Story',
@@ -112,7 +112,7 @@ let tasks = [
         title: 'CSS Architecture Planning',
         description: 'Define CSS naming conventions and structure.',
         id: 4,
-        collaborators: [0, 1, 2, 0], // user id
+        collaborators: [1, 2], // user id
         dueDate: 'May 01, 2024',
         priority: 'Urgent',
         category: 'Technical Task',
@@ -130,4 +130,63 @@ let tasks = [
             }
         ]
     },
-]
+];
+
+let contacts =  [
+    {
+        firstName: 'Alexander',
+        lastName: 'Müller',
+        color: 'user-color6',
+        eMail: 'alexm23452@gmail.com',
+        phone: '0160 246466363'
+    },
+    {
+        firstName: 'Anne',
+        lastName: 'Wendt',
+        color: 'user-color9',
+        eMail: 'awendt95@gmail.com',
+        phone: '0170 234664577'
+    },
+    {
+        firstName: 'Benjamin',
+        lastName: 'Bart',
+        color: 'user-color4',
+        eMail: 'bbbart@web.de',
+        phone: '0153 3466363646'
+    },
+    {
+        firstName: 'Berthold',
+        lastName: 'Sand',
+        color: 'user-color12',
+        eMail: 'bertsand@googlemail.com',
+        phone: '0150 24624628'
+    },
+    {
+        firstName: 'Max',
+        lastName: 'Zeller',
+        color: 'user-color2',
+        eMail: 'max-zeller35@gmail.com',
+        phone: '0148 23552873'
+    },
+    {
+        firstName: 'Johann',
+        lastName: 'Döhns',
+        color: 'user-color2',
+        eMail: 'johanndoehns@yahoo.com',
+        phone: '0163 65876585'
+    },
+    {
+        firstName: 'Maria',
+        lastName: 'Heck',
+        color: 'user-color8',
+        eMail: 'maria-heck@web.de',
+        phone: '0154 312748983'
+    },
+    {
+        firstName: 'Martin',
+        lastName: 'Huber',
+        color: 'user-color6',
+        eMail: 'mhub74@gmx.net',
+        phone: '0159 2132352537'
+    }
+];
