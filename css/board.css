@@ -195,6 +195,10 @@ h2 {
 .task-category {
     color: #FFFFFF;
     border-radius: 8px;
+}
+
+.task-category-small {
+    border-radius: 8px;
     padding: 4px 16px;
 }
 
@@ -280,6 +284,7 @@ progress::-webkit-progress-value {
 }
 
 .pop-up-container {
+    background-color: rgba(0, 0, 0, 0.2);
     display: none;
     position: fixed;
     z-index: 3;
@@ -292,7 +297,6 @@ progress::-webkit-progress-value {
 
 .add-task-pop-up {
     height: 870px;
-    background-color: white;
     width: 1126px;
 }
 
@@ -303,10 +307,10 @@ progress::-webkit-progress-value {
     gap: 24px;
     width: 525px;
     padding: 48px 40px;
-    background-color: white;
 }
 
 .pop-up {
+    background-color: #FFFFFF;
     display: none;
     border-radius: 30px;
     box-shadow: 0px 0px 4px 0px #0000001A;
@@ -332,10 +336,33 @@ progress::-webkit-progress-value {
     right: 40px;
 }
 
-.move-task-pop-up-header {
+.move-task-pop-up-header, .open-task-pop-up-header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.open-task-buttons-container, .open-task-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.open-task-due-date-outer-container, .open-task-priority-outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+#open-task-priority {
+    padding: 4px 18px;
+}
+
+.task-category-large {
+    padding: 4px 24px;
+    font-size: 23px;
 }
 
 @media (max-width: 1439px) {

@@ -74,6 +74,27 @@ function openAddTaskPopup(statusId) {
 }
 
 
+function fillopenTaskPopup(taskId) {
+    let task = tasks[taskId];
+    let openTaskPopupCategory = document.getElementById('open-task-pop-up-category');
+    openTaskPopupCategory.innerHTML = openTaskPopupCategoryTemplate(task);
+    let openTaskPopupHeading = document.getElementById('open-task-heading');
+    openTaskPopupHeading.innerHTML = task.title;
+    let openTaskPopupDescription = document.getElementById('open-task-description');
+    openTaskPopupDescription.innerHTML = task.description;
+    let openTaskPopupDueDate = document.getElementById('open-task-due-date');
+    openTaskPopupDueDate.innerHTML = task.dueDate;
+    let openTaskPopupPriority = document.getElementById('open-task-priority');
+    openTaskPopupPriority.innerHTML = task.priority;
+}
+
+
+function openTask(taskId) {
+    fillopenTaskPopup(taskId);
+    centerPopup('open-task-pop-up');
+}
+
+
 /**
  * This function creates a task from the board's task pop-up
  * @param {string} statusId task status ID
@@ -181,9 +202,9 @@ function getCollaborators(task) {
  * @param {string} status 
  * @returns 
  */
-function statusToId(status) {
-    let id = status.toLowerCase().replace(' ', '-');
-    return id;
+function statusToStatusId(status) {
+    let statusId = status.toLowerCase().replace(' ', '-');
+    return statusId;
 }
 
 
@@ -194,8 +215,8 @@ function statusToId(status) {
 function renderTask(task) {
     let doneSubtasks = calculateSubtasks(task);
     let status = task.status;
-    let id = statusToId(status);
-    document.getElementById(id).innerHTML += taskTemplate(task, doneSubtasks);
+    let statusId = statusToStatusId(status);
+    document.getElementById(statusId).innerHTML += taskTemplate(task, doneSubtasks);
 }
 
 
@@ -222,8 +243,8 @@ function addNoTasksMessage() {
         let status = statuses[i];
         let tasksWithStatusX = tasks.filter(task => task.status === status);
         if (tasksWithStatusX.length === 0) {
-            id = statusToId(status);
-            document.getElementById(id).innerHTML = `<div class="no-tasks-message">No tasks ${status.toLowerCase()}</div>`
+            let statusId = statusToStatusId(status);
+            document.getElementById(statusId).innerHTML = `<div class="no-tasks-message">No tasks ${status.toLowerCase()}</div>`
         } 
     }
 }

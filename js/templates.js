@@ -26,9 +26,9 @@ function generateTaskProgressContainerTemplate(task, doneSubtasks) {
  * @returns {string} task HTML template
  */
 function taskTemplate(task, doneSubtasks) {
-    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)">
+    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)" onclick="openTask(${task.id})">
             <div class="task-category-and-mobile-drag-arrows-container">
-                <div class="task-category ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
+                <div class="task-category task-category-small ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
                 <div class="move-arrows" onclick="openMoveTaskPopup(${task.id})">⇵</div>
             </div>
             <div class="task-title-and-description-container">
@@ -41,6 +41,11 @@ function taskTemplate(task, doneSubtasks) {
                 <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">
             </div>
         </div>`;
+}
+
+
+function openTaskPopupCategoryTemplate(task) {
+    return /* html */ `<div class="task-category task-category-large ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>`;
 }
 
 
