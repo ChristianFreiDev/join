@@ -1,5 +1,8 @@
 let priority = "none"
 
+
+//----------------------- Prio Buttons---------------------------------//
+
 /** 
  * This object is used to avoid repetitions at the prio buttons
  */
@@ -55,4 +58,23 @@ function clickButton(newPriority) {
     }
 }
 
+
+function addTask(){
+    title = document.getElementById('input-title');
+    description = document.getElementById('input-description');
+    date = document.getElementById('input-due-date');
+
+    let task = {
+        title: title.value,
+        description: description.value,
+        dueDate: date.value
+    };
+
+    tasks.push(task);
+    console.log(tasks);
+    title.value = '';
+    description.value = '';
+    date.value = '';
+
+}
 
