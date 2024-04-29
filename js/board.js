@@ -74,7 +74,7 @@ function openAddTaskPopup(statusId) {
 }
 
 
-function fillopenTaskPopup(taskId) {
+function fillOpenTaskPopup(taskId) {
     let task = tasks[taskId];
     let openTaskPopupCategory = document.getElementById('open-task-pop-up-category');
     openTaskPopupCategory.innerHTML = openTaskPopupCategoryTemplate(task);
@@ -90,7 +90,7 @@ function fillopenTaskPopup(taskId) {
 
 
 function openTask(taskId) {
-    fillopenTaskPopup(taskId);
+    fillOpenTaskPopup(taskId);
     centerPopup('open-task-pop-up');
 }
 
