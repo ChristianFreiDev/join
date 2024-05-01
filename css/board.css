@@ -283,6 +283,12 @@ progress::-webkit-progress-value {
     font-weight: 400;
 }
 
+.initial-avatar-large {
+    height: 42px;
+    width: 42px;
+    border: 2px solid #FFFFFF;
+}
+
 .pop-up-container {
     background-color: rgba(0, 0, 0, 0.2);
     display: none;
@@ -338,17 +344,47 @@ progress::-webkit-progress-value {
     right: 40px;
 }
 
+#open-task-pop-up {
+    max-height: 98%;
+}
+
 .move-task-pop-up-header, .open-task-pop-up-header {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
+.open-task-pop-up-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    height: 100%;
+    overflow-y: auto;
+}
+
 .open-task-buttons-container, .open-task-button {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 8px;
+}
+
+.open-task-buttons-container {
+    padding-right: 8px;
+}
+
+.open-task-button {
+    justify-content: center;
+}
+
+.open-task-buttons-container {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.open-task-button-separator {
+    height: 24px;
+    border: 1px solid #D1D1D1;
 }
 
 .open-task-due-date-outer-container, .open-task-priority-outer-container {
@@ -360,11 +396,69 @@ progress::-webkit-progress-value {
 
 #open-task-priority {
     padding: 4px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .task-category-large {
     padding: 4px 24px;
     font-size: 23px;
+}
+
+.collaborator-names-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.collaborator-name-outer-container {
+    padding: 7px 16px;
+}
+
+.collaborator-name-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.collaborator-names {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.collaborator-name {
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.subtasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.subtasks {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.subtask {
+    display: flex;
+    gap: 16px;
+    padding: 6px 16px;
+}
+
+.subtask:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.subtask-title {
+    font-size: 16px;
+    font-weight: 400;
 }
 
 @media (max-width: 1439px) {
@@ -455,7 +549,7 @@ progress::-webkit-progress-value {
     }
     .medium-pop-up {
         padding: 24px 16px;
-        width: 300px;
+        width: calc(100% - 32px);
         gap: 12px;
     }
 }

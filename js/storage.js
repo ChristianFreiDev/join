@@ -87,6 +87,13 @@ async function resetUsersTasksContacts() {
 }
 
 
+async function useOfflineData() {
+    tasks = offlineTasks;
+    users = offlineUsers;
+    contacts = offlineContacts;
+}
+
+
 function saveVariableInLocalStorage(key, variable) {
     localStorage.setItem(key, variable)
 }

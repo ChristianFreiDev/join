@@ -75,7 +75,7 @@ function openAddTaskPopup(statusId) {
 
 
 function fillOpenTaskPopup(taskId) {
-    let task = tasks[taskId];
+    let task = tasks.find(task => task.id === taskId);
     let openTaskPopupCategory = document.getElementById('open-task-pop-up-category');
     openTaskPopupCategory.innerHTML = openTaskPopupCategoryTemplate(task);
     let openTaskPopupHeading = document.getElementById('open-task-heading');
@@ -85,13 +85,43 @@ function fillOpenTaskPopup(taskId) {
     let openTaskPopupDueDate = document.getElementById('open-task-due-date');
     openTaskPopupDueDate.innerHTML = task.dueDate;
     let openTaskPopupPriority = document.getElementById('open-task-priority');
-    openTaskPopupPriority.innerHTML = task.priority;
+    openTaskPopupPriority.innerHTML = openTaskPopupPriorityTemplate(task);
+    let openTaskPopupCollaborators = document.getElementById('open-task-collaborators');
+    openTaskPopupCollaborators.innerHTML = generateCollaboratorNames(task);
+    let openTaskPopupSubtasks = document.getElementById('open-task-subtasks');
+    openTaskPopupSubtasks.innerHTML = generateSubtasks(task);
+    let openTaskDeleteButton = document.getElementById('open-task-delete-button');
+    openTaskDeleteButton.setAttribute('onclick', `deleteTask(${taskId})`);
 }
 
 
 function openTask(taskId) {
     fillOpenTaskPopup(taskId);
     centerPopup('open-task-pop-up');
+}
+
+
+function checkOrUncheckBox(taskId, subtaskIndex) {
+    let task = tasks.find(task => task.id === taskId);
+    let subtask = task.subtasks[subtaskIndex];
+    if (subtask.done) {
+        subtask.done = false;
+    } else {
+        subtask.done = true;
+    }
+    let openTaskPopupSubtasks = document.getElementById('open-task-subtasks');
+    openTaskPopupSubtasks.innerHTML = generateSubtasks(task);
+    renderTasks(tasks);
+}
+
+
+function deleteTask(taskId) {
+    let task = tasks.find(task => task.id === taskId);
+    let index = tasks.indexOf(task);
+    tasks.splice(index, 1);
+    // storeTasks();
+    removePopup('open-task-pop-up');
+    renderTasks(tasks);
 }
 
 
@@ -141,7 +171,8 @@ function stopHighlightingArea(id) {
 }
 
 
-function openMoveTaskPopup(taskId) {
+function openMoveTaskPopup(event, taskId) {
+    event.stopPropagation();
     draggedTaskId = taskId;
     centerPopup('move-task-pop-up');
 }
@@ -267,7 +298,8 @@ function clearTasks() {
  */
 async function initBoard() {
     await init();
-    await Promise.all([loadTasks(), loadUsers()]);
+    // await Promise.all([loadTasks(), loadUsers()]);
+    useOfflineData();
     renderTasks(tasks);
 }
 
