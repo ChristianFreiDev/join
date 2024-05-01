@@ -29,7 +29,7 @@ function taskTemplate(task, doneSubtasks) {
     return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)" onclick="openTask(${task.id})">
             <div class="task-category-and-mobile-drag-arrows-container">
                 <div class="task-category task-category-small ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
-                <div class="move-arrows" onclick="openMoveTaskPopup(${task.id})">⇵</div>
+                <div class="move-arrows" onclick="openMoveTaskPopup(event, ${task.id})">⇵</div>
             </div>
             <div class="task-title-and-description-container">
                 <div class="task-title">${task.title}</div>
@@ -49,6 +49,12 @@ function openTaskPopupCategoryTemplate(task) {
 }
 
 
+function openTaskPopupPriorityTemplate(task) {
+    return /* html */ `<div>${task.priority}</div>
+        <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">`;
+}
+
+
 /**
  * This function returns an initial avatar HTML template for a user
  * @param {Object} user 
@@ -57,6 +63,17 @@ function openTaskPopupCategoryTemplate(task) {
 function initialAvatarTemplate(user) {
     return /* html */ `<div class="initial-avatar ${user.color}">${getInitials(user)}</div>`;
 }
+
+
+/**
+ * This function returns an initial avatar HTML template for a user
+ * @param {Object} user 
+ * @returns {string} inital avatar HTML template
+ */
+function initialAvatarLargeTemplate(user) {
+    return /* html */ `<div class="initial-avatar initial-avatar-large ${user.color}">${getInitials(user)}</div>`;
+}
+
 
 
 /**
@@ -72,6 +89,67 @@ function generateInitialAvatarsTemplate(task) {
             let collaborator = collaborators[i];
             HTMLString += initialAvatarTemplate(collaborator);
         }
+    }
+    return HTMLString;
+}
+
+
+function generateCollaboratorNames(task) {
+    let collaborators = getCollaborators(task);
+    let HTMLString = '';
+    if (collaborators) {
+        HTMLString = `<div class="collaborator-names-container">
+        <div>Assigned to:</div>
+        <div class="collaborator-names">`;
+            if (collaborators) {
+                for (let i = 0; i < collaborators.length; i++) {
+                    let collaborator = collaborators[i];
+                    HTMLString += collaboratorNameTemplate(collaborator);
+                }
+            }
+        HTMLString += `</div>
+        </div>`;
+    }
+    return HTMLString;
+}
+
+
+function collaboratorNameTemplate(user) {
+    return /* html */ `<div class="collaborator-name-outer-container">
+        <div class="collaborator-name-container">
+            ${initialAvatarLargeTemplate(user)}
+            <div class="collaborator-name">${user.firstName} ${user.lastName}</div>
+        </div>
+    </div>`;
+}
+
+
+function subTaskTemplate(subtask, subtaskIndex, taskId) {
+    console.log(subtask.done)
+    return /* html */ `
+        <div class="subtask">
+            <img class="cursor-pointer" src="${subtask.done ? 'assets/img/subtask-checkbox-icon-checked.svg' : 'assets/img/subtask-checkbox-icon-unchecked.svg'}" alt="subtask checkbox icon" onclick="checkOrUncheckBox(${taskId}, ${subtaskIndex})">
+            <div class="subtask-title">${subtask.title}</div>
+        </div>
+    `;
+}
+
+
+function generateSubtasks (task) {
+    let subtasks = task.subtasks;
+    let HTMLString = '';
+    if (subtasks.length > 0) {
+        HTMLString = `<div class="subtasks-container">
+        <div>Subtasks</div>
+        <div class="subtasks">`;
+            if (subtasks) {
+                for (let i = 0; i < subtasks.length; i++) {
+                    let subtask = subtasks[i];
+                    HTMLString += subTaskTemplate(subtask, i, task.id);
+                }
+            }
+        HTMLString += `</div>
+        </div>`;
     }
     return HTMLString;
 }
