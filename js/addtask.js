@@ -59,25 +59,32 @@ function clickButton(newPriority) {
 }
 
 /**
- * This function adds a task to the Server
+ * This function adds a task to the server
  */
 function addTask(){
     title = document.getElementById('input-title');
     description = document.getElementById('input-description');
     date = document.getElementById('input-due-date');
+    category = document.getElementById('input-category');
 
     let task = {
         title: title.value,
         description: description.value,
-        dueDate: date.value
+        dueDate: date.value,
+        category: category.value,
     };
-    allTasks.push(task)
+    allTasks.push(task)  
     setItem('tasks', allTasks)
     resetForm();
 }
 
+
+/**
+ * This function resets all values of the form.
+ */
 function resetForm(){
     title.value = '';
     description.value = '';
     date.value = '';
+    category.value ='';
 }
