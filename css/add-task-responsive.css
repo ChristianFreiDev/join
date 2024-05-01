@@ -1,60 +1,81 @@
-@media(max-width: 1400px){
-    .add-task-vector{
+@media(max-width: 1400px) {
+    .add-task-vector {
         display: none;
     }
-    .formular{
+
+    .formular {
         flex-direction: column;
         max-width: 440px;
         gap: 16px;
     }
+
     .under-form {
         display: block;
         min-width: 440px;
     }
+
     .add-task-submit-butttons {
         margin-top: 16px;
         margin-left: 0;
         gap: 16px;
     }
+
     .this-field-is-required {
         margin-top: 32px;
     }
-    .content-container{
+
+    .content-container {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
+    .add-task-pop-up {
+        overflow-y: auto;
+        padding: 168px 0 32px 0;
+        width: 80% !important;
+    }
+
 }
 
-@media(max-width: 460px){
-    .content-container{
+@media(max-width: 460px) {
+    .content-container {
         display: block;
     }
-    .add-task-headline{
+
+    .add-task-headline {
         margin-bottom: 16px;
     }
-    #input-title{
+
+    #input-title {
         width: 90%;
     }
-    #input-description{
+
+    #input-description {
         width: 90%;
     }
-    #input-description{
+
+    #input-description {
         width: 90%;
     }
-    #input-assigned-to{
+
+    #input-assigned-to {
         width: 90%;
     }
-    #input-due-date{
+
+    #input-due-date {
         width: 90%;
     }
-    .add-task-priority{
+
+    .add-task-priority {
         width: 90%;
     }
-    #input-category{
+
+    #input-category {
         width: 90%;
     }
-    #input-subtasks{
+
+    #input-subtasks {
         width: 90%;
     }
 }
