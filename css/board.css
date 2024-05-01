@@ -304,6 +304,8 @@ progress::-webkit-progress-value {
 .add-task-pop-up {
     height: 870px;
     width: 1126px;
+    justify-content: center;
+    align-items: center;
 }
 
 .medium-pop-up {
