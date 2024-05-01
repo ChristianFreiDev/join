@@ -1,5 +1,5 @@
 let priority = "none"
-
+let allTasks = []
 
 //----------------------- Prio Buttons---------------------------------//
 
@@ -59,7 +59,7 @@ function clickButton(newPriority) {
 }
 
 /**
- * This function adds a task to the array "tasks"
+ * This function adds a task to the Server
  */
 function addTask(){
     title = document.getElementById('input-title');
@@ -71,12 +71,13 @@ function addTask(){
         description: description.value,
         dueDate: date.value
     };
+    allTasks.push(task)
+    setItem('tasks', allTasks)
+    resetForm();
+}
 
-    tasks.push(task);
-    console.log(tasks);
+function resetForm(){
     title.value = '';
     description.value = '';
     date.value = '';
-    
 }
-
