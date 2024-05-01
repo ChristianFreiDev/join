@@ -58,7 +58,9 @@ function clickButton(newPriority) {
     }
 }
 
-
+/**
+ * This function adds a task to the array "tasks"
+ */
 function addTask(){
     title = document.getElementById('input-title');
     description = document.getElementById('input-description');
@@ -75,6 +77,6 @@ function addTask(){
     title.value = '';
     description.value = '';
     date.value = '';
-
+    
 }
 
