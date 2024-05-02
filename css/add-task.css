@@ -36,8 +36,6 @@
     width: 440px;
     height: 48px;
     background: #FFFFFF;
-    margin-top: 8px;
-    margin-bottom: 16px;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
 }
@@ -51,8 +49,6 @@
     width: 440px;
     height: 120px;
     background: #FFFFFF;
-    margin-top: 8px;
-    margin-bottom: 16px;
     resize: none;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
@@ -66,7 +62,6 @@
     padding: 12px 16px;
     width: 440px;
     height: 48px;
-    margin-top: 8px;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
@@ -83,7 +78,6 @@
     width: 440px;
     height: 48px;
     background: #FFFFFF;
-    margin: 8px 0 16px 0;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
 }
@@ -133,7 +127,6 @@
 
 .priority-button {
     display: flex;
-    margin: 8px 0 16px 0;
     gap: 8px;
 }
 
@@ -145,7 +138,6 @@
     padding: 12px 16px;
     width: 440px;
     height: 48px;
-    margin: 8px 0 16px 0;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
@@ -161,7 +153,6 @@
     width: 440px;
     height: 48px;
     background: #FFFFFF;
-    margin-top: 8px;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
 }
@@ -255,4 +246,22 @@ cursor: pointer;
 .under-form{
     display: flex;
     gap: 472px;
+}
+
+.positioning-input{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.positioning-input-right{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-add-task{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
