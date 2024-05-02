@@ -92,6 +92,8 @@ function fillOpenTaskPopup(taskId) {
     openTaskPopupSubtasks.innerHTML = generateSubtasks(task);
     let openTaskDeleteButton = document.getElementById('open-task-delete-button');
     openTaskDeleteButton.setAttribute('onclick', `deleteTask(${taskId})`);
+    let openTaskEditButton = document.getElementById('open-task-edit-button');
+    openTaskEditButton.setAttribute('onclick', `editTask(${taskId})`);
 }
 
 
@@ -122,6 +124,22 @@ function deleteTask(taskId) {
     // storeTasks();
     removePopup('open-task-pop-up');
     renderTasks(tasks);
+}
+
+
+function editTask(taskId) {
+    let task = tasks.find(task => task.id === taskId);
+    let openTaskPopup = document.getElementById('open-task-pop-up');
+    openTaskPopup.innerHTML = editTaskTemplate(task);
+}
+
+
+function editTaskTemplate(task) {
+    return /* html */ `<div class="edit-task-pop-up-header">
+    <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
+</div>
+<label for="edit-task-title-input">Title</label>
+<input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title">`;
 }
 
 
@@ -298,8 +316,8 @@ function clearTasks() {
  */
 async function initBoard() {
     await init();
-    // await Promise.all([loadTasks(), loadUsers()]);
-    useOfflineData();
+    await Promise.all([loadTasks(), loadUsers()]);
+    // useOfflineData();
     renderTasks(tasks);
 }
 
