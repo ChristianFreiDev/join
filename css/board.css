@@ -368,7 +368,12 @@ progress::-webkit-progress-value {
     height: 100%;
     width: 100%;
     overflow-y: auto;
-    padding-right: 8px;
+    padding-right: 4.32px;
+}
+
+/* This deviates from the layout in Figma but a scrollbar was not considered in Figma */
+.open-task-pop-up-content h2 {
+    font-size: 47px;
 }
 
 .open-task-buttons-container, .open-task-button {
