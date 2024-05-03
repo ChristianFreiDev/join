@@ -88,3 +88,14 @@ function resetForm(){
     date.value = '';
     category.value ='';
 }
+
+function renderAssignedToList(){
+    let assignedToList = document.getElementById('assigned-to-list');
+    assignedToList = '';
+    contacts = contacts.sort((a, b) => sortContactsByFirstName(a, b));
+    for (let i = 0; i < contacts.length; i++) {
+        const contact = contacts[i];
+        let contactColor = getContactColor(contact);
+        assignedToList.innerHTML += generateAssignedList(contact, contactColor);
+    }
+}   

@@ -237,3 +237,15 @@ function contactProfileTemplate(contact, contactColor) {
     </div>
     `;
 }
+
+/**
+ * This function generates a list to assign a task to contacs
+ */
+
+function generateAssignedList(contact, contactColor){
+    return /*html*/ `
+    <div>
+        <div>${contact.firstName} ${contact.lastName}</div>
+    </div>
+    `
+}
