@@ -523,6 +523,7 @@ progress::-webkit-progress-value {
     background-color: rgb(255,168,0);
     border-color: rgb(255,168,0);
     color: white;
+    font-size: 21px;
     font-weight: 700;
     box-shadow: none;
 }
@@ -531,6 +532,7 @@ progress::-webkit-progress-value {
     background-color: rgb(122,226,41);
     border-color: rgb(122,226,41);
     color: white;
+    font-size: 21px;
     font-weight: 700;
     box-shadow: none;
 }
