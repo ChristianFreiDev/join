@@ -140,7 +140,7 @@ function collaboratorNameTemplate(user) {
 function subTaskTemplate(subtask, subtaskIndex, taskId) {
     return /* html */ `
         <div class="subtask">
-            <img class="cursor-pointer" src="${subtask.done ? 'assets/img/subtask-checkbox-icon-checked.svg' : 'assets/img/subtask-checkbox-icon-unchecked.svg'}" alt="subtask checkbox icon" onclick="checkOrUncheckBox(${taskId}, ${subtaskIndex})">
+            <img class="cursor-pointer" src="${subtask.done ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="subtask checkbox icon" onclick="checkOrUncheckBox(${taskId}, ${subtaskIndex})">
             <div class="subtask-title">${subtask.title}</div>
         </div>
     `;

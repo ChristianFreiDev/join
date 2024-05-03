@@ -1,5 +1,16 @@
 let priority = "none"
 let allTasks = []
+let task = {
+    title: undefined,
+    description: undefined,
+    id: undefined,
+    collaborators: [], // user id
+    dueDate: undefined,
+    priority: 'none',
+    category: undefined,
+    status: undefined,
+    subtasks: []
+}
 
 
 async function initAddTask() {
@@ -96,17 +107,6 @@ function resetForm(){
     category.value ='';
 }
 
-// function renderAssignedToList(){
-//     let assignedToList = document.getElementById('assigned-to-list');
-//     assignedToList = '';
-//     contacts = contacts.sort((a, b) => sortContactsByFirstName(a, b));
-//     for (let i = 0; i < contacts.length; i++) {
-//         const contact = contacts[i];
-//         let contactColor = getContactColor(contact);
-//         assignedToList.innerHTML += generateAssignedList(contact, contactColor);
-//     }
-// }   
-
 
 function renderAssignedToList() {
     let selectOptions = '';
@@ -114,7 +114,7 @@ function renderAssignedToList() {
         let user = users[i];
         selectOptions += `<div class="collaborator-option" value="${user.eMail}">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
-            <img class="cursor-pointer" src="assets/img/subtask-checkbox-icon-checked.svg" alt="subtask checkbox icon">
+            <img class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
         </div>`;
     }
     let assignedTo = document.getElementById('assigned-to-list');

@@ -234,13 +234,23 @@ function getPotentialCollaborators(task) {
 }
 
 
+function isAssigned(user, task) {
+    let collaborators = getCollaborators(task);
+    if (collaborators.indexOf(user) === -1) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
 function editTaskAssignedToItemsTemplate(task) {
     let selectOptions = '';
     for (let i = 0; i < users.length; i++) {
         let user = users[i];
         selectOptions += `<div class="collaborator-option" value="${user.eMail}">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
-            <img class="cursor-pointer" src="assets/img/subtask-checkbox-icon-checked.svg" alt="subtask checkbox icon">
+            <img class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
         </div>`;
     }
     return /* html */ `
