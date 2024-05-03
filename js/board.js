@@ -136,40 +136,45 @@ function editTask(taskId) {
 
 function editTaskTemplate(task) {
     return /* html */ `<div class="edit-task-pop-up-header">
-    <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
-</div>
-<div class="form-label-and-input-container">
-    <label for="edit-task-title-input" class="task-form-label">Title</label>
-    <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title">
-</div>
-<div class="form-label-and-input-container">
-    <label for="edit-task-description-textarea" class="task-form-label">Description</label>
-    <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description"></textarea>
-</div>
-<div class="form-label-and-input-container">
-    <label for="edit-task-due-date" class="task-form-label">Due date</label>
-    <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date">
-</div>
-<div class="form-label-and-input-container">
-    <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>
-    <div class="edit-task-priority-buttons-container">
-        <button id="priority-button-urgent" class="edit-task-priority-button" onclick="clickPriorityButton('urgent')">
-            <span>Urgent</span>
-            <img id="priority-icon-urgent" src="../assets/img/priority-icon-urgent.svg" alt="priority icon urgent">
-        </button>
-        <button id="priority-button-medium" class="edit-task-priority-button" onclick="clickPriorityButton('medium')">
-            <span>Medium</span>
-            <img id="priority-icon-medium" src="../assets/img/priority-icon-medium.svg" alt="priority icon medium">
-        </button>
-        <button id="priority-button-low" class="edit-task-priority-button" onclick="clickPriorityButton('low')">
-            <span>Low</span>
-            <img id="priority-icon-low" src="../assets/img/priority-icon-low.svg" alt="priority icon low">
-        </button>
+        <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
     </div>
-</div>
-<div class="form-label-and-input-container">
-    ${editTaskAssignedToItemsTemplate(task)}
-</div>`;
+    <div class="open-task-pop-up-content">
+        <div class="form-label-and-input-container">
+            <label for="edit-task-title-input" class="task-form-label">Title</label>
+            <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title">
+        </div>
+        <div class="form-label-and-input-container">
+            <label for="edit-task-description-textarea" class="task-form-label">Description</label>
+            <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description"></textarea>
+        </div>
+        <div class="form-label-and-input-container">
+            <label for="edit-task-due-date" class="task-form-label">Due date</label>
+            <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date">
+        </div>
+        <div class="form-label-and-input-container">
+            <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>
+            <div class="edit-task-priority-buttons-container">
+                <button id="priority-button-urgent" class="edit-task-priority-button" onclick="clickPriorityButton('urgent')">
+                    <span>Urgent</span>
+                    <img id="priority-icon-urgent" src="../assets/img/priority-icon-urgent.svg" alt="priority icon urgent">
+                </button>
+                <button id="priority-button-medium" class="edit-task-priority-button" onclick="clickPriorityButton('medium')">
+                    <span>Medium</span>
+                    <img id="priority-icon-medium" src="../assets/img/priority-icon-medium.svg" alt="priority icon medium">
+                </button>
+                <button id="priority-button-low" class="edit-task-priority-button" onclick="clickPriorityButton('low')">
+                    <span>Low</span>
+                    <img id="priority-icon-low" src="../assets/img/priority-icon-low.svg" alt="priority icon low">
+                </button>
+            </div>
+        </div>
+        <div class="form-label-and-input-container">
+            ${editTaskAssignedToItemsTemplate(task)}
+        </div>
+        <div class="form-label-and-input-container">
+            <div id="open-task-subtasks">${generateSubtasks(task)}</div>
+        </div>
+    </div>`;
 }
 
 

@@ -366,17 +366,15 @@ progress::-webkit-progress-value {
     align-items: flex-start;
     gap: 24px;
     height: 100%;
+    width: 100%;
     overflow-y: auto;
+    padding-right: 8px;
 }
 
 .open-task-buttons-container, .open-task-button {
     display: flex;
     align-items: center;
     gap: 8px;
-}
-
-.open-task-buttons-container {
-    padding-right: 8px;
 }
 
 .open-task-button {
