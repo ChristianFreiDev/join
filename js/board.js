@@ -169,21 +169,6 @@ function editTaskTemplate(task) {
 </div>`;
 }
 
-// function clickPriorityButton(newPriority) {
-//     if (priority === newPriority) {
-//         priority = 'none';
-//         document.getElementById(`priority-button-${newPriority}`).classList.remove(`priority-button-${newPriority}-active`);
-//         document.getElementById(`priority-icon-${newPriority}`).src = `../assets/img/priority-icon-${newPriority}.svg`;
-//     } else {
-//         if (priority != "none") {
-//             document.getElementById(`priority-button-${priority}`).classList.remove(`priority-button-${priority}-active`);
-//             document.getElementById(`priority-icon-${priority}`).src = `../assets/img/priority-icon-${priority}.svg`;
-//         }
-//         priority = newPriority;
-//         document.getElementById(`priority-button-${newPriority}`).classList.add(`priority-button-${newPriority}-active`);
-//         document.getElementById(`priority-icon-${newPriority}`).src = `../assets/img/priority-icon-${newPriority}-active.svg`;
-//     }
-// }
 
 /**
  * This function is triggered when a priority button is clicked
