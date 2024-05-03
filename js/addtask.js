@@ -5,6 +5,7 @@ let allTasks = []
 async function initAddTask() {
     await init();
     await Promise.all([loadTasks(), loadUsers()]);
+    renderAssignedToList();
 }
 
 //----------------------- Prio Buttons---------------------------------//
@@ -95,13 +96,34 @@ function resetForm(){
     category.value ='';
 }
 
-function renderAssignedToList(){
-    let assignedToList = document.getElementById('assigned-to-list');
-    assignedToList = '';
-    contacts = contacts.sort((a, b) => sortContactsByFirstName(a, b));
-    for (let i = 0; i < contacts.length; i++) {
-        const contact = contacts[i];
-        let contactColor = getContactColor(contact);
-        assignedToList.innerHTML += generateAssignedList(contact, contactColor);
+// function renderAssignedToList(){
+//     let assignedToList = document.getElementById('assigned-to-list');
+//     assignedToList = '';
+//     contacts = contacts.sort((a, b) => sortContactsByFirstName(a, b));
+//     for (let i = 0; i < contacts.length; i++) {
+//         const contact = contacts[i];
+//         let contactColor = getContactColor(contact);
+//         assignedToList.innerHTML += generateAssignedList(contact, contactColor);
+//     }
+// }   
+
+
+function renderAssignedToList() {
+    let selectOptions = '';
+    for (let i = 0; i < users.length; i++) {
+        let user = users[i];
+        selectOptions += `<div class="collaborator-option" value="${user.eMail}">
+            <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
+            <img class="cursor-pointer" src="assets/img/subtask-checkbox-icon-checked.svg" alt="subtask checkbox icon">
+        </div>`;
     }
-}   
+    let assignedTo = document.getElementById('assigned-to-list');
+    assignedTo.innerHTML = /* html */ `<label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
+        <div class="task-drop-down">
+            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()">
+            <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
+        </div>
+        <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
+            ${selectOptions}
+        </div>`
+}

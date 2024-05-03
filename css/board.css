@@ -557,6 +557,7 @@ progress::-webkit-progress-value {
     color: #42526E;
 }
 
+/* Task dropdown styles */
 .collaborator-option {
     display: flex;
     justify-content: space-between;
@@ -567,6 +568,23 @@ progress::-webkit-progress-value {
     display: flex;
     gap: 16px;
     align-items: center;
+}
+
+.task-user-dropdown {
+    background-color: #FFFFFF;
+    padding-top: 8px;
+    margin-top: -16px;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+}
+
+.task-drop-down {
+    position: relative;
+}
+
+.arrow-drop-down {
+    position: absolute;
+    top: 24px;
+    right: 24px;
 }
 
 @media (max-width: 1439px) {

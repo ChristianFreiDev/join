@@ -245,9 +245,11 @@ function editTaskAssignedToItemsTemplate(task) {
     }
     return /* html */ `
         <label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
-        <input type="text" class="task-title-input">
-        <div id="edit-task-assigned-to" class="task-title-input" type="date">
-            <!-- <div value="" disabled selected hidden>Select contacts to assign</div> -->
+        <div class="task-drop-down">
+            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()">
+            <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
+        </div>
+        <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
             ${selectOptions}
         </div>
         <div class="inital-avatars-large-container">
@@ -255,6 +257,13 @@ function editTaskAssignedToItemsTemplate(task) {
         </div>
     `;
 }
+
+
+function onTaskDropDownInputClick() {
+    let editTaskAssignedTo = document.getElementById('edit-task-assigned-to');
+    editTaskAssignedTo.classList.toggle('display-none');
+}
+
 
 /**
  * This function creates a task from the board's task pop-up
