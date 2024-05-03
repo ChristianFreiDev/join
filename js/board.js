@@ -139,19 +139,19 @@ function editTaskTemplate(task) {
     <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
 </div>
 <div class="form-label-and-input-container">
-    <label for="edit-task-title-input">Title</label>
+    <label for="edit-task-title-input" class="task-form-label">Title</label>
     <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title">
 </div>
 <div class="form-label-and-input-container">
-    <label for="edit-task-description-textarea">Description</label>
+    <label for="edit-task-description-textarea" class="task-form-label">Description</label>
     <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description"></textarea>
 </div>
 <div class="form-label-and-input-container">
-    <label for="edit-task-due-date">Due date</label>
+    <label for="edit-task-due-date" class="task-form-label">Due date</label>
     <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date">
 </div>
 <div class="form-label-and-input-container">
-    <label for="edit-task-due-date">Priority</label>
+    <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>
     <div class="edit-task-priority-buttons-container">
         <button id="priority-button-urgent" class="edit-task-priority-button" onclick="clickPriorityButton('urgent')">
             <span>Urgent</span>
@@ -166,6 +166,9 @@ function editTaskTemplate(task) {
             <img id="priority-icon-low" src="../assets/img/priority-icon-low.svg" alt="priority icon low">
         </button>
     </div>
+</div>
+<div class="form-label-and-input-container">
+    ${editTaskAssignedToItemsTemplate(task)}
 </div>`;
 }
 
@@ -210,6 +213,44 @@ function changePriorityButtonStyle(targetPriority, removeOrAddActiveStyle) {
     }
 }
 
+
+function getPotentialCollaborators(task) {
+    let collaborators = getCollaborators(task);
+    let potentialCollaborators = [];
+    for (let i = 0; i < users.length; i++) {
+        let user = users[i];
+        for (let j = 0; j < collaborators.length; j++) {
+            if (collaborators.indexOf(user) === -1 && potentialCollaborators.indexOf(user) === -1) {
+                potentialCollaborators.push(user);
+            }
+        }
+    }
+    return potentialCollaborators;
+}
+
+
+function editTaskAssignedToItemsTemplate(task) {
+    let selectOptions = '';
+    let initialAvatars = '';
+    let collaborators = getCollaborators(task);
+    let potentialCollaborators = getPotentialCollaborators(task);
+    console.log(potentialCollaborators)
+    for (let i = 0; i < potentialCollaborators.length; i++) {
+        let potentialCollaborator = potentialCollaborators[i];
+        selectOptions += `<option value="${potentialCollaborator.eMail}">${potentialCollaborator.firstName} ${potentialCollaborator.lastName}</option>`;
+    }
+    
+    return /* html */ `
+        <label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
+        <select id="edit-task-assigned-to" class="task-title-input" type="date">
+            <option value="" disabled selected hidden>Select contacts to assign</option>
+            ${selectOptions}
+        </select>
+        <div class="inital-avatars-large-container">
+            ${generateCollaboratorAvatars(task)}
+        </div>
+    `;
+}
 
 /**
  * This function creates a task from the board's task pop-up

@@ -114,6 +114,19 @@ function generateCollaboratorNames(task) {
 }
 
 
+function generateCollaboratorAvatars(task) {
+    let collaborators = getCollaborators(task);
+    let HTMLString = '';
+    if (collaborators) {
+        for (let i = 0; i < collaborators.length; i++) {
+            let collaborator = collaborators[i];
+            HTMLString += initialAvatarLargeTemplate(collaborator);
+        }
+    }
+    return HTMLString;
+}
+
+
 function collaboratorNameTemplate(user) {
     return /* html */ `<div class="collaborator-name-outer-container">
         <div class="collaborator-name-container">
