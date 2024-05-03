@@ -23,7 +23,7 @@ function generateRandomUserColor() {
  * @param {Object} b second contact for comparison
  * @returns {number} number that the sort function expects
  */
-function sortContactsByFirstName(a, b) {
+function sortByFirstName(a, b) {
     firstNameA = a.firstName.toLowerCase();
     firstNameB = b.firstName.toLowerCase();
     if (firstNameA < firstNameB) {
@@ -73,7 +73,7 @@ function renderContacts() {
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
     let renderedLetters = [];
-    contacts = contacts.sort((a, b) => sortContactsByFirstName(a, b));
+    contacts = contacts.sort((a, b) => sortByFirstName(a, b));
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         renderLetterIfItHasNotBeenRendered(contact, renderedLetters);
