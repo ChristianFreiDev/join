@@ -236,21 +236,20 @@ function getPotentialCollaborators(task) {
 
 function editTaskAssignedToItemsTemplate(task) {
     let selectOptions = '';
-    let initialAvatars = '';
-    let collaborators = getCollaborators(task);
-    let potentialCollaborators = getPotentialCollaborators(task);
-    console.log(potentialCollaborators)
-    for (let i = 0; i < potentialCollaborators.length; i++) {
-        let potentialCollaborator = potentialCollaborators[i];
-        selectOptions += `<option value="${potentialCollaborator.eMail}">${potentialCollaborator.firstName} ${potentialCollaborator.lastName}</option>`;
+    for (let i = 0; i < users.length; i++) {
+        let user = users[i];
+        selectOptions += `<div class="collaborator-option" value="${user.eMail}">
+            <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
+            <img class="cursor-pointer" src="assets/img/subtask-checkbox-icon-checked.svg" alt="subtask checkbox icon">
+        </div>`;
     }
-    
     return /* html */ `
         <label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
-        <select id="edit-task-assigned-to" class="task-title-input" type="date">
-            <option value="" disabled selected hidden>Select contacts to assign</option>
+        <input type="text" class="task-title-input">
+        <div id="edit-task-assigned-to" class="task-title-input" type="date">
+            <!-- <div value="" disabled selected hidden>Select contacts to assign</div> -->
             ${selectOptions}
-        </select>
+        </div>
         <div class="inital-avatars-large-container">
             ${generateCollaboratorAvatars(task)}
         </div>

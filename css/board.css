@@ -557,6 +557,18 @@ progress::-webkit-progress-value {
     color: #42526E;
 }
 
+.collaborator-option {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 16px;
+}
+
+.collaborator-option-name-and-initial-avatar {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
 @media (max-width: 1439px) {
     .board-columns-container {
         flex-direction: column;

@@ -1,6 +1,12 @@
 let priority = "none"
 let allTasks = []
 
+
+async function initAddTask() {
+    await init();
+    await Promise.all([loadTasks(), loadUsers()]);
+}
+
 //----------------------- Prio Buttons---------------------------------//
 
 /** 
