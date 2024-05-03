@@ -488,6 +488,53 @@ progress::-webkit-progress-value {
     border: 1px solid var(--color-accent);
 }
 
+.edit-task-priority-buttons-container {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+}
+
+.edit-task-priority-button {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+    padding: 16px 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.priority-button-urgent-active {
+    background-color: rgb(255, 61, 0);
+    border-color: rgb(255, 61, 0);
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    box-shadow: none;
+}
+
+.priority-button-medium-active {
+    background-color: rgb(255,168,0);
+    border-color: rgb(255,168,0);
+    color: white;
+    font-weight: 700;
+    box-shadow: none;
+}
+
+.priority-button-low-active {
+    background-color: rgb(122,226,41);
+    border-color: rgb(122,226,41);
+    color: white;
+    font-weight: 700;
+    box-shadow: none;
+}
+
 @media (max-width: 1439px) {
     .board-columns-container {
         flex-direction: column;

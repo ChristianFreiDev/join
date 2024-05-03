@@ -199,6 +199,13 @@ p {
     width: 32px;
 }
 
+.form-label-and-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     border: none;

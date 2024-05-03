@@ -138,8 +138,91 @@ function editTaskTemplate(task) {
     return /* html */ `<div class="edit-task-pop-up-header">
     <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
 </div>
-<label for="edit-task-title-input">Title</label>
-<input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title">`;
+<div class="form-label-and-input-container">
+    <label for="edit-task-title-input">Title</label>
+    <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title">
+</div>
+<div class="form-label-and-input-container">
+    <label for="edit-task-description-textarea">Description</label>
+    <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description"></textarea>
+</div>
+<div class="form-label-and-input-container">
+    <label for="edit-task-due-date">Due date</label>
+    <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date">
+</div>
+<div class="form-label-and-input-container">
+    <label for="edit-task-due-date">Priority</label>
+    <div class="edit-task-priority-buttons-container">
+        <button id="priority-button-urgent" class="edit-task-priority-button" onclick="clickPriorityButton('urgent')">
+            <span>Urgent</span>
+            <img id="priority-icon-urgent" src="../assets/img/priority-icon-urgent.svg" alt="priority icon urgent">
+        </button>
+        <button id="priority-button-medium" class="edit-task-priority-button" onclick="clickPriorityButton('medium')">
+            <span>Medium</span>
+            <img id="priority-icon-medium" src="../assets/img/priority-icon-medium.svg" alt="priority icon medium">
+        </button>
+        <button id="priority-button-low" class="edit-task-priority-button" onclick="clickPriorityButton('low')">
+            <span>Low</span>
+            <img id="priority-icon-low" src="../assets/img/priority-icon-low.svg" alt="priority icon low">
+        </button>
+    </div>
+</div>`;
+}
+
+// function clickPriorityButton(newPriority) {
+//     if (priority === newPriority) {
+//         priority = 'none';
+//         document.getElementById(`priority-button-${newPriority}`).classList.remove(`priority-button-${newPriority}-active`);
+//         document.getElementById(`priority-icon-${newPriority}`).src = `../assets/img/priority-icon-${newPriority}.svg`;
+//     } else {
+//         if (priority != "none") {
+//             document.getElementById(`priority-button-${priority}`).classList.remove(`priority-button-${priority}-active`);
+//             document.getElementById(`priority-icon-${priority}`).src = `../assets/img/priority-icon-${priority}.svg`;
+//         }
+//         priority = newPriority;
+//         document.getElementById(`priority-button-${newPriority}`).classList.add(`priority-button-${newPriority}-active`);
+//         document.getElementById(`priority-icon-${newPriority}`).src = `../assets/img/priority-icon-${newPriority}-active.svg`;
+//     }
+// }
+
+/**
+ * This function is triggered when a priority button is clicked
+ * If the priority of the button that triggered the function (newPriority) matches the current priority (priority),
+ * the style of that button changes to inactive
+ * If the priority of the button that triggered the function is different from the current priority,
+ * the style of that button changes to active (and if a different priority was active before,
+ * the style of the respective button changes to inactive)
+ * @param {string} newPriority priority of the button that was clicked
+ */
+function clickPriorityButton(newPriority) {
+    if (priority === newPriority) {
+        priority = 'none';
+        changePriorityButtonStyle(newPriority, 'remove');
+    } else {
+        if (priority != "none") {
+            changePriorityButtonStyle(priority, 'remove');
+        }
+        priority = newPriority;
+        changePriorityButtonStyle(newPriority, 'add');
+    }
+}
+
+
+/**
+ * This function changes the style of a priority button
+ * @param {string} targetPriority priority of the button that must be changed
+ * @param {string} removeOrAddActiveStyle indicates whether the active style will be removed or added
+ */
+function changePriorityButtonStyle(targetPriority, removeOrAddActiveStyle) {
+    let buttonId = `priority-button-${targetPriority}`;
+    let iconId = `priority-icon-${targetPriority}`;
+    if (removeOrAddActiveStyle === 'remove') {
+        document.getElementById(buttonId).classList.remove(`${buttonId}-active`);
+        document.getElementById(iconId).src = `../assets/img/${iconId}.svg`;
+    } else if (removeOrAddActiveStyle === 'add') {
+        document.getElementById(buttonId).classList.add(`${buttonId}-active`);
+        document.getElementById(iconId).src = `../assets/img/${iconId}-active.svg`;
+    }
 }
 
 
