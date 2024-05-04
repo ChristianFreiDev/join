@@ -149,8 +149,7 @@ p {
 }
 
 .display-none {
-    /* display: none !important; */
-    display: none;
+    display: none !important;
 }
 
 .cursor-pointer {
