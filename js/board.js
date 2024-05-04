@@ -135,10 +135,12 @@ function deleteSubtaskInput() {
 
 function confirmSubtaskInput() {
     let subtaskInput = document.getElementById('subtask-input');
-    temporarySubtasks.push({
-        title: subtaskInput.value,
-        done: false
-    })
+    if (subtaskInput.value !== '') {
+        temporarySubtasks.push({
+            title: subtaskInput.value,
+            done: false
+        })
+    }
     subtaskInput.value = '';
     let inputIconsContainer = document.getElementById('input-icons-container');
     inputIconsContainer.innerHTML = subtaskInputPlusIcon();
