@@ -225,7 +225,13 @@ function rednerUpcomingDeadline(foundTasks) {
                 taskIndex = i;
             }
         }
-        document.getElementById('summary-due-date').innerHTML = foundTasks[taskIndex].dueDate;
+        document.getElementById('summary-due-date').innerHTML = new Date(foundTasks[taskIndex].dueDate).toLocaleString("en-US",
+            {
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            }
+        );
         document.getElementById('summary-due-date-text').innerHTML = 'Upcoming Deadline';
     } else {
         document.getElementById('summary-due-date').innerHTML = 'No date has been specified for this task.';
