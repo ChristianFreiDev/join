@@ -5,6 +5,8 @@
 async function initSummary() {
     if (window.screen.width <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
         document.getElementById('summary-overlay').style.zIndex = '2';
+    } else if (window.screen.width <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
+        document.getElementById('summary-greeding-box').classList.add('display-none');
     }
     await loadUsers();
     greetUser();
@@ -17,23 +19,18 @@ async function initSummary() {
 
 async function greetUser() {
     document.getElementById('summary-greeding-name').innerHTML = await getUserName();
-    document.getElementById('summary-greeding-box').classList.add('greeding-overlay');
     if (loadVariableFromLocalStorage('currentJoinUserId') == 0) {
         document.getElementById('summary-greeding-punctuation-mark').classList.add('display-none');
     }
     if (window.screen.width <= 1400) {
         if (loadVariableFromLocalStorage('fromIndex') == 'true') {
+            document.getElementById('summary-greeding-box').classList.add('greeding-overlay');
             setTimeout(animateOverlay, 1000);
         } else {
             document.getElementById('summary-greeding-box').classList.add('display-none');
         }
+        setTimeout(hideOverlay, 3000);
     }
-    setTimeout(hideOverlay, 3000)
-
-    /**
-     * Check windowsize. Ab 1400px muss die Einblendung erfolgen
-     * Darüber soll der Name geändert werden und bei Gast soll beiden Enblendungen das Komma entfernt werden und der Name.
-     */
 }
 
 function animateOverlay() {
