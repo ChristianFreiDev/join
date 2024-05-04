@@ -204,12 +204,6 @@
     }
 }
 
-@media (max-width: 1400px) {
-    #summary-greeding-box {
-        /* display: none; */
-    }
-}
-
 @media (max-width: 1000px) {
     .summary-header {
         flex-direction: column;
