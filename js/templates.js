@@ -412,14 +412,10 @@ function contactProfileTemplate(contact, contactColor) {
     `;
 }
 
-/**
- * This function generates a list to assign a task to contacs
- */
-
-function generateAssignedList(contact, contactColor){
-    return /*html*/ `
-    <div>
-        <div>${contact.firstName} ${contact.lastName}</div>
-    </div>
-    `
+function generateAssignedToList(user){
+return /* html */ `
+<div class="collaborator-option" value="${user.eMail}">
+    <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
+    <img class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
+</div>`;
 }
