@@ -315,6 +315,16 @@ function editTaskAssignedToItemsTemplate(task) {
 }
 
 
+function confirmOrDeleteIcons() {
+    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput()">
+            <img src="../assets/img/open-task-delete-button-icon.svg" alt="delete icon">
+        </div>
+        <div class="input-icon-container" onclick="activateSubtaskInput()">
+            <img src="../assets/img/edit-task-confirm-button-icon.svg" alt="confirm icon">
+        </div>`;
+}
+
+
 // Contacts templates
 
 /**

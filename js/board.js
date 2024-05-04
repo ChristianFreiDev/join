@@ -179,16 +179,6 @@ function editTask(taskId) {
 }
 
 
-function confirmOrDeleteIcons() {
-    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput()">
-            <img src="../assets/img/open-task-delete-button-icon.svg" alt="delete icon">
-        </div>
-        <div class="input-icon-container" onclick="activateSubtaskInput()">
-            <img src="../assets/img/edit-task-confirm-button-icon.svg" alt="confirm icon">
-        </div>`;
-}
-
-
 function deleteSubtask(subtaskIndex) {
     temporarySubtasks.splice(subtaskIndex, 1);
     let editTaskSubtasksList = document.getElementById('edit-task-subtasks-list');
