@@ -73,6 +73,7 @@ function openAddTaskPopup(statusId) {
     // This should actually change the onsubmit attribute of the form once the form supports it
     let createTaskButton = document.getElementById('create-task-button');
     createTaskButton.setAttribute('onclick', createTaskFromBoard(statusId));
+    renderAssignedToList();
 }
 
 
