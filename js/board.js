@@ -415,6 +415,7 @@ function getInitials(user) {
  * @returns {number} number of done subtasks
  */
 function calculateSubtasks(task) {
+    console.log(task);
     let doneSubtasks = 0;
     for (let j = 0; j < task.subtasks.length; j++) {
         let subtask = task.subtasks[j];
