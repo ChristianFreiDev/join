@@ -99,7 +99,6 @@ function openTask(taskId) {
 
 
 function checkOrUncheckSubtaskBox(taskId, subtaskIndex) {
-    console.log(tasks)
     let task = tasks.find(task => task.id === taskId);
     let subtasks = task.subtasks;
     let subtask = subtasks[subtaskIndex];

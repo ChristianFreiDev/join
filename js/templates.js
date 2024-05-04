@@ -264,7 +264,6 @@ function generateSubtasks (task, subtasks) {
 
 
 function generateSubtasksTemporary (task, subtasks) {
-    console.log('subtasks', subtasks)
     let HTMLString = '';
     if (subtasks.length > 0) {
         HTMLString = `<div class="subtasks-container">
