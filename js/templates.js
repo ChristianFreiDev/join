@@ -86,7 +86,7 @@ function editTaskTemplate(task) {
         <div class="edit-task-pop-up-header">
             <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
         </div>
-        <form class="edit-task-form">
+        <!-- <form class="edit-task-form"> -->
             <div class="open-task-pop-up-content">
                 <div class="form-label-and-input-container">
                     <label for="edit-task-title-input" class="task-form-label">Title</label>
@@ -125,7 +125,8 @@ function editTaskTemplate(task) {
                 </div>
             </div>
             <button class="button edit-task-ok-button">OK</button>
-        </form>`;
+        <!-- </form> -->
+        `;
 }
 
 
