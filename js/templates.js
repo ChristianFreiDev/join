@@ -127,9 +127,7 @@ function editTaskTemplate(task) {
                             <div class="edit-task-subtask-input-container">
                                 <input id="subtask-input" type="text" class="task-title-input" placeholder="Add new subtask">
                                 <div id="input-icons-container">
-                                    <div class="input-icon-container" onclick="activateSubtaskInput()">
-                                        <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
-                                    </div>
+                                    ${subtaskInputPlusIcon()}
                                 </div>
                             </div>
                             <ul id="edit-task-subtasks-list" class="subtasks">
@@ -141,6 +139,13 @@ function editTaskTemplate(task) {
             </div>
             <button class="button edit-task-ok-button">OK</button>
         </form>`;
+}
+
+
+function subtaskInputPlusIcon() {
+    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput()">
+        <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
+    </div>`;
 }
 
 
@@ -316,10 +321,10 @@ function editTaskAssignedToItemsTemplate(task) {
 
 
 function confirmOrDeleteIcons() {
-    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput()">
+    return /* html */ `<div class="input-icon-container" onclick="deleteSubtaskInput()">
             <img src="../assets/img/open-task-delete-button-icon.svg" alt="delete icon">
         </div>
-        <div class="input-icon-container" onclick="activateSubtaskInput()">
+        <div class="input-icon-container" onclick="confirmSubtaskInput()">
             <img src="../assets/img/edit-task-confirm-button-icon.svg" alt="confirm icon">
         </div>`;
 }

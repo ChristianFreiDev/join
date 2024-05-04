@@ -125,6 +125,26 @@ function activateSubtaskInput() {
 }
 
 
+function deleteSubtaskInput() {
+    let subtaskInput = document.getElementById('subtask-input');
+    subtaskInput.value = '';
+    let inputIconsContainer = document.getElementById('input-icons-container');
+    inputIconsContainer.innerHTML = subtaskInputPlusIcon();
+}
+
+
+function confirmSubtaskInput() {
+    let subtaskInput = document.getElementById('subtask-input');
+    temporarySubtasks.push({
+        title: subtaskInput.value,
+        done: false
+    })
+    subtaskInput.value = '';
+    let inputIconsContainer = document.getElementById('input-icons-container');
+    inputIconsContainer.innerHTML = subtaskInputPlusIcon();
+}
+
+
 function getTemporaryCollaborators() {
     let foundCollaborators = [];
     for (let i = 0; i < temporaryCollaborators.length; i++) {
