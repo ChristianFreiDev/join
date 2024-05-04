@@ -222,7 +222,6 @@ function editTask(taskId) {
 
 function editSubtask(subtaskIndex) {
     let subtaskContainer = document.getElementById(`subtask-container-${subtaskIndex}`);
-    let subtaskTitle = document.getElementById(`subtask-title-${subtaskIndex}`);
     subtaskContainer.innerHTML = subTaskTemplateTemporaryEditable(subtaskIndex, temporarySubtasks[subtaskIndex].title);
 }
 
