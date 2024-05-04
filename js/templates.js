@@ -284,7 +284,7 @@ function generateSubtasksTemporary (task, subtasks) {
 
 function editTaskAssignedToItemsTemplate(task) {
     return /* html */ `
-        <label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
+        <label for="task-drop-down-input" class="task-form-label">Assigned to</label>
         <div class="task-drop-down">
             <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()" oninput="searchUsers(${task.id})" placeholder="Select contacts to assign">
             <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
