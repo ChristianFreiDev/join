@@ -132,6 +132,24 @@ function deleteSubtaskInput() {
     inputIconsContainer.innerHTML = subtaskInputPlusIcon();
 }
 
+function deleteSubtaskInputForEditing(subtaskIndex) {
+    let subtask = temporarySubtasks[subtaskIndex];
+    let subtaskContainer = document.getElementById(`subtask-container-${subtaskIndex}`);
+    subtaskContainer.innerHTML = subTaskTemplateTemporary(subtask, subtaskIndex);
+}
+
+
+function confirmSubtaskInputForEditing(subtaskIndex) {
+    let subtaskTitleInputEditable = document.getElementById(`subtask-title-input-editable-${subtaskIndex}`);
+    let subtask = temporarySubtasks[subtaskIndex];
+    if (subtaskTitleInputEditable.value !== '') {
+        subtask.title = subtaskTitleInputEditable.value;
+    }
+    let subtaskContainer = document.getElementById(`subtask-container-${subtaskIndex}`);
+    subtaskContainer.innerHTML = subTaskTemplateTemporary(subtask, subtaskIndex);
+}
+
+
 
 function confirmSubtaskInput() {
     let subtaskInput = document.getElementById('subtask-input');
@@ -197,8 +215,14 @@ function editTask(taskId) {
     let subtaskInput = document.getElementById('subtask-input');
     subtaskInput.addEventListener("focus", (event) => {
         let inputIconsContainer = document.getElementById('input-icons-container');
-        inputIconsContainer.innerHTML = confirmOrDeleteIcons();
+        inputIconsContainer.innerHTML = confirmOrDeleteIcons('deleteSubtaskInput()', 'confirmSubtaskInput()');
     });
+}
+
+
+function editSubtask(subtaskIndex) {
+    let subtaskContainer = document.getElementById(`subtask-container-${subtaskIndex}`);
+    subtaskContainer.innerHTML = subTaskTemplateTemporaryEditable(subtaskIndex, temporarySubtasks[subtaskIndex].title);
 }
 
 
