@@ -27,7 +27,7 @@ async function greetUser() {
 let currentUserIndex = 0;
 async function getUserName() {
     for (let i = 0; i < users.length; i++) {
-        if (users[i].id === loadVariableFromLocalStorage('currentJoinUserId')) {
+        if (users[i].id == loadVariableFromLocalStorage('currentJoinUserId')) {
             currentUserIndex = i;
         }
     }
