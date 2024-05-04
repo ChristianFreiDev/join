@@ -125,7 +125,9 @@ function editTaskTemplate(task) {
                         <div class="subtasks-container">
                             <div>Subtasks</div>
                             <input type="text" class="task-title-input" placeholder="Add new subtask">
-                            ${generateSubtasksTemporary(task, task.subtasks)}
+                            <ul id="edit-task-subtasks-list" class="subtasks">
+                                ${generateSubtasksTemporary(task.subtasks)}
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -238,16 +240,16 @@ function subTaskTemplate(subtask, subtaskIndex, taskId) {
 
 
 
-function subTaskTemplateTemporary(subtask, subtaskIndex, taskId) {
+function subTaskTemplateTemporary(subtask, subtaskIndex) {
     return /* html */ `
         <div class="subtask edit-task-subtask">
             <li>${subtask.title}</li>
             <div class="edit-task-buttons-container">
-                <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editSubtask(${subtask.id})">
+                <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editSubtask(${subtaskIndex})">
                     <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
                 </div>
                 <div class="open-task-button-separator"></div>
-                <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtask.id})">
+                <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtaskIndex})">
                     <img src="assets/img/open-task-delete-button-icon.svg" alt="open task delete button icon">
                 </div>
             </div>
@@ -256,8 +258,7 @@ function subTaskTemplateTemporary(subtask, subtaskIndex, taskId) {
 }
 
 
-function generateSubtasks (task, subtasks) {
-    console.log('subtasks', subtasks)
+function generateSubtasks(task, subtasks) {
     let HTMLString = '';
     if (subtasks.length > 0) {
         HTMLString = `<div class="subtasks-container">
@@ -276,17 +277,15 @@ function generateSubtasks (task, subtasks) {
 }
 
 
-function generateSubtasksTemporary (task, subtasks) {
+function generateSubtasksTemporary(subtasks) {
     let HTMLString = '';
     if (subtasks.length > 0) {
-        HTMLString = `<ul class="subtasks">`;
             if (subtasks) {
                 for (let i = 0; i < subtasks.length; i++) {
                     let subtask = subtasks[i];
-                    HTMLString += subTaskTemplateTemporary(subtask, i, task.id);
+                    HTMLString += subTaskTemplateTemporary(subtask, i);
                 }
             }
-        HTMLString += `</ul>`;
     }
     return HTMLString;
 }

@@ -168,6 +168,13 @@ function editTask(taskId) {
 }
 
 
+function deleteSubtask(subtaskIndex) {
+    temporarySubtasks.splice(subtaskIndex, 1);
+    let editTaskSubtasksList = document.getElementById('edit-task-subtasks-list');
+    editTaskSubtasksList.innerHTML = generateSubtasksTemporary(temporarySubtasks);
+}
+
+
 function onSubmitEditTaskForm(taskId) {
     let task = tasks.find(task => task.id === taskId);
     task.title = document.getElementById('edit-task-title-input').value;
