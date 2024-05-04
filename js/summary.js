@@ -16,6 +16,13 @@ async function initSummary() {
     saveVariableInLocalStorage('fromIndex', false);
 }
 
+function checkWindowWidth() {
+    if (document.body.scrollWidth < 1400) {
+        document.getElementById('summary-greeding-box').classList.add('display-none');
+    } else {
+        document.getElementById('summary-greeding-box').classList.remove('display-none');
+    }
+}
 
 async function greetUser() {
     document.getElementById('summary-greeding-name').innerHTML = await getUserName();
