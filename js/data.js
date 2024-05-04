@@ -58,12 +58,10 @@ let offlineTasks = [
         subtasks: [
             {
                 title: 'Create contact form',
-                description: 'Create contact form. Add "return flase;" after the onsubmit function and style the form.',
                 done: false
             },
             {
                 title: 'Create imprint page.',
-                description: 'Search for a imprint generator and style the imprint page',
                 done: false
             }
         ]
@@ -80,12 +78,10 @@ let offlineTasks = [
         subtasks: [
             {
                 title: 'Create start page',
-                description: 'Create start page and implement the style.css and script.js',
                 done: true
             },
             {
                 title: 'Add recommendation.',
-                description: 'Add recommendation and create the recipe.',
                 done: false
             }
         ]
@@ -124,12 +120,10 @@ let offlineTasks = [
         subtasks: [
             {
                 title: 'Define CSS naming conventions',
-                description: 'Define CSS naming conventions. Google for best practise',
                 done: true
             },
             {
                 title: 'Define CSS structure.',
-                description: 'Define CSS structure. Also use google for best practise',
                 done: true
             }
         ]

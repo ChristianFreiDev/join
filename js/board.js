@@ -132,11 +132,7 @@ function getTemporaryCollaborators() {
 }
 
 
-function checkOrUncheckCollaboratorBox(taskId, userId) {
-    let task = tasks.find(task => task.id === taskId);
-    if (temporaryCollaborators.length === 0) {
-        temporaryCollaborators = [...task.collaborators];
-    }
+function checkOrUncheckCollaboratorBox(userId) {
     let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
     let checkBox = document.getElementById(`collaborator-checkbox-${userId}`);
     if (collaboratorIndex > -1) {
@@ -165,8 +161,9 @@ function editTask(taskId) {
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
     openTaskPopup.innerHTML = editTaskTemplate(task);
-    priority = task.priority.toLowerCase();
+    priority = task.priority;
     temporarySubtasks = [...task.subtasks];
+    temporaryCollaborators = [...task.collaborators];
     changePriorityButtonStyle(priority, 'add');
 }
 
@@ -179,6 +176,8 @@ function onSubmitEditTaskForm(taskId) {
     task.dueDate = document.getElementById('edit-task-due-date').value;
     task.priority = priority;
     task.subtasks = temporarySubtasks;
+    storeTasks();
+    renderTasks(tasks);
     fillOpenTaskPopup(taskId);
 }
 
@@ -212,8 +211,8 @@ function clickPriorityButton(newPriority) {
  * @param {string} removeOrAddActiveStyle indicates whether the active style will be removed or added
  */
 function changePriorityButtonStyle(targetPriority, removeOrAddActiveStyle) {
-    let buttonId = `priority-button-${targetPriority}`;
-    let iconId = `priority-icon-${targetPriority}`;
+    let buttonId = `priority-button-${targetPriority.toLowerCase()}`;
+    let iconId = `priority-icon-${targetPriority.toLowerCase()}`;
     if (removeOrAddActiveStyle === 'remove') {
         document.getElementById(buttonId).classList.remove(`${buttonId}-active`);
         document.getElementById(iconId).src = `../assets/img/${iconId}.svg`;
@@ -256,7 +255,7 @@ function renderSelectOptions(task, usersToBeRendered) {
         let user = usersToBeRendered[i];
         selectOptions += `<div class="collaborator-option" value="${user.eMail}">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
-            <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon" onclick="checkOrUncheckCollaboratorBox(${task.id}, ${user.id})">
+            <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon" onclick="checkOrUncheckCollaboratorBox(${user.id})">
         </div>`;
     }
     return selectOptions;

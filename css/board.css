@@ -383,6 +383,7 @@ progress::-webkit-progress-value {
 }
 
 .edit-task-buttons-container {
+    visibility: hidden;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -479,6 +480,10 @@ progress::-webkit-progress-value {
 
 .edit-task-subtask {
     justify-content: space-between;
+}
+
+.edit-task-subtask:hover .edit-task-buttons-container {
+    visibility: visible;
 }
 
 .subtask:hover {

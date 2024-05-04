@@ -103,15 +103,15 @@ function editTaskTemplate(task) {
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>
                     <div class="edit-task-priority-buttons-container">
-                        <button id="priority-button-urgent" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('urgent')">
+                        <button id="priority-button-urgent" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('Urgent')">
                             <span>Urgent</span>
                             <img id="priority-icon-urgent" src="../assets/img/priority-icon-urgent.svg" alt="priority icon urgent">
                         </button>
-                        <button id="priority-button-medium" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('medium')">
+                        <button id="priority-button-medium" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('Medium')">
                             <span>Medium</span>
                             <img id="priority-icon-medium" src="../assets/img/priority-icon-medium.svg" alt="priority icon medium">
                         </button>
-                        <button id="priority-button-low" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('low')">
+                        <button id="priority-button-low" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('Low')">
                             <span>Low</span>
                             <img id="priority-icon-low" src="../assets/img/priority-icon-low.svg" alt="priority icon low">
                         </button>
@@ -121,7 +121,13 @@ function editTaskTemplate(task) {
                     ${editTaskAssignedToItemsTemplate(task)}
                 </div>
                 <div class="form-label-and-input-container">
-                    <div id="open-task-subtasks">${generateSubtasksTemporary(task, task.subtasks)}</div>
+                    <div id="open-task-subtasks">
+                        <div class="subtasks-container">
+                            <div>Subtasks</div>
+                            <input type="text" class="task-title-input" placeholder="Add new subtask">
+                            ${generateSubtasksTemporary(task, task.subtasks)}
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="button edit-task-ok-button">OK</button>
@@ -237,11 +243,11 @@ function subTaskTemplateTemporary(subtask, subtaskIndex, taskId) {
         <div class="subtask edit-task-subtask">
             <li>${subtask.title}</li>
             <div class="edit-task-buttons-container">
-                <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editTask(${task.id})">
+                <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editSubtask(${subtask.id})">
                     <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
                 </div>
                 <div class="open-task-button-separator"></div>
-                <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteTask(${task.id})">
+                <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtask.id})">
                     <img src="assets/img/open-task-delete-button-icon.svg" alt="open task delete button icon">
                 </div>
             </div>
@@ -273,17 +279,14 @@ function generateSubtasks (task, subtasks) {
 function generateSubtasksTemporary (task, subtasks) {
     let HTMLString = '';
     if (subtasks.length > 0) {
-        HTMLString = `<div class="subtasks-container">
-        <div>Subtasks</div>
-        <ul class="subtasks">`;
+        HTMLString = `<ul class="subtasks">`;
             if (subtasks) {
                 for (let i = 0; i < subtasks.length; i++) {
                     let subtask = subtasks[i];
                     HTMLString += subTaskTemplateTemporary(subtask, i, task.id);
                 }
             }
-        HTMLString += `</ul>
-        </div>`;
+        HTMLString += `</ul>`;
     }
     return HTMLString;
 }
