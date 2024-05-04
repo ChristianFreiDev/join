@@ -1,4 +1,5 @@
 let draggedTaskId;
+let currentTask;
 
 /**
  * This function enables dropping a task into the respective area by preventing the default action that occurs when something is dropped

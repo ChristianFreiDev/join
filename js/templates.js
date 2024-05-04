@@ -86,32 +86,32 @@ function editTaskTemplate(task) {
         <div class="edit-task-pop-up-header">
             <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
         </div>
-        <!-- <form class="edit-task-form"> -->
+        <form class="edit-task-form">
             <div class="open-task-pop-up-content">
                 <div class="form-label-and-input-container">
                     <label for="edit-task-title-input" class="task-form-label">Title</label>
-                    <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title">
+                    <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title" required>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-description-textarea" class="task-form-label">Description</label>
-                    <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description"></textarea>
+                    <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description" required></textarea>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label">Due date</label>
-                    <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date">
+                    <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date" required>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>
                     <div class="edit-task-priority-buttons-container">
-                        <button id="priority-button-urgent" class="edit-task-priority-button" onclick="clickPriorityButton('urgent')">
+                        <button id="priority-button-urgent" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('urgent')">
                             <span>Urgent</span>
                             <img id="priority-icon-urgent" src="../assets/img/priority-icon-urgent.svg" alt="priority icon urgent">
                         </button>
-                        <button id="priority-button-medium" class="edit-task-priority-button" onclick="clickPriorityButton('medium')">
+                        <button id="priority-button-medium" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('medium')">
                             <span>Medium</span>
                             <img id="priority-icon-medium" src="../assets/img/priority-icon-medium.svg" alt="priority icon medium">
                         </button>
-                        <button id="priority-button-low" class="edit-task-priority-button" onclick="clickPriorityButton('low')">
+                        <button id="priority-button-low" class="edit-task-priority-button" type="button" onclick="clickPriorityButton('low')">
                             <span>Low</span>
                             <img id="priority-icon-low" src="../assets/img/priority-icon-low.svg" alt="priority icon low">
                         </button>
@@ -125,8 +125,7 @@ function editTaskTemplate(task) {
                 </div>
             </div>
             <button class="button edit-task-ok-button">OK</button>
-        <!-- </form> -->
-        `;
+        </form>`;
 }
 
 
@@ -257,7 +256,7 @@ function editTaskAssignedToItemsTemplate(task) {
     return /* html */ `
         <label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
         <div class="task-drop-down">
-            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()" oninput="searchUsers(${task.id})">
+            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()" oninput="searchUsers(${task.id})" placeholder="Select contacts to assign">
             <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
         <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
