@@ -592,6 +592,11 @@ progress::-webkit-progress-value {
     padding: 7px 16px;
 }
 
+#edit-task-description-textarea  {
+    resize: none;
+    overflow-x: hidden;
+}
+
 @media (max-width: 1439px) {
     .board-columns-container {
         flex-direction: column;

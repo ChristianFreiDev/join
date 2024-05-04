@@ -125,7 +125,7 @@ function deleteTask(taskId) {
     let task = tasks.find(task => task.id === taskId);
     let index = tasks.indexOf(task);
     tasks.splice(index, 1);
-    // storeTasks();
+    storeTasks();
     removePopup('open-task-pop-up');
     renderTasks(tasks);
 }
