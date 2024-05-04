@@ -144,6 +144,7 @@ function confirmSubtaskInput() {
     subtaskInput.value = '';
     let inputIconsContainer = document.getElementById('input-icons-container');
     inputIconsContainer.innerHTML = subtaskInputPlusIcon();
+    updateSubtaskList();
 }
 
 
@@ -203,6 +204,11 @@ function editTask(taskId) {
 
 function deleteSubtask(subtaskIndex) {
     temporarySubtasks.splice(subtaskIndex, 1);
+    updateSubtaskList();
+}
+
+
+function updateSubtaskList() {
     let editTaskSubtasksList = document.getElementById('edit-task-subtasks-list');
     editTaskSubtasksList.innerHTML = generateSubtasksTemporary(temporarySubtasks);
 }
