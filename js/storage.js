@@ -1,27 +1,28 @@
-const STORAGE_TOKEN = '61W6LW4NFASNAZJK88YL44Q46FPJI5Q1QP8VE2QX';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
+const BASE_URL = "https://testprojekt-2599f-default-rtdb.europe-west1.firebasedatabase.app/";
 
 
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
-        .then(res => res.json());
+async function setItem(path = "", data = {}) {
+    let response = await fetch(BASE_URL + path + '.json', {
+        method: "PUT",
+        header: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+    return responseToJSON = await response.json();
 }
 
 
-async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json()).then(res => {
-        if (res.data) { 
-            return res.data.value;
-        } throw `Could not find data with key "${key}".`;
-    });
+async function getItem(path = "") {
+    let response = await fetch(BASE_URL + path + '.json');
+    let responseToJSON = await response.json();
+    return responseToJSON;
 }
 
 
 async function loadUsers() {
     try {
-        users = JSON.parse(await getItem('users'));
+        users = await getItem("/users")
     } catch (error) {
         console.error('Loading error:', error);
     }
@@ -31,7 +32,7 @@ async function loadUsers() {
 async function storeUsers() {
     try {
         console.log('storing users');
-        await setItem('users', JSON.stringify(users));
+        await setItem('/users', users);
     } catch (error) {
         console.error('Storage error:', error);
     }
@@ -40,7 +41,7 @@ async function storeUsers() {
 
 async function loadTasks() {
     try {
-        tasks = JSON.parse(await getItem('tasks'));
+        tasks = await getItem('/tasks');
     } catch (error) {
         console.error('Loading error:', error);
     }
@@ -50,7 +51,7 @@ async function loadTasks() {
 async function storeTasks() {
     try {
         console.log('storing tasks');
-        await setItem('tasks', JSON.stringify(tasks));
+        await setItem('/tasks', tasks);
     } catch (error) {
         console.error('Storage error:', error);
     }
@@ -59,7 +60,7 @@ async function storeTasks() {
 
 async function loadContacts() {
     try {
-        contacts = JSON.parse(await getItem('contacts'));
+        contacts = await getItem('/contacts');
     } catch (error) {
         console.error('Loading error:', error);
     }
@@ -69,7 +70,7 @@ async function loadContacts() {
 async function storeContacts() {
     try {
         console.log('storing contacts');
-        await setItem('contacts', JSON.stringify(contacts));
+        await setItem('/contacts', contacts);
     } catch (error) {
         console.error('Storage error:', error);
     }
@@ -78,9 +79,9 @@ async function storeContacts() {
 
 async function resetUsersTasksContacts() {
     try {
-        await setItem('users', JSON.stringify(offlineUsers));
-        await setItem('tasks', JSON.stringify(offlineTasks));
-        await setItem('contacts', JSON.stringify(offlineContacts));
+        await setItem('/users', offlineUsers);
+        await setItem('/tasks', offlineTasks);
+        await setItem('/contacts', offlineContacts);
     } catch (error) {
         console.error('Storage error:', error);
     }
