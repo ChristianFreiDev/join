@@ -479,6 +479,7 @@ function searchUsers(taskId) {
     } else {
         editTaskAssignedTo.innerHTML = '<div class="no-users-message">No users found</div>';
     }
+    editTaskAssignedTo.classList.remove('display-none');
 }
 
 
