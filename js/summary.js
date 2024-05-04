@@ -13,6 +13,9 @@ async function initSummary() {
 
 async function greetUser() {
     document.getElementById('summary-greeding-name').innerHTML = await getUserName();
+    if (loadVariableFromLocalStorage('currentJoinUserId') == 0) {
+        document.getElementById('summary-greeding-punctuation-mark').classList.add('display-none');
+    }
     if (window.screen.width <= 1400) {
         
     }
@@ -29,6 +32,9 @@ async function getUserName() {
     for (let i = 0; i < users.length; i++) {
         if (users[i].id == loadVariableFromLocalStorage('currentJoinUserId')) {
             currentUserIndex = i;
+            if (i == 0) {
+                return '';
+            }
         }
     }
     return `${users[currentUserIndex].firstName} ${users[currentUserIndex].lastName}`;
