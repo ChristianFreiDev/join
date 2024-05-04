@@ -1,4 +1,4 @@
-const BASE_URL = "https://testprojekt-2599f-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://join-91cdc-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /**
  * This function stores an object to the firebase storage.

@@ -3,6 +3,7 @@
  * Also by showing the right values of users tasks.
  */
 async function initSummary() {
+    await loadUsers();
     greetUser();
     await init();
     await loadTasks();
@@ -10,7 +11,8 @@ async function initSummary() {
 }
 
 
-function greetUser() {
+async function greetUser() {
+    document.getElementById('summary-greeding-name').innerHTML = await getUserName();
     if (window.screen.width <= 1400) {
         
     }
@@ -19,6 +21,17 @@ function greetUser() {
      * Check windowsize. Ab 1400px muss die Einblendung erfolgen
      * Darüber soll der Name geändert werden und bei Gast soll beiden Enblendungen das Komma entfernt werden und der Name.
      */
+}
+
+
+let currentUserIndex = 0;
+async function getUserName() {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].id === loadVariableFromLocalStorage('currentJoinUserId')) {
+            currentUserIndex = i;
+        }
+    }
+    return `${users[currentUserIndex].firstName} ${users[currentUserIndex].lastName}`;
 }
 
 
