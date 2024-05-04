@@ -99,18 +99,35 @@ function openTask(taskId) {
 
 
 function checkOrUncheckSubtaskBox(taskId, subtaskIndex) {
+    console.log(tasks)
     let task = tasks.find(task => task.id === taskId);
-    let subtask = task.subtasks[subtaskIndex];
+    let subtasks = task.subtasks;
+    let subtask = subtasks[subtaskIndex];
     if (subtask.done) {
         subtask.done = false;
     } else {
         subtask.done = true;
     }
     let openTaskPopupSubtasks = document.getElementById('open-task-subtasks');
-    openTaskPopupSubtasks.innerHTML = generateSubtasks(task);
+    openTaskPopupSubtasks.innerHTML = generateSubtasks(task, subtasks);
     storeTasks();
     renderTasks(tasks);
 }
+
+
+function checkOrUncheckSubtaskBoxTemporary(taskId, subtaskIndex) {
+    let task = tasks.find(task => task.id === taskId);
+    temporarySubtasks = [...task.subtasks];
+    let subtask = temporarySubtasks[subtaskIndex];
+    if (subtask.done) {
+        subtask.done = false;
+    } else {
+        subtask.done = true;
+    }
+    let openTaskPopupSubtasks = document.getElementById('open-task-subtasks');
+    openTaskPopupSubtasks.innerHTML = generateSubtasksTemporary(task, temporarySubtasks);
+}
+
 
 
 function checkOrUncheckCollaboratorBox(taskId, userId) {
@@ -161,7 +178,6 @@ function onSubmitEditTaskForm(taskId) {
     task.dueDate = document.getElementById('edit-task-due-date').value;
     task.priority = priority;
     task.subtasks = temporarySubtasks;
-    console.log('edited task', task);
     removePopup('open-task-pop-up');
 }
 

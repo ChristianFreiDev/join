@@ -64,7 +64,7 @@ function openTaskPopupTemplate(task) {
             <div id="open-task-collaborators">${generateCollaboratorNames(task)}</div>
         </div>
         <div class="open-task-subtasks-outer-container">
-            <div id="open-task-subtasks">${generateSubtasks(task)}</div>
+            <div id="open-task-subtasks">${generateSubtasks(task, task.subtasks)}</div>
         </div>
         <div class="open-task-buttons-container">
             <div id="open-task-delete-button" class="open-task-button cursor-pointer" onclick="deleteTask(${task.id})">
@@ -121,7 +121,7 @@ function editTaskTemplate(task) {
                     ${editTaskAssignedToItemsTemplate(task)}
                 </div>
                 <div class="form-label-and-input-container">
-                    <div id="open-task-subtasks">${generateSubtasks(task)}</div>
+                    <div id="open-task-subtasks">${generateSubtasksTemporary(task, task.subtasks)}</div>
                 </div>
             </div>
             <button class="button edit-task-ok-button">OK</button>
@@ -232,8 +232,19 @@ function subTaskTemplate(subtask, subtaskIndex, taskId) {
 }
 
 
-function generateSubtasks (task) {
-    let subtasks = task.subtasks;
+
+function subTaskTemplateTemporary(subtask, subtaskIndex, taskId) {
+    return /* html */ `
+        <div class="subtask">
+            <img class="cursor-pointer" src="${subtask.done ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="subtask checkbox icon" onclick="checkOrUncheckSubtaskBoxTemporary(${taskId}, ${subtaskIndex})">
+            <div class="subtask-title">${subtask.title}</div>
+        </div>
+    `;
+}
+
+
+function generateSubtasks (task, subtasks) {
+    console.log('subtasks', subtasks)
     let HTMLString = '';
     if (subtasks.length > 0) {
         HTMLString = `<div class="subtasks-container">
@@ -243,6 +254,26 @@ function generateSubtasks (task) {
                 for (let i = 0; i < subtasks.length; i++) {
                     let subtask = subtasks[i];
                     HTMLString += subTaskTemplate(subtask, i, task.id);
+                }
+            }
+        HTMLString += `</div>
+        </div>`;
+    }
+    return HTMLString;
+}
+
+
+function generateSubtasksTemporary (task, subtasks) {
+    console.log('subtasks', subtasks)
+    let HTMLString = '';
+    if (subtasks.length > 0) {
+        HTMLString = `<div class="subtasks-container">
+        <div>Subtasks</div>
+        <div class="subtasks">`;
+            if (subtasks) {
+                for (let i = 0; i < subtasks.length; i++) {
+                    let subtask = subtasks[i];
+                    HTMLString += subTaskTemplateTemporary(subtask, i, task.id);
                 }
             }
         HTMLString += `</div>
