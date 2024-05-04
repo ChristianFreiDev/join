@@ -124,7 +124,14 @@ function editTaskTemplate(task) {
                     <div id="open-task-subtasks">
                         <div class="subtasks-container">
                             <div>Subtasks</div>
-                            <input type="text" class="task-title-input" placeholder="Add new subtask">
+                            <div class="edit-task-subtask-input-container">
+                                <input id="subtask-input" type="text" class="task-title-input" placeholder="Add new subtask">
+                                <div id="input-icons-container">
+                                    <div class="input-icon-container" onclick="activateSubtaskInput()">
+                                        <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
+                                    </div>
+                                </div>
+                            </div>
                             <ul id="edit-task-subtasks-list" class="subtasks">
                                 ${generateSubtasksTemporary(task.subtasks)}
                             </ul>

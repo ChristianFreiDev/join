@@ -119,6 +119,12 @@ function checkOrUncheckSubtaskBoxTemporary(taskId, subtaskIndex) {
 }
 
 
+function activateSubtaskInput() {
+    let subtaskInput = document.getElementById('subtask-input');
+    subtaskInput.focus();
+}
+
+
 function getTemporaryCollaborators() {
     let foundCollaborators = [];
     for (let i = 0; i < temporaryCollaborators.length; i++) {
@@ -165,6 +171,21 @@ function editTask(taskId) {
     temporarySubtasks = [...task.subtasks];
     temporaryCollaborators = [...task.collaborators];
     changePriorityButtonStyle(priority, 'add');
+    let subtaskInput = document.getElementById('subtask-input');
+    subtaskInput.addEventListener("focus", (event) => {
+        let inputIconsContainer = document.getElementById('input-icons-container');
+        inputIconsContainer.innerHTML = confirmOrDeleteIcons();
+    });
+}
+
+
+function confirmOrDeleteIcons() {
+    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput()">
+            <img src="../assets/img/open-task-delete-button-icon.svg" alt="delete icon">
+        </div>
+        <div class="input-icon-container" onclick="activateSubtaskInput()">
+            <img src="../assets/img/edit-task-confirm-button-icon.svg" alt="confirm icon">
+        </div>`;
 }
 
 

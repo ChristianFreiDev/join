@@ -638,6 +638,37 @@ progress::-webkit-progress-value {
     overflow-y: auto;
 }
 
+.edit-task-subtask-input-container {
+    display: flex;
+    position: relative;
+}
+
+#input-icons-container {
+    position: absolute;
+    align-self: center;
+    display: flex;
+    gap: 4px;
+    right: 16px;
+}
+
+.input-icon-container {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-icon-container:hover {
+    background-color: hsl(0, 0%, 85%);
+}
+
+.edit-task-plus-icon {
+    height: 14px;
+    width: 14px;
+}
+
 @media (max-width: 1439px) {
     .board-columns-container {
         flex-direction: column;
