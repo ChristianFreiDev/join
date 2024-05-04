@@ -382,8 +382,25 @@ progress::-webkit-progress-value {
     gap: 8px;
 }
 
+.edit-task-buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .open-task-button {
     justify-content: center;
+}
+
+.edit-task-button {
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+}
+
+.edit-task-button img {
+    object-fit: scale-down;
 }
 
 .open-task-buttons-container {
@@ -458,6 +475,10 @@ progress::-webkit-progress-value {
     display: flex;
     gap: 16px;
     padding: 6px 16px;
+}
+
+.edit-task-subtask {
+    justify-content: space-between;
 }
 
 .subtask:hover {

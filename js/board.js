@@ -1,15 +1,6 @@
 let draggedTaskId;
-let taskBeingEdited = {
-    title: undefined,
-    description: undefined,
-    id: undefined,
-    collaborators: [], // user id
-    dueDate: undefined,
-    priority: 'none',
-    category: undefined,
-    status: undefined,
-    subtasks: []
-}
+let temporaryCollaborators = [];
+let temporarySubtasks = [];
 
 /**
  * This function enables dropping a task into the respective area by preventing the default action that occurs when something is dropped
@@ -128,23 +119,35 @@ function checkOrUncheckSubtaskBoxTemporary(taskId, subtaskIndex) {
 }
 
 
+function getTemporaryCollaborators() {
+    let foundCollaborators = [];
+    for (let i = 0; i < temporaryCollaborators.length; i++) {
+        let collaboratorId = temporaryCollaborators[i];
+        let user = users.find(user => user.id === collaboratorId);
+        if (user !== -1) {
+            foundCollaborators.push(user);
+        }
+    }
+    return foundCollaborators;
+}
+
 
 function checkOrUncheckCollaboratorBox(taskId, userId) {
     let task = tasks.find(task => task.id === taskId);
-    let collaborators = task.collaborators;
-    let collaboratorIndex = collaborators.findIndex(collaboratorId => collaboratorId === userId);
+    if (temporaryCollaborators.length === 0) {
+        temporaryCollaborators = [...task.collaborators];
+    }
+    let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
     let checkBox = document.getElementById(`collaborator-checkbox-${userId}`);
     if (collaboratorIndex > -1) {
-        collaborators.splice(collaboratorIndex, 1);
+        temporaryCollaborators.splice(collaboratorIndex, 1);
         checkBox.src = 'assets/img/checkbox-icon-unchecked.svg';
     } else {
         checkBox.src = 'assets/img/checkbox-icon-checked.svg';
-        collaborators.push(userId);
+        temporaryCollaborators.push(userId);
     }
     let initialAvatarsLargeContainer = document.getElementById('initial-avatars-large-container');
-    initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(task);
-    storeTasks();
-    renderTasks(tasks);
+    initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
 }
 
 
@@ -163,11 +166,10 @@ function editTask(taskId) {
     let openTaskPopup = document.getElementById('open-task-pop-up');
     openTaskPopup.innerHTML = editTaskTemplate(task);
     priority = task.priority.toLowerCase();
+    temporarySubtasks = [...task.subtasks];
     changePriorityButtonStyle(priority, 'add');
 }
 
-let temporaryCollaborators = [];
-let temporarySubtasks = [];
 
 function onSubmitEditTaskForm(taskId) {
     let task = tasks.find(task => task.id === taskId);
@@ -177,7 +179,7 @@ function onSubmitEditTaskForm(taskId) {
     task.dueDate = document.getElementById('edit-task-due-date').value;
     task.priority = priority;
     task.subtasks = temporarySubtasks;
-    removePopup('open-task-pop-up');
+    fillOpenTaskPopup(taskId);
 }
 
 

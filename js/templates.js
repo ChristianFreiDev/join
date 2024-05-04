@@ -199,8 +199,7 @@ function generateCollaboratorNames(task) {
 }
 
 
-function generateCollaboratorAvatars(task) {
-    let collaborators = getCollaborators(task);
+function generateCollaboratorAvatars(collaborators) {
     let HTMLString = '';
     if (collaborators) {
         for (let i = 0; i < collaborators.length; i++) {
@@ -235,9 +234,17 @@ function subTaskTemplate(subtask, subtaskIndex, taskId) {
 
 function subTaskTemplateTemporary(subtask, subtaskIndex, taskId) {
     return /* html */ `
-        <div class="subtask">
-            <img class="cursor-pointer" src="${subtask.done ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="subtask checkbox icon" onclick="checkOrUncheckSubtaskBoxTemporary(${taskId}, ${subtaskIndex})">
-            <div class="subtask-title">${subtask.title}</div>
+        <div class="subtask edit-task-subtask">
+            <li>${subtask.title}</li>
+            <div class="edit-task-buttons-container">
+                <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editTask(${task.id})">
+                    <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
+                </div>
+                <div class="open-task-button-separator"></div>
+                <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteTask(${task.id})">
+                    <img src="assets/img/open-task-delete-button-icon.svg" alt="open task delete button icon">
+                </div>
+            </div>
         </div>
     `;
 }
@@ -268,14 +275,14 @@ function generateSubtasksTemporary (task, subtasks) {
     if (subtasks.length > 0) {
         HTMLString = `<div class="subtasks-container">
         <div>Subtasks</div>
-        <div class="subtasks">`;
+        <ul class="subtasks">`;
             if (subtasks) {
                 for (let i = 0; i < subtasks.length; i++) {
                     let subtask = subtasks[i];
                     HTMLString += subTaskTemplateTemporary(subtask, i, task.id);
                 }
             }
-        HTMLString += `</div>
+        HTMLString += `</ul>
         </div>`;
     }
     return HTMLString;
@@ -293,7 +300,7 @@ function editTaskAssignedToItemsTemplate(task) {
             ${renderSelectOptions(task, users)}
         </div>
         <div id="initial-avatars-large-container">
-            ${generateCollaboratorAvatars(task)}
+            ${generateCollaboratorAvatars(getCollaborators(task))}
         </div>
     `;
 }
