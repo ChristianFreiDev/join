@@ -41,6 +41,25 @@ async function init() {
 }
 
 
+/**
+ * This function is used to sort users or contacts by first name
+ * @param {Object} a first contact for comparison
+ * @param {Object} b second contact for comparison
+ * @returns {number} number that the sort function expects
+ */
+function sortByFirstName(a, b) {
+    firstNameA = a.firstName.toLowerCase();
+    firstNameB = b.firstName.toLowerCase();
+    if (firstNameA < firstNameB) {
+        return -1;
+    }
+    if (firstNameA > firstNameB) {
+        return 1;
+    }
+    return 0;
+}
+
+
 
 function showUserInitials() {
     document.getElementById('firstname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterFirstName');

@@ -18,25 +18,6 @@ function generateRandomUserColor() {
 
 
 /**
- * This function is used to sort the contacts by first name
- * @param {Object} a first contact for comparison
- * @param {Object} b second contact for comparison
- * @returns {number} number that the sort function expects
- */
-function sortByFirstName(a, b) {
-    firstNameA = a.firstName.toLowerCase();
-    firstNameB = b.firstName.toLowerCase();
-    if (firstNameA < firstNameB) {
-        return -1;
-    }
-    if (firstNameA > firstNameB) {
-        return 1;
-    }
-    return 0;
-}
-
-
-/**
  * This function searches for a user with the same e-mail address as the contact and returns the user's color if there is a match or returns the contact's color if there is none
  * @param {Object} contact 
  * @returns {string} desired contact color

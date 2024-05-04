@@ -44,6 +44,43 @@ function taskTemplate(task, doneSubtasks) {
 }
 
 
+function openTaskPopupTemplate(task) {
+    return /* html */ `<div class="open-task-pop-up-header">
+        <div id="open-task-pop-up-category">${openTaskPopupCategoryTemplate(task)}</div>
+        <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
+    </div>
+    <div class="open-task-pop-up-content">
+        <h2 id="open-task-heading">${task.title}</h2>
+        <div id="open-task-description">${task.description}</div>
+        <div class="open-task-due-date-outer-container">
+                <div>Due date:</div>
+                <div id="open-task-due-date">${task.dueDate}</div>
+        </div>
+        <div class="open-task-priority-outer-container">
+                <div>Priority:</div>
+                <div id="open-task-priority">${openTaskPopupPriorityTemplate(task)}</div>
+        </div>
+        <div class="open-task-collaborators-outer-container">
+            <div id="open-task-collaborators">${generateCollaboratorNames(task)}</div>
+        </div>
+        <div class="open-task-subtasks-outer-container">
+            <div id="open-task-subtasks">${generateSubtasks(task)}</div>
+        </div>
+        <div class="open-task-buttons-container">
+            <div id="open-task-delete-button" class="open-task-button cursor-pointer" onclick="deleteTask(${task.id})">
+                <img src="assets/img/open-task-delete-button-icon.svg" alt="open task delete button icon">
+                <span>Delete</span>
+            </div>
+            <div class="open-task-button-separator"></div>
+            <div id="open-task-edit-button" class="open-task-button cursor-pointer" onclick="editTask(${task.id})">
+                <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
+                <span>Edit</span>
+            </div>
+        </div>
+    </div>`;
+}
+
+
 function openTaskPopupCategoryTemplate(task) {
     return /* html */ `<div class="task-category task-category-large ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>`;
 }
@@ -164,6 +201,23 @@ function generateSubtasks (task) {
         </div>`;
     }
     return HTMLString;
+}
+
+
+function editTaskAssignedToItemsTemplate(task) {
+    return /* html */ `
+        <label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
+        <div class="task-drop-down">
+            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()" oninput="searchUsers(${task.id})">
+            <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
+        </div>
+        <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
+            ${renderSelectOptions(task, users)}
+        </div>
+        <div id="initial-avatars-large-container">
+            ${generateCollaboratorAvatars(task)}
+        </div>
+    `;
 }
 
 

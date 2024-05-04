@@ -76,24 +76,8 @@ function openAddTaskPopup(statusId) {
 
 function fillOpenTaskPopup(taskId) {
     let task = tasks.find(task => task.id === taskId);
-    let openTaskPopupCategory = document.getElementById('open-task-pop-up-category');
-    openTaskPopupCategory.innerHTML = openTaskPopupCategoryTemplate(task);
-    let openTaskPopupHeading = document.getElementById('open-task-heading');
-    openTaskPopupHeading.innerHTML = task.title;
-    let openTaskPopupDescription = document.getElementById('open-task-description');
-    openTaskPopupDescription.innerHTML = task.description;
-    let openTaskPopupDueDate = document.getElementById('open-task-due-date');
-    openTaskPopupDueDate.innerHTML = task.dueDate;
-    let openTaskPopupPriority = document.getElementById('open-task-priority');
-    openTaskPopupPriority.innerHTML = openTaskPopupPriorityTemplate(task);
-    let openTaskPopupCollaborators = document.getElementById('open-task-collaborators');
-    openTaskPopupCollaborators.innerHTML = generateCollaboratorNames(task);
-    let openTaskPopupSubtasks = document.getElementById('open-task-subtasks');
-    openTaskPopupSubtasks.innerHTML = generateSubtasks(task);
-    let openTaskDeleteButton = document.getElementById('open-task-delete-button');
-    openTaskDeleteButton.setAttribute('onclick', `deleteTask(${taskId})`);
-    let openTaskEditButton = document.getElementById('open-task-edit-button');
-    openTaskEditButton.setAttribute('onclick', `editTask(${taskId})`);
+    let openTaskPopup = document.getElementById('open-task-pop-up');
+    openTaskPopup.innerHTML = openTaskPopupTemplate(task);
 }
 
 
@@ -113,6 +97,26 @@ function checkOrUncheckSubtaskBox(taskId, subtaskIndex) {
     }
     let openTaskPopupSubtasks = document.getElementById('open-task-subtasks');
     openTaskPopupSubtasks.innerHTML = generateSubtasks(task);
+    storeTasks();
+    renderTasks(tasks);
+}
+
+
+function checkOrUncheckCollaboratorBox(taskId, userId) {
+    let task = tasks.find(task => task.id === taskId);
+    let collaborators = task.collaborators;
+    let collaboratorIndex = collaborators.findIndex(collaboratorId => collaboratorId === userId);
+    let checkBox = document.getElementById(`collaborator-checkbox-${userId}`);
+    if (collaboratorIndex > -1) {
+        collaborators.splice(collaboratorIndex, 1);
+        checkBox.src = 'assets/img/checkbox-icon-unchecked.svg';
+    } else {
+        checkBox.src = 'assets/img/checkbox-icon-checked.svg';
+        collaborators.push(userId);
+    }
+    let initialAvatarsLargeContainer = document.getElementById('initial-avatars-large-container');
+    initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(task);
+    storeTasks();
     renderTasks(tasks);
 }
 
@@ -244,28 +248,17 @@ function isAssigned(user, task) {
 }
 
 
-function editTaskAssignedToItemsTemplate(task) {
+function renderSelectOptions(task, usersToBeRendered) {
+    usersToBeRendered.sort(sortByFirstName);
     let selectOptions = '';
-    for (let i = 0; i < users.length; i++) {
-        let user = users[i];
+    for (let i = 0; i < usersToBeRendered.length; i++) {
+        let user = usersToBeRendered[i];
         selectOptions += `<div class="collaborator-option" value="${user.eMail}">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
-            <img class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
+            <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon" onclick="checkOrUncheckCollaboratorBox(${task.id}, ${user.id})">
         </div>`;
     }
-    return /* html */ `
-        <label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
-        <div class="task-drop-down">
-            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()">
-            <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
-        </div>
-        <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
-            ${selectOptions}
-        </div>
-        <div class="inital-avatars-large-container">
-            ${generateCollaboratorAvatars(task)}
-        </div>
-    `;
+    return selectOptions;
 }
 
 
@@ -468,6 +461,23 @@ function searchTasks() {
     } else {
         document.getElementById('board-columns-container').style.display = 'none';
         document.getElementById('no-results').style.display = 'block';
+    }
+}
+
+
+function searchUsers(taskId) {
+    let task = tasks.find(task => task.id === taskId);
+    let searchInput = document.getElementById('task-drop-down-input');
+    let searchString = searchInput.value.toLowerCase();
+    foundUsers = users.filter(user => {
+        let fullUserName = user.firstName.toLowerCase() + ' ' + user.lastName.toLowerCase();
+        return fullUserName.includes(searchString);
+    });
+    let editTaskAssignedTo = document.getElementById('edit-task-assigned-to');
+    if (foundUsers.length > 0) {
+        editTaskAssignedTo.innerHTML = renderSelectOptions(task, foundUsers);
+    } else {
+        editTaskAssignedTo.innerHTML = '<div class="no-users-message">No users found</div>';
     }
 }
 

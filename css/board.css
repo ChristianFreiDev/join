@@ -290,7 +290,7 @@ progress::-webkit-progress-value {
     border: 2px solid #FFFFFF;
 }
 
-.inital-avatars-large-container {
+#initial-avatars-large-container {
     display: flex;
     gap: 8px;
 }
@@ -585,6 +585,11 @@ progress::-webkit-progress-value {
     position: absolute;
     top: 24px;
     right: 24px;
+    pointer-events: none;
+}
+
+.no-users-message {
+    padding: 7px 16px;
 }
 
 @media (max-width: 1439px) {
