@@ -319,10 +319,10 @@ function editTaskAssignedToItemsTemplate(task) {
     return /* html */ `
         <label for="task-drop-down-input" class="task-form-label">Assigned to</label>
         <div class="task-drop-down">
-            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()" oninput="searchUsers(${task.id})" placeholder="Select contacts to assign">
+            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id})" placeholder="Select contacts to assign">
             <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
-        <div id="edit-task-assigned-to2" class="task-user-dropdown display-none">
+        <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
             ${renderSelectOptions(task, users)}
         </div>
         <div id="initial-avatars-large-container">

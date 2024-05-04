@@ -333,9 +333,9 @@ function renderSelectOptions(task, usersToBeRendered) {
 }
 
 
-function onTaskDropDownInputClick() {
-    let editTaskAssignedTo = document.getElementById('edit-task-assigned-to2');
-    editTaskAssignedTo.classList.toggle('display-none');
+function onTaskDropDownInputClick(taskAssignedToId) {
+    let taskAssignedTo = document.getElementById(taskAssignedToId);
+    taskAssignedTo.classList.toggle('display-none');
 }
 
 
@@ -544,7 +544,7 @@ function searchUsers(taskId) {
         let fullUserName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
         return fullUserName.includes(searchString);
     });
-    let editTaskAssignedTo = document.getElementById('edit-task-assigned-to2');
+    let editTaskAssignedTo = document.getElementById('edit-task-assigned-to');
     if (foundUsers.length > 0) {
         editTaskAssignedTo.innerHTML = renderSelectOptions(task, foundUsers);
     } else {

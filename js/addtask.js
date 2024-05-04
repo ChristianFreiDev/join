@@ -111,7 +111,7 @@ function resetForm(){
 
 
 function renderAssignedToList() {
-    let assignedTo = document.getElementById('edit-task-assigned-to');
+    let assignedTo = document.getElementById('add-task-assigned-to');
     assignedTo.innerHTML = '';
 
     for (let i = 0; i < users.length; i++) {
