@@ -541,7 +541,7 @@ function searchUsers(taskId) {
     let searchInput = document.getElementById('task-drop-down-input');
     let searchString = searchInput.value.toLowerCase();
     foundUsers = users.filter(user => {
-        let fullUserName = user.firstName.toLowerCase() + ' ' + user.lastName.toLowerCase();
+        let fullUserName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
         return fullUserName.includes(searchString);
     });
     let editTaskAssignedTo = document.getElementById('edit-task-assigned-to2');
