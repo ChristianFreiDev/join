@@ -86,19 +86,19 @@ function editTaskTemplate(task) {
         <div class="edit-task-pop-up-header">
             <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
         </div>
-        <form class="edit-task-form">
+        <form class="edit-task-form" onsubmit="onSubmitEditTaskForm(${task.id}); return false">
             <div class="open-task-pop-up-content">
                 <div class="form-label-and-input-container">
                     <label for="edit-task-title-input" class="task-form-label">Title</label>
-                    <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title" required>
+                    <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title" value="${task.title}" required>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-description-textarea" class="task-form-label">Description</label>
-                    <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description" required></textarea>
+                    <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description" required>${task.description}</textarea>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label">Due date</label>
-                    <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date" required>
+                    <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date" value="${task.dueDate}" required>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>

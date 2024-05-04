@@ -51,7 +51,7 @@ let offlineTasks = [
         description: 'Create a contact form and imprint page.',
         id: 0,
         collaborators: [1, 2], // user id
-        dueDate: 'May 06, 2024',
+        dueDate: '2024-05-06',
         priority: 'Urgent',
         category: 'User Story',
         status: 'To do',
@@ -73,7 +73,7 @@ let offlineTasks = [
         description: 'Build start page with recipe recommendation',
         id: 1,
         collaborators: [1, 3, 4], // user id
-        dueDate: 'May 06, 2024',
+        dueDate: '2024-05-06',
         priority: 'Medium',
         category: 'User Story',
         status: 'In progress',
@@ -95,7 +95,7 @@ let offlineTasks = [
         description: 'Create reusable HTML base templates for Header and footer.',
         id: 2,
         collaborators: [2, 3], // user id
-        dueDate: 'May 05, 2024',
+        dueDate: '2024-05-05',
         priority: 'Low',
         category: 'Technical Task',
         status: 'Await feedback',
@@ -106,7 +106,7 @@ let offlineTasks = [
         description: 'Implement daily recipe and portion calculator. Able to calculate are only positive values',
         id: 3,
         collaborators: [1, 2, 3, 4], // user id
-        dueDate: 'May 03, 2024',
+        dueDate: '2024-05-03',
         priority: 'Medium',
         category: 'User Story',
         status: 'Await feedback',
@@ -117,7 +117,7 @@ let offlineTasks = [
         description: 'Define CSS naming conventions and structure.',
         id: 4,
         collaborators: [1, 2], // user id
-        dueDate: 'May 01, 2024',
+        dueDate: '2024-05-01',
         priority: 'Urgent',
         category: 'Technical Task',
         status: 'Done',

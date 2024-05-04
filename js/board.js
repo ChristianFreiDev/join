@@ -1,5 +1,15 @@
 let draggedTaskId;
-let currentTask;
+let taskBeingEdited = {
+    title: undefined,
+    description: undefined,
+    id: undefined,
+    collaborators: [], // user id
+    dueDate: undefined,
+    priority: 'none',
+    category: undefined,
+    status: undefined,
+    subtasks: []
+}
 
 /**
  * This function enables dropping a task into the respective area by preventing the default action that occurs when something is dropped
@@ -136,6 +146,23 @@ function editTask(taskId) {
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
     openTaskPopup.innerHTML = editTaskTemplate(task);
+    priority = task.priority.toLowerCase();
+    changePriorityButtonStyle(priority, 'add');
+}
+
+let temporaryCollaborators = [];
+let temporarySubtasks = [];
+
+function onSubmitEditTaskForm(taskId) {
+    let task = tasks.find(task => task.id === taskId);
+    task.title = document.getElementById('edit-task-title-input').value;
+    task.description = document.getElementById('edit-task-description-textarea').value;
+    task.collaborators = temporaryCollaborators;
+    task.dueDate = document.getElementById('edit-task-due-date').value;
+    task.priority = priority;
+    task.subtasks = temporarySubtasks;
+    console.log('edited task', task);
+    removePopup('open-task-pop-up');
 }
 
 
