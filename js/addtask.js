@@ -58,6 +58,7 @@ const buttonActions = {
     }
 };
 
+
 /**
  * This function is used to change the color of the priority buttons.
  * 
@@ -76,6 +77,7 @@ function clickButton(newPriority) {
     }
 }
 
+
 /**
  * This function adds a task to the server
  */
@@ -91,8 +93,8 @@ function addTask(){
         dueDate: date.value,
         category: category.value,
     };
-    allTasks.push(task)  
-    setItem('tasks', allTasks)
+    task.push(task)  
+    setItem('tasks', task)
     resetForm();
 }
 
@@ -109,21 +111,11 @@ function resetForm(){
 
 
 function renderAssignedToList() {
-    let selectOptions = '';
+    let assignedTo = document.getElementById('edit-task-assigned-to');
+    assignedTo.innerHTML = '';
+
     for (let i = 0; i < users.length; i++) {
         let user = users[i];
-        selectOptions += `<div class="collaborator-option" value="${user.eMail}">
-            <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
-            <img class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
-        </div>`;
+        assignedTo.innerHTML += generateAssignedToList(user);
     }
-    let assignedTo = document.getElementById('assigned-to-list');
-    assignedTo.innerHTML = /* html */ `<label for="edit-task-assigned-to" class="task-form-label">Assigned to</label>
-        <div class="task-drop-down">
-            <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()">
-            <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
-        </div>
-        <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
-            ${selectOptions}
-        </div>`
 }

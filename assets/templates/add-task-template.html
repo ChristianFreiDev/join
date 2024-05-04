@@ -16,7 +16,14 @@
               <textarea id="input-description" placeholder="Enter a Description" type="text"></textarea>
             </form>
           </div>
-          <div id="assigned-to-list"></div>
+          <div id="assigned-to-list">
+            <label class="task-form-label">Assigned to</label>
+            <div class="task-drop-down">
+                <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick()">
+                <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
+            </div>
+            <div id="edit-task-assigned-to" class="task-user-dropdown display-none"></div>
+          </div>
         </div>
       </div>
 
