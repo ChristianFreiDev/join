@@ -254,19 +254,31 @@ function subTaskTemplate(subtask, subtaskIndex, taskId) {
 
 function subTaskTemplateTemporary(subtask, subtaskIndex) {
     return /* html */ `
-        <div class="subtask edit-task-subtask">
-            <li>${subtask.title}</li>
-            <div class="edit-task-buttons-container">
-                <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editSubtask(${subtaskIndex})">
-                    <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
-                </div>
-                <div class="open-task-button-separator"></div>
-                <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtaskIndex})">
-                    <img src="assets/img/open-task-delete-button-icon.svg" alt="open task delete button icon">
+        <div id="subtask-container-${subtaskIndex}">
+            <div class="subtask edit-task-subtask">
+                <li id="subtask-title-${subtaskIndex}">${subtask.title}</li>
+                <div class="edit-task-buttons-container">
+                    <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editSubtask(${subtaskIndex})">
+                        <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
+                    </div>
+                    <div class="open-task-button-separator"></div>
+                    <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtaskIndex})">
+                        <img src="assets/img/open-task-delete-button-icon.svg" alt="open task delete button icon">
+                    </div>
                 </div>
             </div>
         </div>
     `;
+}
+
+
+function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle) {
+    return /* html */ `<div class="edit-task-subtask-input-container">
+        <input id="subtask-title-input-editable-${subtaskIndex}" class="subtask-title-input-editable" type="text" value="${subtaskTitle}">
+        <div id="input-icons-container">
+            ${confirmOrDeleteIcons(`deleteSubtaskInputForEditing(${subtaskIndex})`, `confirmSubtaskInputForEditing(${subtaskIndex})`)}
+        </div>
+    </div>`;
 }
 
 
@@ -320,11 +332,11 @@ function editTaskAssignedToItemsTemplate(task) {
 }
 
 
-function confirmOrDeleteIcons() {
-    return /* html */ `<div class="input-icon-container" onclick="deleteSubtaskInput()">
+function confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName) {
+    return /* html */ `<div class="input-icon-container" onclick="${deletionFunctionName}">
             <img src="../assets/img/open-task-delete-button-icon.svg" alt="delete icon">
         </div>
-        <div class="input-icon-container" onclick="confirmSubtaskInput()">
+        <div class="input-icon-container" onclick="${confirmationFunctionName}">
             <img src="../assets/img/edit-task-confirm-button-icon.svg" alt="confirm icon">
         </div>`;
 }

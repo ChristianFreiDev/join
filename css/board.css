@@ -669,6 +669,14 @@ progress::-webkit-progress-value {
     width: 14px;
 }
 
+.subtask-title-input-editable {
+    width: 100%;
+    padding: 4px 16px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color-accent);
+}
+
 @media (max-width: 1439px) {
     .board-columns-container {
         flex-direction: column;
