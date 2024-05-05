@@ -7,6 +7,8 @@ async function initSummary() {
         document.getElementById('summary-overlay').style.zIndex = '2';
     } else if (window.screen.width <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
         document.getElementById('summary-greeding-box').classList.add('display-none');
+    } else if (window.screen.width > 1400) {
+    document.getElementById('summary-overlay').classList.add('display-none');
     }
     await loadUsers();
     greetUser();
@@ -16,8 +18,11 @@ async function initSummary() {
     saveVariableInLocalStorage('fromIndex', false);
 }
 
+let animationOver = false;
+
 function checkWindowWidth() {
-    if (document.body.scrollWidth < 1400) {
+    console.log(document.body.scrollWidth);
+    if (document.body.scrollWidth < 1400 && animationOver) {
         document.getElementById('summary-greeding-box').classList.add('display-none');
     } else {
         document.getElementById('summary-greeding-box').classList.remove('display-none');
@@ -38,6 +43,7 @@ async function greetUser() {
         }
         setTimeout(hideOverlay, 3000);
     }
+    animationOver = true;
 }
 
 function animateOverlay() {
