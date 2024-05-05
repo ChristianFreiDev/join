@@ -119,7 +119,7 @@ function showHideDropDownMenu() {
 
 /**
  * This function returns true, when the drop down menu is hidden.
- * @param {DOM-Element} nav 
+ * @param {Element} nav 
  * @returns boolean
  */
 function navIsClosed(nav) {
@@ -129,16 +129,20 @@ function navIsClosed(nav) {
 
 /**
  * This function shows the drop down menu, by removing the class "display-none"
- * @param {DOM-Element} nav 
+ * @param {Element} nav 
  */
 function openNav(nav) {
+    let header = document.querySelector('header');
+    headerStyles = window.getComputedStyle(header);
+    headerHeight = headerStyles.getPropertyValue('height');
+    nav.style.top = `${headerHeight}`;
     nav.classList.remove('display-none')
 }
 
 
 /**
  * This function hides the drop down menu, by adding the class "display-none"
- * @param {DOM-Element} nav 
+ * @param {Element} nav 
  */
 function closeNav(nav) {
     nav.classList.add('display-none')
