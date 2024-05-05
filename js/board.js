@@ -208,10 +208,10 @@ function getTemporaryCollaborators() {
  * This function checks the collaborator checkbox in the list of assigned users.
  * @param {number} userId 
  */
-function checkOrUncheckCollaboratorBox(userId, idPrefix, i) {
+function checkOrUncheckCollaboratorBox(userId, idPrefix) {
     let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
     let checkBox = document.getElementById(`collaborator-checkbox-${userId}`);
-    let collaboratorOption = document.getElementById(`collaborator-option${i}`);
+    let collaboratorOption = document.getElementById(`${idPrefix}-collaborator-option-${userId}`);
     if (collaboratorIndex > -1) {
         temporaryCollaborators.splice(collaboratorIndex, 1);
         checkBox.src = 'assets/img/checkbox-icon-unchecked.svg';
@@ -374,7 +374,7 @@ function renderSelectOptions(task, usersToBeRendered, idPrefix) {
     let selectOptions = '';
     for (let i = 0; i < usersToBeRendered.length; i++) {
         let user = usersToBeRendered[i];
-        selectOptions += `<div id="collaborator-option${i}" class="collaborator-option" value="${user.eMail} "onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}', '${i}') ">
+        selectOptions += `<div id="${idPrefix}-collaborator-option-${user.id}" class="collaborator-option" value="${user.eMail} "onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}') ">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
             <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
         </div>`;
