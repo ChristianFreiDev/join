@@ -90,7 +90,7 @@ function addTask(){
 
     temporaryTask.title = title.value;
     temporaryTask.description = description.value;
-    temporaryTask.date = date.value;
+    temporaryTask.dueDate = date.value;
     temporaryTask.category = category.value;
     temporaryTask.priority = priority;
     temporaryTask.status = 'To do';
