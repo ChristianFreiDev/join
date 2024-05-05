@@ -218,7 +218,6 @@ function checkOrUncheckCollaboratorBox(userId, idPrefix) {
         checkBox.src = 'assets/img/checkbox-icon-checked.svg';
         temporaryCollaborators.push(userId);
     }
-    console.log('idPrefix from checkOrUncheckCollaboratorBox', idPrefix)
     let initialAvatarsLargeContainer = document.getElementById(`${idPrefix}-initial-avatars-large-container`);
     initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
 }
