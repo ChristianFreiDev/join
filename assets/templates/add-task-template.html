@@ -16,13 +16,13 @@
               <textarea id="input-description" placeholder="Enter a Description" type="text"></textarea>
             </form>
           </div>
-          <div id="assigned-to-list">
+          <div id="assigned-to-list" class="form-label-and-input-container">
             <label class="task-form-label">Assigned to</label>
             <div class="task-drop-down">
                 <input id="add-task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('add-task-assigned-to')" oninput="searchUsers(undefined, 'add-task-drop-down-input', 'add-task-assigned-to')">
                 <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
             </div>
-            <div id="add-task-assigned-to" class="task-user-dropdown display-none"></div>
+            <div id="add-task-assigned-to" class="task-user-dropdown add-task-user-dropdown display-none"></div>
           </div>
         </div>
       </div>
