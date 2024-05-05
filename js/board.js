@@ -637,12 +637,16 @@ function searchUsers(taskId, idPrefix) {
 }
 
 
+/**
+ * This function cuts off the task description after a certain number of characters.
+ * @param {string} taskDescription 
+ * @returns {string}
+ */
 function createTaskDescriptionPreview(taskDescription) {
     let result = '';
     for (let i = 0; i < taskDescription.length; i++) {
         let character = taskDescription[i];
-        console.log(character)
-        if (character === ' ' && i > 40 && i < 50) {
+        if (character === ' ' || character === '.' && i > 40 && i < 50) {
             return result;
         } else if (i >= 50) {
             return result;
