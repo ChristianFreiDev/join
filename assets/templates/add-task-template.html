@@ -19,7 +19,7 @@
           <div id="assigned-to-list">
             <label class="task-form-label">Assigned to</label>
             <div class="task-drop-down">
-                <input id="task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('add-task-assigned-to')">
+                <input id="add-task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('add-task-assigned-to')" oninput="searchUsers(undefined, 'add-task-drop-down-input', 'add-task-assigned-to')">
                 <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
             </div>
             <div id="add-task-assigned-to" class="task-user-dropdown display-none"></div>
@@ -42,13 +42,13 @@
             <div class="form-add-task">
               <label class="add-task-text">Prio</label>
               <div class="priority-button">
-                <button class="prio-button" id="prio-urgent" onclick="clickButton('urgent')">
+                <button class="prio-button" id="prio-urgent" onclick="clickButton('Urgent')">
                   Urgent <img id="prio-arrow-up" src="/assets/img/prio-up.svg" />
                 </button>
-                <button class="prio-button" id="prio-medium" onclick="clickButton('medium')">
+                <button class="prio-button" id="prio-medium" onclick="clickButton('Medium')">
                   Medium <img id="prio-medium-equals" src="/assets/img/prio-medium-orange.svg" />
                 </button>
-                <button class="prio-button" id="prio-low" onclick="clickButton('low')">
+                <button class="prio-button" id="prio-low" onclick="clickButton('Low')">
                   Low <img id="prio-arrow-down" src="/assets/img/prio-down.svg" />
                 </button>
               </div>

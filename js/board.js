@@ -1,6 +1,4 @@
 let draggedTaskId;
-let temporaryCollaborators = [];
-let temporarySubtasks = [];
 
 /**
  * This function enables dropping a task into the respective area by preventing the default action that occurs when something is dropped
@@ -191,7 +189,9 @@ function checkOrUncheckCollaboratorBox(userId) {
         temporaryCollaborators.push(userId);
     }
     let initialAvatarsLargeContainer = document.getElementById('initial-avatars-large-container');
-    initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
+    if (initialAvatarsLargeContainer) {
+        initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
+    }
 }
 
 
@@ -536,15 +536,20 @@ function searchTasks() {
 }
 
 
-function searchUsers(taskId) {
-    let task = tasks.find(task => task.id === taskId);
-    let searchInput = document.getElementById('task-drop-down-input');
+function searchUsers(taskId, searchInputId, taskAssignedToId) {
+    let task;
+    if (taskId === undefined) {
+        task = temporaryTask;
+    } else {
+        task = tasks.find(task => task.id === taskId);
+    }
+    let searchInput = document.getElementById(searchInputId);
     let searchString = searchInput.value.toLowerCase();
     foundUsers = users.filter(user => {
         let fullUserName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
         return fullUserName.includes(searchString);
     });
-    let editTaskAssignedTo = document.getElementById('edit-task-assigned-to');
+    let editTaskAssignedTo = document.getElementById(taskAssignedToId);
     if (foundUsers.length > 0) {
         editTaskAssignedTo.innerHTML = renderSelectOptions(task, foundUsers);
     } else {

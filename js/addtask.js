@@ -1,15 +1,17 @@
 let priority = "none"
 let allTasks = []
-let task = {
+let temporaryCollaborators = [];
+let temporarySubtasks = [];
+let temporaryTask = {
     title: undefined,
     description: undefined,
     id: undefined,
-    collaborators: [], // user id
+    collaborators: temporaryCollaborators, // user id
     dueDate: undefined,
     priority: 'none',
     category: undefined,
     status: undefined,
-    subtasks: []
+    subtasks: temporarySubtasks
 }
 
 
@@ -26,7 +28,7 @@ async function initAddTask() {
  */
 
 const buttonActions = {
-    'urgent': {
+    'Urgent': {
         'clicked': function() {
             document.getElementById('prio-urgent').classList.add('urgent-button-clicked');
             document.getElementById('prio-arrow-up').src = '/assets/img/prio-up-white.svg';
@@ -36,7 +38,7 @@ const buttonActions = {
             document.getElementById('prio-arrow-up').src = '/assets/img/prio-up.svg';
         }
     },
-    'medium': {
+    'Medium': {
         'clicked': function() {
             document.getElementById('prio-medium').classList.add('medium-button-clicked');
             document.getElementById('prio-medium-equals').src = '/assets/img/prio-medium-white.svg';
@@ -46,7 +48,7 @@ const buttonActions = {
             document.getElementById('prio-medium-equals').src = '/assets/img/prio-medium-orange.svg';
         }
     },
-    'low': {
+    'Low': {
         'clicked': function() {
             document.getElementById('prio-low').classList.add('low-button-clicked');
             document.getElementById('prio-arrow-down').src = '/assets/img/prio-down-white.svg';
@@ -87,14 +89,14 @@ function addTask(){
     date = document.getElementById('input-due-date');
     category = document.getElementById('input-category');
 
-    let task = {
-        title: title.value,
-        description: description.value,
-        dueDate: date.value,
-        category: category.value,
-    };
-    task.push(task)  
-    setItem('tasks', task)
+    temporaryTask.title = title.value;
+    temporaryTask.description = description.value;
+    temporaryTask.date = date.value;
+    temporaryTask.category = category.value;
+    temporaryTask.priority = priority;
+    temporaryTask.status = 'To do';
+    tasks.push(temporaryTask);  
+    storeTasks();
     resetForm();
 }
 
@@ -112,10 +114,5 @@ function resetForm(){
 
 function renderAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
-    assignedTo.innerHTML = '';
-
-    for (let i = 0; i < users.length; i++) {
-        let user = users[i];
-        assignedTo.innerHTML += generateAssignedToList(user);
-    }
+    assignedTo.innerHTML = renderSelectOptions(temporaryTask, users);
 }
