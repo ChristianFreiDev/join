@@ -82,7 +82,7 @@ function clickButton(newPriority) {
 /**
  * This function adds a task to the server
  */
-function addTask(){
+function addTask(status){
     title = document.getElementById('input-title');
     description = document.getElementById('input-description');
     date = document.getElementById('input-due-date');
@@ -93,7 +93,8 @@ function addTask(){
     temporaryTask.dueDate = date.value;
     temporaryTask.category = category.value;
     temporaryTask.priority = priority;
-    temporaryTask.status = 'To do';
+    temporaryTask.status = status;
+    temporaryTask.id = tasks.length;
     tasks.push(temporaryTask);  
     storeTasks();
     resetForm();

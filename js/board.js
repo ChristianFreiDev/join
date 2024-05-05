@@ -66,11 +66,11 @@ function removePopup(id) {
  * This function opens the add-task popup
  * @param {string} statusId task status ID
  */
-function openAddTaskPopup(statusId) {
+function openAddTaskPopup(status) {
     centerPopup('add-task-pop-up');
     // This should actually change the onsubmit attribute of the form once the form supports it
     let createTaskButton = document.getElementById('create-task-button');
-    // createTaskButton.setAttribute('onclick', createTaskFromBoard(statusId));
+    createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}')`);
     renderAssignedToList();
 }
 
@@ -343,8 +343,8 @@ function onTaskDropDownInputClick(taskAssignedToId) {
  * This function creates a task from the board's task pop-up
  * @param {string} statusId task status ID
  */
-function createTaskFromBoard(statusId) {
-    console.log(statusId);
+function createTaskFromBoard(status) {
+    addTask(status);
 }
 
 

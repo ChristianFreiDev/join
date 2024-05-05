@@ -46,9 +46,9 @@
                 <div class="board-top-container">
                     <div class="page-heading-and-mobile-button-container">
                         <h2>Board</h2>
-                        <button class="medium-dark-button add-task-button-tablet" onclick="openAddTaskPopup('to-do')">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
+                        <button class="medium-dark-button add-task-button-tablet" onclick="openAddTaskPopup('To do')">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
                         <div class="large-board-add-task-button-mobile-container">
-                            <img class="large-board-add-task-button-mobile" src="assets/img/large-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('to-do')">
+                            <img class="large-board-add-task-button-mobile" src="assets/img/large-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('To do')">
                         </div>
                     </div>
                     <div class="board-actions-container">
@@ -58,31 +58,31 @@
                             </form>
                             <img class="search-icon" src="assets/img/search-icon.svg" alt="search icon">
                         </div>
-                        <button class="medium-dark-button add-task-button-desktop" onclick="openAddTaskPopup('to-do')">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
+                        <button class="medium-dark-button add-task-button-desktop" onclick="openAddTaskPopup('To do')">Add task <img class="medium-dark-button-icon" src="assets/img/add.svg" alt="add-icon"></button>
                     </div>
                     <div id="board-column-headers-container-desktop" class="board-columns-container">
                         <div class="board-column">
                             <div class="board-column-header">
                                 <h3 class="board-column-heading-desktop">To do</h3>
-                                <img class="cursor-pointer" src="assets/img/small-board-add-task-button.svg" alt="add-task button" onclick="openAddTaskPopup('to-do')">
+                                <img class="cursor-pointer" src="assets/img/small-board-add-task-button.svg" alt="add-task button" onclick="openAddTaskPopup('To do')">
                             </div>
                         </div>
                         <div class="board-column">
                             <div class="board-column-header">
                                 <h3 class="board-column-heading-desktop">In progress</h3>
-                                <img class="cursor-pointer" src="assets/img/small-board-add-task-button.svg" alt="add-task button" onclick="openAddTaskPopup('in-progress')">
+                                <img class="cursor-pointer" src="assets/img/small-board-add-task-button.svg" alt="add-task button" onclick="openAddTaskPopup('In progress')">
                             </div>
                         </div>
                         <div class="board-column">
                             <div class="board-column-header">
                                 <h3 class="board-column-heading-desktop">Await feedback</h3>
-                                <img class="cursor-pointer" src="assets/img/small-board-add-task-button.svg" alt="add-task button" onclick="openAddTaskPopup('await-feedback')">
+                                <img class="cursor-pointer" src="assets/img/small-board-add-task-button.svg" alt="add-task button" onclick="openAddTaskPopup('Await feedback')">
                             </div>
                         </div>
                         <div class="board-column">
                             <div class="board-column-header">
                                 <h3 class="board-column-heading-desktop">Done</h3>
-                                <img class="cursor-pointer" src="assets/img/small-board-add-task-button.svg" alt="add-task button" onclick="openAddTaskPopup('done')">
+                                <img class="cursor-pointer" src="assets/img/small-board-add-task-button.svg" alt="add-task button" onclick="openAddTaskPopup('Done')">
                             </div>
                         </div>
                     </div>
@@ -92,28 +92,28 @@
                     <div class="board-column">
                         <div class="board-column-header board-column-header-mobile">
                             <h3 class="board-column-heading-mobile">To do</h3>
-                            <img class="cursor-pointer" src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('to-do')">
+                            <img class="cursor-pointer" src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('To do')">
                         </div>
                         <div id="to-do" class="board-column-tasks-container" ondrop="dropTaskInArea('to-do', 'To do')" ondragover="allowTaskDrop(event); highlightArea('to-do')" ondragleave="stopHighlightingArea('to-do')"></div>
                     </div>
                     <div class="board-column">
                         <div class="board-column-header board-column-header-mobile">
                             <h3 class="board-column-heading-mobile">In progress</h3>
-                            <img class="cursor-pointer" src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('in-progress')">
+                            <img class="cursor-pointer" src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('In progress')">
                         </div>
                         <div id="in-progress" class="board-column-tasks-container" ondrop="dropTaskInArea('in-progress', 'In progress')" ondragover="allowTaskDrop(event); highlightArea('in-progress')" ondragleave="stopHighlightingArea('in-progress')"></div>
                     </div>
                     <div class="board-column">
                         <div class="board-column-header board-column-header-mobile">
                             <h3 class="board-column-heading-mobile">Await feedback</h3>
-                            <img class="cursor-pointer" src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('await-feedback')">
+                            <img class="cursor-pointer" src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('Await feedback')">
                         </div>
                         <div id="await-feedback" class="board-column-tasks-container" ondrop="dropTaskInArea('await-feedback', 'Await feedback')" ondragover="allowTaskDrop(event); highlightArea('await-feedback')" ondragleave="stopHighlightingArea('await-feedback')"></div>
                     </div>
                     <div class="board-column">
                         <div class="board-column-header board-column-header-mobile">
                             <h3 class="board-column-heading-mobile">Done</h3>
-                            <img class="cursor-pointer" src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('done')">
+                            <img class="cursor-pointer" src="assets/img/small-board-add-task-button-mobile.svg" alt="add-task button" onclick="openAddTaskPopup('Done')">
                         </div>
                         <div id="done" class="board-column-tasks-container" ondrop="dropTaskInArea('done', 'Done')" ondragover="allowTaskDrop(event); highlightArea('done')" ondragleave="stopHighlightingArea('done')"></div>
                     </div>
