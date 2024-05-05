@@ -633,6 +633,24 @@ function searchUsers(taskId, idPrefix) {
     taskAssignedTo.classList.remove('display-none');
 }
 
+
+function createTaskDescriptionPreview(taskDescription) {
+    let result = '';
+    for (let i = 0; i < taskDescription.length; i++) {
+        let character = taskDescription[i];
+        console.log(character)
+        if (character === ' ' && i > 40 && i < 50) {
+            return result;
+        } else if (i >= 50) {
+            return result;
+        } else {
+            result += character;
+        }
+    }
+    return result;
+}
+
+
 /**
  * This event listener serves to remove a pop-up when the Escape key is pressed.
  */
