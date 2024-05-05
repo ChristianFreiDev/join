@@ -216,7 +216,7 @@ function checkOrUncheckCollaboratorBox(userId, idPrefix) {
         temporaryCollaborators.splice(collaboratorIndex, 1);
         checkBox.src = 'assets/img/checkbox-icon-unchecked.svg';
     } else {
-        checkBox.src = 'assets/img/checkbox-icon-checked.svg';
+        checkBox.src = 'assets/img/checkbox-icon-checked-white.svg';
         temporaryCollaborators.push(userId);
     }
     collaboratorOption.classList.toggle('collaborator-focus');
@@ -375,7 +375,7 @@ function renderSelectOptions(task, usersToBeRendered, idPrefix) {
         let user = usersToBeRendered[i];
         selectOptions += `<div id="${idPrefix}-collaborator-option-${user.id}" class="collaborator-option ${isAssigned(user, task) ? 'collaborator-focus' : ''}" value="${user.eMail} "onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}') ">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
-            <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
+            <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked-white.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
         </div>`;
     }
     return selectOptions;
