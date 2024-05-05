@@ -33,6 +33,7 @@ function checkWindowWidth() {
 }
 
 async function greetUser() {
+    checkDayTimeAndchangeGreeting();
     document.getElementById('summary-greeding-name').innerHTML = await getUserName();
     if (loadVariableFromLocalStorage('currentJoinUserId') == 0) {
         document.getElementById('summary-greeding-punctuation-mark').classList.add('display-none');
@@ -48,6 +49,33 @@ async function greetUser() {
         setTimeout(hideOverlay, 3000);
     }
     animationOver = true;
+}
+
+function checkDayTimeAndchangeGreeting() {
+    let daytimeString = checkDayTime();
+    changeGreeting(daytimeString);
+}
+
+
+function checkDayTime() {
+    let daytimeString = '';
+    let date = new Date();
+    let dayTime = date.getHours();
+    if (dayTime >= 3 && dayTime < 12) {
+        daytimeString = 'morning'
+    }
+    if (dayTime >= 12 && dayTime < 18) {
+        daytimeString = 'afternoon'
+    }
+    if (dayTime >= 18 || dayTime < 3) {
+        daytimeString = 'morning'
+    }
+    return daytimeString;
+}
+
+
+function changeGreeting(daytimeString) {
+    document.getElementById('summary-greeding').innerHTML = `Good ${daytimeString}`;
 }
 
 function animateOverlay() {
