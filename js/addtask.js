@@ -24,7 +24,7 @@ async function initAddTask() {
 //----------------------- Prio Buttons---------------------------------//
 
 /** 
- * This object is used to avoid repetitions at the prio buttons
+ * This object is used to avoid repetitions at the prio buttons.
  */
 
 const buttonActions = {
@@ -112,6 +112,7 @@ function resetForm(){
     category.value ='';
 }
 
+
 /**
  * This function renders users to the input "assigned to"
  */
@@ -121,6 +122,9 @@ function renderAssignedToList() {
 }
 
 
+/**
+ * This function serves to add an event listener that adds buttons to confirm or reject a change.
+ */
 function addInputEventListener() {
     let subtaskInput = document.getElementById('add-task-subtask-input');
     subtaskInput.addEventListener("focus", (event) => {
