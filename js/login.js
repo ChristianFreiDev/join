@@ -67,11 +67,14 @@ function resetForm() {
 /**
  *  This function opens the sign-up menu and hides the login menu by adding and removing the class "display-none".
  */
-function openSignUpMenu() {
+function openSignUpMenu(email = false) {
     document.getElementById('login-feld').classList.add('display-none');
     document.getElementById('login-signup-box-footer').classList.add('display-none');
     document.getElementById('login-signup-box-header').classList.add('display-none');
     document.getElementById('signup-feld').classList.remove('display-none');
+    if (email) {
+        document.getElementById('signup-email-input').value = `${email}`;
+    }
 }
 
 
@@ -148,6 +151,7 @@ function catchLoginFailure(email, password) {
     if (emailIsWrong) {
         document.querySelector('#login-email-input ~ p').classList.remove('display-none');
         document.querySelector('#login-password-input ~ p').classList.add('display-none');
+        document.getElementById('login-failure-button').setAttribute('onclick', `openSignUpMenu("${email}")`);
     } else {
         document.querySelector('#login-email-input ~ p').classList.add('display-none');
         if (passwordIsWrong) {
@@ -224,6 +228,12 @@ function goToSummary() {
 
 
 function signup() {
+    document.getElementById('signup-button').disabled = true;
+    checkSignupValues();
+}
+
+
+function checkSignupValues() {
 
 }
 
