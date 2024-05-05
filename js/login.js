@@ -234,7 +234,15 @@ function signup() {
 
 
 function checkSignupValues() {
-
+    let name = document.getElementById('signup-name-input').value;
+    let email = document.getElementById('signup-email-input').value;
+    let password = document.getElementById('signup-password-input').value;
+    let passwordConfirm = document.getElementById('signup-password-confirm-input').value;
+    if (password === passwordConfirm) {
+        
+    } else {
+        document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
+    }
 }
 
 
