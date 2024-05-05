@@ -310,10 +310,10 @@ function renderPriorityAmount(foundTasks = []) {
 /**
  * This function outputs the value of the highest priority.
  * 
- * @param {Array} foundTasks 
+ * @param {string} prioritiy 
  */
-function renderPriorityValue(foundTasks = [{ priority: '' }]) {
-    document.getElementById('summary-priority-value').innerHTML = foundTasks[0].priority;
+function renderPriorityValue(priority) {
+    document.getElementById('summary-priority-value').innerHTML = priority;
 }
 
 
