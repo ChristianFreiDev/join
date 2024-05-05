@@ -112,7 +112,9 @@ function resetForm(){
     category.value ='';
 }
 
-
+/**
+ * This function renders users to the input "assigned to"
+ */
 function renderAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
     assignedTo.innerHTML = renderSelectOptions(temporaryTask, users);
