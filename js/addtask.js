@@ -1,5 +1,4 @@
 let priority = "none"
-let allTasks = []
 let temporaryCollaborators = [];
 let temporarySubtasks = [];
 let temporaryTask = {
