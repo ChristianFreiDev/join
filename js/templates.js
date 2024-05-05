@@ -253,7 +253,6 @@ function subTaskTemplate(subtask, subtaskIndex, taskId) {
 
 
 function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
-    console.log(idPrefix)
     return /* html */ `
         <div id="${idPrefix}-subtask-container-${subtaskIndex}">
             <div class="subtask edit-task-subtask">
@@ -274,7 +273,6 @@ function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
 
 
 function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) {
-    console.log('idPrefix from subTaskTemplateTemporaryEditable', idPrefix)
     return /* html */ `<div class="edit-task-subtask-input-container">
         <input id="${idPrefix}-subtask-title-input-editable-${subtaskIndex}" class="subtask-title-input-editable" type="text" value="${subtaskTitle}">
         <div id="${idPrefix}-input-icons-container" class="input-icons-container">
@@ -304,7 +302,6 @@ function generateSubtasks(task, subtasks) {
 
 
 function generateSubtasksTemporary(subtasks, idPrefix) {
-    console.log('idPrefix from generateSubtasksTemporary', idPrefix)
     let HTMLString = '';
     if (subtasks.length > 0) {
             if (subtasks) {

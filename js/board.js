@@ -1,7 +1,7 @@
 let draggedTaskId;
 
 /**
- * This function enables dropping a task into the respective area by preventing the default action that occurs when something is dropped
+ * This function enables dropping a task into the respective area by preventing the default action that occurs when something is dropped.
  * @param {Event} event 
  */
 function allowTaskDrop(event) {
@@ -10,7 +10,7 @@ function allowTaskDrop(event) {
 
 
 /**
- * This function stores the ID of the task that is currently being dragged in a global variable
+ * This function stores the ID of the task that is currently being dragged in a global variable.
  * @param {number} id 
  */
 function startDraggingTask(event, id) {
@@ -20,7 +20,7 @@ function startDraggingTask(event, id) {
 
 
 /**
- * This function removes the task rotation if the drag event ends without the task being dropped anywhere
+ * This function removes the task rotation if the drag event ends without the task being dropped anywhere.
  * @param {Event} event 
  */
 function endDraggingTask(event) {
@@ -29,8 +29,8 @@ function endDraggingTask(event) {
 
 
 /**
- * This function centers a pop-up with a certain id
- * @param {string} id 
+ * This function centers a pop-up with a certain id.
+ * @param {string} id pop-up id
  */
 function centerPopup(id) {
     let popup = document.getElementById(id);
@@ -46,8 +46,8 @@ function centerPopup(id) {
 
 
 /**
- * This function removes a pop-up
- * @param {string} id 
+ * This function removes a pop-up.
+ * @param {string} id pop-up id
  */
 function removePopup(id) {
     let popup = document.getElementById(id);
@@ -63,7 +63,7 @@ function removePopup(id) {
 
 
 /**
- * This function opens the add-task popup
+ * This function opens the add-task popup.
  * @param {string} statusId task status ID
  */
 function openAddTaskPopup(status) {
@@ -76,6 +76,10 @@ function openAddTaskPopup(status) {
 }
 
 
+/**
+ * This function fills the pop-up for opening a task using a template.
+ * @param {number} taskId 
+ */
 function fillOpenTaskPopup(taskId) {
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
@@ -83,12 +87,21 @@ function fillOpenTaskPopup(taskId) {
 }
 
 
+/**
+ * This function opens a task in a pop-up.
+ * @param {number} taskId 
+ */
 function openTask(taskId) {
     fillOpenTaskPopup(taskId);
     centerPopup('open-task-pop-up');
 }
 
 
+/**
+ * This function checks the checkbox of a subtask in the pop-up for opening tasks.
+ * @param {number} taskId 
+ * @param {number} subtaskIndex 
+ */
 function checkOrUncheckSubtaskBox(taskId, subtaskIndex) {
     let task = tasks.find(task => task.id === taskId);
     let subtasks = task.subtasks;
@@ -105,34 +118,33 @@ function checkOrUncheckSubtaskBox(taskId, subtaskIndex) {
 }
 
 
-function checkOrUncheckSubtaskBoxTemporary(taskId, subtaskIndex) {
-    let task = tasks.find(task => task.id === taskId);
-    temporarySubtasks = [...task.subtasks];
-    let subtask = temporarySubtasks[subtaskIndex];
-    if (subtask.done) {
-        subtask.done = false;
-    } else {
-        subtask.done = true;
-    }
-    let openTaskPopupSubtasks = document.getElementById('open-task-subtasks');
-    openTaskPopupSubtasks.innerHTML = generateSubtasksTemporary(task, temporarySubtasks);
-}
-
-
+/**
+ * This function focuses an input.
+ * @param {string} inputId 
+ */
 function activateSubtaskInput(inputId) {
     let subtaskInput = document.getElementById(inputId);
     subtaskInput.focus();
 }
 
 
+/**
+ * This function clears the subtask input.
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ */
 function deleteSubtaskInput(idPrefix) {
     let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
-    console.log('subtaskInput from deleteSubtaskInput', subtaskInput)
     subtaskInput.value = '';
     let inputIconsContainer = document.getElementById(`${idPrefix}-input-icons-container`);
     inputIconsContainer.innerHTML = subtaskInputPlusIcon();
 }
 
+
+/**
+ * This function clears the input used for editing an existing subtask.
+ * @param {number} subtaskIndex 
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ */
 function deleteSubtaskInputForEditing(subtaskIndex, idPrefix) {
     let subtask = temporarySubtasks[subtaskIndex];
     let subtaskContainer = document.getElementById(`${idPrefix}-subtask-container-${subtaskIndex}`);
@@ -140,6 +152,11 @@ function deleteSubtaskInputForEditing(subtaskIndex, idPrefix) {
 }
 
 
+/**
+ * This function confirms that the value of the input used for editing an existing subtask can be stored when the check mark is clicked.
+ * @param {number} subtaskIndex 
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ */
 function confirmSubtaskInputForEditing(subtaskIndex, idPrefix) {
     let subtaskTitleInputEditable = document.getElementById(`${idPrefix}-subtask-title-input-editable-${subtaskIndex}`);
     let subtask = temporarySubtasks[subtaskIndex];
@@ -151,11 +168,12 @@ function confirmSubtaskInputForEditing(subtaskIndex, idPrefix) {
 }
 
 
-
+/**
+ * This function confirms that the value of the input used for adding a new subtask can be stored when the check mark is clicked.
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ */
 function confirmSubtaskInput(idPrefix) {
-    console.log('idPrefix from confirmSubtaskInput', idPrefix)
     let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
-    console.log('subtaskInput from confirmSubtaskInput', subtaskInput)
     if (subtaskInput.value !== '') {
         temporarySubtasks.push({
             title: subtaskInput.value,
@@ -169,6 +187,10 @@ function confirmSubtaskInput(idPrefix) {
 }
 
 
+/**
+ * This function finds the temporary collaborators in the users array and returns them as objects.
+ * @returns {Array} collaborators as objects
+ */
 function getTemporaryCollaborators() {
     let foundCollaborators = [];
     for (let i = 0; i < temporaryCollaborators.length; i++) {
@@ -182,6 +204,10 @@ function getTemporaryCollaborators() {
 }
 
 
+/**
+ * This function checks the collaborator checkbox in the list of assigned users.
+ * @param {number} userId 
+ */
 function checkOrUncheckCollaboratorBox(userId) {
     let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
     let checkBox = document.getElementById(`collaborator-checkbox-${userId}`);
@@ -199,6 +225,10 @@ function checkOrUncheckCollaboratorBox(userId) {
 }
 
 
+/**
+ * This function deletes a task.
+ * @param {number} taskId 
+ */
 function deleteTask(taskId) {
     let task = tasks.find(task => task.id === taskId);
     let index = tasks.indexOf(task);
@@ -209,6 +239,10 @@ function deleteTask(taskId) {
 }
 
 
+/**
+ * This function opens a task for editing.
+ * @param {number} taskId 
+ */
 function editTask(taskId) {
     idPrefix = 'edit-task';
     let task = tasks.find(task => task.id === taskId);
@@ -228,27 +262,43 @@ function editTask(taskId) {
 }
 
 
+/**
+ * This function opens a subtask for editing.
+ * @param {number} subtaskIndex 
+ * @param {string} idPrefix 
+ */
 function editSubtask(subtaskIndex, idPrefix) {
     let subtaskContainer = document.getElementById(`${idPrefix}-subtask-container-${subtaskIndex}`);
     subtaskContainer.innerHTML = subTaskTemplateTemporaryEditable(subtaskIndex, temporarySubtasks[subtaskIndex].title, idPrefix);
 }
 
 
+/**
+ * This function deletes a subtask.
+ * @param {number} subtaskIndex 
+ * @param {string} idPrefix 
+ */
 function deleteSubtask(subtaskIndex, idPrefix) {
     temporarySubtasks.splice(subtaskIndex, 1);
     updateSubtaskList(idPrefix);
 }
 
 
+/**
+ * This function updates the list of subtasks to reflect the current subtasks.
+ * @param {string} idPrefix 
+ */
 function updateSubtaskList(idPrefix) {
     let subtaskListId = `${idPrefix}-subtasks-list`;
-    console.log('subtasksListId from updateSubtaskList', subtaskListId);
     let subtasksList = document.getElementById(subtaskListId);
-    console.log('subtasksList updateSubtaskList', subtasksList);
     subtasksList.innerHTML = generateSubtasksTemporary(temporarySubtasks, idPrefix);
 }
 
 
+/**
+ * This function stores the current tasks in the backend once the task has been edited and the form is submitted.
+ * @param {number} taskId 
+ */
 function onSubmitEditTaskForm(taskId) {
     let task = tasks.find(task => task.id === taskId);
     task.title = document.getElementById('edit-task-title-input').value;
@@ -264,12 +314,12 @@ function onSubmitEditTaskForm(taskId) {
 
 
 /**
- * This function is triggered when a priority button is clicked
+ * This function is triggered when a priority button is clicked.
  * If the priority of the button that triggered the function (newPriority) matches the current priority (priority),
- * the style of that button changes to inactive
+ * the style of that button changes to inactive.
  * If the priority of the button that triggered the function is different from the current priority,
  * the style of that button changes to active (and if a different priority was active before,
- * the style of the respective button changes to inactive)
+ * the style of the respective button changes to inactive).
  * @param {string} newPriority priority of the button that was clicked
  */
 function clickPriorityButton(newPriority) {
@@ -287,7 +337,7 @@ function clickPriorityButton(newPriority) {
 
 
 /**
- * This function changes the style of a priority button
+ * This function changes the style of a priority button.
  * @param {string} targetPriority priority of the button that must be changed
  * @param {string} removeOrAddActiveStyle indicates whether the active style will be removed or added
  */
@@ -304,21 +354,12 @@ function changePriorityButtonStyle(targetPriority, removeOrAddActiveStyle) {
 }
 
 
-function getPotentialCollaborators(task) {
-    let collaborators = getCollaborators(task);
-    let potentialCollaborators = [];
-    for (let i = 0; i < users.length; i++) {
-        let user = users[i];
-        for (let j = 0; j < collaborators.length; j++) {
-            if (collaborators.indexOf(user) === -1 && potentialCollaborators.indexOf(user) === -1) {
-                potentialCollaborators.push(user);
-            }
-        }
-    }
-    return potentialCollaborators;
-}
-
-
+/**
+ * This function checks if a certain user is assigned to a certain task.
+ * @param {Object} user
+ * @param {Object} task
+ * @returns {boolean} has the user been assigned to the task or not
+ */
 function isAssigned(user, task) {
     let collaborators = getCollaborators(task);
     if (collaborators.indexOf(user) === -1) {
@@ -328,7 +369,12 @@ function isAssigned(user, task) {
     }
 }
 
-
+/**
+ * This function displays users as options.
+ * @param {Object} task 
+ * @param {Array} usersToBeRendered 
+ * @returns {string} HTML template string
+ */
 function renderSelectOptions(task, usersToBeRendered) {
     usersToBeRendered.sort(sortByFirstName);
     let selectOptions = '';
@@ -343,6 +389,10 @@ function renderSelectOptions(task, usersToBeRendered) {
 }
 
 
+/**
+ * This function toggles the display property of the drop-down list of users.
+ * @param {string} taskAssignedToId 
+ */
 function onTaskDropDownInputClick(taskAssignedToId) {
     let taskAssignedTo = document.getElementById(taskAssignedToId);
     taskAssignedTo.classList.toggle('display-none');
@@ -350,7 +400,7 @@ function onTaskDropDownInputClick(taskAssignedToId) {
 
 
 /**
- * This function creates a task from the board's task pop-up
+ * This function creates a task from the board's task pop-up.
  * @param {string} statusId task status ID
  */
 function createTaskFromBoard(status) {
@@ -358,6 +408,12 @@ function createTaskFromBoard(status) {
 }
 
 
+/**
+ * This function moves a certain task to a different column (or row) in the board
+ * by giving it a different status and saving the result.
+ * @param {number} taskId 
+ * @param {string} status 
+ */
 function moveTaskToStatus(taskId, status) {
     tasks[taskId].status = status;
     storeTasks();
@@ -365,7 +421,7 @@ function moveTaskToStatus(taskId, status) {
 
 
 /**
- * This function drops a task in an area
+ * This function drops a task in an area.
  * @param {Event} event 
  */
 function dropTaskInArea(id, status) {
@@ -376,7 +432,7 @@ function dropTaskInArea(id, status) {
 
 
 /**
- * This function highlights an area when a task hovers over it
+ * This function highlights an area when a task hovers over it.
  * @param {string} id drop area/task column (or row)
  */
 function highlightArea(id) {
@@ -386,7 +442,7 @@ function highlightArea(id) {
 
 
 /**
- * This function removes the highlight from a drop area
+ * This function removes the highlight from a drop area.
  * @param {string} id drop area/task column (or row)
  */
 function stopHighlightingArea(id) {
@@ -395,12 +451,22 @@ function stopHighlightingArea(id) {
 }
 
 
+/**
+ * This function opens a pop-up for selecting where the task should be moved.
+ * @param {Event} event 
+ * @param {number} taskId 
+ */
 function openMoveTaskPopup(event, taskId) {
     event.stopPropagation();
     draggedTaskId = taskId;
     centerPopup('move-task-pop-up');
 }
 
+
+/**
+ * This function moves a task to a different status (column [or row]) from the pop-up.
+ * @param {string} status 
+ */
 function moveTaskFromPopup(status) {
     removePopup('move-task-pop-up');
     moveTaskToStatus(draggedTaskId, status);
@@ -409,7 +475,7 @@ function moveTaskFromPopup(status) {
 
 
 /**
- * This function grabs the initials of a user
+ * This function grabs the initials of a user.
  * @param {Object} user 
  * @returns {string} initial string
  */
@@ -420,7 +486,7 @@ function getInitials(user) {
 
 
 /**
- * This function calculates the number of completed subtasks of a task
+ * This function calculates the number of completed subtasks of a task.
  * @param {Object} task 
  * @returns {number} number of done subtasks
  */
@@ -437,7 +503,7 @@ function calculateSubtasks(task) {
 
 
 /**
- * This function returns all the collaborators of a task
+ * This function returns all the collaborators of a task.
  * @param {Object} task 
  * @returns {Array} collaborators
  */
@@ -453,9 +519,9 @@ function getCollaborators(task) {
 
 
 /**
- * This function converts a status (e.g., "Await feedback") to an ID (e.g., "await-feedback")
+ * This function converts a status (e.g., "Await feedback") to an ID (e.g., "await-feedback").
  * @param {string} status 
- * @returns 
+ * @returns {string} statusId (id of an HTML element)
  */
 function statusToStatusId(status) {
     let statusId = status.toLowerCase().replace(' ', '-');
@@ -464,7 +530,7 @@ function statusToStatusId(status) {
 
 
 /**
- * This function renders one task
+ * This function renders one task.
  * @param {Object} task 
  */
 function renderTask(task) {
@@ -476,7 +542,7 @@ function renderTask(task) {
 
 
 /**
- * This function renders an array of tasks
+ * This function renders an array of tasks.
  * @param {Array} tasks 
  */
 function renderTasks(tasks) {
@@ -490,7 +556,7 @@ function renderTasks(tasks) {
 
 
 /**
- * This function displays a message in the appropriate column (or row) when there are no tasks with that status
+ * This function displays a message in the appropriate column (or row) when there are no tasks with that status.
  */
 function addNoTasksMessage() {
     let statuses = ['To do', 'In progress', 'Await feedback', 'Done'];
@@ -506,7 +572,7 @@ function addNoTasksMessage() {
 
 
 /**
- * This function removes all tasks from the board
+ * This function removes all tasks from the board.
  */
 function clearTasks() {
     let statusIds = ['to-do', 'in-progress', 'await-feedback', 'done'];
@@ -518,7 +584,7 @@ function clearTasks() {
 
 
 /**
- * This function initializes the board by calling init() and rendering all tasks
+ * This function initializes the board by calling init() and rendering all tasks.
  */
 async function initBoard() {
     await init();
@@ -529,7 +595,7 @@ async function initBoard() {
 
 
 /**
- * This function searches for the tasks that match the search input value and calls the function that renders them
+ * This function searches for the tasks that match the search input value and calls the function that renders them.
  */
 function searchTasks() {
     let searchInput = document.getElementById('board-search-input');
@@ -546,6 +612,12 @@ function searchTasks() {
 }
 
 
+/**
+ * This function searches for users matching the search criteria.
+ * @param {number} taskId 
+ * @param {string} searchInputId 
+ * @param {string} taskAssignedToId 
+ */
 function searchUsers(taskId, searchInputId, taskAssignedToId) {
     let task;
     if (taskId === undefined) {
@@ -568,9 +640,13 @@ function searchUsers(taskId, searchInputId, taskAssignedToId) {
     editTaskAssignedTo.classList.remove('display-none');
 }
 
-
-document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
-        removePopup('add-task-pop-up');
-    }
-})
+/**
+ * This event listener serves to remove a pop-up when the Escape key is pressed.
+ */
+// document.addEventListener('keydown', event => {
+//     if (event.key === 'Escape') {
+//         removePopup('add-task-pop-up');
+//         removePopup('edit-task-pop-up');
+//         removePopup('move-task-pop-up');
+//     }
+// })
