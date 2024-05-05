@@ -128,7 +128,7 @@ function editTaskTemplate(task) {
                     </div>
                 </div>
                 <div class="form-label-and-input-container">
-                    ${editTaskAssignedToItemsTemplate(task)}
+                    ${editTaskAssignedToItemsTemplate(task, 'edit-task')}
                 </div>
                 <div class="form-label-and-input-container">
                     <div id="open-task-subtasks">
@@ -395,17 +395,17 @@ function generateSubtasksTemporary(subtasks, idPrefix) {
  * @param {Object} task 
  * @returns {string} HTML template of assignment section
  */
-function editTaskAssignedToItemsTemplate(task) {
+function editTaskAssignedToItemsTemplate(task, idPrefix) {
     return /* html */ `
         <label for="edit-task-drop-down-input" class="task-form-label">Assigned to</label>
         <div class="task-drop-down">
-            <input id="edit-task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, 'edit-task-drop-down-input', 'edit-task-assigned-to')" placeholder="Select contacts to assign">
+            <input id="edit-task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, ${idPrefix})" placeholder="Select contacts to assign">
             <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
         <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
-            ${renderSelectOptions(task, users)}
+            ${renderSelectOptions(task, users, idPrefix)}
         </div>
-        <div id="initial-avatars-large-container">
+        <div id="${idPrefix}-initial-avatars-large-container" class="initial-avatars-large-container">
             ${generateCollaboratorAvatars(getCollaborators(task))}
         </div>
     `;

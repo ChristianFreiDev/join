@@ -208,7 +208,7 @@ function getTemporaryCollaborators() {
  * This function checks the collaborator checkbox in the list of assigned users.
  * @param {number} userId 
  */
-function checkOrUncheckCollaboratorBox(userId) {
+function checkOrUncheckCollaboratorBox(userId, idPrefix) {
     let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
     let checkBox = document.getElementById(`collaborator-checkbox-${userId}`);
     if (collaboratorIndex > -1) {
@@ -218,10 +218,9 @@ function checkOrUncheckCollaboratorBox(userId) {
         checkBox.src = 'assets/img/checkbox-icon-checked.svg';
         temporaryCollaborators.push(userId);
     }
-    let initialAvatarsLargeContainer = document.getElementById('initial-avatars-large-container');
-    if (initialAvatarsLargeContainer) {
-        initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
-    }
+    console.log('idPrefix from checkOrUncheckCollaboratorBox', idPrefix)
+    let initialAvatarsLargeContainer = document.getElementById(`${idPrefix}-initial-avatars-large-container`);
+    initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
 }
 
 
@@ -368,14 +367,14 @@ function isAssigned(user, task) {
  * @param {Array} usersToBeRendered 
  * @returns {string} HTML template string
  */
-function renderSelectOptions(task, usersToBeRendered) {
+function renderSelectOptions(task, usersToBeRendered, idPrefix) {
     usersToBeRendered.sort(sortByFirstName);
     let selectOptions = '';
     for (let i = 0; i < usersToBeRendered.length; i++) {
         let user = usersToBeRendered[i];
         selectOptions += `<div class="collaborator-option" value="${user.eMail}">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
-            <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon" onclick="checkOrUncheckCollaboratorBox(${user.id})">
+            <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon" onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}')">
         </div>`;
     }
     return selectOptions;
@@ -613,26 +612,26 @@ function searchTasks() {
  * @param {string} searchInputId 
  * @param {string} taskAssignedToId 
  */
-function searchUsers(taskId, searchInputId, taskAssignedToId) {
+function searchUsers(taskId, idPrefix) {
     let task;
     if (taskId === undefined) {
         task = temporaryTask;
     } else {
         task = tasks.find(task => task.id === taskId);
     }
-    let searchInput = document.getElementById(searchInputId);
+    let searchInput = document.getElementById(`${idPrefix}-drop-down-input`);
     let searchString = searchInput.value.toLowerCase();
     foundUsers = users.filter(user => {
         let fullUserName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
         return fullUserName.includes(searchString);
     });
-    let editTaskAssignedTo = document.getElementById(taskAssignedToId);
+    let taskAssignedTo = document.getElementById(`${idPrefix}-assigned-to`);
     if (foundUsers.length > 0) {
-        editTaskAssignedTo.innerHTML = renderSelectOptions(task, foundUsers);
+        taskAssignedTo.innerHTML = renderSelectOptions(task, foundUsers, idPrefix);
     } else {
-        editTaskAssignedTo.innerHTML = '<div class="no-users-message">No users found</div>';
+        taskAssignedTo.innerHTML = '<div class="no-users-message">No users found</div>';
     }
-    editTaskAssignedTo.classList.remove('display-none');
+    taskAssignedTo.classList.remove('display-none');
 }
 
 /**

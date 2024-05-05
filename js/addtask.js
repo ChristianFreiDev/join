@@ -131,7 +131,7 @@ function resetForm(){
  */
 function renderAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
-    assignedTo.innerHTML = renderSelectOptions(temporaryTask, users);
+    assignedTo.innerHTML = renderSelectOptions(temporaryTask, users, 'add-task');
 }
 
 
