@@ -68,7 +68,7 @@ function checkDayTime() {
         daytimeString = 'afternoon'
     }
     if (dayTime >= 18 || dayTime < 3) {
-        daytimeString = 'morning'
+        daytimeString = 'evening'
     }
     return daytimeString + `<span id="summary-greeting-punctuation-mark">,</span>`;
 }
