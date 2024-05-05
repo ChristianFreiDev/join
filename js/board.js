@@ -244,7 +244,6 @@ function deleteTask(taskId) {
  * @param {number} taskId 
  */
 function editTask(taskId) {
-    idPrefix = 'edit-task';
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
     openTaskPopup.innerHTML = editTaskTemplate(task);
@@ -252,13 +251,7 @@ function editTask(taskId) {
     temporarySubtasks = [...task.subtasks];
     temporaryCollaborators = [...task.collaborators];
     changePriorityButtonStyle(priority, 'add');
-    let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
-    subtaskInput.addEventListener("focus", (event) => {
-        let inputIconsContainer = document.getElementById(`${idPrefix}-input-icons-container`);
-        let deletionFunctionName = `deleteSubtaskInput('${idPrefix}')`;
-        let confirmationFunctionName = `confirmSubtaskInput('${idPrefix}')`;
-        inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
-    });
+    addInputEventListener('edit-task');
 }
 
 

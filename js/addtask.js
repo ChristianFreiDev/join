@@ -22,7 +22,7 @@ async function initAddTask() {
     await init();
     await Promise.all([loadTasks(), loadUsers()]);
     renderAssignedToList();
-    addInputEventListener();
+    addInputEventListener('add-task');
 }
 
 //----------------------- Prio Buttons---------------------------------//
@@ -129,12 +129,12 @@ function renderAssignedToList() {
 /**
  * This function serves to add an event listener that adds buttons to confirm or reject a change.
  */
-function addInputEventListener() {
-    let subtaskInput = document.getElementById('add-task-subtask-input');
+function addInputEventListener(idPrefix) {
+    let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
     subtaskInput.addEventListener("focus", (event) => {
-    let inputIconsContainer = document.getElementById('add-task-input-icons-container');
-    let deletionFunctionName = `deleteSubtaskInput('add-task')`;
-    let confirmationFunctionName = `confirmSubtaskInput('add-task')`;
-    inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
+        let inputIconsContainer = document.getElementById(`${idPrefix}-input-icons-container`);
+        let deletionFunctionName = `deleteSubtaskInput('${idPrefix}')`;
+        let confirmationFunctionName = `confirmSubtaskInput('${idPrefix}')`;
+        inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
     });
 }
