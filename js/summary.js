@@ -3,12 +3,12 @@
  * Also by showing the right values of users tasks.
  */
 async function initSummary() {
-    if (window.screen.width <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
+    if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
         document.getElementById('summary-overlay').style.zIndex = '2';
-    } else if (window.screen.width <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
+    } else if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
         document.getElementById('summary-greeding-box').classList.add('display-none');
-    } else if (window.screen.width > 1400) {
-    document.getElementById('summary-overlay').classList.add('display-none');
+    } else if (document.body.scrollWidth > 1400) {
+        document.getElementById('summary-overlay').classList.add('display-none');
     }
     await loadUsers();
     greetUser();
@@ -24,8 +24,11 @@ function checkWindowWidth() {
     console.log(document.body.scrollWidth);
     if (document.body.scrollWidth < 1400 && animationOver) {
         document.getElementById('summary-greeding-box').classList.add('display-none');
-    } else {
+    } else if(document.body.scrollWidth >= 1400 && animationOver) {
         document.getElementById('summary-greeding-box').classList.remove('display-none');
+        document.getElementById('summary-greeding-box').classList.remove('animate-overlay');
+        document.getElementById('summary-greeding-box').classList.remove('greeting-overlay');
+        document.getElementById('summary-greeding-box').style.zIndex = '0';
     }
 }
 
@@ -34,12 +37,13 @@ async function greetUser() {
     if (loadVariableFromLocalStorage('currentJoinUserId') == 0) {
         document.getElementById('summary-greeding-punctuation-mark').classList.add('display-none');
     }
-    if (window.screen.width <= 1400) {
+    if (document.body.scrollWidth <= 1400) {
         if (loadVariableFromLocalStorage('fromIndex') == 'true') {
-            document.getElementById('summary-greeding-box').classList.add('greeding-overlay');
+            document.getElementById('summary-greeding-box').classList.add('greeting-overlay');
             setTimeout(animateOverlay, 1000);
         } else {
             document.getElementById('summary-greeding-box').classList.add('display-none');
+            document.getElementById('summary-greeding-box').classList.remove('greeting-overlay');
         }
         setTimeout(hideOverlay, 3000);
     }
@@ -49,6 +53,12 @@ async function greetUser() {
 function animateOverlay() {
     document.getElementById('summary-overlay').classList.add('animate-overlay');
     document.getElementById('summary-greeding-box').classList.add('animate-overlay');
+    setTimeout(removeAnimation, 3000)
+}
+
+function removeAnimation() {
+    document.getElementById('summary-overlay').classList.remove('animate-overlay');
+    document.getElementById('summary-greeding-box').classList.remove('animate-overlay');
 }
 
 function hideOverlay() {
