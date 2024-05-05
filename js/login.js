@@ -100,13 +100,27 @@ function login(guest = false) {
         checkUserValues();
         if (loggedIn) {
             goToSummary();
-        } else {
-            /** 
-             * Zeige einen Fehler an.
-             * Lasse "I forgot my password" erscheinen.
-            */
         }
     }
+}
+
+
+function checkEmail(email) {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].eMail === email) {
+           return false;
+        }     
+    }
+    return true
+}
+
+function checkPassword(password) {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].password === password) {
+           return false;
+        }     
+    }
+    return true
 }
 
 
@@ -122,6 +136,25 @@ function checkUserValues() {
             setRememberMeValues(false, i);
         }
     }
+    if (!loggedIn) {
+        catchLoginFailure(email, password);
+    }
+}
+
+
+function catchLoginFailure(email, password) {
+    let emailIsWrong = checkEmail(email);
+    let passwordIsWrong = checkPassword(password);
+    if (emailIsWrong) {
+        document.querySelector('#login-email-input ~ p').classList.remove('display-none');
+        document.querySelector('#login-password-input ~ p').classList.add('display-none');
+    } else {
+        document.querySelector('#login-email-input ~ p').classList.add('display-none');
+        if (passwordIsWrong) {
+            document.querySelector('#login-password-input ~ p').classList.remove('display-none');
+        }
+    }
+    
 }
 
 
@@ -178,7 +211,7 @@ function rememberUser() {
  * @returns {boolean} true if the user has been logged in successfully.
  */
 function userLoggedInSuccessfully(email, password, i) {
-    return users[i].password === password && users[i].eMail === email
+    return users[i].password === password && users[i].eMail === email;
 }
 
 

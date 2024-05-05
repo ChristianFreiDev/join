@@ -237,6 +237,25 @@ a:hover {
     scale: 1.05;
 }
 
+.login-input-failure {
+    color: red;
+    font-size: 13px;
+    margin-top: 8px;
+    position: absolute;
+}
+
+#login-failure-button {
+    border: unset;
+    background-color: transparent;
+    color: var(--color-menu);
+    font-weight: bold;
+}
+
+#login-failure-button:hover {
+    color: var(--color-accent);
+    cursor: pointer;
+}
+
 @media (max-width: 900px) {
     @keyframes move-to-corner {
         from {

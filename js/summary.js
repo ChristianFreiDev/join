@@ -21,7 +21,6 @@ async function initSummary() {
 let animationOver = false;
 
 function checkWindowWidth() {
-    console.log(document.body.scrollWidth);
     if (document.body.scrollWidth < 1400 && animationOver) {
         document.getElementById('summary-greeting-box').classList.add('display-none');
     } else if (document.body.scrollWidth >= 1400 && animationOver) {
@@ -165,7 +164,6 @@ function renderPriorityAndDueDateButton() {
 function findTasks() {
     let results = [];
     let nextDuedate = new Date(findNextDuedate()).getTime();
-    console.log(nextDuedate);
     for (let i = 0; i < tasks.length; i++) {
         let date = new Date(tasks[i].dueDate).getTime();
         if ((date <= nextDuedate) && tasks[i].dueDate && tasks[i].status !== 'Done') {
