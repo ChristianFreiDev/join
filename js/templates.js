@@ -1,7 +1,7 @@
-// Board templates
+// Board and Add Task templates
 
 /**
- * This function returns an HTML template showing the progress of a task or an empty string if there are no subtasks
+ * This function returns an HTML template showing the progress of a task or an empty string if there are no subtasks.
  * @param {Object} task 
  * @param {number} doneSubtasks number of completed subtasks
  * @returns 
@@ -20,7 +20,7 @@ function generateTaskProgressContainerTemplate(task, doneSubtasks) {
 
 
 /**
- * This function returns an HTML template of a task
+ * This function returns an HTML template of a task.
  * @param {Object} task
  * @param {number} doneSubtasks number of completed subtasks
  * @returns {string} task HTML template
@@ -44,6 +44,11 @@ function taskTemplate(task, doneSubtasks) {
 }
 
 
+/**
+ * This function returns an HTML template of a task opened in a pop-up.
+ * @param {Object} task 
+ * @returns {string} task pop-up HTML template
+ */
 function openTaskPopupTemplate(task) {
     return /* html */ `<div class="open-task-pop-up-header">
         <div id="open-task-pop-up-category">${openTaskPopupCategoryTemplate(task)}</div>
@@ -81,6 +86,11 @@ function openTaskPopupTemplate(task) {
 }
 
 
+/**
+ * This function returns an HTML template of a task being edited in a pop-up.
+ * @param {Object} task 
+ * @returns {string} HTML template of task for editing
+ */
 function editTaskTemplate(task) {
     return /* html */ `
         <div class="edit-task-pop-up-header">
@@ -142,6 +152,11 @@ function editTaskTemplate(task) {
 }
 
 
+/**
+ * This function returns an HTML template of a plus icon for adding subtasks.
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @returns {string} HTML template of plus icon
+ */
 function subtaskInputPlusIcon(idPrefix) {
     return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput('${idPrefix}-subtask-input')">
         <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
@@ -149,11 +164,22 @@ function subtaskInputPlusIcon(idPrefix) {
 }
 
 
+/**
+ * This function returns a task category with an appropriate class (different color depending on the category)
+ * for the pop-up for opening tasks.
+ * @param {Object} task 
+ * @returns {string} HTML template of task category for pop-up
+ */
 function openTaskPopupCategoryTemplate(task) {
     return /* html */ `<div class="task-category task-category-large ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>`;
 }
 
-
+/**
+ * This function returns an HTMl template of a task priority including the corresponding icon
+ * for the pop-up for opening tasks.
+ * @param {Object} task 
+ * @returns {string} HTML template of task priority for pop-up
+ */
 function openTaskPopupPriorityTemplate(task) {
     return /* html */ `<div>${task.priority}</div>
         <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">`;
@@ -161,7 +187,7 @@ function openTaskPopupPriorityTemplate(task) {
 
 
 /**
- * This function returns an initial avatar HTML template for a user
+ * This function returns an initial avatar HTML template for a user.
  * @param {Object} user 
  * @returns {string} inital avatar HTML template
  */
@@ -171,7 +197,7 @@ function initialAvatarTemplate(user) {
 
 
 /**
- * This function returns an initial avatar HTML template for a user
+ * This function returns an initial avatar HTML template for a user.
  * @param {Object} user 
  * @returns {string} inital avatar HTML template
  */
@@ -182,7 +208,7 @@ function initialAvatarLargeTemplate(user) {
 
 
 /**
- * This function returns an HTML template with inital avatars of all the collaborators of a task
+ * This function returns an HTML template with inital avatars of all the collaborators of a task.
  * @param {Object} task 
  * @returns {string} HTML string of initial avatar divs
  */
@@ -199,6 +225,11 @@ function generateInitialAvatarsTemplate(task) {
 }
 
 
+/**
+ * This function returns a template with the names of the collaborators on a task.
+ * @param {Object} task 
+ * @returns {string} HTML template of collaborators
+ */
 function generateCollaboratorNames(task) {
     let collaborators = getCollaborators(task);
     let HTMLString = '';
@@ -219,6 +250,11 @@ function generateCollaboratorNames(task) {
 }
 
 
+/**
+ * This function renders the avatars of the collaborators with their initials.
+ * @param {Array} collaborators 
+ * @returns {string} HTML template of collaborator avatars
+ */
 function generateCollaboratorAvatars(collaborators) {
     let HTMLString = '';
     if (collaborators) {
@@ -231,6 +267,11 @@ function generateCollaboratorAvatars(collaborators) {
 }
 
 
+/**
+ * This function returns a collaborator name template with first and last name.
+ * @param {Object} user 
+ * @returns {string} HTML template of collaborator name
+ */
 function collaboratorNameTemplate(user) {
     return /* html */ `<div class="collaborator-name-outer-container">
         <div class="collaborator-name-container">
@@ -241,6 +282,15 @@ function collaboratorNameTemplate(user) {
 }
 
 
+/**
+ * This function returns a template of a subtask with a checkbox that is either checked or unchecked
+ * depending on whether the subtask has been completed yet. The template is to be used in the pop-up
+ * for opening tasks.
+ * @param {Object} subtask 
+ * @param {number} subtaskIndex 
+ * @param {number} taskId 
+ * @returns {string} HTML template of subtask for pop-up
+ */
 function subTaskTemplate(subtask, subtaskIndex, taskId) {
     return /* html */ `
         <div class="subtask">
@@ -251,7 +301,13 @@ function subTaskTemplate(subtask, subtaskIndex, taskId) {
 }
 
 
-
+/**
+ * This function returns a template of a subtask with buttons to edit or delete it.
+ * @param {Object} subtask 
+ * @param {number} subtaskIndex 
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @returns {string} HTML template of subtask
+ */
 function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
     return /* html */ `
         <div id="${idPrefix}-subtask-container-${subtaskIndex}">
@@ -272,6 +328,13 @@ function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
 }
 
 
+/**
+ * This function returns a subtask as an input so that it can be edited.
+ * @param {number} subtaskIndex 
+ * @param {string} subtaskTitle 
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @returns {string} HTML template of subtask being edited
+ */
 function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) {
     return /* html */ `<div class="edit-task-subtask-input-container">
         <input id="${idPrefix}-subtask-title-input-editable-${subtaskIndex}" class="subtask-title-input-editable" type="text" value="${subtaskTitle}">
@@ -282,6 +345,12 @@ function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) 
 }
 
 
+/**
+ * This function generates subtasks with checkboxes.
+ * @param {Object} task 
+ * @param {Array} subtasks 
+ * @returns {string} HTML template of subtasks with checkboxes.
+ */
 function generateSubtasks(task, subtasks) {
     let HTMLString = '';
     if (subtasks.length > 0) {
@@ -301,6 +370,12 @@ function generateSubtasks(task, subtasks) {
 }
 
 
+/**
+ * This function returns an HTML template of subtasks with edit and delete buttons.
+ * @param {Array} subtasks 
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @returns {string} HTML template of subtasks with edit and delete buttons
+ */
 function generateSubtasksTemporary(subtasks, idPrefix) {
     let HTMLString = '';
     if (subtasks.length > 0) {
@@ -315,6 +390,11 @@ function generateSubtasksTemporary(subtasks, idPrefix) {
 }
 
 
+/**
+ * This function returns an HTML template of the form section for assigning users to a task.
+ * @param {Object} task 
+ * @returns {string} HTML template of assignment section
+ */
 function editTaskAssignedToItemsTemplate(task) {
     return /* html */ `
         <label for="edit-task-drop-down-input" class="task-form-label">Assigned to</label>
@@ -332,6 +412,12 @@ function editTaskAssignedToItemsTemplate(task) {
 }
 
 
+/**
+ * This function returns an HTML template of buttons to reject or confirm a change.
+ * @param {*} deletionFunctionName 
+ * @param {*} confirmationFunctionName 
+ * @returns {string} HTML template of icons for confirmation or deletion
+ */
 function confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName) {
     return /* html */ `<div class="input-icon-container" onclick="${deletionFunctionName}">
             <img src="../assets/img/open-task-delete-button-icon.svg" alt="delete icon">
@@ -345,7 +431,7 @@ function confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName) {
 // Contacts templates
 
 /**
- * This function generates an HTML template for the letter that is used as a heading for contacts with first names beginning with the same letter
+ * This function generates an HTML template for the letter that is used as a heading for contacts with first names beginning with the same letter.
  * @param {string} letter 
  * @returns {string} contact letter HTML template
  */
@@ -358,7 +444,7 @@ function contactLetterTemplate(letter) {
 
 
 /**
- * This function generates an HTML template for the contact in the contacts list
+ * This function generates an HTML template for the contact in the contacts list.
  * @param {Object} contact 
  * @param {string} userColor 
  * @returns 
@@ -375,7 +461,7 @@ function contactInListTemplate(contact, contactColor, contactIndex) {
 
 
 /**
- * This function generates a contact profile HTML template
+ * This function generates a contact profile HTML template.
  * @param {Object} contact 
  * @param {string} contactColor
  * @returns {string} contact profile HTML template
@@ -410,12 +496,4 @@ function contactProfileTemplate(contact, contactColor) {
         </div>
     </div>
     `;
-}
-
-function generateAssignedToList(user){
-return /* html */ `
-<div class="collaborator-option" value="${user.eMail}">
-    <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
-    <img class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
-</div>`;
 }
