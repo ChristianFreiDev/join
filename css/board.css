@@ -649,7 +649,7 @@ progress::-webkit-progress-value {
     position: relative;
 }
 
-#input-icons-container {
+.input-icons-container {
     position: absolute;
     align-self: center;
     display: flex;

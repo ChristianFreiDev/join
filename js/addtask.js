@@ -18,6 +18,7 @@ async function initAddTask() {
     await init();
     await Promise.all([loadTasks(), loadUsers()]);
     renderAssignedToList();
+    addInputEventListener();
 }
 
 //----------------------- Prio Buttons---------------------------------//
@@ -115,4 +116,13 @@ function resetForm(){
 function renderAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
     assignedTo.innerHTML = renderSelectOptions(temporaryTask, users);
+}
+
+
+function addInputEventListener() {
+    let subtaskInput = document.getElementById('add-task-subtask-input');
+    subtaskInput.addEventListener("focus", (event) => {
+    let inputIconsContainer = document.getElementById('add-task-input-icons-container');
+    inputIconsContainer.innerHTML = confirmOrDeleteIcons('deleteSubtaskInput()', 'confirmSubtaskInput()');
+    });
 }
