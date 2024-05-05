@@ -208,15 +208,18 @@ function getTemporaryCollaborators() {
  * This function checks the collaborator checkbox in the list of assigned users.
  * @param {number} userId 
  */
-function checkOrUncheckCollaboratorBox(userId, idPrefix) {
+function checkOrUncheckCollaboratorBox(userId, idPrefix, i) {
     let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
     let checkBox = document.getElementById(`collaborator-checkbox-${userId}`);
+    let collaboratorOption = document.getElementById(`collaborator-option${i}`);
     if (collaboratorIndex > -1) {
         temporaryCollaborators.splice(collaboratorIndex, 1);
         checkBox.src = 'assets/img/checkbox-icon-unchecked.svg';
+        collaboratorOption.classList.toggle('collaborator-focus');
     } else {
         checkBox.src = 'assets/img/checkbox-icon-checked.svg';
         temporaryCollaborators.push(userId);
+        collaboratorOption.classList.toggle('collaborator-focus');
     }
     let initialAvatarsLargeContainer = document.getElementById(`${idPrefix}-initial-avatars-large-container`);
     initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
@@ -371,7 +374,7 @@ function renderSelectOptions(task, usersToBeRendered, idPrefix) {
     let selectOptions = '';
     for (let i = 0; i < usersToBeRendered.length; i++) {
         let user = usersToBeRendered[i];
-        selectOptions += `<div class="collaborator-option" value="${user.eMail} "onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}')">
+        selectOptions += `<div id="collaborator-option${i}" class="collaborator-option" value="${user.eMail} "onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}', '${i}') ">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
             <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
         </div>`;
