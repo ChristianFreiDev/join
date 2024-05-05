@@ -1,5 +1,5 @@
 /**
- * This function initializes the contacts page by calling init() and rendering all contacts
+ * This function initializes the contacts page by calling init() and rendering all contacts.
  */
 async function initContacts() {
     await init();
@@ -9,7 +9,7 @@ async function initContacts() {
 
 
 /**
- * This function returns a random user color
+ * This function returns a random user color.
  * @returns {string} random user color, values ranging from user-color0 to user-color14
  */
 function generateRandomUserColor() {
@@ -18,7 +18,7 @@ function generateRandomUserColor() {
 
 
 /**
- * This function searches for a user with the same e-mail address as the contact and returns the user's color if there is a match or returns the contact's color if there is none
+ * This function searches for a user with the same e-mail address as the contact and returns the user's color if there is a match or returns the contact's color if there is none.
  * @param {Object} contact 
  * @returns {string} desired contact color
  */
@@ -33,7 +33,7 @@ function getContactColor(contact) {
 
 
 /**
- * This function renders the first letter of the first name of a contact if the letter has not been rendered yet
+ * This function renders the first letter of the first name of a contact if the letter has not been rendered yet.
  * @param {Object} contact 
  * @param {Array} renderedLetters letters that have already been rendered
  */
@@ -48,7 +48,7 @@ function renderLetterIfItHasNotBeenRendered(contact, renderedLetters) {
 
 
 /**
- * This function renders the contact list
+ * This function renders the contact list.
  */
 function renderContacts() {
     let contactList = document.getElementById('contact-list');
@@ -65,7 +65,7 @@ function renderContacts() {
 
 
 /**
- * This function finds the user with the matching e-mail address
+ * This function finds the user with the matching e-mail address.
  * @param {string} eMail e-mail address
  * @returns {number} id of the user with the e-mail adress
  */
@@ -78,7 +78,7 @@ function getUserIdFromEMail(eMail) {
 
 
 /**
- * This function removes a contact from the tasks assigned to it
+ * This function removes a contact from the tasks assigned to it.
  * @param {string} contactEMail e-mail adress of the contact
  */
 function removeUserFromAssignedTasks(contactEMail) {
@@ -97,7 +97,7 @@ function removeUserFromAssignedTasks(contactEMail) {
 
 
 /**
- * This function deletes a contact
+ * This function deletes a contact.
  * @param {string} contactEMail e-mail adress of the contact
  */
 async function deleteContact(contactEMail) {
@@ -115,8 +115,8 @@ async function deleteContact(contactEMail) {
 
 
 /**
- * This function opens a contact from the list
- * @param {number} index 
+ * This function opens a contact from the list.
+ * @param {number} index contact index
  */
 function openContact(index) {
     let contact = contacts[index];
