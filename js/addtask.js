@@ -14,6 +14,10 @@ let temporaryTask = {
 }
 
 
+/**
+ * This function initializes the Add Task page by calling init(),
+ * loading the required data, rendering a list of users to assign to a task, and adding an event listener.
+ */
 async function initAddTask() {
     await init();
     await Promise.all([loadTasks(), loadUsers()]);
