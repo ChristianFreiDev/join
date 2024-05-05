@@ -215,12 +215,11 @@ function checkOrUncheckCollaboratorBox(userId, idPrefix) {
     if (collaboratorIndex > -1) {
         temporaryCollaborators.splice(collaboratorIndex, 1);
         checkBox.src = 'assets/img/checkbox-icon-unchecked.svg';
-        collaboratorOption.classList.toggle('collaborator-focus');
     } else {
         checkBox.src = 'assets/img/checkbox-icon-checked.svg';
         temporaryCollaborators.push(userId);
-        collaboratorOption.classList.toggle('collaborator-focus');
     }
+    collaboratorOption.classList.toggle('collaborator-focus');
     let initialAvatarsLargeContainer = document.getElementById(`${idPrefix}-initial-avatars-large-container`);
     initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
 }
