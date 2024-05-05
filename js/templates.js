@@ -126,7 +126,7 @@ function editTaskTemplate(task) {
                             <div>Subtasks</div>
                             <div class="edit-task-subtask-input-container">
                                 <input id="subtask-input" type="text" class="task-title-input" placeholder="Add new subtask">
-                                <div id="input-icons-container">
+                                <div id="input-icons-container" class="input-icons-container">
                                     ${subtaskInputPlusIcon()}
                                 </div>
                             </div>
