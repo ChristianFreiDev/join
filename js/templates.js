@@ -127,7 +127,7 @@ function editTaskTemplate(task) {
                             <div class="edit-task-subtask-input-container">
                                 <input id="subtask-input" type="text" class="task-title-input" placeholder="Add new subtask">
                                 <div id="input-icons-container" class="input-icons-container">
-                                    ${subtaskInputPlusIcon()}
+                                    ${subtaskInputPlusIcon('subtask-input')}
                                 </div>
                             </div>
                             <ul id="edit-task-subtasks-list" class="subtasks">
@@ -142,8 +142,8 @@ function editTaskTemplate(task) {
 }
 
 
-function subtaskInputPlusIcon() {
-    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput()">
+function subtaskInputPlusIcon(inputId) {
+    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput('${inputId}')">
         <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
     </div>`;
 }

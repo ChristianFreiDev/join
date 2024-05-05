@@ -118,16 +118,16 @@ function checkOrUncheckSubtaskBoxTemporary(taskId, subtaskIndex) {
 }
 
 
-function activateSubtaskInput() {
-    let subtaskInput = document.getElementById('subtask-input');
+function activateSubtaskInput(inputId) {
+    let subtaskInput = document.getElementById(inputId);
     subtaskInput.focus();
 }
 
 
-function deleteSubtaskInput() {
-    let subtaskInput = document.getElementById('subtask-input');
+function deleteSubtaskInput(inputId, inputIconsContainerId) {
+    let subtaskInput = document.getElementById(inputId);
     subtaskInput.value = '';
-    let inputIconsContainer = document.getElementById('input-icons-container');
+    let inputIconsContainer = document.getElementById(inputIconsContainerId);
     inputIconsContainer.innerHTML = subtaskInputPlusIcon();
 }
 
@@ -150,8 +150,8 @@ function confirmSubtaskInputForEditing(subtaskIndex) {
 
 
 
-function confirmSubtaskInput() {
-    let subtaskInput = document.getElementById('subtask-input');
+function confirmSubtaskInput(inputId, inputIconsContainerId, subtaskListId) {
+    let subtaskInput = document.getElementById(inputId);
     if (subtaskInput.value !== '') {
         temporarySubtasks.push({
             title: subtaskInput.value,
@@ -159,9 +159,9 @@ function confirmSubtaskInput() {
         })
     }
     subtaskInput.value = '';
-    let inputIconsContainer = document.getElementById('input-icons-container');
+    let inputIconsContainer = document.getElementById(inputIconsContainerId);
     inputIconsContainer.innerHTML = subtaskInputPlusIcon();
-    updateSubtaskList();
+    updateSubtaskList(subtaskListId);
 }
 
 
@@ -216,7 +216,9 @@ function editTask(taskId) {
     let subtaskInput = document.getElementById('subtask-input');
     subtaskInput.addEventListener("focus", (event) => {
         let inputIconsContainer = document.getElementById('input-icons-container');
-        inputIconsContainer.innerHTML = confirmOrDeleteIcons('deleteSubtaskInput()', 'confirmSubtaskInput()');
+        let deletionFunctionName = `deleteSubtaskInput('subtask-input', 'input-icons-container')`;
+        let confirmationFunctionName = `confirmSubtaskInput('subtask-input', 'input-icons-container', 'edit-task-subtasks-list')`;
+        inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
     });
 }
 
@@ -227,14 +229,14 @@ function editSubtask(subtaskIndex) {
 }
 
 
-function deleteSubtask(subtaskIndex) {
+function deleteSubtask(subtaskIndex, subtaskListId) {
     temporarySubtasks.splice(subtaskIndex, 1);
-    updateSubtaskList();
+    updateSubtaskList(subtaskListId);
 }
 
 
-function updateSubtaskList() {
-    let editTaskSubtasksList = document.getElementById('edit-task-subtasks-list');
+function updateSubtaskList(subtaskListId) {
+    let editTaskSubtasksList = document.getElementById(subtaskListId);
     editTaskSubtasksList.innerHTML = generateSubtasksTemporary(temporarySubtasks);
 }
 
