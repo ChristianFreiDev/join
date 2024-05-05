@@ -126,11 +126,11 @@
     object-position: center;
 }
 
-#summary-greeding {
+#summary-greeting {
     font-size: 4.7rem;
 }
 
-#summary-greeding-name {
+#summary-greeting-name {
     font-size: 6.4rem;
     color: var(--color-accent);
 }

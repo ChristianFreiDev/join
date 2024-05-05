@@ -6,7 +6,7 @@ async function initSummary() {
     if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
         document.getElementById('summary-overlay').style.zIndex = '2';
     } else if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
-        document.getElementById('summary-greeding-box').classList.add('display-none');
+        document.getElementById('summary-greeting-box').classList.add('display-none');
     } else if (document.body.scrollWidth > 1400) {
         document.getElementById('summary-overlay').classList.add('display-none');
     }
@@ -23,28 +23,28 @@ let animationOver = false;
 function checkWindowWidth() {
     console.log(document.body.scrollWidth);
     if (document.body.scrollWidth < 1400 && animationOver) {
-        document.getElementById('summary-greeding-box').classList.add('display-none');
+        document.getElementById('summary-greeting-box').classList.add('display-none');
     } else if(document.body.scrollWidth >= 1400 && animationOver) {
-        document.getElementById('summary-greeding-box').classList.remove('display-none');
-        document.getElementById('summary-greeding-box').classList.remove('animate-overlay');
-        document.getElementById('summary-greeding-box').classList.remove('greeting-overlay');
-        document.getElementById('summary-greeding-box').style.zIndex = '0';
+        document.getElementById('summary-greeting-box').classList.remove('display-none');
+        document.getElementById('summary-greeting-box').classList.remove('animate-overlay');
+        document.getElementById('summary-greeting-box').classList.remove('greeting-overlay');
+        document.getElementById('summary-greeting-box').style.zIndex = '0';
     }
 }
 
 async function greetUser() {
     checkDayTimeAndchangeGreeting();
-    document.getElementById('summary-greeding-name').innerHTML = await getUserName();
+    document.getElementById('summary-greeting-name').innerHTML = await getUserName();
     if (loadVariableFromLocalStorage('currentJoinUserId') == 0) {
-        document.getElementById('summary-greeding-punctuation-mark').classList.add('display-none');
+        document.getElementById('summary-greeting-punctuation-mark').classList.add('display-none');
     }
     if (document.body.scrollWidth <= 1400) {
         if (loadVariableFromLocalStorage('fromIndex') == 'true') {
-            document.getElementById('summary-greeding-box').classList.add('greeting-overlay');
+            document.getElementById('summary-greeting-box').classList.add('greeting-overlay');
             setTimeout(animateOverlay, 1000);
         } else {
-            document.getElementById('summary-greeding-box').classList.add('display-none');
-            document.getElementById('summary-greeding-box').classList.remove('greeting-overlay');
+            document.getElementById('summary-greeting-box').classList.add('display-none');
+            document.getElementById('summary-greeting-box').classList.remove('greeting-overlay');
         }
         setTimeout(hideOverlay, 3000);
     }
@@ -75,23 +75,23 @@ function checkDayTime() {
 
 
 function changeGreeting(daytimeString) {
-    document.getElementById('summary-greeding').innerHTML = `Good ${daytimeString}`;
+    document.getElementById('summary-greeting').innerHTML = `Good ${daytimeString}`;
 }
 
 function animateOverlay() {
     document.getElementById('summary-overlay').classList.add('animate-overlay');
-    document.getElementById('summary-greeding-box').classList.add('animate-overlay');
+    document.getElementById('summary-greeting-box').classList.add('animate-overlay');
     setTimeout(removeAnimation, 3000)
 }
 
 function removeAnimation() {
     document.getElementById('summary-overlay').classList.remove('animate-overlay');
-    document.getElementById('summary-greeding-box').classList.remove('animate-overlay');
+    document.getElementById('summary-greeting-box').classList.remove('animate-overlay');
 }
 
 function hideOverlay() {
     document.getElementById('summary-overlay').style.zIndex = '-1';
-    document.getElementById('summary-greeding-box').style.zIndex = '-1';
+    document.getElementById('summary-greeting-box').style.zIndex = '-1';
 }
 
 let currentUserIndex = 0;
