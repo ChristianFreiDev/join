@@ -111,8 +111,8 @@ function login(guest = false) {
 function checkEmail(email) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].eMail === email) {
-           return false;
-        }     
+            return false;
+        }
     }
     return true
 }
@@ -120,8 +120,8 @@ function checkEmail(email) {
 function checkPassword(password) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].password === password) {
-           return false;
-        }     
+            return false;
+        }
     }
     return true
 }
@@ -158,7 +158,7 @@ function catchLoginFailure(email, password) {
             document.querySelector('#login-password-input ~ p').classList.remove('display-none');
         }
     }
-    
+
 }
 
 
@@ -230,19 +230,43 @@ function goToSummary() {
 function signup() {
     document.getElementById('signup-button').disabled = true;
     checkSignupValues();
+    document.getElementById('signup-button').disabled = false;
 }
 
 
-function checkSignupValues() {
+async function checkSignupValues() {
     let name = document.getElementById('signup-name-input').value;
     let email = document.getElementById('signup-email-input').value;
     let password = document.getElementById('signup-password-input').value;
     let passwordConfirm = document.getElementById('signup-password-confirm-input').value;
     if (password === passwordConfirm) {
-        
+        let emailAlreadyExists = false;
+        // formatUserName(name);
+        await loadUsers();
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].eMail === email.toLocaleLowerCase()) {
+                document.querySelector('#signup-email-input ~ p').classList.remove('display-none');
+                document.querySelector('#signup-password-confirm-input ~ p').classList.add('display-none');
+                emailAlreadyExists = true;
+            }
+        }
+        if (!emailAlreadyExists) {
+            // users.push({
+            //     firstName: getUserName('first', name),
+            //     lastName: getUserName('last', name),
+            //     id: getHighestId(),
+            //     color: getUsercolor(),
+            //     password: `${password}`,
+            //     eMail: `${email}`
+            // });
+        }
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
     }
+}
+
+function getUserName(type, name) {
+
 }
 
 
