@@ -373,7 +373,7 @@ function renderSelectOptions(task, usersToBeRendered, idPrefix) {
     let selectOptions = '';
     for (let i = 0; i < usersToBeRendered.length; i++) {
         let user = usersToBeRendered[i];
-        selectOptions += `<div id="${idPrefix}-collaborator-option-${user.id}" class="collaborator-option" value="${user.eMail} "onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}') ">
+        selectOptions += `<div id="${idPrefix}-collaborator-option-${user.id}" class="collaborator-option ${isAssigned(user, task) ? 'collaborator-focus' : ''}" value="${user.eMail} "onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}') ">
             <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}</div>
             <img id="collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
         </div>`;
