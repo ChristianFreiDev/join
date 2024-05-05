@@ -396,8 +396,10 @@ function onTaskDropDownInputClick(taskAssignedToId) {
  * This function creates a task from the board's task pop-up.
  * @param {string} statusId task status ID
  */
-function createTaskFromBoard(status) {
-    addTask(status);
+async function createTaskFromBoard(status) {
+    await addTask(status);
+    renderTasks(tasks);
+    removePopup('add-task-pop-up');
 }
 
 

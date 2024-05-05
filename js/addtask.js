@@ -85,9 +85,9 @@ function clickButton(newPriority) {
 
 
 /**
- * This function adds a task to the server.
+ * This function adds a task to the server. Before pushing a new task, the tasks are loaded from the backend to make sure they are up-to-date.
  */
-function addTask(status){
+async function addTask(status){
     title = document.getElementById('input-title');
     description = document.getElementById('input-description');
     date = document.getElementById('input-due-date');
@@ -100,9 +100,18 @@ function addTask(status){
     temporaryTask.priority = priority;
     temporaryTask.status = status;
     temporaryTask.id = tasks.length;
+    await loadTasks();
     tasks.push(temporaryTask);  
-    storeTasks();
-    resetForm();
+    await storeTasks();
+}
+
+
+/**
+ * This functions adds a task from the Add Task page.
+ */
+async function addTaskFromAddTaskPage() {
+    await addTask('To do');
+    window.open('./board.html', '_self');
 }
 
 
