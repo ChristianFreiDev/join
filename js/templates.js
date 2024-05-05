@@ -33,7 +33,7 @@ function taskTemplate(task, doneSubtasks) {
             </div>
             <div class="task-title-and-description-container">
                 <div class="task-title">${task.title}</div>
-                <div class="task-description">${task.description}</div>
+                <div class="task-description">${createTaskDescriptionPreview(task.description)}</div>
             </div>
             ${generateTaskProgressContainerTemplate(task, doneSubtasks)}
             <div class="initial-avatars-and-priority-container">
