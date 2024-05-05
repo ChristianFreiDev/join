@@ -275,7 +275,7 @@ function subTaskTemplateTemporary(subtask, subtaskIndex) {
 function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle) {
     return /* html */ `<div class="edit-task-subtask-input-container">
         <input id="subtask-title-input-editable-${subtaskIndex}" class="subtask-title-input-editable" type="text" value="${subtaskTitle}">
-        <div id="input-icons-container">
+        <div id="input-icons-container" class="input-icons-container">
             ${confirmOrDeleteIcons(`deleteSubtaskInputForEditing(${subtaskIndex})`, `confirmSubtaskInputForEditing(${subtaskIndex})`)}
         </div>
     </div>`;
