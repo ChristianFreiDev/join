@@ -646,7 +646,7 @@ function createTaskDescriptionPreview(taskDescription) {
     let result = '';
     for (let i = 0; i < taskDescription.length; i++) {
         let character = taskDescription[i];
-        if (character === ' ' || character === '.' && i > 40 && i < 50) {
+        if ((character === ' ' || character === '.') && i > 40 && i < 50) {
             return result;
         } else if (i >= 50) {
             return result;
