@@ -1,15 +1,16 @@
 let priority = "none"
-let allTasks = []
-let task = {
+let temporaryCollaborators = [];
+let temporarySubtasks = [];
+let temporaryTask = {
     title: undefined,
     description: undefined,
     id: undefined,
-    collaborators: [], // user id
+    collaborators: temporaryCollaborators, // user id
     dueDate: undefined,
     priority: 'none',
     category: undefined,
     status: undefined,
-    subtasks: []
+    subtasks: temporarySubtasks
 }
 
 
@@ -26,7 +27,7 @@ async function initAddTask() {
  */
 
 const buttonActions = {
-    'urgent': {
+    'Urgent': {
         'clicked': function() {
             document.getElementById('prio-urgent').classList.add('urgent-button-clicked');
             document.getElementById('prio-arrow-up').src = '/assets/img/prio-up-white.svg';
@@ -36,7 +37,7 @@ const buttonActions = {
             document.getElementById('prio-arrow-up').src = '/assets/img/prio-up.svg';
         }
     },
-    'medium': {
+    'Medium': {
         'clicked': function() {
             document.getElementById('prio-medium').classList.add('medium-button-clicked');
             document.getElementById('prio-medium-equals').src = '/assets/img/prio-medium-white.svg';
@@ -46,7 +47,7 @@ const buttonActions = {
             document.getElementById('prio-medium-equals').src = '/assets/img/prio-medium-orange.svg';
         }
     },
-    'low': {
+    'Low': {
         'clicked': function() {
             document.getElementById('prio-low').classList.add('low-button-clicked');
             document.getElementById('prio-arrow-down').src = '/assets/img/prio-down-white.svg';
@@ -81,20 +82,21 @@ function clickButton(newPriority) {
 /**
  * This function adds a task to the server
  */
-function addTask(){
+function addTask(status){
     title = document.getElementById('input-title');
     description = document.getElementById('input-description');
     date = document.getElementById('input-due-date');
     category = document.getElementById('input-category');
 
-    let task = {
-        title: title.value,
-        description: description.value,
-        dueDate: date.value,
-        category: category.value,
-    };
-    task.push(task)  
-    setItem('tasks', task)
+    temporaryTask.title = title.value;
+    temporaryTask.description = description.value;
+    temporaryTask.dueDate = date.value;
+    temporaryTask.category = category.value;
+    temporaryTask.priority = priority;
+    temporaryTask.status = status;
+    temporaryTask.id = tasks.length;
+    tasks.push(temporaryTask);  
+    storeTasks();
     resetForm();
 }
 
@@ -113,11 +115,6 @@ function resetForm(){
  * This function renders users to the input "assigned to"
  */
 function renderAssignedToList() {
-    let assignedTo = document.getElementById('edit-task-assigned-to');
-    assignedTo.innerHTML = '';
-
-    for (let i = 0; i < users.length; i++) {
-        let user = users[i];
-        assignedTo.innerHTML += generateAssignedToList(user);
-    }
+    let assignedTo = document.getElementById('add-task-assigned-to');
+    assignedTo.innerHTML = renderSelectOptions(temporaryTask, users);
 }

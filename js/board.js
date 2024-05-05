@@ -1,6 +1,4 @@
 let draggedTaskId;
-let temporaryCollaborators = [];
-let temporarySubtasks = [];
 
 /**
  * This function enables dropping a task into the respective area by preventing the default action that occurs when something is dropped
@@ -68,11 +66,11 @@ function removePopup(id) {
  * This function opens the add-task popup
  * @param {string} statusId task status ID
  */
-function openAddTaskPopup(statusId) {
+function openAddTaskPopup(status) {
     centerPopup('add-task-pop-up');
     // This should actually change the onsubmit attribute of the form once the form supports it
     let createTaskButton = document.getElementById('create-task-button');
-    createTaskButton.setAttribute('onclick', createTaskFromBoard(statusId));
+    createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}')`);
     renderAssignedToList();
 }
 
@@ -191,7 +189,9 @@ function checkOrUncheckCollaboratorBox(userId) {
         temporaryCollaborators.push(userId);
     }
     let initialAvatarsLargeContainer = document.getElementById('initial-avatars-large-container');
-    initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
+    if (initialAvatarsLargeContainer) {
+        initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
+    }
 }
 
 
@@ -333,9 +333,9 @@ function renderSelectOptions(task, usersToBeRendered) {
 }
 
 
-function onTaskDropDownInputClick() {
-    let editTaskAssignedTo = document.getElementById('edit-task-assigned-to2');
-    editTaskAssignedTo.classList.toggle('display-none');
+function onTaskDropDownInputClick(taskAssignedToId) {
+    let taskAssignedTo = document.getElementById(taskAssignedToId);
+    taskAssignedTo.classList.toggle('display-none');
 }
 
 
@@ -343,8 +343,8 @@ function onTaskDropDownInputClick() {
  * This function creates a task from the board's task pop-up
  * @param {string} statusId task status ID
  */
-function createTaskFromBoard(statusId) {
-    console.log(statusId);
+function createTaskFromBoard(status) {
+    addTask(status);
 }
 
 
@@ -536,15 +536,20 @@ function searchTasks() {
 }
 
 
-function searchUsers(taskId) {
-    let task = tasks.find(task => task.id === taskId);
-    let searchInput = document.getElementById('task-drop-down-input');
+function searchUsers(taskId, searchInputId, taskAssignedToId) {
+    let task;
+    if (taskId === undefined) {
+        task = temporaryTask;
+    } else {
+        task = tasks.find(task => task.id === taskId);
+    }
+    let searchInput = document.getElementById(searchInputId);
     let searchString = searchInput.value.toLowerCase();
     foundUsers = users.filter(user => {
-        let fullUserName = user.firstName.toLowerCase() + ' ' + user.lastName.toLowerCase();
+        let fullUserName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
         return fullUserName.includes(searchString);
     });
-    let editTaskAssignedTo = document.getElementById('edit-task-assigned-to2');
+    let editTaskAssignedTo = document.getElementById(taskAssignedToId);
     if (foundUsers.length > 0) {
         editTaskAssignedTo.innerHTML = renderSelectOptions(task, foundUsers);
     } else {

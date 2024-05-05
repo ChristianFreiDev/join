@@ -1,4 +1,4 @@
-const BASE_URL = "https://testprojekt-2599f-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://join-91cdc-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /**
  * This function stores an object to the firebase storage.
@@ -32,7 +32,7 @@ async function getItem(path = "") {
 }
 
 /**
- * This function loads the users- array.
+ * This function loads the users array.
  */
 async function loadUsers() {
     try {
@@ -44,7 +44,7 @@ async function loadUsers() {
 
 
 /**
- * This function stores the users- array.
+ * This function stores the users array.
  */
 async function storeUsers() {
     try {
@@ -57,11 +57,21 @@ async function storeUsers() {
 
 
 /**
- * This function loads the tasks- array.
+ * This function loads the tasks array.
+ * If a task does not have a subtasks or collaborators array, an empty array is added for each of them.
  */
 async function loadTasks() {
     try {
         tasks = await getItem('/tasks');
+        for (let i = 0; i < tasks.length; i++) {
+            let task = tasks[i];
+            if (!task.subtasks) {
+                task.subtasks = [];
+            }
+            if (!task.collaborators) {
+                task.collaborators = [];
+            }
+        }
     } catch (error) {
         console.error('Loading error:', error);
     }
@@ -69,7 +79,7 @@ async function loadTasks() {
 
 
 /**
- * This function stores the tasks- array.
+ * This function stores the tasks array.
  */
 async function storeTasks() {
     try {
@@ -82,7 +92,7 @@ async function storeTasks() {
 
 
 /**
- * This function loads the contacts- array.
+ * This function loads the contacts array.
  */
 async function loadContacts() {
     try {
@@ -94,7 +104,7 @@ async function loadContacts() {
 
 
 /**
- * This function stores the contacts- array.
+ * This function stores the contacts array.
  */
 async function storeContacts() {
     try {
@@ -121,7 +131,7 @@ async function resetUsersTasksContacts() {
 
 
 /**
- * This function resets the tasks-, users-, and contacts- array.
+ * This function resets the tasks, users, and contacts arrays.
  */
 async function useOfflineData() {
     tasks = offlineTasks;

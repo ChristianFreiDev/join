@@ -3,22 +3,64 @@
  * Also by showing the right values of users tasks.
  */
 async function initSummary() {
+    if (window.screen.width <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
+        document.getElementById('summary-overlay').style.zIndex = '2';
+    } else if (window.screen.width <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
+        document.getElementById('summary-greeding-box').classList.add('display-none');
+    }
+    await loadUsers();
     greetUser();
     await init();
     await loadTasks();
     showSummaryValues();
+    saveVariableInLocalStorage('fromIndex', false);
 }
 
-
-function greetUser() {
-    if (window.screen.width <= 1400) {
-        
+function checkWindowWidth() {
+    if (document.body.scrollWidth < 1400) {
+        document.getElementById('summary-greeding-box').classList.add('display-none');
+    } else {
+        document.getElementById('summary-greeding-box').classList.remove('display-none');
     }
+}
 
-    /**
-     * Check windowsize. Ab 1400px muss die Einblendung erfolgen
-     * Darüber soll der Name geändert werden und bei Gast soll beiden Enblendungen das Komma entfernt werden und der Name.
-     */
+async function greetUser() {
+    document.getElementById('summary-greeding-name').innerHTML = await getUserName();
+    if (loadVariableFromLocalStorage('currentJoinUserId') == 0) {
+        document.getElementById('summary-greeding-punctuation-mark').classList.add('display-none');
+    }
+    if (window.screen.width <= 1400) {
+        if (loadVariableFromLocalStorage('fromIndex') == 'true') {
+            document.getElementById('summary-greeding-box').classList.add('greeding-overlay');
+            setTimeout(animateOverlay, 1000);
+        } else {
+            document.getElementById('summary-greeding-box').classList.add('display-none');
+        }
+        setTimeout(hideOverlay, 3000);
+    }
+}
+
+function animateOverlay() {
+    document.getElementById('summary-overlay').classList.add('animate-overlay');
+    document.getElementById('summary-greeding-box').classList.add('animate-overlay');
+}
+
+function hideOverlay() {
+    document.getElementById('summary-overlay').style.zIndex = '-1';
+    document.getElementById('summary-greeding-box').style.zIndex = '-1';
+}
+
+let currentUserIndex = 0;
+async function getUserName() {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].id == loadVariableFromLocalStorage('currentJoinUserId')) {
+            currentUserIndex = i;
+            if (i == 0) {
+                return '';
+            }
+        }
+    }
+    return `${users[currentUserIndex].firstName} ${users[currentUserIndex].lastName}`;
 }
 
 

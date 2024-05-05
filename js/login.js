@@ -10,6 +10,7 @@ async function initIndex() {
     saveVariableInLocalStorage('currentJoinUserFirstCharacterFirstName', 'G');
     saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', '');
     changePasswordVisibility('login-password-icon', 'login-password-input', true);
+    saveVariableInLocalStorage('fromIndex', true);
 }
 
 
