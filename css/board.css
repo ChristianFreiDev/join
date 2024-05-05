@@ -589,6 +589,11 @@ progress::-webkit-progress-value {
     justify-content: space-between;
     padding: 7px 16px;
 }
+.collaborator-option:hover{
+    background-color: #d3d3d37d;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
 .collaborator-option-name-and-initial-avatar {
     display: flex;
