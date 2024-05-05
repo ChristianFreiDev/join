@@ -15,7 +15,7 @@ async function initIndex() {
 
 
 /**
- * This function check, if a user is remembered and wehn its true, fill the login felds with the useres data.
+ * This function checks if a user is remembered and if it is true, it fills the login fields with the user's data.
  */
 function checkForRememberedUser() {
     if (rememberedUser()) {
@@ -31,7 +31,7 @@ function checkForRememberedUser() {
 
 
 /**
- * This funktion
+ * This function gets the id of the remembered user from local storage.
  * 
  * @returns the remembered user id.
  */
@@ -65,7 +65,7 @@ function resetForm() {
 
 
 /**
- *  This function opens the sign up menu and hides the log in menu, by adding and removing the class "display-none"
+ *  This function opens the sign-up menu and hides the login menu by adding and removing the class "display-none".
  */
 function openSignUpMenu() {
     document.getElementById('login-feld').classList.add('display-none');
@@ -76,7 +76,7 @@ function openSignUpMenu() {
 
 
 /**
- *  This function opens the log in menu and hides the sign up menu, by adding and removing the class "display-none"
+ *  This function opens the login menu and hides the sign-up menu by adding and removing the class "display-none".
  */
 function openLogInMenu() {
     document.getElementById('login-feld').classList.remove('display-none');
@@ -87,7 +87,7 @@ function openLogInMenu() {
 
 
 /**
- * This function is logging the user or a guest in and give the user feedback, if its data were wrong.
+ * This function logs in the user or a guest and gives the user feedback if the user's data was wrong.
  * 
  * @param {Boolean} guest 
  */
@@ -111,7 +111,7 @@ function login(guest = false) {
 
 
 /**
- * This function checks the input values and saves its data to local storage by success.
+ * This function checks the input values and saves a user's data to local storage if the user has been logged in successfully and wants to be remembered.
  */
 function checkUserValues() {
     let email = document.getElementById('login-email-input').value;
@@ -126,7 +126,7 @@ function checkUserValues() {
 
 
 /**
- * This function sets the values if an user wants to be reminded.
+ * This function saves the appropriate values in local storage if a user wants to be remembered.
  * 
  * @param {boolean} guest 
  * @param {number} i 
@@ -144,7 +144,7 @@ function setRememberMeValues(guest = false, i) {
 
 
 /**
- * This function searches for the first character in a string, when a string exists.
+ * This function searches for the first character in a string if the string exists.
  * 
  * @param {string} name 
  * @param {number} i 
@@ -160,9 +160,9 @@ function getInitials(name, i) {
 
 
 /**
- * This funktion checks, if the checkbox "Remember me" is checked.
+ * This function checks if the "Remember me" checkbox is checked.
  * 
- * @returns a boolean.
+ * @returns {boolean} true if "Remember me" is checked.
  */
 function rememberUser() {
     return document.getElementById('login-checkbox').checked;
@@ -170,12 +170,12 @@ function rememberUser() {
 
 
 /**
- * This function checks the inputed User data.
+ * This function checks the user data input.
  * 
  * @param {String} email 
  * @param {String} password 
  * @param {Number} i 
- * @returns a boolean.
+ * @returns {boolean} true if the user has been logged in successfully.
  */
 function userLoggedInSuccessfully(email, password, i) {
     return users[i].password === password && users[i].eMail === email
@@ -183,11 +183,12 @@ function userLoggedInSuccessfully(email, password, i) {
 
 
 /**
- * This function links to the summary.html
+ * This function links to summary.html.
  */
 function goToSummary() {
     window.open('./summary.html', '_self');
 }
+
 
 function signup() {
 
@@ -195,9 +196,9 @@ function signup() {
 
 
 /**
- * This function changes the icon in the input feld, by doing the first input.
+ * This function changes the icon in the input field when the user enters data for the first time.
  * 
- * @param {string} idIcon 
+ * @param {string} idIcon
  */
 function changePasswordIcon(idIcon) {
     let passwordInputIcon = document.getElementById(idIcon);
@@ -209,7 +210,7 @@ function changePasswordIcon(idIcon) {
 
 
 /**
- * This function resets the input icon, when it´s empty and focused out.
+ * This function resets the input icon when the input is empty and not in focus.
  * 
  * @param {string} idIcon 
  * @param {string} idInput 
@@ -227,7 +228,7 @@ function resetPasswordIcon(idIcon, idInput) {
 
 
 /**
- * This function changes the password visibility, when the input feld is not empty and set focus back on the input feld after last sign.
+ * This function changes the password visibility when the input field is not empty and places the cursor at the end of the input string.
  * 
  * @param {string} idIcon 
  * @param {string} idInput
@@ -249,7 +250,7 @@ function changePasswordVisibility(idIcon, idInput, init = false) {
 }
 
 /**
- * This function changes Input icon, input type and cursor style to visibility on.
+ * This function changes input icon, input type and cursor style to visibility on.
  * 
  * @param {Element} passwordInputIcon 
  * @param {Element} input 
@@ -262,7 +263,7 @@ function setPropertiesForVisibilityOn(passwordInputIcon, input) {
 
 
 /**
- * This function changes Input icon, input type and cursor style to visibility off.
+ * This function changes input icon, input type and cursor style to visibility off.
  * 
  * @param {Element} passwordInputIcon 
  * @param {Element} input 
@@ -278,7 +279,7 @@ function setPropertiesForVisibilityOff(passwordInputIcon, input) {
  * This function checks if the input icon is the visibility-off icon.
  * 
  * @param {Element} passwordInputIcon 
- * @returns Boolean
+ * @returns {boolean} true if the input icon is the visibility-off icon.
  */
 function visibilityOffIconIsShown(passwordInputIcon) {
     return passwordInputIcon.src.endsWith('visibility-off.svg');
@@ -286,10 +287,10 @@ function visibilityOffIconIsShown(passwordInputIcon) {
 
 
 /**
- * This function checks if the input value is bigger than Zero.
+ * This function checks if the input value is bigger than zero.
  * 
  * @param {Element} input 
- * @returns boolean.
+ * @returns {boolean} true if the value is bigger than zero.
  */
 function imputIsFilled(input) {
     return input.value.length > 0;
