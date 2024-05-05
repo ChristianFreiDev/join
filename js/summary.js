@@ -24,8 +24,9 @@ function checkWindowWidth() {
     console.log(document.body.scrollWidth);
     if (document.body.scrollWidth < 1400 && animationOver) {
         document.getElementById('summary-greeting-box').classList.add('display-none');
-    } else if(document.body.scrollWidth >= 1400 && animationOver) {
+    } else if (document.body.scrollWidth >= 1400 && animationOver) {
         document.getElementById('summary-greeting-box').classList.remove('display-none');
+        document.getElementById('summary-overlay').classList.add('display-none');
         document.getElementById('summary-greeting-box').classList.remove('animate-overlay');
         document.getElementById('summary-greeting-box').classList.remove('greeting-overlay');
         document.getElementById('summary-greeting-box').style.zIndex = '0';
@@ -70,7 +71,7 @@ function checkDayTime() {
     if (dayTime >= 18 || dayTime < 3) {
         daytimeString = 'morning'
     }
-    return daytimeString;
+    return daytimeString + `<span id="summary-greeting-punctuation-mark">,</span>`;
 }
 
 
@@ -143,9 +144,9 @@ function renderDoneButton() {
 function renderPriorityAndDueDateButton() {
     if (tasks.length > 0) {
         let foundTasks = findTasks();
-        renderPriorityIcon(foundTasks[0].priority);
+        renderPriorityIcon(findhighestPriority(foundTasks));
         renderPriorityAmount(foundTasks);
-        renderPriorityValue(foundTasks);
+        renderPriorityValue(findhighestPriority(foundTasks));
         rednerUpcomingDeadline(foundTasks);
     } else {
         renderPriorityIcon();
@@ -162,24 +163,32 @@ function renderPriorityAndDueDateButton() {
  * @returns the tasks with highest priority as an array.
  */
 function findTasks() {
-    let results = foundPriority('Urgent');
-    if (results.length > 0) {
-        return results;
-    } else {
-        results = foundPriority('Medium')
-        if (results.length > 0) {
-            return results;
-        } else {
-            results = foundPriority('Low');
-            if (results.length > 0) {
-                return results;
-            } else {
-                return [];
-            }
+    let results = [];
+    let nextDuedate = new Date(findNextDuedate()).getTime();
+    console.log(nextDuedate);
+    for (let i = 0; i < tasks.length; i++) {
+        let date = new Date(tasks[i].dueDate).getTime();
+        if ((date <= nextDuedate) && tasks[i].dueDate && tasks[i].status !== 'Done') {
+            results.push(tasks[i]);
         }
     }
+    return results;
 }
 
+
+function findhighestPriority(foundTasks) {
+    let results = findPriority("Urgent", foundTasks);
+    if (results.length === 0) {
+        results = findPriority("Medium", foundTasks);
+        if (results.length === 0) {
+            return 'Low';
+        } else {
+            return 'Medium';
+        }
+    } else {
+        return 'Urgent';
+    }
+}
 
 /**
  * This function sets the styles for the priority icon.
@@ -264,14 +273,27 @@ function setIconStylesToDefault(icon) {
  * @param {string} prio 
  * @returns the tasks with the same priority as an array.
  */
-function foundPriority(prio) {
+function findPriority(prio, foundTasks) {
     let results = [];
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].priority === prio && tasks[i].status != 'Done') {
+    for (let i = 0; i < foundTasks.length; i++) {
+        if (foundTasks[i].priority === prio) {
             results.push(tasks[i]);
         }
     }
     return results;
+}
+let taskIndex = 0;
+
+function findNextDuedate() {
+    let date = Infinity;
+    for (let i = 0; i < tasks.length; i++) {
+        let taskDate = new Date(tasks[i].dueDate);
+        if (taskDate < date && tasks[i].status !== 'Done') {
+            date = taskDate;
+            taskIndex = i;
+        }
+    }
+    return date;
 }
 
 
@@ -302,22 +324,9 @@ function renderPriorityValue(foundTasks = [{ priority: '' }]) {
  */
 function rednerUpcomingDeadline(foundTasks) {
     if (foundTasks) {
-        let date = Infinity;
-        let taskIndex = 0;
-        for (let i = 0; i < foundTasks.length; i++) {
-            let taskDate = new Date(foundTasks[i].dueDate);
-            if (taskDate < date) {
-                date = taskDate;
-                taskIndex = i;
-            }
-        }
-        document.getElementById('summary-due-date').innerHTML = new Date(foundTasks[taskIndex].dueDate).toLocaleString("en-US",
-            {
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-            }
-        );
+        let date = findNextDuedate();
+        document.getElementById('summary-due-date').innerHTML = formatDate(date);
+
         document.getElementById('summary-due-date-text').innerHTML = 'Upcoming Deadline';
     } else {
         document.getElementById('summary-due-date').innerHTML = 'No date has been specified for this task.';
@@ -325,6 +334,15 @@ function rednerUpcomingDeadline(foundTasks) {
     }
 }
 
+
+function formatDate(date) {
+    return date.toLocaleString("en-US",
+        {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
+}
 
 /**
  * This function outputs the amount of all tasks on Board.
