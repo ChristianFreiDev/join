@@ -85,7 +85,7 @@ function clickButton(newPriority) {
 
 
 /**
- * This function adds a task to the server
+ * This function adds a task to the server.
  */
 function addTask(status){
     title = document.getElementById('input-title');
@@ -118,7 +118,7 @@ function resetForm(){
 
 
 /**
- * This function renders users to the input "assigned to"
+ * This function renders a list of users that can be assigned to a task.
  */
 function renderAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
