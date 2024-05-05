@@ -100,12 +100,6 @@ function login(guest = false) {
         checkUserValues();
         if (loggedIn) {
             goToSummary();
-        } else {
-            checkEmail();
-            /** 
-             * Zeige einen Fehler an.
-             * Lasse "I forgot my password" erscheinen.
-            */
         }
     }
 }
