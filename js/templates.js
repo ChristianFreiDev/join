@@ -262,7 +262,7 @@ function subTaskTemplateTemporary(subtask, subtaskIndex) {
                         <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
                     </div>
                     <div class="open-task-button-separator"></div>
-                    <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtaskIndex})">
+                    <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtaskIndex}, 'edit-task-subtasks-list')">
                         <img src="assets/img/open-task-delete-button-icon.svg" alt="open task delete button icon">
                     </div>
                 </div>

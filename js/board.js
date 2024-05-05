@@ -71,6 +71,7 @@ function openAddTaskPopup(status) {
     // This should actually change the onsubmit attribute of the form once the form supports it
     let createTaskButton = document.getElementById('create-task-button');
     createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}')`);
+    addInputEventListener();
     renderAssignedToList();
 }
 
@@ -237,6 +238,7 @@ function deleteSubtask(subtaskIndex, subtaskListId) {
 
 function updateSubtaskList(subtaskListId) {
     let editTaskSubtasksList = document.getElementById(subtaskListId);
+    console.log(editTaskSubtasksList);
     editTaskSubtasksList.innerHTML = generateSubtasksTemporary(temporarySubtasks);
 }
 
