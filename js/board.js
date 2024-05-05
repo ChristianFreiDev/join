@@ -125,34 +125,37 @@ function activateSubtaskInput(inputId) {
 }
 
 
-function deleteSubtaskInput(inputId, inputIconsContainerId) {
-    let subtaskInput = document.getElementById(inputId);
+function deleteSubtaskInput(idPrefix) {
+    let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
+    console.log('subtaskInput from deleteSubtaskInput', subtaskInput)
     subtaskInput.value = '';
-    let inputIconsContainer = document.getElementById(inputIconsContainerId);
+    let inputIconsContainer = document.getElementById(`${idPrefix}-input-icons-container`);
     inputIconsContainer.innerHTML = subtaskInputPlusIcon();
 }
 
-function deleteSubtaskInputForEditing(subtaskIndex) {
+function deleteSubtaskInputForEditing(subtaskIndex, idPrefix) {
     let subtask = temporarySubtasks[subtaskIndex];
-    let subtaskContainer = document.getElementById(`subtask-container-${subtaskIndex}`);
-    subtaskContainer.innerHTML = subTaskTemplateTemporary(subtask, subtaskIndex);
+    let subtaskContainer = document.getElementById(`${idPrefix}-subtask-container-${subtaskIndex}`);
+    subtaskContainer.innerHTML = subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix);
 }
 
 
-function confirmSubtaskInputForEditing(subtaskIndex) {
-    let subtaskTitleInputEditable = document.getElementById(`subtask-title-input-editable-${subtaskIndex}`);
+function confirmSubtaskInputForEditing(subtaskIndex, idPrefix) {
+    let subtaskTitleInputEditable = document.getElementById(`${idPrefix}-subtask-title-input-editable-${subtaskIndex}`);
     let subtask = temporarySubtasks[subtaskIndex];
     if (subtaskTitleInputEditable.value !== '') {
         subtask.title = subtaskTitleInputEditable.value;
     }
-    let subtaskContainer = document.getElementById(`subtask-container-${subtaskIndex}`);
-    subtaskContainer.innerHTML = subTaskTemplateTemporary(subtask, subtaskIndex);
+    let subtaskContainer = document.getElementById(`${idPrefix}-subtask-container-${subtaskIndex}`);
+    subtaskContainer.innerHTML = subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix);
 }
 
 
 
-function confirmSubtaskInput(inputId, inputIconsContainerId, subtaskListId) {
-    let subtaskInput = document.getElementById(inputId);
+function confirmSubtaskInput(idPrefix) {
+    console.log('idPrefix from confirmSubtaskInput', idPrefix)
+    let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
+    console.log('subtaskInput from confirmSubtaskInput', subtaskInput)
     if (subtaskInput.value !== '') {
         temporarySubtasks.push({
             title: subtaskInput.value,
@@ -160,9 +163,9 @@ function confirmSubtaskInput(inputId, inputIconsContainerId, subtaskListId) {
         })
     }
     subtaskInput.value = '';
-    let inputIconsContainer = document.getElementById(inputIconsContainerId);
+    let inputIconsContainer = document.getElementById(`${idPrefix}-input-icons-container`);
     inputIconsContainer.innerHTML = subtaskInputPlusIcon();
-    updateSubtaskList(subtaskListId);
+    updateSubtaskList(idPrefix);
 }
 
 
@@ -207,6 +210,7 @@ function deleteTask(taskId) {
 
 
 function editTask(taskId) {
+    idPrefix = 'edit-task';
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
     openTaskPopup.innerHTML = editTaskTemplate(task);
@@ -214,32 +218,34 @@ function editTask(taskId) {
     temporarySubtasks = [...task.subtasks];
     temporaryCollaborators = [...task.collaborators];
     changePriorityButtonStyle(priority, 'add');
-    let subtaskInput = document.getElementById('subtask-input');
+    let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
     subtaskInput.addEventListener("focus", (event) => {
-        let inputIconsContainer = document.getElementById('input-icons-container');
-        let deletionFunctionName = `deleteSubtaskInput('subtask-input', 'input-icons-container')`;
-        let confirmationFunctionName = `confirmSubtaskInput('subtask-input', 'input-icons-container', 'edit-task-subtasks-list')`;
+        let inputIconsContainer = document.getElementById(`${idPrefix}-input-icons-container`);
+        let deletionFunctionName = `deleteSubtaskInput('${idPrefix}')`;
+        let confirmationFunctionName = `confirmSubtaskInput('${idPrefix}')`;
         inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
     });
 }
 
 
-function editSubtask(subtaskIndex) {
-    let subtaskContainer = document.getElementById(`subtask-container-${subtaskIndex}`);
-    subtaskContainer.innerHTML = subTaskTemplateTemporaryEditable(subtaskIndex, temporarySubtasks[subtaskIndex].title);
+function editSubtask(subtaskIndex, idPrefix) {
+    let subtaskContainer = document.getElementById(`${idPrefix}-subtask-container-${subtaskIndex}`);
+    subtaskContainer.innerHTML = subTaskTemplateTemporaryEditable(subtaskIndex, temporarySubtasks[subtaskIndex].title, idPrefix);
 }
 
 
-function deleteSubtask(subtaskIndex, subtaskListId) {
+function deleteSubtask(subtaskIndex, idPrefix) {
     temporarySubtasks.splice(subtaskIndex, 1);
-    updateSubtaskList(subtaskListId);
+    updateSubtaskList(idPrefix);
 }
 
 
-function updateSubtaskList(subtaskListId) {
-    let editTaskSubtasksList = document.getElementById(subtaskListId);
-    console.log(editTaskSubtasksList);
-    editTaskSubtasksList.innerHTML = generateSubtasksTemporary(temporarySubtasks);
+function updateSubtaskList(idPrefix) {
+    let subtaskListId = `${idPrefix}-subtasks-list`;
+    console.log('subtasksListId from updateSubtaskList', subtaskListId);
+    let subtasksList = document.getElementById(subtaskListId);
+    console.log('subtasksList updateSubtaskList', subtasksList);
+    subtasksList.innerHTML = generateSubtasksTemporary(temporarySubtasks, idPrefix);
 }
 
 

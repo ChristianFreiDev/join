@@ -125,13 +125,13 @@ function editTaskTemplate(task) {
                         <div class="subtasks-container">
                             <div>Subtasks</div>
                             <div class="edit-task-subtask-input-container">
-                                <input id="subtask-input" type="text" class="task-title-input" placeholder="Add new subtask">
-                                <div id="input-icons-container" class="input-icons-container">
-                                    ${subtaskInputPlusIcon('subtask-input')}
+                                <input id="edit-task-subtask-input" type="text" class="task-title-input" placeholder="Add new subtask">
+                                <div id="edit-task-input-icons-container" class="input-icons-container">
+                                    ${subtaskInputPlusIcon('edit-task')}
                                 </div>
                             </div>
                             <ul id="edit-task-subtasks-list" class="subtasks">
-                                ${generateSubtasksTemporary(task.subtasks)}
+                                ${generateSubtasksTemporary(task.subtasks, 'edit-task')}
                             </ul>
                         </div>
                     </div>
@@ -142,8 +142,8 @@ function editTaskTemplate(task) {
 }
 
 
-function subtaskInputPlusIcon(inputId) {
-    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput('${inputId}')">
+function subtaskInputPlusIcon(idPrefix) {
+    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput('${idPrefix}-subtask-input')">
         <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
     </div>`;
 }
@@ -252,17 +252,18 @@ function subTaskTemplate(subtask, subtaskIndex, taskId) {
 
 
 
-function subTaskTemplateTemporary(subtask, subtaskIndex) {
+function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
+    console.log(idPrefix)
     return /* html */ `
-        <div id="subtask-container-${subtaskIndex}">
+        <div id="${idPrefix}-subtask-container-${subtaskIndex}">
             <div class="subtask edit-task-subtask">
-                <li id="subtask-title-${subtaskIndex}">${subtask.title}</li>
+                <li id="${idPrefix}-subtask-title-${subtaskIndex}">${subtask.title}</li>
                 <div class="edit-task-buttons-container">
-                    <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editSubtask(${subtaskIndex})">
+                    <div id="open-task-edit-button" class="edit-task-button cursor-pointer" onclick="editSubtask(${subtaskIndex}, '${idPrefix}')">
                         <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
                     </div>
                     <div class="open-task-button-separator"></div>
-                    <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtaskIndex}, 'edit-task-subtasks-list')">
+                    <div id="open-task-delete-button" class="edit-task-button cursor-pointer" onclick="deleteSubtask(${subtaskIndex}, '${idPrefix}')">
                         <img src="assets/img/open-task-delete-button-icon.svg" alt="open task delete button icon">
                     </div>
                 </div>
@@ -272,11 +273,12 @@ function subTaskTemplateTemporary(subtask, subtaskIndex) {
 }
 
 
-function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle) {
+function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) {
+    console.log('idPrefix from subTaskTemplateTemporaryEditable', idPrefix)
     return /* html */ `<div class="edit-task-subtask-input-container">
-        <input id="subtask-title-input-editable-${subtaskIndex}" class="subtask-title-input-editable" type="text" value="${subtaskTitle}">
-        <div id="input-icons-container" class="input-icons-container">
-            ${confirmOrDeleteIcons(`deleteSubtaskInputForEditing(${subtaskIndex})`, `confirmSubtaskInputForEditing(${subtaskIndex})`)}
+        <input id="${idPrefix}-subtask-title-input-editable-${subtaskIndex}" class="subtask-title-input-editable" type="text" value="${subtaskTitle}">
+        <div id="${idPrefix}-input-icons-container" class="input-icons-container">
+            ${confirmOrDeleteIcons(`deleteSubtaskInputForEditing(${subtaskIndex}, '${idPrefix}')`, `confirmSubtaskInputForEditing(${subtaskIndex}, '${idPrefix}')`)}
         </div>
     </div>`;
 }
@@ -301,13 +303,14 @@ function generateSubtasks(task, subtasks) {
 }
 
 
-function generateSubtasksTemporary(subtasks) {
+function generateSubtasksTemporary(subtasks, idPrefix) {
+    console.log('idPrefix from generateSubtasksTemporary', idPrefix)
     let HTMLString = '';
     if (subtasks.length > 0) {
             if (subtasks) {
                 for (let i = 0; i < subtasks.length; i++) {
                     let subtask = subtasks[i];
-                    HTMLString += subTaskTemplateTemporary(subtask, i);
+                    HTMLString += subTaskTemplateTemporary(subtask, i, idPrefix);
                 }
             }
     }
@@ -317,7 +320,7 @@ function generateSubtasksTemporary(subtasks) {
 
 function editTaskAssignedToItemsTemplate(task) {
     return /* html */ `
-        <label for="task-drop-down-input" class="task-form-label">Assigned to</label>
+        <label for="edit-task-drop-down-input" class="task-form-label">Assigned to</label>
         <div class="task-drop-down">
             <input id="edit-task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, 'edit-task-drop-down-input', 'edit-task-assigned-to')" placeholder="Select contacts to assign">
             <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">

@@ -125,8 +125,8 @@ function addInputEventListener() {
     let subtaskInput = document.getElementById('add-task-subtask-input');
     subtaskInput.addEventListener("focus", (event) => {
     let inputIconsContainer = document.getElementById('add-task-input-icons-container');
-    let deletionFunctionName = `deleteSubtaskInput('add-task-subtask-input', 'add-task-input-icons-container')`;
-    let confirmationFunctionName = `confirmSubtaskInput('add-task-subtask-input', 'add-task-input-icons-container', 'add-task-subtasks-list')`;
+    let deletionFunctionName = `deleteSubtaskInput('add-task')`;
+    let confirmationFunctionName = `confirmSubtaskInput('add-task')`;
     inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
     });
 }
