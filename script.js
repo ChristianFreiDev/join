@@ -162,6 +162,7 @@ function closeAssignedToList(){
  */
 
 function closeEditAssignedToList(){
+    console.log('triggered')
     let editAssignedTo = document.getElementById('edit-task-assigned-to');
     editAssignedTo.classList.add('display-none');
 }

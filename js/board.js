@@ -257,6 +257,7 @@ function editTask(taskId) {
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
     openTaskPopup.innerHTML = editTaskTemplate(task);
+    openTaskPopup.setAttribute('onclick', 'closeEditAssignedToList() | doNotClose(event)');
     priority = task.priority;
     temporarySubtasks = [...task.subtasks];
     temporaryCollaborators = [...task.collaborators];
@@ -673,13 +674,17 @@ function createTaskDescriptionPreview(taskDescription) {
 }
 
 
+function removePopups() {
+    removePopup('add-task-pop-up');
+    removePopup('open-task-pop-up');
+    removePopup('move-task-pop-up');
+}
+
 /**
  * This event listener serves to remove a pop-up when the Escape key is pressed.
  */
-// document.addEventListener('keydown', event => {
-//     if (event.key === 'Escape') {
-//         removePopup('add-task-pop-up');
-//         removePopup('edit-task-pop-up');
-//         removePopup('move-task-pop-up');
-//     }
-// })
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        removePopups();
+    }
+})
