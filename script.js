@@ -158,6 +158,15 @@ function closeAssignedToList(){
 }
 
 /**
+ * This function closes the assigned to drop-down list by clicking the outside the list.
+ */
+
+function closeEditAssignedToList(){
+    let editAssignedTo = document.getElementById('edit-task-assigned-to');
+    editAssignedTo.classList.add('display-none');
+}
+
+/**
  * This function is used to prevent the container from being closed
  * @param {*} event 
  */
