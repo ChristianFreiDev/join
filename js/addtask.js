@@ -35,7 +35,7 @@ const buttonActions = {
     'Urgent': {
         'clicked': function(idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-urgent`).classList.add('priority-button-urgent-clicked');
-            document.getElementById(`${idPrefix}-priority-icon-urgent`).src = '/assets/img/priority-icon-urgent-clicked.svg';
+            document.getElementById(`${idPrefix}-priority-icon-urgent`).src = '/assets/img/priority-icon-urgent-white.svg';
         },
         'unclicked': function(idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-urgent`).classList.remove('priority-button-urgent-clicked');
@@ -45,7 +45,7 @@ const buttonActions = {
     'Medium': {
         'clicked': function(idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-medium`).classList.add('priority-button-medium-clicked');
-            document.getElementById(`${idPrefix}-priority-icon-medium`).src = '/assets/img/priority-icon-medium-clicked.svg';
+            document.getElementById(`${idPrefix}-priority-icon-medium`).src = '/assets/img/priority-icon-medium-white.svg';
         },
         'unclicked': function(idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-medium`).classList.remove('priority-button-medium-clicked');
@@ -55,7 +55,7 @@ const buttonActions = {
     'Low': {
         'clicked': function(idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-low`).classList.add('priority-button-low-clicked');
-            document.getElementById(`${idPrefix}-priority-icon-low`).src = '/assets/img/priority-icon-low-clicked.svg';
+            document.getElementById(`${idPrefix}-priority-icon-low`).src = '/assets/img/priority-icon-low-white.svg';
         },
         'unclicked': function(idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-low`).classList.remove('priority-button-low-clicked');

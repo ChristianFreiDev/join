@@ -233,7 +233,7 @@ function setIconStylesToUrgent(icon) {
  * @param {Element} icon 
  */
 function setIconStylesToMedium(icon) {
-    icon.src = './assets/img/prio-medium-white.svg';
+    icon.src = './assets/img/priority-icon-medium-white.svg';
     icon.style.transform = 'unset';
     icon.style.width = '30px';
     icon.style.height = '16px';
