@@ -70,7 +70,7 @@ const buttonActions = {
  * 
  * @param {string} newPriority - this is the name of the priority. ('Urgent', 'Medium' or 'Low')
  */
-function clickButton(newPriority, idPrefix) {
+function clickPriorityButton(newPriority, idPrefix) {
     let priorities = ['Urgent', 'Medium', 'Low'];
     for (let i = 0; i < priorities.length; i++) {
         if (newPriority == priorities[i]) {

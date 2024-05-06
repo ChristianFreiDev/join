@@ -262,7 +262,7 @@ function editTask(taskId) {
     priority = task.priority;
     temporarySubtasks = [...task.subtasks];
     temporaryCollaborators = [...task.collaborators];
-    clickButton(priority, 'edit-task');
+    clickPriorityButton(priority, 'edit-task');
     addInputEventListener('edit-task');
 }
 

@@ -113,15 +113,15 @@ function editTaskTemplate(task) {
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>
                     <div class="edit-task-priority-buttons-container">
-                        <button id="edit-task-priority-button-urgent" class="priority-button" type="button" onclick="clickButton('Urgent', 'edit-task')">
+                        <button id="edit-task-priority-button-urgent" class="priority-button" type="button" onclick="clickPriorityButton('Urgent', 'edit-task')">
                             <span>Urgent</span>
                             <img id="edit-task-priority-icon-urgent" src="../assets/img/priority-icon-urgent.svg" alt="priority icon urgent">
                         </button>
-                        <button id="edit-task-priority-button-medium" class="priority-button" type="button" onclick="clickButton('Medium', 'edit-task')">
+                        <button id="edit-task-priority-button-medium" class="priority-button" type="button" onclick="clickPriorityButton('Medium', 'edit-task')">
                             <span>Medium</span>
                             <img id="edit-task-priority-icon-medium" src="../assets/img/priority-icon-medium.svg" alt="priority icon medium">
                         </button>
-                        <button id="edit-task-priority-button-low" class="priority-button" type="button" onclick="clickButton('Low', 'edit-task')">
+                        <button id="edit-task-priority-button-low" class="priority-button" type="button" onclick="clickPriorityButton('Low', 'edit-task')">
                             <span>Low</span>
                             <img id="edit-task-priority-icon-low" src="../assets/img/priority-icon-low.svg" alt="priority icon low">
                         </button>
