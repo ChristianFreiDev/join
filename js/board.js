@@ -84,6 +84,7 @@ function openAddTaskPopup(status) {
 function fillOpenTaskPopup(taskId) {
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
+    openTaskPopup.setAttribute('onclick', 'doNotClose(event)');
     openTaskPopup.innerHTML = openTaskPopupTemplate(task);
 }
 
