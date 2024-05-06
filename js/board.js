@@ -388,7 +388,11 @@ function renderSelectOptions(task, usersToBeRendered, idPrefix) {
  */
 function onTaskDropDownInputClick(taskAssignedToId) {
     let taskAssignedTo = document.getElementById(taskAssignedToId);
-    taskAssignedTo.classList.toggle('display-none');
+    if (taskAssignedTo.classList.contains('display-none')) {
+        taskAssignedTo.classList.remove('display-none');
+    } else {
+        taskAssignedTo.classList.add('display-none');
+    }
 }
 
 

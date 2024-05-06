@@ -147,3 +147,21 @@ function openNav(nav) {
 function closeNav(nav) {
     nav.classList.add('display-none')
 }
+
+/**
+ * This function closes the assigned to drop-down list by clicking the outside the list.
+ */
+
+function closeAssignedToList(){
+    let assignedTo = document.getElementById('add-task-assigned-to');
+    assignedTo.classList.add('display-none');
+}
+
+/**
+ * This function is used to prevent the container from being closed
+ * @param {*} event 
+ */
+
+function doNotClose(event){
+    event.stopPropagation();
+}
