@@ -127,7 +127,7 @@ function editTaskTemplate(task) {
                         </button>
                     </div>
                 </div>
-                <div class="form-label-and-input-container" onclick="doNotClose(event)">
+                <div class="form-label-and-input-container">
                     ${editTaskAssignedToItemsTemplate(task, 'edit-task')}
                 </div>
                 <div class="form-label-and-input-container">
@@ -397,12 +397,12 @@ function generateSubtasksTemporary(subtasks, idPrefix) {
  */
 function editTaskAssignedToItemsTemplate(task, idPrefix) {
     return /* html */ `
-        <label for="edit-task-drop-down-input" class="task-form-label">Assigned to</label>
-        <div class="task-drop-down">
+        <label for="edit-task-drop-down-input" class="task-form-label" onclick="event.preventDefault()">Assigned to</label>
+        <div class="task-drop-down" onclick="doNotClose(event)">
             <input id="edit-task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
             <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
-        <div id="edit-task-assigned-to" class="task-user-dropdown display-none">
+        <div id="edit-task-assigned-to" class="task-user-dropdown display-none" onclick="doNotClose(event)">
             ${renderSelectOptions(task, users, idPrefix)}
         </div>
         <div id="${idPrefix}-initial-avatars-large-container" class="initial-avatars-large-container">

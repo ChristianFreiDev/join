@@ -173,5 +173,6 @@ function closeEditAssignedToList(){
  */
 
 function doNotClose(event){
+    console.log('doNotClose')
     event.stopPropagation();
 }
