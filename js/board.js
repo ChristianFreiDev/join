@@ -221,6 +221,15 @@ function checkOrUncheckCollaboratorBox(userId, idPrefix) {
         temporaryCollaborators.push(userId);
     }
     collaboratorOption.classList.toggle('collaborator-focus');
+    renderInitalAvatarsLargeInPopup(idPrefix);
+}
+
+
+/**
+ * This function renders the large initial avatars below the drop-down list in a pop-up.
+ * @param {string} idPrefix 
+ */
+function renderInitalAvatarsLargeInPopup(idPrefix) {
     let initialAvatarsLargeContainer = document.getElementById(`${idPrefix}-initial-avatars-large-container`);
     initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
 }

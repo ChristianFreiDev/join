@@ -121,6 +121,7 @@ async function addTaskFromAddTaskPage() {
 function resetForm() {
     temporaryCollaborators = [];
     temporarySubtasks = [];
+    renderInitalAvatarsLargeInPopup('add-task');
     let title = document.getElementById('input-title');
     let description = document.getElementById('input-description');
     let date = document.getElementById('input-due-date');
