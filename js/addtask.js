@@ -33,33 +33,33 @@ async function initAddTask() {
 
 const buttonActions = {
     'Urgent': {
-        'clicked': function() {
-            document.getElementById('prio-urgent').classList.add('urgent-button-clicked');
-            document.getElementById('prio-arrow-up').src = '/assets/img/prio-up-white.svg';
+        'clicked': function(idPrefix) {
+            document.getElementById(`${idPrefix}-priority-button-urgent`).classList.add('priority-button-urgent-clicked');
+            document.getElementById(`${idPrefix}-priority-icon-urgent`).src = '/assets/img/priority-icon-urgent-clicked.svg';
         },
-        'unclicked': function() {
-            document.getElementById('prio-urgent').classList.remove('urgent-button-clicked');
-            document.getElementById('prio-arrow-up').src = '/assets/img/prio-up.svg';
+        'unclicked': function(idPrefix) {
+            document.getElementById(`${idPrefix}-priority-button-urgent`).classList.remove('priority-button-urgent-clicked');
+            document.getElementById(`${idPrefix}-priority-icon-urgent`).src = '/assets/img/priority-icon-urgent.svg';
         }
     },
     'Medium': {
-        'clicked': function() {
-            document.getElementById('prio-medium').classList.add('medium-button-clicked');
-            document.getElementById('prio-medium-equals').src = '/assets/img/prio-medium-white.svg';
+        'clicked': function(idPrefix) {
+            document.getElementById(`${idPrefix}-priority-button-medium`).classList.add('priority-button-medium-clicked');
+            document.getElementById(`${idPrefix}-priority-icon-medium`).src = '/assets/img/priority-icon-medium-clicked.svg';
         },
-        'unclicked': function() {
-            document.getElementById('prio-medium').classList.remove('medium-button-clicked');
-            document.getElementById('prio-medium-equals').src = '/assets/img/prio-medium-orange.svg';
+        'unclicked': function(idPrefix) {
+            document.getElementById(`${idPrefix}-priority-button-medium`).classList.remove('priority-button-medium-clicked');
+            document.getElementById(`${idPrefix}-priority-icon-medium`).src = '/assets/img/priority-icon-medium.svg';
         }
     },
     'Low': {
-        'clicked': function() {
-            document.getElementById('prio-low').classList.add('low-button-clicked');
-            document.getElementById('prio-arrow-down').src = '/assets/img/prio-down-white.svg';
+        'clicked': function(idPrefix) {
+            document.getElementById(`${idPrefix}-priority-button-low`).classList.add('priority-button-low-clicked');
+            document.getElementById(`${idPrefix}-priority-icon-low`).src = '/assets/img/priority-icon-low-clicked.svg';
         },
-        'unclicked': function() {
-            document.getElementById('prio-low').classList.remove('low-button-clicked');
-            document.getElementById('prio-arrow-down').src = '/assets/img/prio-down.svg';
+        'unclicked': function(idPrefix) {
+            document.getElementById(`${idPrefix}-priority-button-low`).classList.remove('priority-button-low-clicked');
+            document.getElementById(`${idPrefix}-priority-icon-low`).src = '/assets/img/priority-icon-low.svg';
         }
     }
 };
@@ -70,13 +70,13 @@ const buttonActions = {
  * 
  * @param {string} newPriority - this is the name of the priority. ('Urgent', 'Medium' or 'Low')
  */
-function clickButton(newPriority) {
+function clickButton(newPriority, idPrefix) {
     let priorities = ['Urgent', 'Medium', 'Low'];
     for (let i = 0; i < priorities.length; i++) {
         if (newPriority == priorities[i]) {
-            buttonActions[priorities[i]].clicked();
+            buttonActions[priorities[i]].clicked(idPrefix);
         } else {
-            buttonActions[priorities[i]].unclicked();
+            buttonActions[priorities[i]].unclicked(idPrefix);
         }
     }
     priority = newPriority;

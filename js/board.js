@@ -262,7 +262,7 @@ function editTask(taskId) {
     priority = task.priority;
     temporarySubtasks = [...task.subtasks];
     temporaryCollaborators = [...task.collaborators];
-    changePriorityButtonStyle(priority, 'add');
+    clickButton(priority, 'edit-task');
     addInputEventListener('edit-task');
 }
 
@@ -319,47 +319,6 @@ function onSubmitEditTaskForm(taskId) {
 
 
 /**
- * This function is triggered when a priority button is clicked.
- * If the priority of the button that triggered the function (newPriority) matches the current priority (priority),
- * the style of that button changes to inactive.
- * If the priority of the button that triggered the function is different from the current priority,
- * the style of that button changes to active (and if a different priority was active before,
- * the style of the respective button changes to inactive).
- * @param {string} newPriority priority of the button that was clicked
- */
-function clickPriorityButton(newPriority) {
-    if (priority === newPriority) {
-        priority = 'none';
-        changePriorityButtonStyle(newPriority, 'remove');
-    } else {
-        if (priority != "none") {
-            changePriorityButtonStyle(priority, 'remove');
-        }
-        priority = newPriority;
-        changePriorityButtonStyle(newPriority, 'add');
-    }
-}
-
-
-/**
- * This function changes the style of a priority button.
- * @param {string} targetPriority priority of the button that must be changed
- * @param {string} removeOrAddActiveStyle indicates whether the active style will be removed or added
- */
-function changePriorityButtonStyle(targetPriority, removeOrAddActiveStyle) {
-    let buttonId = `priority-button-${targetPriority.toLowerCase()}`;
-    let iconId = `priority-icon-${targetPriority.toLowerCase()}`;
-    if (removeOrAddActiveStyle === 'remove') {
-        document.getElementById(buttonId).classList.remove(`${buttonId}-active`);
-        document.getElementById(iconId).src = `../assets/img/${iconId}.svg`;
-    } else if (removeOrAddActiveStyle === 'add') {
-        document.getElementById(buttonId).classList.add(`${buttonId}-active`);
-        document.getElementById(iconId).src = `../assets/img/${iconId}-active.svg`;
-    }
-}
-
-
-/**
  * This function checks if a certain user is assigned to a certain task.
  * @param {Object} user
  * @param {Object} task
@@ -373,6 +332,7 @@ function isAssigned(user, task) {
         return true;
     }
 }
+
 
 /**
  * This function displays users as options.
