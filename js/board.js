@@ -67,8 +67,7 @@ function removePopup(id) {
  * @param {string} statusId task status ID
  */
 function openAddTaskPopup(status) {
-    temporaryCollaborators = [];
-    temporarySubtasks = [];
+    resetForm();
     centerPopup('add-task-pop-up');
     // This should actually change the onsubmit attribute of the form once the form supports it
     let createTaskButton = document.getElementById('create-task-button');
