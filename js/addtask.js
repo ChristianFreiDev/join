@@ -92,7 +92,6 @@ async function addTask(status){
     let description = document.getElementById('input-description');
     let date = document.getElementById('input-due-date');
     let category = document.getElementById('input-category');
-
     temporaryTask.title = title.value;
     temporaryTask.description = description.value;
     temporaryTask.dueDate = date.value;
@@ -100,9 +99,23 @@ async function addTask(status){
     temporaryTask.priority = priority;
     temporaryTask.status = status;
     temporaryTask.id = tasks.length;
+    temporaryTask.collaborators = temporaryCollaborators;
+    temporaryTask.subtasks = temporarySubtasks;
     await loadTasks();
-    tasks.push(temporaryTask);  
+    temporaryTask.id = getHighestTaskId() + 1;
+    tasks.push(temporaryTask);
     await storeTasks();
+}
+
+
+/**
+ * This function determines the highest id of the task ids of the existing tasks.
+ * @returns {number} highest id of a task in the tasks array
+ */
+function getHighestTaskId() {
+    let taskIds = tasks.map(task => task.id);
+    let highestId = Math.max(...taskIds);
+    return highestId;
 }
 
 
@@ -127,11 +140,13 @@ function resetForm() {
     let date = document.getElementById('input-due-date');
     let category = document.getElementById('input-category');
     let addTaskSubtaskInput = document.getElementById('add-task-subtask-input');
+    let addTaskSubtasksList = document.getElementById('add-task-subtasks-list');
     title.value = '';
     description.value = '';
     date.value = '';
     category.value ='';
     addTaskSubtaskInput.value = '';
+    addTaskSubtasksList.innerHTML = '';
 }
 
 
