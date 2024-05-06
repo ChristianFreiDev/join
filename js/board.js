@@ -674,11 +674,15 @@ function createTaskDescriptionPreview(taskDescription) {
 }
 
 
+/**
+ * This function closes any pop-up that may be open.
+ */
 function removePopups() {
     removePopup('add-task-pop-up');
     removePopup('open-task-pop-up');
     removePopup('move-task-pop-up');
 }
+
 
 /**
  * This event listener serves to remove a pop-up when the Escape key is pressed.
