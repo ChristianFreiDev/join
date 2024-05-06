@@ -152,7 +152,7 @@ function closeNav(nav) {
  * This function closes the assigned to drop-down list by clicking the outside the list.
  */
 
-function closeAssignedToList(){
+function closeAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
     assignedTo.classList.add('display-none');
 }
@@ -161,8 +161,7 @@ function closeAssignedToList(){
  * This function closes the assigned to drop-down list by clicking the outside the list.
  */
 
-function closeEditAssignedToList(){
-    console.log('triggered')
+function closeEditAssignedToList() {
     let editAssignedTo = document.getElementById('edit-task-assigned-to');
     editAssignedTo.classList.add('display-none');
 }
@@ -172,7 +171,6 @@ function closeEditAssignedToList(){
  * @param {*} event 
  */
 
-function doNotClose(event){
-    console.log('doNotClose')
+function doNotClose(event) {
     event.stopPropagation();
 }
