@@ -208,7 +208,8 @@ function getTemporaryCollaborators() {
 
 /**
  * This function checks the collaborator checkbox in the list of assigned users.
- * @param {number} userId 
+ * @param {number} userId
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  */
 function checkOrUncheckCollaboratorBox(userId, idPrefix) {
     let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
@@ -228,7 +229,7 @@ function checkOrUncheckCollaboratorBox(userId, idPrefix) {
 
 /**
  * This function renders the large initial avatars below the drop-down list in a pop-up.
- * @param {string} idPrefix 
+ * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  */
 function renderInitalAvatarsLargeInPopup(idPrefix) {
     let initialAvatarsLargeContainer = document.getElementById(`${idPrefix}-initial-avatars-large-container`);
@@ -270,7 +271,7 @@ function editTask(taskId) {
 /**
  * This function opens a subtask for editing.
  * @param {number} subtaskIndex 
- * @param {string} idPrefix 
+ * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  */
 function editSubtask(subtaskIndex, idPrefix) {
     let subtaskContainer = document.getElementById(`${idPrefix}-subtask-container-${subtaskIndex}`);
@@ -281,7 +282,7 @@ function editSubtask(subtaskIndex, idPrefix) {
 /**
  * This function deletes a subtask.
  * @param {number} subtaskIndex 
- * @param {string} idPrefix 
+ * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  */
 function deleteSubtask(subtaskIndex, idPrefix) {
     temporarySubtasks.splice(subtaskIndex, 1);
@@ -291,7 +292,7 @@ function deleteSubtask(subtaskIndex, idPrefix) {
 
 /**
  * This function updates the list of subtasks to reflect the current subtasks.
- * @param {string} idPrefix 
+ * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  */
 function updateSubtaskList(idPrefix) {
     let subtaskListId = `${idPrefix}-subtasks-list`;
@@ -337,7 +338,8 @@ function isAssigned(user, task) {
 /**
  * This function displays users as options.
  * @param {Object} task 
- * @param {Array} usersToBeRendered 
+ * @param {Array} usersToBeRendered
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  * @returns {string} HTML template string
  */
 function renderSelectOptions(task, usersToBeRendered, idPrefix) {
@@ -586,8 +588,7 @@ function searchTasks() {
 /**
  * This function searches for users matching the search criteria.
  * @param {number} taskId 
- * @param {string} searchInputId 
- * @param {string} taskAssignedToId 
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task' 
  */
 function searchUsers(taskId, idPrefix) {
     let task;

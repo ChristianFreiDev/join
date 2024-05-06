@@ -69,6 +69,7 @@ const buttonActions = {
  * This function is used to change the color of the priority buttons.
  * 
  * @param {string} newPriority - this is the name of the priority. ('Urgent', 'Medium' or 'Low')
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  */
 function clickPriorityButton(newPriority, idPrefix) {
     let priorities = ['Urgent', 'Medium', 'Low'];
@@ -160,6 +161,7 @@ function renderAssignedToList() {
 
 /**
  * This function serves to add an event listener that adds buttons to confirm or reject a change.
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  */
 function addInputEventListener(idPrefix) {
     let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
