@@ -1,4 +1,4 @@
-let priority = "none"
+let priority = "Medium"
 let temporaryCollaborators = [];
 let temporarySubtasks = [];
 let temporaryTask = {
@@ -7,7 +7,7 @@ let temporaryTask = {
     id: undefined,
     collaborators: temporaryCollaborators, // user id
     dueDate: undefined,
-    priority: 'none',
+    priority: 'Medium',
     category: undefined,
     status: undefined,
     subtasks: temporarySubtasks
@@ -68,19 +68,18 @@ const buttonActions = {
 /**
  * This function is used to change the color of the priority buttons.
  * 
- * @param {string} newPriority - this is the name of the priority. (urgent, medium or low)
+ * @param {string} newPriority - this is the name of the priority. ('Urgent', 'Medium' or 'Low')
  */
 function clickButton(newPriority) {
-    if(priority == newPriority) {
-        buttonActions[newPriority].unclicked();
-        priority = "none";
-    } else {
-        if(priority != "none") {
-            buttonActions[priority].unclicked();
+    let priorities = ['Urgent', 'Medium', 'Low'];
+    for (let i = 0; i < priorities.length; i++) {
+        if (newPriority == priorities[i]) {
+            buttonActions[priorities[i]].clicked();
+        } else {
+            buttonActions[priorities[i]].unclicked();
         }
-        buttonActions[newPriority].clicked();
-        priority = newPriority;
     }
+    priority = newPriority;
 }
 
 
