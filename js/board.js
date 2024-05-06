@@ -67,6 +67,7 @@ function removePopup(id) {
  * @param {string} statusId task status ID
  */
 function openAddTaskPopup(status) {
+    resetForm();
     centerPopup('add-task-pop-up');
     // This should actually change the onsubmit attribute of the form once the form supports it
     let createTaskButton = document.getElementById('create-task-button');
@@ -220,6 +221,15 @@ function checkOrUncheckCollaboratorBox(userId, idPrefix) {
         temporaryCollaborators.push(userId);
     }
     collaboratorOption.classList.toggle('collaborator-focus');
+    renderInitalAvatarsLargeInPopup(idPrefix);
+}
+
+
+/**
+ * This function renders the large initial avatars below the drop-down list in a pop-up.
+ * @param {string} idPrefix 
+ */
+function renderInitalAvatarsLargeInPopup(idPrefix) {
     let initialAvatarsLargeContainer = document.getElementById(`${idPrefix}-initial-avatars-large-container`);
     initialAvatarsLargeContainer.innerHTML = generateCollaboratorAvatars(getTemporaryCollaborators());
 }

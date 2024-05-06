@@ -88,10 +88,10 @@ function clickButton(newPriority) {
  * This function adds a task to the server. Before pushing a new task, the tasks are loaded from the backend to make sure they are up-to-date.
  */
 async function addTask(status){
-    title = document.getElementById('input-title');
-    description = document.getElementById('input-description');
-    date = document.getElementById('input-due-date');
-    category = document.getElementById('input-category');
+    let title = document.getElementById('input-title');
+    let description = document.getElementById('input-description');
+    let date = document.getElementById('input-due-date');
+    let category = document.getElementById('input-category');
 
     temporaryTask.title = title.value;
     temporaryTask.description = description.value;
@@ -118,11 +118,20 @@ async function addTaskFromAddTaskPage() {
 /**
  * This function resets all values of the form.
  */
-function resetForm(){
+function resetForm() {
+    temporaryCollaborators = [];
+    temporarySubtasks = [];
+    renderInitalAvatarsLargeInPopup('add-task');
+    let title = document.getElementById('input-title');
+    let description = document.getElementById('input-description');
+    let date = document.getElementById('input-due-date');
+    let category = document.getElementById('input-category');
+    let addTaskSubtaskInput = document.getElementById('add-task-subtask-input');
     title.value = '';
     description.value = '';
     date.value = '';
     category.value ='';
+    addTaskSubtaskInput.value = '';
 }
 
 
