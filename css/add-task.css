@@ -50,18 +50,13 @@
     border-radius: 10px;
 }
 
-#input-assigned-to {
+#add-task-drop-down-input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
     width: 440px;
     height: 48px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    font-size: 1.8rem;
 }
 
 #input-due-date {
@@ -97,18 +92,13 @@
     height: 48px;
 }
 
-#input-subtasks {
+#add-task-subtask-input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
-    gap: 10px;
     width: 440px;
     height: 48px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
 }
 
 ::placeholder {
