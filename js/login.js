@@ -339,8 +339,14 @@ function formatStringAsName(name) {
 }
 
 
-function getFirstName(name) {
+function getHighestId() {
+    return users[users.length - 1].id + 1;
+}
 
+
+function getUsercolor() {
+    let colorNumber = Math.floor(Math.random() * 15);
+    return `user-color${colorNumber}`;
 }
 
 /**
