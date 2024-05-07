@@ -101,6 +101,7 @@ function editTaskTemplate(task) {
                 <div class="form-label-and-input-container">
                     <label for="edit-task-title-input" class="task-form-label">Title</label>
                     <input id="edit-task-title-input" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a title" value="${task.title}" required autocomplete="off">
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-description-textarea" class="task-form-label">Description</label>
@@ -109,6 +110,7 @@ function editTaskTemplate(task) {
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label">Due date</label>
                     <input id="edit-task-due-date" class="input input-padding-size2 pop-up-input" type="date" placeholder="Enter a due date" value="${task.dueDate}" required>
+                    <div class="error-message"></div>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>
@@ -147,7 +149,7 @@ function editTaskTemplate(task) {
                     </div>
                 </div>
             </div>
-            <button class="button edit-task-ok-button">OK</button>
+            <button class="button edit-task-ok-button" onclick="validateInputs(['edit-task-title-input', 'edit-task-due-date'])">OK</button>
         </form>`;
 }
 

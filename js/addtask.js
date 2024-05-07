@@ -204,18 +204,14 @@ function setSuccess(element) {
 /**
  * This function validates the title and due date inputs.
  */
-function validateInputs() {
-    const inputTitle = document.getElementById('input-title');
-    const inputDueDate = document.getElementById('input-due-date');
-    const inputCategory = document.getElementById('input-category');
-
-    let ids = [inputTitle, inputDueDate, inputCategory];
-    for (let i = 0; i < ids.length; i++) {
-        let value = ids[i].value.trim();
+function validateInputs(inputIds) {
+    for (let i = 0; i < inputIds.length; i++) {
+        let element = document.getElementById(inputIds[i])
+        let value = element.value.trim();
         if(value === ''){
-            setError(ids[i], 'This field is required')
+            setError(element, 'This field is required')
         } else {
-            setSuccess(ids[i]);
+            setSuccess(element);
         }
     }
 };
