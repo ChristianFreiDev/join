@@ -33,12 +33,12 @@
             </div>
             <form onsubmit="login(); return false;">
                 <div class="login-input-box">
-                    <input id="login-email-input" class="login-input" type="email" autocomplete="email" placeholder="Email" required>
+                    <input id="login-email-input" class="input input-padding-size2 login-input" type="email" autocomplete="email" placeholder="Email" required>
                     <img class="login-input-icon" src="./../assets/img/mail.svg">
                     <p class="login-input-failure display-none">E-Mail not found. <button onclick="openSignUpMenu()" id="login-failure-button">Sign up now</button></p>
                 </div>
                 <div class="login-input-box">
-                    <input id="login-password-input" class="login-input" onfocusout="resetPasswordIcon('login-password-icon', 'login-password-input')" oninput="changePasswordIcon('login-password-icon')" type="password" autocomplete="current-password" placeholder="Password" required>
+                    <input id="login-password-input" class="input input-padding-size2 login-input" onfocusout="resetPasswordIcon('login-password-icon', 'login-password-input')" oninput="changePasswordIcon('login-password-icon')" type="password" autocomplete="current-password" placeholder="Password" required>
                     <img onclick="changePasswordVisibility('login-password-icon', 'login-password-input')" id="login-password-icon" class="login-input-icon" src="./../assets/img/lock.svg">
                     <p class="login-input-failure display-none">Wrong Password Ups! Try again.</p>
                 </div>
@@ -61,26 +61,26 @@
             </div>
             <form onsubmit="signup(); return false;">
                 <div class="login-input-box">
-                    <input id="signup-name-input" class="login-input" type="text" pattern="^[a-zA-Z\s]{3,}$" autocomplete="username" placeholder="Name" required title="Just use Characters und whitespace.">
+                    <input id="signup-name-input" class="input input-padding-size2 login-input" type="text" pattern="^[a-zA-Z\s]{3,}$" autocomplete="username" placeholder="Name" required title="Just use Characters und whitespace.">
                     <img id="login-password-icon" class="login-input-icon" src="./assets/img/person.svg">
                 </div>
                 <div class="login-input-box">
-                    <input id="signup-email-input" class="login-input" type="email" autocomplete="email" placeholder="Email" required>
+                    <input id="signup-email-input" class="input input-padding-size2 login-input" type="email" autocomplete="email" placeholder="Email" required>
                     <img class="login-input-icon" src="./../assets/img/mail.svg">
                     <p class="login-input-failure display-none">Email already exists.</p>
                 </div>
                 <div class="login-input-box">
-                    <input id="signup-password-input" onfocusout="resetPasswordIcon('signup-password-icon', 'signup-password-input')" class="login-input" id="signup-password-input" type="password" oninput="changePasswordIcon('signup-password-icon')" autocomplete="new-password" placeholder="Password" required>
+                    <input id="signup-password-input" onfocusout="resetPasswordIcon('signup-password-icon', 'signup-password-input')" class="input input-padding-size2 login-input" id="signup-password-input" type="password" oninput="changePasswordIcon('signup-password-icon')" autocomplete="new-password" placeholder="Password" required>
                     <img onclick="changePasswordVisibility('signup-password-icon', 'signup-password-input')" id="signup-password-icon" class="login-input-icon" src="./../assets/img/lock.svg">
                 </div>
                 <div class="login-input-box">
-                    <input id="signup-password-confirm-input" onfocusout="resetPasswordIcon('signup-password-confirm-icon', 'signup-password-confirm-input')" class="login-input" id="signup-password-confirm-input" type="password" oninput="changePasswordIcon('signup-password-confirm-icon')" autocomplete="new-password" placeholder="Confirm Password" required>
+                    <input id="signup-password-confirm-input" onfocusout="resetPasswordIcon('signup-password-confirm-icon', 'signup-password-confirm-input')" class="input input-padding-size2 login-input" id="signup-password-confirm-input" type="password" oninput="changePasswordIcon('signup-password-confirm-icon')" autocomplete="new-password" placeholder="Confirm Password" required>
                     <img onclick="changePasswordVisibility('signup-password-confirm-icon', 'signup-password-confirm-input')" id="signup-password-confirm-icon" class="login-input-icon" src="./../assets/img/lock.svg">
-                    <p class="login-input-failure display-none">Ups! Your password dont´t match.</p>
+                    <p class="login-input-failure display-none">Oops! Your passwords do not match.</p>
                 </div>
                 <div id="signup-checkbox-box" class="login-checkbox-box">
                     <input id="signup-checkbox" type="checkbox" required>
-                    <label for="signup-checkbox">I sccept the <span>Privacy policy</span></label>
+                    <label for="signup-checkbox">I accept the <span>Privacy policy</span></label>
                 </div>
                 <div class="login-button-box">
                     <button type="submit" class="login-button login-dark-button" id="signup-button">Sign up</button>
