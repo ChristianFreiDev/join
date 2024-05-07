@@ -172,3 +172,49 @@ function addInputEventListener(idPrefix) {
         inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
     });
 }
+//------- submit form required DOES NOT WORKING YET ----//
+
+const inputTitle = document.getElementById('input-title');
+const inputDueDate = document.getElementById('input-due-date');
+const inputCategory = document.getElementById('input-category');
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const form = document.getElementById('add-task-form');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        validateInputs();
+    });
+});
+
+
+let setError = (element, message) => {
+    let inputControl = element.parentElement;
+    let errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success');
+}
+
+let setSuccess = element =>{
+    let inputControl = element.parentElement;
+    let errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+}
+
+
+let validateInputs = () => {
+    let titleValue = inputTitle.value.trim();
+    let dateValue = inputDueDate.value;
+    let categoryValue = inputCategory.value;
+
+    if(titleValue === ''){
+        setError(inputTitle, 'Title is required')
+    } else {
+        setSuccess(inputTitle);
+    }
+};
