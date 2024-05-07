@@ -242,6 +242,7 @@ async function checkSignupValues() {
     if (password === passwordConfirm) {
         let emailAlreadyExists = false;
         // formatUserName(name);
+        let userObject = createUserObject(name, email, password);
         await loadUsers();
         for (let i = 0; i < users.length; i++) {
             if (users[i].eMail === email.toLocaleLowerCase()) {
@@ -265,10 +266,60 @@ async function checkSignupValues() {
     }
 }
 
-function getUserName(type, name) {
-
+function createUserObject(name, email, password) {
+    let firstName = getUserName('first', name);
+    let lastName = getUserName('last', name);
+    let id = getHighestId();
+    let color = getUsercolor();
+    let userPassword = `${password}`;
+    let eMail = `${email}`;
+    return {
+        firstName: firstName,
+        lastName: lastName,
+        id: id,
+        color: color,
+        password: userPassword,
+        eMail: eMail
+    };
 }
 
+
+function getUserName(type, name) {
+    name = name.trim();
+    let whitespaces = [];
+    let names = [];
+    do {
+        if (whitespaces.length === 0) {
+            whitespaces.push(name.indexOf(' '));
+        } else {
+            whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1]));
+        }
+    }
+    while (name.indexOf(' ') !== -1);
+    for (let i = 0; i < whitespaces.length; i++) {
+        if ( i < whitespaces.length - 1) {
+
+        }
+        
+    }
+    let firstName = getFirstName(name);
+    let lastName = getLastname(name);
+    if (type === 'first') {
+        return firstName;
+    } else if (type === 'last') {
+        return lastName;
+    }
+}
+
+
+function formatStringAsName(name) {
+    return name.charAt(0).toLocaleUpperCase() + name.slice(1, name.length).toLocaleLowerCase();
+}
+
+
+function getFirstName(name) {
+
+}
 
 /**
  * This function changes the icon in the input field when the user enters data for the first time.
