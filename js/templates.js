@@ -100,15 +100,15 @@ function editTaskTemplate(task) {
             <div class="open-task-pop-up-content">
                 <div class="form-label-and-input-container">
                     <label for="edit-task-title-input" class="task-form-label">Title</label>
-                    <input id="edit-task-title-input" class="task-title-input" type="text" placeholder="Enter a title" value="${task.title}" required>
+                    <input id="edit-task-title-input" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a title" value="${task.title}" required>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-description-textarea" class="task-form-label">Description</label>
-                    <textarea id="edit-task-description-textarea" class="task-title-input" type="text" placeholder="Enter a description" required>${task.description}</textarea>
+                    <textarea id="edit-task-description-textarea" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a description" required>${task.description}</textarea>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label">Due date</label>
-                    <input id="edit-task-due-date" class="task-title-input" type="date" placeholder="Enter a due date" value="${task.dueDate}" required>
+                    <input id="edit-task-due-date" class="input input-padding-size2 pop-up-input" type="date" placeholder="Enter a due date" value="${task.dueDate}" required>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label task-form-label-priority">Priority</label>
@@ -135,7 +135,7 @@ function editTaskTemplate(task) {
                         <div class="subtasks-container">
                             <div>Subtasks</div>
                             <div class="edit-task-subtask-input-container">
-                                <input id="edit-task-subtask-input" type="text" class="task-title-input" placeholder="Add new subtask">
+                                <input id="edit-task-subtask-input" type="text" class="input input-padding-size2 pop-up-input" placeholder="Add new subtask">
                                 <div id="edit-task-input-icons-container" class="input-icons-container">
                                     ${subtaskInputPlusIcon('edit-task')}
                                 </div>
@@ -399,7 +399,7 @@ function editTaskAssignedToItemsTemplate(task, idPrefix) {
     return /* html */ `
         <label for="edit-task-drop-down-input" class="task-form-label" onclick="event.preventDefault()">Assigned to</label>
         <div class="task-drop-down" onclick="doNotClose(event)">
-            <input id="edit-task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
+            <input id="edit-task-drop-down-input" type="text" class="input input-padding-size2 pop-up-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
             <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
         <div id="edit-task-assigned-to" class="task-user-dropdown display-none" onclick="doNotClose(event)">

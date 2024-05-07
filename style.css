@@ -133,6 +133,7 @@ p {
     border-radius: 10px;
     border: 1px solid var(--color-input-light-gray);
     font-size: 20px;
+    font-weight: 400;
 }
 
 .input::placeholder {
@@ -144,6 +145,18 @@ p {
 .input:focus {
     outline: none;
     border: 1px solid var(--color-accent);
+}
+
+.input-padding-size1 {
+    padding: 12px 16px;
+}
+
+.input-padding-size2 {
+    padding: 12px 21px;
+}
+
+.input-padding-size3 {
+    padding: 13px 21px;
 }
 
 .flex-center {

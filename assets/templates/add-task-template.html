@@ -7,7 +7,7 @@
           <div class="title-v1">
             <form class="form-add-task">
               <label class="add-task-text">Title<span class="color-red">*</span></label>
-              <input id="input-title" placeholder="Enter a title" type="text" />
+              <input id="input-title" class="input input-padding-size2" placeholder="Enter a title" type="text" />
             </form>
           </div>
           <div class="description">
@@ -19,7 +19,7 @@
           <div id="assigned-to-list" onclick="doNotClose(event)">
             <label class="task-form-label">Assigned to</label>
             <div class="task-drop-down">
-                <input id="add-task-drop-down-input" type="text" class="task-title-input" onclick="onTaskDropDownInputClick('add-task-assigned-to')" oninput="searchUsers(undefined, 'add-task')" placeholder="Select contacts to assign">
+                <input id="add-task-drop-down-input" type="text" class="input input-padding-size2" onclick="onTaskDropDownInputClick('add-task-assigned-to')" oninput="searchUsers(undefined, 'add-task')" placeholder="Select contacts to assign">
                 <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
             </div>
             <div id="add-task-assigned-to" class="task-user-dropdown add-task-user-dropdown display-none"></div>
@@ -35,7 +35,7 @@
           <div class="due-date-v1">
             <form class="form-add-task">
               <label class="add-task-text">Due date<span class="color-red">*</span></label>
-              <input id="input-due-date" placeholder="dd/mm/yyyy" type="date" />
+              <input id="input-due-date" class="input input-padding-size1" placeholder="dd/mm/yyyy" type="date" />
             </form>
           </div>
 
@@ -59,7 +59,7 @@
             <div class="frame-74">
               <form class="form-add-task">
                 <label class="add-task-text">Category<span class="color-red">*</span></label>
-                <select id="input-category" placeholder="Select a task category" type="text">
+                <select id="input-category" class="input input-padding-size2" placeholder="Select a task category" type="text">
                   <option value="Technical Task">Technical Task</option>
                   <option value="User Story">User Story</option>
                 </select>
@@ -70,7 +70,7 @@
             <form class="form-add-task">
               <label class="add-task-text">Subtasks</label>
               <div class="edit-task-subtask-input-container">
-                <input id="add-task-subtask-input" type="text" class="task-title-input" placeholder="Add new subtask">
+                <input id="add-task-subtask-input" type="text" class="input input-padding-size2" placeholder="Add new subtask">
                 <div id="add-task-input-icons-container" class="input-icons-container"></div>
               </div>
               <ul id="add-task-subtasks-list" class="subtasks"></ul>
