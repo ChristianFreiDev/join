@@ -181,7 +181,7 @@ function addInputEventListener(idPrefix) {
  */
 function setError(element, message) {
     let inputControl = element.parentElement;
-    let errorDisplay = inputControl.querySelector('.error');
+    let errorDisplay = inputControl.querySelector('.error-message');
 
     errorDisplay.innerText = message;
     errorDisplay.classList.add('error');
@@ -194,7 +194,7 @@ function setError(element, message) {
  */
 function setSuccess(element) {
     let inputControl = element.parentElement;
-    let errorDisplay = inputControl.querySelector('.error');
+    let errorDisplay = inputControl.querySelector('.error-message');
 
     errorDisplay.innerText = '';
     errorDisplay.classList.remove('error');
@@ -207,8 +207,9 @@ function setSuccess(element) {
 function validateInputs() {
     const inputTitle = document.getElementById('input-title');
     const inputDueDate = document.getElementById('input-due-date');
+    const inputCategory = document.getElementById('input-category');
 
-    let ids = [inputTitle, inputDueDate];
+    let ids = [inputTitle, inputDueDate, inputCategory];
     for (let i = 0; i < ids.length; i++) {
         let value = ids[i].value.trim();
         if(value === ''){
