@@ -172,49 +172,49 @@ function addInputEventListener(idPrefix) {
         inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
     });
 }
-//------- submit form required DOES NOT WORKING YET ----//
-
-const inputTitle = document.getElementById('input-title');
-const inputDueDate = document.getElementById('input-due-date');
-const inputCategory = document.getElementById('input-category');
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    const form = document.getElementById('add-task-form');
-
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        validateInputs();
-    });
-});
 
 
-let setError = (element, message) => {
+/**
+ * This function adds an error message below an input field if it is invalid.
+ * @param {Object} element 
+ * @param {string} message 
+ */
+function setError(element, message) {
     let inputControl = element.parentElement;
     let errorDisplay = inputControl.querySelector('.error');
 
     errorDisplay.innerText = message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success');
+    errorDisplay.classList.add('error');
 }
 
-let setSuccess = element =>{
+
+/**
+ * This function removes the error message that was displayed if the input field was invalid.
+ * @param {Object} element 
+ */
+function setSuccess(element) {
     let inputControl = element.parentElement;
     let errorDisplay = inputControl.querySelector('.error');
 
     errorDisplay.innerText = '';
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
+    errorDisplay.classList.remove('error');
 }
 
 
-let validateInputs = () => {
-    let titleValue = inputTitle.value.trim();
-    let dateValue = inputDueDate.value;
-    let categoryValue = inputCategory.value;
+/**
+ * This function validates the title and due date inputs.
+ */
+function validateInputs() {
+    const inputTitle = document.getElementById('input-title');
+    const inputDueDate = document.getElementById('input-due-date');
 
-    if(titleValue === ''){
-        setError(inputTitle, 'Title is required')
-    } else {
-        setSuccess(inputTitle);
+    let ids = [inputTitle, inputDueDate];
+    for (let i = 0; i < ids.length; i++) {
+        let value = ids[i].value.trim();
+        if(value === ''){
+            setError(ids[i], 'This field is required')
+        } else {
+            setSuccess(ids[i]);
+        }
     }
 };

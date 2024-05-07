@@ -1,5 +1,5 @@
 <section>
-  <form  id="add-task-form" onsubmit="addTaskFromAddTaskPage()">
+  <form  id="add-task-form" onsubmit="addTaskFromAddTaskPage(); return false">
     <div class="center-add-task-content">
       <div class="add-task-headline">Add Task</div>
       <div class="formular">
@@ -9,7 +9,8 @@
               <div class="form-add-task">
                 <label class="add-task-text">Title<span class="color-red">*</span></label>
                 <input id="input-title" class="input input-padding-size2" placeholder="Enter a title" type="text"
-                  autocomplete="off" required />
+                  autocomplete="off" onchange="checkValidity()" required/>
+                  <div class="error"></div>
               </div>
             </div>
             <div class="description">
@@ -40,6 +41,7 @@
               <div class="form-add-task">
                 <label class="add-task-text">Due date<span class="color-red">*</span></label>
                 <input id="input-due-date" class="input input-padding-size1" placeholder="dd/mm/yyyy" type="date" required/>
+                <div class="error"></div>
               </div>
             </div>
 
@@ -66,7 +68,7 @@
               <div class="frame-74">
                 <div class="form-add-task">
                   <label class="add-task-text">Category<span class="color-red">*</span></label>
-                  <select id="input-category" class="input input-padding-size2" placeholder="Select a task category"
+                  <select id="input-category" class="input input-padding-size1" placeholder="Select a task category"
                     type="text" required>
                     <option value="Technical Task">Technical Task</option>
                     <option value="User Story">User Story</option>
@@ -100,7 +102,7 @@
                 stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
-          <button id="create-task-button" class="create-task" type="submit">
+          <button id="create-task-button" class="create-task" type="submit" onclick="validateInputs()">
             Create Task
             <img src="/assets/img/check-create-task.svg" alt="check" />
           </button>

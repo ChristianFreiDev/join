@@ -104,7 +104,7 @@ function editTaskTemplate(task) {
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-description-textarea" class="task-form-label">Description</label>
-                    <textarea id="edit-task-description-textarea" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a description" required>${task.description}</textarea>
+                    <textarea id="edit-task-description-textarea" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a description">${task.description}</textarea>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label">Due date</label>

@@ -93,12 +93,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
     width: 440px;
     height: 48px;
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
 }
 
 #input-subtasks {
@@ -232,18 +228,4 @@ cursor: pointer;
 
 .collaborator-focus:hover {
     background-color: var(--color-menu-active) !important;
-}
-
-.input-control-success input{
-    border-color: #09c372;
-}
-
-.input-control.error input{
-    border-color: #ff3860;
-}
-
-.input-control .error{
-    color: #ff3860;
-    font-size: 9px;
-    height: 13px;
 }
