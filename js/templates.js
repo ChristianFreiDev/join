@@ -100,7 +100,7 @@ function editTaskTemplate(task) {
             <div class="open-task-pop-up-content">
                 <div class="form-label-and-input-container">
                     <label for="edit-task-title-input" class="task-form-label">Title</label>
-                    <input id="edit-task-title-input" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a title" value="${task.title}" required>
+                    <input id="edit-task-title-input" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a title" value="${task.title}" required autocomplete="off">
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-description-textarea" class="task-form-label">Description</label>
@@ -135,7 +135,7 @@ function editTaskTemplate(task) {
                         <div class="subtasks-container">
                             <div>Subtasks</div>
                             <div class="edit-task-subtask-input-container">
-                                <input id="edit-task-subtask-input" type="text" class="input input-padding-size2 pop-up-input" placeholder="Add new subtask">
+                                <input id="edit-task-subtask-input" type="text" class="input input-padding-size2 pop-up-input" placeholder="Add new subtask" autocomplete="off">
                                 <div id="edit-task-input-icons-container" class="input-icons-container">
                                     ${subtaskInputPlusIcon('edit-task')}
                                 </div>
