@@ -8,7 +8,7 @@
             <div class="title-v1">
               <div class="form-add-task">
                 <label class="add-task-text">Title<span class="color-red">*</span></label>
-                <input id="input-title" class="input input-padding-size2" placeholder="Enter a title" type="text"
+                <input id="input-title" class="input input-padding-size4" placeholder="Enter a title" type="text"
                   autocomplete="off" required/>
                   <div class="error-message"></div>
               </div>
@@ -22,7 +22,7 @@
             <div id="assigned-to-list" onclick="doNotClose(event)">
               <label class="task-form-label">Assigned to</label>
               <div class="task-drop-down">
-                <input id="add-task-drop-down-input" type="text" class="input input-padding-size2"
+                <input id="add-task-drop-down-input" type="text" class="input input-padding-size3"
                   onclick="onTaskDropDownInputClick('add-task-assigned-to')"
                   oninput="searchUsers(undefined, 'add-task')" placeholder="Select contacts to assign">
                 <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
@@ -40,7 +40,7 @@
             <div class="due-date-v1">
               <div class="form-add-task">
                 <label class="add-task-text">Due date<span class="color-red">*</span></label>
-                <input id="input-due-date" class="input input-padding-size1" placeholder="dd/mm/yyyy" type="date" required/>
+                <input id="input-due-date" class="input input-padding-size3" placeholder="dd/mm/yyyy" type="date" required/>
                 <div class="error-message"></div>
               </div>
             </div>
@@ -68,7 +68,7 @@
               <div class="frame-74">
                 <div class="form-add-task">
                   <label class="add-task-text">Category<span class="color-red">*</span></label>
-                  <select id="input-category" class="input input-padding-size1" placeholder="Select a task category"
+                  <select id="input-category" class="input input-padding-size3" placeholder="Select a task category"
                     type="text" required>
                     <option value="" disabled selected>Select task category</option>
                     <option value="Technical Task">Technical Task</option>
@@ -82,7 +82,7 @@
               <form class="form-add-task">
                 <label class="add-task-text">Subtasks</label>
                 <div class="edit-task-subtask-input-container">
-                  <input id="add-task-subtask-input" type="text" class="input input-padding-size2"
+                  <input id="add-task-subtask-input" type="text" class="input input-padding-size3"
                     placeholder="Add new subtask" autocomplete="off">
                   <div id="add-task-input-icons-container" class="input-icons-container"></div>
                 </div>

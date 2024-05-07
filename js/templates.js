@@ -100,16 +100,16 @@ function editTaskTemplate(task) {
             <div class="open-task-pop-up-content">
                 <div class="form-label-and-input-container">
                     <label for="edit-task-title-input" class="task-form-label">Title</label>
-                    <input id="edit-task-title-input" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a title" value="${task.title}" required autocomplete="off">
+                    <input id="edit-task-title-input" class="input input-padding-size4 pop-up-input" type="text" placeholder="Enter a title" value="${task.title}" required autocomplete="off">
                     <div class="error-message"></div>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-description-textarea" class="task-form-label">Description</label>
-                    <textarea id="edit-task-description-textarea" class="input input-padding-size2 pop-up-input" type="text" placeholder="Enter a description">${task.description}</textarea>
+                    <textarea id="edit-task-description-textarea" class="input pop-up-input" type="text" placeholder="Enter a description">${task.description}</textarea>
                 </div>
                 <div class="form-label-and-input-container">
                     <label for="edit-task-due-date" class="task-form-label">Due date</label>
-                    <input id="edit-task-due-date" class="input input-padding-size2 pop-up-input" type="date" placeholder="Enter a due date" value="${task.dueDate}" required>
+                    <input id="edit-task-due-date" class="input input-padding-size3 pop-up-input" type="date" placeholder="Enter a due date" value="${task.dueDate}" required>
                     <div class="error-message"></div>
                 </div>
                 <div class="form-label-and-input-container">
@@ -137,7 +137,7 @@ function editTaskTemplate(task) {
                         <div class="subtasks-container">
                             <div>Subtasks</div>
                             <div class="edit-task-subtask-input-container">
-                                <input id="edit-task-subtask-input" type="text" class="input input-padding-size2 pop-up-input" placeholder="Add new subtask" autocomplete="off">
+                                <input id="edit-task-subtask-input" type="text" class="input input-padding-size3 pop-up-input" placeholder="Add new subtask" autocomplete="off">
                                 <div id="edit-task-input-icons-container" class="input-icons-container">
                                     ${subtaskInputPlusIcon('edit-task')}
                                 </div>
@@ -339,7 +339,7 @@ function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
  */
 function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) {
     return /* html */ `<div class="edit-task-subtask-input-container">
-        <input id="${idPrefix}-subtask-title-input-editable-${subtaskIndex}" class="subtask-title-input-editable" type="text" value="${subtaskTitle}">
+        <input id="${idPrefix}-subtask-title-input-editable-${subtaskIndex}" class="input-padding-size1 subtask-title-input-editable" type="text" value="${subtaskTitle}">
         <div id="${idPrefix}-input-icons-container" class="input-icons-container">
             ${confirmOrDeleteIcons(`deleteSubtaskInputForEditing(${subtaskIndex}, '${idPrefix}')`, `confirmSubtaskInputForEditing(${subtaskIndex}, '${idPrefix}')`)}
         </div>
@@ -401,7 +401,7 @@ function editTaskAssignedToItemsTemplate(task, idPrefix) {
     return /* html */ `
         <label for="edit-task-drop-down-input" class="task-form-label" onclick="event.preventDefault()">Assigned to</label>
         <div class="task-drop-down" onclick="doNotClose(event)">
-            <input id="edit-task-drop-down-input" type="text" class="input input-padding-size2 pop-up-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
+            <input id="edit-task-drop-down-input" type="text" class="input input-padding-size4 pop-up-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
             <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
         <div id="edit-task-assigned-to" class="task-user-dropdown display-none" onclick="doNotClose(event)">
