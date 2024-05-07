@@ -252,14 +252,7 @@ async function checkSignupValues() {
             }
         }
         if (!emailAlreadyExists) {
-            // users.push({
-            //     firstName: getUserName('first', name),
-            //     lastName: getUserName('last', name),
-            //     id: getHighestId(),
-            //     color: getUsercolor(),
-            //     password: `${password}`,
-            //     eMail: `${email}`
-            // });
+            users.push(userObject);
         }
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
@@ -296,9 +289,7 @@ function getUserName(type, name) {
             whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1));
         }
     }
-    while (name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1) != -1) {
-        whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1));
-    };
+    while (name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1) != -1);
     if (whitespaces.length <= 1) {
         if (type === 'first') {
             return formatStringAsName(name);
