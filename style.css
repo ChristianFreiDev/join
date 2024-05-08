@@ -220,6 +220,7 @@ textarea {
 
 #main {
     width: 100%;
+    overflow: auto;
 }
 
 .content-container {
