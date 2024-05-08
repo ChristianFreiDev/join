@@ -182,6 +182,7 @@ input[type="checkbox"] {
 .login-input {
     width: 422px;
     z-index: 1;
+    padding-right: 64px;
 }
 
 form {
