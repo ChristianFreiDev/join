@@ -60,7 +60,10 @@ function sortByFirstName(a, b) {
 }
 
 
-
+/**
+ * This function returns a random user color.
+ * @returns {string} random user color, values ranging from user-color0 to user-color14
+ */
 function getUsercolor() {
     let colorNumber = Math.floor(Math.random() * 15);
     return `user-color${colorNumber}`;

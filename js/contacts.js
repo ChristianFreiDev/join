@@ -9,15 +9,6 @@ async function initContacts() {
 
 
 /**
- * This function returns a random user color.
- * @returns {string} random user color, values ranging from user-color0 to user-color14
- */
-function generateRandomUserColor() {
-    return `user-color${Math.floor(Math.random() * (14 - 0) + 0)}`;
-}
-
-
-/**
  * This function searches for a user with the same e-mail address as the contact and returns the user's color if there is a match or returns the contact's color if there is none.
  * @param {Object} contact 
  * @returns {string} desired contact color
