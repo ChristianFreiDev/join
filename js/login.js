@@ -289,7 +289,7 @@ function getUserName(type, name) {
             whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1));
         }
     }
-    while (name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1) != -1);
+    while (whitespaces[whitespaces.length - 1] != -1);
     if (whitespaces.length <= 1) {
         if (type === 'first') {
             return formatStringAsName(name);
