@@ -87,6 +87,27 @@ function removeUserFromAssignedTasks(contactEMail) {
 }
 
 
+function editContact(contactEMail) {
+    let contact = contacts.find(contact => contact.eMail === contactEMail);
+    document.getElementById('contact-profile').innerHTML = contactEditForm();
+}
+
+
+function contactEditForm() {
+    return /* html */ `<form>
+        <div class="contact-inputs">
+            <input class="input input-padding-size5" placeholder="Name">
+            <input class="input input-padding-size5" placeholder="Email">
+            <input class="input input-padding-size5" placeholder="Phone">
+        </div>
+        <div>
+            <button class="button button-padding-size2">Delete</button>
+            <button class="button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon"></button>
+        </div>
+    </form>`;
+}
+
+
 /**
  * This function deletes a contact.
  * @param {string} contactEMail e-mail adress of the contact

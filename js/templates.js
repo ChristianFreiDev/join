@@ -149,7 +149,7 @@ function editTaskTemplate(task) {
                     </div>
                 </div>
             </div>
-            <button class="button edit-task-ok-button" onclick="validateInputs(['edit-task-title-input', 'edit-task-due-date'])">OK</button>
+            <button class="button button-padding-size3 edit-task-ok-button" onclick="validateInputs(['edit-task-title-input', 'edit-task-due-date'])">OK</button>
         </form>`;
 }
 
@@ -496,7 +496,7 @@ function contactProfileTemplate(contact, contactColor) {
         <div class="contact-initial-avatar-large ${contactColor}">${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}</div>
             <div class="contact-name-and-buttons-container">
                 <h3>${contact.firstName} ${contact.lastName}</h3>
-                <div class="contact-buttons">
+                <div class="contact-buttons" onclick="editContact('${contact.eMail}')">
                     <div class="contact-button">
                         ${editButtonSvg()}
                         <span>Edit</span>

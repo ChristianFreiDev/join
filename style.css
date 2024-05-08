@@ -236,6 +236,10 @@ textarea {
     background-color: var(--color-menu);
     font-size: 16px;
     font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 }
 
 .button:hover {
@@ -244,6 +248,18 @@ textarea {
 
 .button:active {
     background-color: var(--color-menu-active);
+}
+
+.button-padding-size1 {
+    padding: 12px 16px;
+}
+
+.button-padding-size2 {
+    padding: 16;
+}
+
+.button-padding-size3 {
+    padding: 15px 24px;
 }
 
 .medium-dark-button {

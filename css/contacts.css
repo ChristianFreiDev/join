@@ -215,6 +215,12 @@
     font-weight: 700;
 }
 
+.contact-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
 @media (max-width: 1470px) {
     .contacts-header {
         flex-direction: column;
