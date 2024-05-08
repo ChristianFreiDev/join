@@ -109,9 +109,20 @@ async function deleteContact(contactEMail) {
  * This function opens a contact from the list.
  * @param {number} index contact index
  */
-function openContact(index) {
+function openContact(event, index) {
     let contact = contacts[index];
     let contactProfile = document.getElementById('contact-profile');
     let contactColor = getContactColor(contact);
     contactProfile.innerHTML = contactProfileTemplate(contact, contactColor);
+    setActiveContact(event, index);
+}
+
+
+function setActiveContact(event, index) {
+    let contacts = document.querySelectorAll('.contact-in-list-active');
+    for (let i = 0; i < contacts.length; i++) {
+        contacts[i].classList.remove('contact-in-list-active');
+    }
+    let contact = document.getElementById(`contact-in-list${index}`);
+    contact.classList.add('contact-in-list-active');
 }

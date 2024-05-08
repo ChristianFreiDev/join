@@ -452,11 +452,11 @@ function contactLetterTemplate(letter) {
  * @returns 
  */
 function contactInListTemplate(contact, contactColor, contactIndex) {
-    return /* html */ `<div class="contact-in-list cursor-pointer" onclick="openContact(${contactIndex})">
+    return /* html */ `<div id="contact-in-list${contactIndex}" class="contact-in-list cursor-pointer" onclick="openContact(event, ${contactIndex})">
         <div class="contact-initial-avatar-small ${contactColor}">${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}</div>
         <div class="contact-in-list-info">
             <div>${contact.firstName} ${contact.lastName}</div>
-            <a href="mailto:${contact.eMail}">${contact.eMail}</a>
+            <a class="contact-link" href="mailto:${contact.eMail}">${contact.eMail}</a>
         </div>
     </div>`;
 }
@@ -490,7 +490,7 @@ function contactProfileTemplate(contact, contactColor) {
     <div class="contact-information-facts-container">
         <div class="contact-information-fact">
             <div class="contact-information-fact-heading">Email</div>
-            <a href="mailto:${contact.eMail}">${contact.eMail}</a>
+            <a class="contact-link" href="mailto:${contact.eMail}">${contact.eMail}</a>
         </div>
         <div class="contact-information-fact">
             <div class="contact-information-fact-heading">Phone</div>
