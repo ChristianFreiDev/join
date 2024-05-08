@@ -282,11 +282,15 @@ function getUserName(type, name) {
     let whitespaces = [];
     let firstName = '';
     let lastName = '';
+    let whitspaceCounter = 0;
     do {
         if (whitespaces.length === 0) {
             whitespaces.push(name.indexOf(' '));
+        } else if (name[whitespaces[whitespaces.length - 1] + whitspaceCounter] != ' ') {
+            whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1 + whitspaceCounter));
+            whitspaceCounter = 0;
         } else {
-            whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1));
+            whitspaceCounter++;
         }
     }
     while (whitespaces[whitespaces.length - 1] != -1);
@@ -305,7 +309,7 @@ function getUserName(type, name) {
     } else {
         for (let i = 0; i < whitespaces.length; i++) {
             if (i === 0) {
-                firstName += formatStringAsName(name.slice(0, whitespaces[0] + 1));
+                firstName += formatStringAsName(name.slice(0, whitespaces[0]));
             } else if (i < whitespaces.length - 2) {
                 firstName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i] + 1));
             } else if (i == whitespaces.length - 2) {
@@ -334,11 +338,6 @@ function getHighestId() {
     return users[users.length - 1].id + 1;
 }
 
-
-function getUsercolor() {
-    let colorNumber = Math.floor(Math.random() * 15);
-    return `user-color${colorNumber}`;
-}
 
 /**
  * This function changes the icon in the input field when the user enters data for the first time.

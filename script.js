@@ -61,6 +61,13 @@ function sortByFirstName(a, b) {
 
 
 
+function getUsercolor() {
+    let colorNumber = Math.floor(Math.random() * 15);
+    return `user-color${colorNumber}`;
+}
+
+
+
 function showUserInitials() {
     document.getElementById('firstname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterFirstName');
     document.getElementById('lastname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterLastName');
