@@ -139,7 +139,7 @@ padding: 16px;
 gap: 4px;
 width: 184px;
 height: 56px;
-background: #2A3647;
+background: #dedede;
 border-radius: 10px;
 flex: none;
 order: 1;
@@ -149,7 +149,11 @@ font-size: 2.1rem;
 cursor: pointer;
 }
 
-.create-task:hover{
+.create-task-enabled{
+    background: #2A3647 !important;
+}
+
+.create-task-enabled:hover{
     background:#29ABE2;
 }
 

@@ -8,8 +8,7 @@
             <div class="title-v1">
               <div class="form-add-task">
                 <label class="add-task-text">Title<span class="color-red">*</span></label>
-                <input id="input-title" class="input input-padding-size4" placeholder="Enter a title" type="text"
-                  autocomplete="off" required/>
+                <input id="input-title" class="input input-padding-size4" placeholder="Enter a title" type="text"autocomplete="off" required onkeyup="checkTitleRequirement()"/>
                   <div class="error-message"></div>
               </div>
             </div>
@@ -69,7 +68,7 @@
                 <div class="form-add-task">
                   <label class="add-task-text">Category<span class="color-red">*</span></label>
                   <select id="input-category" class="input input-padding-size3" placeholder="Select a task category"
-                    type="text" required>
+                    type="text">
                     <option value="" disabled selected>Select task category</option>
                     <option value="Technical Task">Technical Task</option>
                     <option value="User Story">User Story</option>
@@ -104,7 +103,7 @@
                 stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
-          <button id="create-task-button" class="create-task" type="submit" onclick="validateInputs(['input-title', 'input-due-date', 'input-category'])">
+          <button id="create-task-button" class="create-task" type="submit" onclick="validateInputs(['input-title', 'input-due-date', 'input-category'])" disabled>
             Create Task
             <img src="/assets/img/check-create-task.svg" alt="check" />
           </button>

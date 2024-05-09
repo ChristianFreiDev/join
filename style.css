@@ -152,7 +152,7 @@ p {
     border: 1px solid var(--color-red);
 }
 
-.input:user-valid, input[type="date"]:user-valid, #input-due-date:valid, #input-category:valid {
+.input:user-valid, input[type="date"]:user-valid, #input-due-date:valid{
     border: 1px solid var(--color-low);
 }
 

@@ -23,6 +23,9 @@ async function initAddTask() {
     await Promise.all([loadTasks(), loadUsers()]);
     renderAssignedToList();
     addInputEventListener('add-task');
+    mouseoverCheckRequirements();
+    checkDueDateRequirement();
+    checkCategoryRequirement();
 }
 
 //----------------------- Prio Buttons---------------------------------//
@@ -33,31 +36,31 @@ async function initAddTask() {
 
 const buttonActions = {
     'Urgent': {
-        'clicked': function(idPrefix) {
+        'clicked': function (idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-urgent`).classList.add('priority-button-urgent-clicked');
             document.getElementById(`${idPrefix}-priority-icon-urgent`).src = '/assets/img/priority-icon-urgent-white.svg';
         },
-        'unclicked': function(idPrefix) {
+        'unclicked': function (idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-urgent`).classList.remove('priority-button-urgent-clicked');
             document.getElementById(`${idPrefix}-priority-icon-urgent`).src = '/assets/img/priority-icon-urgent.svg';
         }
     },
     'Medium': {
-        'clicked': function(idPrefix) {
+        'clicked': function (idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-medium`).classList.add('priority-button-medium-clicked');
             document.getElementById(`${idPrefix}-priority-icon-medium`).src = '/assets/img/priority-icon-medium-white.svg';
         },
-        'unclicked': function(idPrefix) {
+        'unclicked': function (idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-medium`).classList.remove('priority-button-medium-clicked');
             document.getElementById(`${idPrefix}-priority-icon-medium`).src = '/assets/img/priority-icon-medium.svg';
         }
     },
     'Low': {
-        'clicked': function(idPrefix) {
+        'clicked': function (idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-low`).classList.add('priority-button-low-clicked');
             document.getElementById(`${idPrefix}-priority-icon-low`).src = '/assets/img/priority-icon-low-white.svg';
         },
-        'unclicked': function(idPrefix) {
+        'unclicked': function (idPrefix) {
             document.getElementById(`${idPrefix}-priority-button-low`).classList.remove('priority-button-low-clicked');
             document.getElementById(`${idPrefix}-priority-icon-low`).src = '/assets/img/priority-icon-low.svg';
         }
@@ -87,7 +90,7 @@ function clickPriorityButton(newPriority, idPrefix) {
 /**
  * This function adds a task to the server. Before pushing a new task, the tasks are loaded from the backend to make sure they are up-to-date.
  */
-async function addTask(status){
+async function addTask(status) {
     let title = document.getElementById('input-title');
     let description = document.getElementById('input-description');
     let date = document.getElementById('input-due-date');
@@ -144,7 +147,7 @@ function resetForm() {
     title.value = '';
     description.value = '';
     date.value = '';
-    category.value ='';
+    category.value = '';
     addTaskSubtaskInput.value = '';
     addTaskSubtasksList.innerHTML = '';
 }
@@ -208,10 +211,115 @@ function validateInputs(inputIds) {
     for (let i = 0; i < inputIds.length; i++) {
         let element = document.getElementById(inputIds[i])
         let value = element.value.trim();
-        if(value === ''){
+        if (value === '') {
             setError(element, 'This field is required')
         } else {
             setSuccess(element);
+            checkCreateTaskButton();
         }
     }
 };
+
+
+/**
+ *  This function checks the requirements of the form and activates or deactivates the submit button
+ */
+function checkCreateTaskButton() { 
+        if (
+            document.getElementById('input-title').value.length >= 1 &&
+            document.getElementById('input-due-date').value &&
+            document.getElementById('input-category').selectedIndex > 0
+        ) {
+            document.getElementById('create-task-button').disabled = false;
+            document.getElementById('create-task-button').classList.add('create-task-enabled');
+        } else {
+            document.getElementById('create-task-button').disabled = true;
+            document.getElementById('create-task-button').classList.remove('create-task-enabled');
+        }
+}
+
+
+/**
+ * This function shows whether all mandatory fields have been filled out by mouseover the submit button
+ */
+function mouseoverCheckRequirements() {
+    document.getElementById('create-task-button').addEventListener("mouseover", function (event) {
+
+        titleRequirement();
+        dueDateRequirement();
+        categoryRequirement();
+        validateInputs(['input-title', 'input-due-date', 'input-category']);
+    })
+}
+
+
+/**
+ * This function highlights the titles border green or red
+ */
+function titleRequirement() {
+    let title = document.getElementById('input-title');
+
+    if (title.value == "") {
+        title.style.border = "1px solid var(--color-red)";
+    } else {
+        title.style.border = "1px solid var(--color-low)";
+    }
+}
+
+
+/**
+ * This function highlights the dates border green or red
+ */
+function dueDateRequirement() {
+    let date = document.getElementById('input-due-date');
+    if (!date.value) {
+        date.style.border = "1px solid var(--color-red)";
+    } else {
+        date.style.border = "1px solid var(--color-low)";
+    }
+}
+
+
+/**
+ *  This function highlights the categorys border green or red
+ */
+function categoryRequirement() {
+    let category = document.getElementById('input-category');
+
+    if (!category.selectedIndex > 0) {
+        category.style.border = "1px solid var(--color-red)";
+    } else {
+        category.style.border = "1px solid var(--color-low)";
+    }
+}
+
+
+/**
+ * This function is used to check the requirements after typing into the title-input
+ */
+function checkTitleRequirement() {
+    titleRequirement();
+    validateInputs(['input-title']);
+}
+
+
+/**
+ * This function is used to check the requirements after choosing a date
+ */
+function checkDueDateRequirement() {
+        document.getElementById('input-due-date').addEventListener("change", function (event) {
+        dueDateRequirement();
+        validateInputs(['input-due-date']);
+    })
+}
+
+
+/**
+ * This function is used to check the requirements after choosing a category
+ */
+function checkCategoryRequirement(){
+    document.getElementById('input-category').addEventListener("change", function (event){
+    categoryRequirement();
+    validateInputs(['input-category']);
+    })   
+}
