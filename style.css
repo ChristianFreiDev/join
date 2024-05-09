@@ -296,6 +296,7 @@ textarea {
 
 .error {
     color: var(--color-red);
+    margin-bottom: -20px;
 }
 
 /* .success {
