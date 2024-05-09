@@ -261,6 +261,7 @@ function titleRequirement() {
 
     if (title.value == "") {
         title.style.border = "1px solid var(--color-red)";
+        checkCreateTaskButton();
     } else {
         title.style.border = "1px solid var(--color-low)";
     }
