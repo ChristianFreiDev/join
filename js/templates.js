@@ -544,21 +544,21 @@ function contactEditForm(contact) {
             ${initialAvatarVeryLargeTemplate(contact)}
             <div class="contact-inputs">
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" type="text" placeholder="Name">
+                    <input class="input input-padding-size5 login-input" type="text" value="${contact.firstName} ${contact.lastName}" placeholder="Name">
                     <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
                 </div>
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" type="email" placeholder="Email">
+                    <input class="input input-padding-size5 login-input" type="email" value="${contact.eMail}" placeholder="Email">
                     <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
                 </div>
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" type="text" placeholder="Phone">
+                    <input class="input input-padding-size5 login-input" type="text" value="${contact.phone}" placeholder="Phone">
                     <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
                 </div>
             </div>
             </div>
             <div class="contact-pop-up-buttons-container">
-                <button class="button light-button button-padding-size3">Delete</button>
+                <button class="button light-button button-padding-size3" onclick="deleteContact('${contact.eMail}')">Delete</button>
                 <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon"></button>
             </div>
         </form>
