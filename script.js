@@ -71,7 +71,7 @@ function getUsercolor() {
 
 
 function checkForLogin() {
-    if (loadVariableFromLocalStorage('currentJoinUserId') < 0) {
+    if (loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId')) {
         window.open('./index.html', '_self');
     }
 }
