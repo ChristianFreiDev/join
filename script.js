@@ -70,9 +70,12 @@ function getUsercolor() {
 }
 
 
-function checkForLogin() {
-    if (loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId')) {
+function checkForLogin(protected = true) {
+    if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId') && protected)) {
         window.open('./index.html', '_self');
+    } else if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId') && !protected)) {
+        document.querySelector('nav-button-list').classList.add('display-none');
+        document.querySelector('mobil-nav-button-list').classList.add('display-none');
     }
 }
 
