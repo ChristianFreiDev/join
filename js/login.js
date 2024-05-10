@@ -269,7 +269,7 @@ async function checkSignupValues() {
         }
         if (!emailAlreadyExists) {
             users.push(userObject);
-            // await storeUsers();
+            await storeUsers();
             showSuccessMessage();
             setTimeout(hideSuccessMessage, 1000);
         }
