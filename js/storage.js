@@ -36,7 +36,12 @@ async function getItem(path = "") {
  */
 async function loadUsers() {
     try {
-        users = await getItem("/users")
+        users = await getItem("/users");
+        for (let i = 0; i < users.length; i++) {
+            if (!users[i].lastName) {
+                users[i].lastName = '';
+            }
+        }
     } catch (error) {
         console.error('Loading error:', error);
     }
