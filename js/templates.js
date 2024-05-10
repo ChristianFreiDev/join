@@ -534,8 +534,12 @@ function contactProfileTemplate(contact, contactColor) {
 
 
 function contactEditForm(contact) {
-    return /* html */ `
-        <form class="edit-add-contact-form">
+    return /* html */ `<div class="edit-add-contact-pop-up-container">
+        <div class="edit-add-contact-pop-up-left-side">
+            <img src="assets/img/light-logo.svg" alt="">
+            <h2>Edit&nbspcontact</h2>
+        </div>
+        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side">
         <div class="edit-add-contact-pop-up-content">
             ${initialAvatarVeryLargeTemplate(contact)}
             <div class="contact-inputs">
@@ -557,5 +561,6 @@ function contactEditForm(contact) {
                 <button class="button light-button button-padding-size3">Delete</button>
                 <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon"></button>
             </div>
-        </form>`;
+        </form>
+    </div>`;
 }

@@ -238,11 +238,37 @@
 }
 
 .very-large-pop-up {
+    height: 592px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.edit-add-contact-pop-up-container {
+    display: flex;
+    align-items: center;
+}
+
+.edit-add-contact-pop-up-left-side {
+    height: 100%;
+    background-color: var(--color-menu);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    padding: 48px 40px;
+    justify-content: center;
+    color: #FFFFFF;
+    padding: 0 46px;
+    gap: 32px;
+}
+
+.edit-add-contact-pop-up-left-side img {
+    width: 54px;
+}
+
+.edit-add-contact-pop-up-right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 97px;
+    padding-right: 48px;
 }
 
 @media (max-width: 1470px) {
