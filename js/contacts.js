@@ -2,6 +2,7 @@
  * This function initializes the contacts page by calling init() and rendering all contacts.
  */
 async function initContacts() {
+    checkForLogin();
     await init();
     await Promise.all([loadUsers(), loadTasks(), loadContacts()]);
     renderContacts();

@@ -3,6 +3,7 @@
  * Also by showing the right values of users tasks.
  */
 async function initSummary() {
+    checkForLogin();
     if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
         document.getElementById('summary-overlay').style.zIndex = '2';
     } else if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
