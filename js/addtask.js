@@ -336,6 +336,7 @@ function clearForm(){
     renderInitalAvatarsLargeInPopup('add-task');
     document.getElementById('create-task-button').disabled = true;
     document.getElementById('create-task-button').classList.remove('create-task-enabled');
+    clickPriorityButton('Medium', 'add-task');
 }
 
 /**
