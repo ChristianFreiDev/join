@@ -253,6 +253,18 @@ a:hover {
     cursor: pointer;
 }
 
+#signupSuccessMessage {
+    position: absolute;
+    background-color: var(--color-menu);
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 25px;
+}
+
 @media (max-width: 900px) {
     @keyframes move-to-corner {
         from {
