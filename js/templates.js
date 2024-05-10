@@ -537,18 +537,18 @@ function contactEditForm(contact) {
     return /* html */ `
         <form class="edit-add-contact-form">
         <div class="edit-add-contact-pop-up-content">
-        ${initialAvatarVeryLargeTemplate(contact)}
+            ${initialAvatarVeryLargeTemplate(contact)}
             <div class="contact-inputs">
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" placeholder="Name">
+                    <input class="input input-padding-size5 login-input" type="text" placeholder="Name">
                     <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
                 </div>
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" placeholder="Email">
+                    <input class="input input-padding-size5 login-input" type="email" placeholder="Email">
                     <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
                 </div>
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" placeholder="Phone">
+                    <input class="input input-padding-size5 login-input" type="text" placeholder="Phone">
                     <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
                 </div>
             </div>
