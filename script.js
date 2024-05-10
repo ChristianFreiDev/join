@@ -82,9 +82,17 @@ function getUsercolor() {
 
 
 function checkForLogin(protected = true) {
-    if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId') && protected)) {
+    if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId')) && protected) {
         window.open('./index.html', '_self');
-    } else if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId') && !protected)) {
+    } else if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId')) && !protected) {
+        document.querySelector('.nav-button-list').classList.add('display-none');
+        document.querySelector('.mobil-nav-button-list').classList.add('display-none');
+    }
+}
+
+
+function hideMenu() {
+    if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId')) && protected) {
         document.querySelector('nav-button-list').classList.add('display-none');
         document.querySelector('mobil-nav-button-list').classList.add('display-none');
     }
@@ -117,9 +125,9 @@ function changeFavicon(href) {
 function checkForDarkMode(isDarkModeOn) {
     if (isDarkModeOn) {
         changeFavicon('./assets/img/light-logo.svg');
-      } else {
+    } else {
         changeFavicon('./assets/img/dark-logo.svg');
-      }
+    }
 }
 
 // Call checkForDarkMode every time script.js is loaded
@@ -216,7 +224,7 @@ function removePopup(id) {
         let popupContainer = document.getElementById('pop-up-container');
         popup.classList.remove('center-pop-up');
         // Wait for transition to end, then hide pop-up container and enable scrolling again:
-        setTimeout(function() {
+        setTimeout(function () {
             popup.style.display = 'none';
             popupContainer.style.display = 'none';
             document.body.style.overflow = 'auto';
