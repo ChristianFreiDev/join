@@ -149,7 +149,7 @@ function editTaskTemplate(task) {
                     </div>
                 </div>
             </div>
-            <button class="button button-padding-size3 edit-task-ok-button" onclick="validateInputs(['edit-task-title-input', 'edit-task-due-date'])">OK</button>
+            <button class="button dark-button button-padding-size3 edit-task-ok-button" onclick="validateInputs(['edit-task-title-input', 'edit-task-due-date'])">OK</button>
         </form>`;
 }
 

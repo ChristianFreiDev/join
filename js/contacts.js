@@ -97,13 +97,22 @@ function editContact(contactEMail) {
 function contactEditForm() {
     return /* html */ `<form>
         <div class="contact-inputs">
-            <input class="input input-padding-size5 input-padding-icon" placeholder="Name">
-            <input class="input input-padding-size5 input-padding-icon" placeholder="Email">
-            <input class="input input-padding-size5 input-padding-icon" placeholder="Phone">
+            <div class="input-box">
+                <input class="input input-padding-size5 login-input" placeholder="Name">
+                <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
+            </div>
+            <div class="input-box">
+                <input class="input input-padding-size5 login-input" placeholder="Email">
+                <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
+            </div>
+            <div class="input-box">
+                <input class="input input-padding-size5 login-input" placeholder="Phone">
+                <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
+            </div>
         </div>
-        <div>
-            <button class="button button-padding-size2">Delete</button>
-            <button class="button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon"></button>
+        <div class="contact-pop-up-buttons-container">
+            <button class="button light-button button-padding-size3">Delete</button>
+            <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon"></button>
         </div>
     </form>`;
 }
