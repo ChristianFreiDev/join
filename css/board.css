@@ -43,10 +43,9 @@ h2 {
     align-items: center;
 }
 
-.search-icon {
+.input-icon {
     position: absolute;
-    right: 0;
-    margin-right: 16px;
+    right: 16px;
 }
 
 .large-board-add-task-button-mobile-container {
