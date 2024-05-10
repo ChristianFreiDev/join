@@ -253,6 +253,7 @@ async function checkSignupValues() {
         }
         if (!emailAlreadyExists) {
             users.push(userObject);
+            await storeUsers();
         }
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
@@ -281,6 +282,7 @@ function getUserName(type, name) {
     name = name.trim();
     let whitespaces = [];
     let firstName = '';
+    let firstNames = [];
     let lastName = '';
     let whitspaceCounter = 0;
     do {
@@ -309,15 +311,16 @@ function getUserName(type, name) {
     } else {
         for (let i = 0; i < whitespaces.length; i++) {
             if (i === 0) {
-                firstName += formatStringAsName(name.slice(0, whitespaces[0]));
+                firstNames.push(formatStringAsName(name.slice(0, whitespaces[0])));
             } else if (i < whitespaces.length - 2) {
-                firstName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i] + 1));
+                firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i] + 1)));
             } else if (i == whitespaces.length - 2) {
-                firstName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i]));
+                firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i])));
             } else {
                 lastName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, name.length));
             }
         }
+        firstName = firstNames.toString().replace(',',' ');
         if (type === 'first') {
             return firstName;
         } else if (type === 'last') {           
@@ -330,7 +333,7 @@ function getUserName(type, name) {
 
 
 function formatStringAsName(name) {
-    return name.charAt(0).toLocaleUpperCase() + name.slice(1, name.length).toLocaleLowerCase();
+    return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
 }
 
 
