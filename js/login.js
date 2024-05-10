@@ -246,6 +246,7 @@ function goToSummary() {
 function signup() {
     document.getElementById('signup-button').disabled = true;
     checkSignupValues();
+
     document.getElementById('signup-button').disabled = false;
 }
 
@@ -257,7 +258,6 @@ async function checkSignupValues() {
     let passwordConfirm = document.getElementById('signup-password-confirm-input').value;
     if (password === passwordConfirm) {
         let emailAlreadyExists = false;
-        // formatUserName(name);
         await loadUsers();
         let userObject = createUserObject(name, email, password);
         for (let i = 0; i < users.length; i++) {
@@ -269,8 +269,9 @@ async function checkSignupValues() {
         }
         if (!emailAlreadyExists) {
             users.push(userObject);
-            await storeUsers();
+            // await storeUsers();
             showSuccessMessage();
+            setTimeout(hideSuccessMessage, 1000);
         }
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
@@ -278,8 +279,20 @@ async function checkSignupValues() {
 }
 
 function showSuccessMessage() {
+    let overlay = document.getElementById('login-overlay');
     let message = document.querySelector('.signupSuccessMessage');
+    overlay.classList.remove('animate-overlay');
+    overlay.classList.add('signup-overlay');
     message.classList.add('signupSuccessMessageCenter');
+}
+
+function hideSuccessMessage() {
+    let overlay = document.getElementById('login-overlay');
+    let message = document.querySelector('.signupSuccessMessage');
+    overlay.classList.remove('signup-overlay');
+    message.classList.remove('signupSuccessMessageCenter');
+    clearSignupField();
+    openLogInMenu();
 }
 
 function createUserObject(name, email, password) {
@@ -327,7 +340,7 @@ function getUserName(type, name) {
     } else if (whitespaces.length === 2) {
         if (type === 'first') {
             return formatStringAsName(name.slice(0, whitespaces[0]));
-        } else if (type === 'last') {           
+        } else if (type === 'last') {
             return formatStringAsName(name.slice(whitespaces[0] + 1, name.length));
         }
     } else {
@@ -342,10 +355,10 @@ function getUserName(type, name) {
                 lastName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, name.length));
             }
         }
-        firstName = firstNames.toString().replace(',',' ');
+        firstName = firstNames.toString().replace(',', ' ');
         if (type === 'first') {
             return firstName;
-        } else if (type === 'last') {           
+        } else if (type === 'last') {
             return lastName;
         }
     }
