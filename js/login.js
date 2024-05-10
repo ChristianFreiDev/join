@@ -270,10 +270,16 @@ async function checkSignupValues() {
         if (!emailAlreadyExists) {
             users.push(userObject);
             await storeUsers();
+            showSuccessMessage();
         }
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
     }
+}
+
+function showSuccessMessage() {
+    let message = document.querySelector('.signupSuccessMessage');
+    message.classList.add('signupSuccessMessageCenter');
 }
 
 function createUserObject(name, email, password) {
