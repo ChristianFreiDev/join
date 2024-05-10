@@ -279,6 +279,7 @@ async function checkSignupValues() {
 }
 
 function showSuccessMessage() {
+    document.querySelector('body').style.position = 'relative';
     let overlay = document.getElementById('login-overlay');
     let message = document.querySelector('.signupSuccessMessage');
     overlay.classList.remove('animate-overlay');
