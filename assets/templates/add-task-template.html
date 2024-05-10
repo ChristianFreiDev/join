@@ -8,7 +8,7 @@
             <div class="title-v1">
               <div class="form-add-task">
                 <label class="add-task-text">Title<span class="color-red">*</span></label>
-                <input id="input-title" class="input input-padding-size4" placeholder="Enter a title" type="text"autocomplete="off" required onkeyup="checkTitleRequirement()"/>
+                <input id="input-title" class="input input-padding-size4" placeholder="Enter a title" type="text"autocomplete="off" onkeyup="checkTitleRequirement()"/>
                   <div class="error-message"></div>
               </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="due-date-v1">
               <div class="form-add-task">
                 <label class="add-task-text">Due date<span class="color-red">*</span></label>
-                <input id="input-due-date" class="input input-padding-size3" placeholder="dd/mm/yyyy" type="date" required/>
+                <input id="input-due-date" class="input input-padding-size3" placeholder="dd/mm/yyyy" type="date"/>
                 <div class="error-message"></div>
               </div>
             </div>
@@ -96,7 +96,7 @@
           <span class="color-red">*</span>This field is required
         </div>
         <div class="add-task-submit-butttons">
-          <button class="clear-task">Clear
+          <button class="clear-task" type="reset" onclick="clearForm()">Clear
             <svg width="13" height="14" viewBox="0 0 13 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M6.24959 6.99984L11.4926 12.2428M1.00659 12.2428L6.24959 6.99984L1.00659 12.2428ZM11.4926 1.75684L6.24859 6.99984L11.4926 1.75684ZM6.24859 6.99984L1.00659 1.75684L6.24859 6.99984Z"

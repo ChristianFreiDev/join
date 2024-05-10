@@ -324,3 +324,44 @@ function checkCategoryRequirement(){
     validateInputs(['input-category']);
     })   
 }
+
+
+/**
+ * This function is used to clear the form
+ */
+function clearForm(){
+    resetError(['input-title', 'input-due-date', 'input-category']);
+    checkCreateTaskButton();
+    temporaryCollaborators = [];
+    temporarySubtasks = [];
+    renderInitalAvatarsLargeInPopup('add-task');
+}
+
+/**
+ * This function resets the border to lightgrey after use the clear button
+ */
+function setBorderGrey(){
+    let title = document.getElementById('input-title');
+    let date = document.getElementById('input-due-date');
+    let category = document.getElementById('input-category');
+
+    title.style.border = "1px solid var(--color-input-light-gray)";
+    date.style.border = "1px solid var(--color-input-light-gray)";
+    category.style.border = "1px solid var(--color-input-light-gray)";
+}
+
+
+/**
+ * This function removes the class "error" from every required input by clicking the clear button
+ * @param {*} inputIds 
+ */
+function resetError(inputIds){
+    for (let i = 0; i < inputIds.length; i++) {
+        const element = document.getElementById(inputIds[i]);
+         let inputControl = element.parentElement;
+         let errorDisplay = inputControl.querySelector('.error-message');
+         errorDisplay.innerText = '';
+         errorDisplay.classList.remove('error');
+        }
+        setBorderGrey();
+}
