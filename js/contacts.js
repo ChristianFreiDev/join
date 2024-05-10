@@ -97,9 +97,9 @@ function editContact(contactEMail) {
 function contactEditForm() {
     return /* html */ `<form>
         <div class="contact-inputs">
-            <input class="input input-padding-size5" placeholder="Name">
-            <input class="input input-padding-size5" placeholder="Email">
-            <input class="input input-padding-size5" placeholder="Phone">
+            <input class="input input-padding-size5 input-padding-icon" placeholder="Name">
+            <input class="input input-padding-size5 input-padding-icon" placeholder="Email">
+            <input class="input input-padding-size5 input-padding-icon" placeholder="Phone">
         </div>
         <div>
             <button class="button button-padding-size2">Delete</button>

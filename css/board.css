@@ -44,7 +44,9 @@ h2 {
 }
 
 .search-icon {
-    margin-left: -65px;
+    position: absolute;
+    right: 0;
+    margin-right: 16px;
 }
 
 .large-board-add-task-button-mobile-container {
