@@ -85,7 +85,23 @@ function openLogInMenu() {
     document.getElementById('login-feld').classList.remove('display-none');
     document.getElementById('login-signup-box-footer').classList.remove('display-none');
     document.getElementById('login-signup-box-header').classList.remove('display-none');
+    clearSignupField();
+    closeSignupFailureMessages();
     document.getElementById('signup-feld').classList.add('display-none');
+}
+
+
+function clearSignupField() {
+    document.getElementById('signup-name-input').value = '';
+    document.getElementById('signup-email-input').value = '';
+    document.getElementById('signup-password-input').value = '';
+    document.getElementById('signup-password-confirm-input').value = '';
+}
+
+
+function closeSignupFailureMessages() {
+    document.querySelector('#signup-email-input ~ p').classList.add('display-none');
+    document.querySelector('#signup-password-confirm-input ~ p').classList.add('display-none');
 }
 
 
