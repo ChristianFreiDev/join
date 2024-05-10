@@ -136,6 +136,9 @@ function checkUserValues() {
     for (let i = 0; i < users.length; i++) {
         if (userLoggedInSuccessfully(email, password, i)) {
             loggedIn = true;
+            /**
+             * Auf den geschützten Seiten currentJoinUserId muss >= 0 sein, sonst weiterleiten auf index.html.
+             */
             setRememberMeValues(false, i);
         }
     }
