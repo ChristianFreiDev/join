@@ -61,6 +61,17 @@ function sortByFirstName(a, b) {
 
 
 /**
+ * This function grabs the initials of a user.
+ * @param {Object} user 
+ * @returns {string} initial string
+ */
+function getInitials(user) {
+    let initials = user.firstName.charAt(0) + user.lastName.charAt(0);
+    return initials;
+}
+
+
+/**
  * This function returns a random user color.
  * @returns {string} random user color, values ranging from user-color0 to user-color14
  */
@@ -193,3 +204,43 @@ function closeEditAssignedToList() {
 function doNotClose(event) {
     event.stopPropagation();
 }
+
+
+/**
+ * This function removes a pop-up.
+ * @param {string} id pop-up id
+ */
+function removePopup(id) {
+    let popup = document.getElementById(id);
+    if (popup) {
+        let popupContainer = document.getElementById('pop-up-container');
+        popup.classList.remove('center-pop-up');
+        // Wait for transition to end, then hide pop-up container and enable scrolling again:
+        setTimeout(function() {
+            popup.style.display = 'none';
+            popupContainer.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }, 126);
+    }
+}
+
+
+/**
+ * This function closes any pop-up that may be open.
+ */
+function removePopups() {
+    removePopup('add-task-pop-up');
+    removePopup('open-task-pop-up');
+    removePopup('move-task-pop-up');
+    removePopup('edit-add-contact-pop-up');
+}
+
+
+/**
+ * This event listener serves to remove a pop-up when the Escape key is pressed.
+ */
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        removePopups();
+    }
+})

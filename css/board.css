@@ -266,33 +266,6 @@ progress::-webkit-progress-value {
     display: flex;
 }
 
-.initial-avatar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    margin-left: -8px;
-    border: 1px solid #FFFFFF;
-    font-size: 12px;
-    line-height: 14.4px;
-    font-weight: 400;
-}
-
-.initial-avatar-large {
-    margin-left: 0;
-    height: 42px;
-    width: 42px;
-    border: 2px solid #FFFFFF;
-}
-
-.initial-avatars-large-container {
-    display: flex;
-    gap: 8px;
-}
-
 .pop-up-container {
     background-color: rgba(0, 0, 0, 0.2);
     display: none;
