@@ -253,16 +253,28 @@ a:hover {
     cursor: pointer;
 }
 
-#signupSuccessMessage {
+.signupSuccessMessage {
     position: absolute;
     background-color: var(--color-menu);
     color: white;
     font-size: 20px;
     display: flex;
+    height: 0;
+    visibility: hidden;
     justify-content: center;
     align-items: center;
+    transform:translateY(1px);
     border-radius: 20px;
     padding: 25px;
+    transition: transform 1000ms ease-in-out !important;
+    top: 100%;
+    z-index: 5;
+}
+
+.signupSuccessMessageCenter {
+    transform:translateY(-55vh);
+    height: 74px;
+    visibility: visible;
 }
 
 @media (max-width: 900px) {
