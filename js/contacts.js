@@ -90,31 +90,10 @@ function removeUserFromAssignedTasks(contactEMail) {
 
 function editContact(contactEMail) {
     let contact = contacts.find(contact => contact.eMail === contactEMail);
-    document.getElementById('contact-profile').innerHTML = contactEditForm();
-}
-
-
-function contactEditForm() {
-    return /* html */ `<form>
-        <div class="contact-inputs">
-            <div class="input-box">
-                <input class="input input-padding-size5 login-input" placeholder="Name">
-                <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
-            </div>
-            <div class="input-box">
-                <input class="input input-padding-size5 login-input" placeholder="Email">
-                <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
-            </div>
-            <div class="input-box">
-                <input class="input input-padding-size5 login-input" placeholder="Phone">
-                <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
-            </div>
-        </div>
-        <div class="contact-pop-up-buttons-container">
-            <button class="button light-button button-padding-size3">Delete</button>
-            <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon"></button>
-        </div>
-    </form>`;
+    let openTaskPopup = document.getElementById('edit-add-contact-pop-up');
+    openTaskPopup.setAttribute('onclick', 'doNotClose(event)');
+    openTaskPopup.innerHTML = contactEditForm(contact);
+    centerPopup('edit-add-contact-pop-up');
 }
 
 

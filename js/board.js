@@ -448,17 +448,6 @@ function moveTaskFromPopup(status) {
 
 
 /**
- * This function grabs the initials of a user.
- * @param {Object} user 
- * @returns {string} initial string
- */
-function getInitials(user) {
-    let initials = user.firstName.charAt(0) + user.lastName.charAt(0);
-    return initials;
-}
-
-
-/**
  * This function calculates the number of completed subtasks of a task.
  * @param {Object} task 
  * @returns {number} number of done subtasks

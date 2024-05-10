@@ -11,17 +11,22 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/login-signup.css">
+    <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="css/contacts.css">
     <script src="./js/storage.js"></script>
     <script src="script.js"></script>
     <script src="./js/data.js"></script>
     <script src="js/templates.js"></script>
+    <script src="js/board.js"></script>
     <script src="./js/contacts.js"></script>
 </head>
 <body onload="initContacts()">
     <div class="outer-container">
         <nav id="mobile-menu" class="display-none" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
+        <div id="pop-up-container" class="pop-up-container" onclick="removePopups()">
+            <div id="edit-add-contact-pop-up" class="very-large-pop-up pop-up" onclick="doNotClose(event)"></div>
+        </div>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
             <div class="contacts-content-container">

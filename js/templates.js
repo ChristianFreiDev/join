@@ -201,10 +201,20 @@ function initialAvatarTemplate(user) {
 /**
  * This function returns an initial avatar HTML template for a user.
  * @param {Object} user 
- * @returns {string} inital avatar HTML template
+ * @returns {string} inital avatar HTML template, large
  */
 function initialAvatarLargeTemplate(user) {
     return /* html */ `<div class="initial-avatar initial-avatar-large ${user.color}">${getInitials(user)}</div>`;
+}
+
+
+/**
+ * This function returns an initial avatar HTML template for a user.
+ * @param {Object} user 
+ * @returns {string} inital avatar HTML template, very large
+ */
+function initialAvatarVeryLargeTemplate(user) {
+    return /* html */ `<div class="initial-avatar initial-avatar-very-large ${user.color}">${getInitials(user)}</div>`;
 }
 
 
@@ -520,4 +530,32 @@ function contactProfileTemplate(contact, contactColor) {
         </div>
     </div>
     `;
+}
+
+
+function contactEditForm(contact) {
+    return /* html */ `
+        <form class="edit-add-contact-form">
+        <div class="edit-add-contact-pop-up-content">
+        ${initialAvatarVeryLargeTemplate(contact)}
+            <div class="contact-inputs">
+                <div class="input-box">
+                    <input class="input input-padding-size5 login-input" placeholder="Name">
+                    <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
+                </div>
+                <div class="input-box">
+                    <input class="input input-padding-size5 login-input" placeholder="Email">
+                    <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
+                </div>
+                <div class="input-box">
+                    <input class="input input-padding-size5 login-input" placeholder="Phone">
+                    <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
+                </div>
+            </div>
+            </div>
+            <div class="contact-pop-up-buttons-container">
+                <button class="button light-button button-padding-size3">Delete</button>
+                <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon"></button>
+            </div>
+        </form>`;
 }
