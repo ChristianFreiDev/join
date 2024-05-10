@@ -70,6 +70,12 @@ function getUsercolor() {
 }
 
 
+function checkForLogin() {
+    if (loadVariableFromLocalStorage('currentJoinUserId') < 0) {
+        window.open('./index.html', '_self');
+    }
+}
+
 
 function showUserInitials() {
     document.getElementById('firstname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterFirstName');
