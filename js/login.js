@@ -306,7 +306,7 @@ function createUserObject(name, email, password) {
     let firstName = getUserName('first', name);
     let lastName = getUserName('last', name);
     let id = getHighestId();
-    let color = getUsercolor();
+    let color = getUserColor();
     return {
         firstName: firstName,
         lastName: lastName,
@@ -320,22 +320,10 @@ function createUserObject(name, email, password) {
 
 function getUserName(type, name) {
     name = name.trim();
-    let whitespaces = [];
     let firstName = '';
     let firstNames = [];
     let lastName = '';
-    let whitspaceCounter = 0;
-    do {
-        if (whitespaces.length === 0) {
-            whitespaces.push(name.indexOf(' '));
-        } else if (name[whitespaces[whitespaces.length - 1] + whitspaceCounter] != ' ') {
-            whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1 + whitspaceCounter));
-            whitspaceCounter = 0;
-        } else {
-            whitspaceCounter++;
-        }
-    }
-    while (whitespaces[whitespaces.length - 1] != -1);
+    let whitespaces = getWhitespaces(name);
     if (whitespaces.length <= 1) {
         if (type === 'first') {
             return formatStringAsName(name);
@@ -367,10 +355,25 @@ function getUserName(type, name) {
             return lastName;
         }
     }
-    // let firstName = getFirstName(name);
-    // let lastName = getLastname(name);
 }
 
+
+function getWhitespaces(name) {
+    let whitespaces = [];
+    let whitspaceCounter = 0;
+    do {
+        if (whitespaces.length === 0) {
+            whitespaces.push(name.indexOf(' '));
+        } else if (name[whitespaces[whitespaces.length - 1] + whitspaceCounter] != ' ') {
+            whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1 + whitspaceCounter));
+            whitspaceCounter = 0;
+        } else {
+            whitspaceCounter++;
+        }
+    }
+    while (whitespaces[whitespaces.length - 1] != -1);
+    return whitespaces;
+}
 
 function formatStringAsName(name) {
     return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
