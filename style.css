@@ -99,6 +99,10 @@
     color: var(--color-red);
 }
 
+.background-color-gray {
+    background-color: var(--color-input-light-gray);
+}
+
 * {
     box-sizing: border-box;
     font-family: "Inter", sans-serif;

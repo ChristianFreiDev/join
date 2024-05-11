@@ -572,9 +572,11 @@ function addContactForm(contact, index) {
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Edit&nbspcontact</h2>
         </div>
-        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(${index}); return false">
+        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="addContact(); return false">
         <div class="edit-add-contact-pop-up-content">
-            ${initialAvatarVeryLargeTemplate(contact)}
+            <div class="initial-avatar initial-avatar-very-large background-color-gray">
+                <img src="../assets/img/person-large.svg" alt="person">
+            </div>
             <div class="contact-inputs">
                 <div class="input-box">
                     <input id="contact-name-input" class="input input-padding-size5 login-input" type="text" placeholder="Name" required>
@@ -591,8 +593,8 @@ function addContactForm(contact, index) {
             </div>
             </div>
             <div class="contact-pop-up-buttons-container">
-                <button class="button light-button button-padding-size3" type="button">Delete</button>
-                <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
+                <button class="button light-button button-padding-size2" type="button">Cancel</button>
+                <button class="button dark-button button-padding-size2">Create contact <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
             </div>
         </form>
     </div>`;

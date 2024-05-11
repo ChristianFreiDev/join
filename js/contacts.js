@@ -177,3 +177,27 @@ function saveEditedContact(index) {
     openContact(index);
     removePopup('edit-add-contact-pop-up');
 }
+
+
+function addContact() {
+    let contactNameInput = document.getElementById('contact-name-input');
+    let contactEmailInput = document.getElementById('contact-email-input');
+    let contactPhoneInput = document.getElementById('contact-phone-input');
+    let name = contactNameInput.value;
+    let email = contactEmailInput.value;
+    let phone = contactPhoneInput.value;
+    let newContact = {
+        firstName: getUserName('first', name),
+        lastName: getUserName('last', name),
+        color: getUserColor(),
+        eMail: email,
+        phone: phone
+    }
+    contacts.push(newContact);
+    storeContacts();
+    renderContacts();
+    let contactIndex = contacts.indexOf(newContact);
+    console.log(contactIndex);
+    openContact(contactIndex);
+    removePopup('edit-add-contact-pop-up');
+}
