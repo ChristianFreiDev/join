@@ -248,6 +248,7 @@ function editTask(taskId) {
     temporaryCollaborators = [...task.collaborators];
     clickPriorityButton(priority, 'edit-task');
     addInputEventListener('edit-task');
+    checkEditDueDateRequirement();
 }
 
 

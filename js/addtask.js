@@ -239,6 +239,8 @@ function checkCreateTaskButton() {
 }
 
 
+
+
 /**
  * This function shows whether all mandatory fields have been filled out by mouseover the submit button
  */

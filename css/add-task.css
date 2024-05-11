@@ -153,6 +153,14 @@ cursor: pointer;
     background: #2A3647 !important;
 }
 
+.edit-task-ok-button-disabled{
+    background: #dedede;
+}
+
+.edit-task-ok-button-disabled:hover{
+    background: #dedede;
+}
+
 .create-task-enabled:hover{
     background:#29ABE2;
 }
