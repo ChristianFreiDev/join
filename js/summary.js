@@ -19,6 +19,9 @@ async function initSummary() {
 }
 
 
+/**
+ * This function greets the user considering the scrollwidth.
+ */
 function initGreeting() {
     if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
         document.getElementById('summary-overlay').style.zIndex = '2';
@@ -30,6 +33,9 @@ function initGreeting() {
 }
 
 
+/**
+ * This function changes the greeting settings for small and whide screens.
+ */
 function checkWindowWidth() {
     if (document.body.scrollWidth < 1400 && animationOver) {
         document.getElementById('summary-greeting-box').classList.add('display-none');
@@ -43,6 +49,9 @@ function checkWindowWidth() {
 }
 
 
+/**
+ * This function greets the user considering the day time and scrollwidth.
+ */
 async function greetUser() {
     checkDayTimeAndchangeGreeting();
     document.getElementById('summary-greeting-name').innerHTML = await getUserName();
@@ -56,6 +65,10 @@ async function greetUser() {
     animationOver = true;
 }
 
+
+/**
+ * This function sets the greeting settings to small screen.
+ */
 function setGreetingToSmallScreen() {
     if (loadVariableFromLocalStorage('fromIndex') == 'true') {
         document.getElementById('summary-greeting-box').classList.add('greeting-overlay');
@@ -67,12 +80,20 @@ function setGreetingToSmallScreen() {
 }
 
 
+/**
+ * This function checks the day time and changes the greeting.
+ */
 function checkDayTimeAndchangeGreeting() {
     let daytimeString = checkDayTime();
     changeGreeting(daytimeString);
 }
 
 
+/**
+ * This function gets the day tim in hours and
+ * 
+ * @returns {string} formated to include in html.
+ */
 function checkDayTime() {
     let daytimeString = '';
     let date = new Date();
@@ -81,6 +102,13 @@ function checkDayTime() {
     return daytimeString + `<span id="summary-greeting-punctuation-mark">,</span>`;
 }
 
+
+/**
+ * This function checks the day time in hours and
+ * 
+ * @param {number} dayTime 
+ * @returns {string} the greeting.
+ */
 function choosedaytimeString(dayTime) {
     if (dayTime >= 3 && dayTime < 12) {
         return 'morning';
@@ -93,27 +121,50 @@ function choosedaytimeString(dayTime) {
     }
 }
 
+
+/**
+ * This function includes the greeting in the html document.
+ * 
+ * @param {string} daytimeString 
+ */
 function changeGreeting(daytimeString) {
     document.getElementById('summary-greeting').innerHTML = `Good ${daytimeString}`;
 }
 
+
+/**
+ * This function animates the overlay.
+ */
 function animateOverlay() {
     document.getElementById('summary-overlay').classList.add('animate-overlay');
     document.getElementById('summary-greeting-box').classList.add('animate-overlay');
     setTimeout(removeAnimation, 3000)
 }
 
+
+/**
+ * This function removes the animation classes.
+ */
 function removeAnimation() {
     document.getElementById('summary-overlay').classList.remove('animate-overlay');
     document.getElementById('summary-greeting-box').classList.remove('animate-overlay');
 }
 
+
+/**
+ * This function hides the overlay.
+ */
 function hideOverlay() {
     document.getElementById('summary-overlay').style.zIndex = '-1';
     document.getElementById('summary-greeting-box').style.zIndex = '-1';
 }
 
 
+/**
+ * This function gets the user name of in logged user.
+ * 
+ * @returns {string} full name of current user.
+ */
 async function getUserName() {
     for (let i = 0; i < users.length; i++) {
         if (users[i].id == loadVariableFromLocalStorage('currentJoinUserId')) {
@@ -193,6 +244,12 @@ function findTasks() {
 }
 
 
+/**
+ * This function searches in the found tasks for the highest priority.
+ * 
+ * @param {Array} foundTasks 
+ * @returns {string} highest Priority that was found.
+ */
 function findhighestPriority(foundTasks) {
     let results = findPriority("Urgent", foundTasks);
     if (results.length === 0) {
@@ -206,6 +263,7 @@ function findhighestPriority(foundTasks) {
         return 'Urgent';
     }
 }
+
 
 /**
  * This function sets the styles for the priority icon.
@@ -301,6 +359,11 @@ function findPriority(prio, foundTasks) {
 }
 
 
+/**
+ * This function searches in the tasks array for the next duedate.
+ * 
+ * @returns {number} value of next duedate.
+ */
 function findNextDuedate() {
     let date = Infinity;
     for (let i = 0; i < tasks.length; i++) {
@@ -351,6 +414,12 @@ function rednerUpcomingDeadline(foundTasks) {
 }
 
 
+/**
+ * This function formats the date.
+ * 
+ * @param {number} date 
+ * @returns {string} of next duedate.
+ */
 function formatDate(date) {
     return date.toLocaleString("en-US",
         {
@@ -359,6 +428,7 @@ function formatDate(date) {
             day: "numeric"
         });
 }
+
 
 /**
  * This function outputs the amount of all tasks on Board.
