@@ -239,8 +239,6 @@ function checkCreateTaskButton() {
 }
 
 
-
-
 /**
  * This function shows whether all mandatory fields have been filled out by mouseover the submit button
  */
@@ -341,6 +339,7 @@ function clearForm(){
     clickPriorityButton('Medium', 'add-task');
     closeAssignedToList();
 }
+
 
 /**
  * This function resets the border to lightgrey after use the clear button
