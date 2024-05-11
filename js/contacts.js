@@ -112,6 +112,7 @@ async function deleteContact(contactEMail) {
     renderContacts();
     let contactProfile = document.getElementById('contact-profile');
     contactProfile.innerHTML = '';
+    removePopup('edit-add-contact-pop-up');
 }
 
 
@@ -135,4 +136,34 @@ function setActiveContact(event, index) {
     }
     let contact = document.getElementById(`contact-in-list${index}`);
     contact.classList.add('contact-in-list-active');
+}
+
+
+function saveEditedContact() {
+    let contactNameInput = document.getElementById('contact-name-input');
+    let contactEmailInput = document.getElementById('contact-email-input');
+    let contactPhoneInput = document.getElementById('contact-phone-input');
+    let name = contactNameInput.value;
+    let email = contactEmailInput.value;
+    let phone = contactPhoneInput.value;
+    let editedContact = {
+        firstName: getUserName('first', name),
+        lastName: getUserName('last', name),
+        color: getUserColor(),
+        eMail: email,
+        phone: phone
+    }
+    let foundContact = contacts.find(contact => contact.eMail === email);
+    if (foundContact) {
+        let contactIndex = contacts.indexOf(foundContact);
+        let contact = contacts[contactIndex];
+        contact.firstName = getUserName('first', name);
+        contact.lastName = getUserName('last', name);
+        contact.eMail = email;
+        contact.phone = phone;
+    } else {
+        contacts.push(editedContact);
+    }
+    storeContacts();
+    removePopup('edit-add-contact-pop-up');
 }

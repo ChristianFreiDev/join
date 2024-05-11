@@ -75,10 +75,70 @@ function getInitials(user) {
  * This function returns a random user color.
  * @returns {string} random user color, values ranging from user-color0 to user-color14
  */
-function getUsercolor() {
+function getUserColor() {
     let colorNumber = Math.floor(Math.random() * 15);
     return `user-color${colorNumber}`;
 }
+
+
+function getUserName(type, name) {
+    name = name.trim();
+    let whitespaces = [];
+    let firstName = '';
+    let firstNames = [];
+    let lastName = '';
+    let whitspaceCounter = 0;
+    do {
+        if (whitespaces.length === 0) {
+            whitespaces.push(name.indexOf(' '));
+        } else if (name[whitespaces[whitespaces.length - 1] + whitspaceCounter] != ' ') {
+            whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1 + whitspaceCounter));
+            whitspaceCounter = 0;
+        } else {
+            whitspaceCounter++;
+        }
+    }
+    while (whitespaces[whitespaces.length - 1] != -1);
+    if (whitespaces.length <= 1) {
+        if (type === 'first') {
+            return formatStringAsName(name);
+        } else if (type === 'last') {
+            return ''
+        }
+    } else if (whitespaces.length === 2) {
+        if (type === 'first') {
+            return formatStringAsName(name.slice(0, whitespaces[0]));
+        } else if (type === 'last') {
+            return formatStringAsName(name.slice(whitespaces[0] + 1, name.length));
+        }
+    } else {
+        for (let i = 0; i < whitespaces.length; i++) {
+            if (i === 0) {
+                firstNames.push(formatStringAsName(name.slice(0, whitespaces[0])));
+            } else if (i < whitespaces.length - 2) {
+                firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i] + 1)));
+            } else if (i == whitespaces.length - 2) {
+                firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i])));
+            } else {
+                lastName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, name.length));
+            }
+        }
+        firstName = firstNames.toString().replace(',', ' ');
+        if (type === 'first') {
+            return firstName;
+        } else if (type === 'last') {
+            return lastName;
+        }
+    }
+    // let firstName = getFirstName(name);
+    // let lastName = getLastname(name);
+}
+
+
+function formatStringAsName(name) {
+    return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
+}
+
 
 
 function checkForLogin(protected = true) {
@@ -245,7 +305,6 @@ function removePopups() {
     removePopup('open-task-pop-up');
     removePopup('move-task-pop-up');
     removePopup('edit-add-contact-pop-up');
-    clearForm();
 }
 
 
