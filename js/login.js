@@ -256,15 +256,20 @@ async function checkSignupValues() {
     let passwordConfirm = document.getElementById('signup-password-confirm-input').value;
     if (password === passwordConfirm) {
         await loadUsers();
-        let emailAlreadyExists = checkEmail(email);
-        let userObject = createUserObject(name, email, password);
-        if (!emailAlreadyExists) {
-            await signupUser(userObject);
-        }
+        await validateUser(name, email, password);
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
     }
 }
+
+async function validateUser(name, email, password) {
+    let emailAlreadyExists = checkEmail(email);
+    let userObject = createUserObject(name, email, password);
+    if (!emailAlreadyExists) {
+        await signupUser(userObject);
+    }
+}
+
 
 async function signupUser(userObject) {
     users.push(userObject);
@@ -325,25 +330,21 @@ function getUserName(type, name) {
 }
 
 function getNameFromUnderThreeInputs(type, whitespaces, name) {
-    if (whitespaces.length <= 1) {
-        if (type === 'first') {
-            return formatStringAsName(name);
-        } else if (type === 'last') {
-            return ''
-        }
-    } else if (whitespaces.length === 2) {
-        if (type === 'first') {
-            return formatStringAsName(name.slice(0, whitespaces[0]));
-        } else if (type === 'last') {
-            return formatStringAsName(name.slice(whitespaces[0] + 1, name.length));
-        }
+    if (whitespaces.length <= 1 && type === 'first') {
+        return formatStringAsName(name);
+    } else if (whitespaces.length <= 1 && type === 'last') {
+        return ''
+    } else if (whitespaces.length === 2 && type === 'first') {
+        return formatStringAsName(name.slice(0, whitespaces[0]));
+    } else if (whitespaces.length === 2 && type === 'last') {
+        return formatStringAsName(name.slice(whitespaces[0] + 1, name.length));
     } else {
-         return getNameFromOverThreeInputs(type, whitespaces, name);
+        return getNameFromOverThreeInputs(type, whitespaces, name);
     }
 }
 
 
-function  getNameFromOverThreeInputs(type, whitespaces, name) {
+function getNameFromOverThreeInputs(type, whitespaces, name) {
     let firstName;
     let lastName = '';
     let firstNames = [];
