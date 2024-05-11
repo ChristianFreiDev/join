@@ -320,10 +320,11 @@ function createUserObject(name, email, password) {
 
 function getUserName(type, name) {
     name = name.trim();
-    let firstName = '';
-    let firstNames = [];
-    let lastName = '';
     let whitespaces = getWhitespaces(name);
+    return getNameFromUnderThreeInputs(type, whitespaces, name);
+}
+
+function getNameFromUnderThreeInputs(type, whitespaces, name) {
     if (whitespaces.length <= 1) {
         if (type === 'first') {
             return formatStringAsName(name);
@@ -337,26 +338,33 @@ function getUserName(type, name) {
             return formatStringAsName(name.slice(whitespaces[0] + 1, name.length));
         }
     } else {
-        for (let i = 0; i < whitespaces.length; i++) {
-            if (i === 0) {
-                firstNames.push(formatStringAsName(name.slice(0, whitespaces[0])));
-            } else if (i < whitespaces.length - 2) {
-                firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i] + 1)));
-            } else if (i == whitespaces.length - 2) {
-                firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i])));
-            } else {
-                lastName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, name.length));
-            }
-        }
-        firstName = firstNames.toString().replace(',', ' ');
-        if (type === 'first') {
-            return firstName;
-        } else if (type === 'last') {
-            return lastName;
-        }
+         return getNameFromOverThreeInputs(type, whitespaces, name);
     }
 }
 
+
+function  getNameFromOverThreeInputs(type, whitespaces, name) {
+    let firstName;
+    let lastName = '';
+    let firstNames = [];
+    for (let i = 0; i < whitespaces.length; i++) {
+        if (i === 0) {
+            firstNames.push(formatStringAsName(name.slice(0, whitespaces[0])));
+        } else if (i < whitespaces.length - 2) {
+            firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i] + 1)));
+        } else if (i == whitespaces.length - 2) {
+            firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i])));
+        } else {
+            lastName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, name.length));
+        }
+    }
+    firstName = firstNames.toString().replace(',', ' ');
+    if (type === 'first') {
+        return firstName;
+    } else if (type === 'last') {
+        return lastName;
+    }
+}
 
 function getWhitespaces(name) {
     let whitespaces = [];
