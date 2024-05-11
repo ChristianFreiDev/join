@@ -255,32 +255,33 @@ async function checkSignupValues() {
     let password = document.getElementById('signup-password-input').value;
     let passwordConfirm = document.getElementById('signup-password-confirm-input').value;
     if (password === passwordConfirm) {
-        let emailAlreadyExists = checkEmail();
+        await loadUsers();
+        let emailAlreadyExists = checkEmail(email);
         let userObject = createUserObject(name, email, password);
         if (!emailAlreadyExists) {
-            signupUser(userObject);
+            await signupUser(userObject);
         }
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
     }
 }
 
-async function signupUser() {
+async function signupUser(userObject) {
     users.push(userObject);
-    await storeUsers();
+    // await storeUsers();
     showSuccessMessage();
     setTimeout(hideSuccessMessage, 1000);
 }
 
-async function checkEmail() {
-    await loadUsers();
+function checkEmail(email) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].eMail === email.toLocaleLowerCase()) {
             document.querySelector('#signup-email-input ~ p').classList.remove('display-none');
             document.querySelector('#signup-password-confirm-input ~ p').classList.add('display-none');
-            emailAlreadyExists = true;
+            return true;
         }
     }
+    return false;
 }
 
 function showSuccessMessage() {
@@ -306,15 +307,13 @@ function createUserObject(name, email, password) {
     let lastName = getUserName('last', name);
     let id = getHighestId();
     let color = getUsercolor();
-    let userPassword = `${password}`;
-    let eMail = `${email}`;
     return {
         firstName: firstName,
         lastName: lastName,
         id: id,
         color: color,
-        password: userPassword,
-        eMail: eMail
+        password: `${password}`,
+        eMail: `${email}`
     };
 }
 
