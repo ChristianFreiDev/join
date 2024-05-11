@@ -1,6 +1,8 @@
 let loggedIn = false;
 
-
+/**
+ * This function initialize the log in.
+ */
 async function initIndex() {
     document.getElementById('login-overlay').classList.add('animate-overlay');
     document.getElementById('login-logo').classList.add('animate-logo');
@@ -39,30 +41,6 @@ function rememberedUser() {
     return loadVariableFromLocalStorage('rememberUserId');
 }
 
-// async function init(){
-//     loadUsers();
-// }
-
-
-
-async function register() {
-    registerBtn.disabled = true;
-    users.push({
-        email: email.value,
-        password: password.value,
-    });
-    await setItem('users', JSON.stringify(users));
-    resetForm();
-}
-
-
-
-function resetForm() {
-    email.value = '';
-    password.value = '';
-    registerBtn.disabled = false;
-}
-
 
 /**
  *  This function opens the sign-up menu and hides the login menu by adding and removing the class "display-none".
@@ -91,6 +69,9 @@ function openLogInMenu() {
 }
 
 
+/**
+ * This function clears the inputs in the sign up field.
+ */
 function clearSignupField() {
     document.getElementById('signup-name-input').value = '';
     document.getElementById('signup-email-input').value = '';
@@ -98,7 +79,9 @@ function clearSignupField() {
     document.getElementById('signup-password-confirm-input').value = '';
 }
 
-
+ /**
+  * This function hides the failure messages in the sign up field by adding the class "displa-none".
+  */
 function closeSignupFailureMessages() {
     document.querySelector('#signup-email-input ~ p').classList.add('display-none');
     document.querySelector('#signup-password-confirm-input ~ p').classList.add('display-none');
@@ -124,6 +107,12 @@ function login(guest = false) {
 }
 
 
+/**
+ * This function checks if the inputed emali exsits in the users array.
+ * 
+ * @param {string} email 
+ * @returns {boolean} true, if no email was found.
+ */
 function checkEmail(email) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].eMail === email) {
@@ -134,6 +123,12 @@ function checkEmail(email) {
 }
 
 
+/**
+ * This function checks if the inputed password exsits in the users array.
+ * 
+ * @param {string} password 
+ * @returns {boolean} true, if no password was found.
+ */
 function checkPassword(password) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].password === password) {
@@ -162,6 +157,12 @@ function checkUserValues() {
 }
 
 
+/**
+ * This function catches the log in failures and gives the user feedback.
+ * 
+ * @param {string} email 
+ * @param {string} password 
+ */
 function catchLoginFailure(email, password) {
     let emailIsWrong = checkEmail(email);
     let passwordIsWrong = checkPassword(password);
@@ -243,6 +244,9 @@ function goToSummary() {
 }
 
 
+/**
+ * This function signs an user up.
+ */
 function signup() {
     document.getElementById('signup-button').disabled = true;
     checkSignupValues();
