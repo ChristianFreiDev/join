@@ -337,6 +337,7 @@ function clearForm(){
     document.getElementById('create-task-button').disabled = true;
     document.getElementById('create-task-button').classList.remove('create-task-enabled');
     clickPriorityButton('Medium', 'add-task');
+    closeAssignedToList();
 }
 
 /**
@@ -346,10 +347,17 @@ function setBorderGrey(){
     let title = document.getElementById('input-title');
     let date = document.getElementById('input-due-date');
     let category = document.getElementById('input-category');
+    let description = document.getElementById('input-description');
+    let subTask = document.getElementById('add-task-subtask-input');
+    let assignedTo = document.getElementById('add-task-drop-down-input');
+    assignedTo.value = '';
 
     title.style.border = "1px solid var(--color-input-light-gray)";
     date.style.border = "1px solid var(--color-input-light-gray)";
     category.style.border = "1px solid var(--color-input-light-gray)";
+    description.style.border = "1px solid var(--color-input-light-gray)";
+    subTask.style.border = "1px solid var(--color-input-light-gray)";
+    assignedTo.style.border = "1px solid var(--color-input-light-gray)";
 }
 
 
