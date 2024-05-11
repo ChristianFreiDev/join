@@ -91,9 +91,18 @@ function removeUserFromAssignedTasks(contactEMail) {
 
 function editContact(contactEMail, index) {
     let contact = contacts.find(contact => contact.eMail === contactEMail);
-    let openTaskPopup = document.getElementById('edit-add-contact-pop-up');
-    openTaskPopup.setAttribute('onclick', 'doNotClose(event)');
-    openTaskPopup.innerHTML = contactEditForm(contact, index);
+    let openEditAddContactPopup = document.getElementById('edit-add-contact-pop-up');
+    openEditAddContactPopup.setAttribute('onclick', 'doNotClose(event)');
+    openEditAddContactPopup.innerHTML = contactEditForm(contact, index);
+    centerPopup('edit-add-contact-pop-up');
+}
+
+
+function openAddContactPopup(contactEMail, index) {
+    let contact = contacts.find(contact => contact.eMail === contactEMail);
+    let openEditAddContactPopup = document.getElementById('edit-add-contact-pop-up');
+    openEditAddContactPopup.setAttribute('onclick', 'doNotClose(event)');
+    openEditAddContactPopup.innerHTML = addContactForm(contact, index);
     centerPopup('edit-add-contact-pop-up');
 }
 

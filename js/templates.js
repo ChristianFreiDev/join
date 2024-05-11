@@ -564,3 +564,36 @@ function contactEditForm(contact, index) {
         </form>
     </div>`;
 }
+
+
+function addContactForm(contact, index) {
+    return /* html */ `<div class="edit-add-contact-pop-up-container">
+        <div class="edit-add-contact-pop-up-left-side">
+            <img src="assets/img/light-logo.svg" alt="">
+            <h2>Edit&nbspcontact</h2>
+        </div>
+        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(${index}); return false">
+        <div class="edit-add-contact-pop-up-content">
+            ${initialAvatarVeryLargeTemplate(contact)}
+            <div class="contact-inputs">
+                <div class="input-box">
+                    <input id="contact-name-input" class="input input-padding-size5 login-input" type="text" placeholder="Name" required>
+                    <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
+                </div>
+                <div class="input-box">
+                    <input id="contact-email-input" class="input input-padding-size5 login-input" type="email" placeholder="Email" required>
+                    <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
+                </div>
+                <div class="input-box">
+                    <input id="contact-phone-input" class="input input-padding-size5 login-input" type="text" placeholder="Phone" required>
+                    <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
+                </div>
+            </div>
+            </div>
+            <div class="contact-pop-up-buttons-container">
+                <button class="button light-button button-padding-size3" type="button">Delete</button>
+                <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
+            </div>
+        </form>
+    </div>`;
+}
