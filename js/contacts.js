@@ -112,6 +112,7 @@ async function deleteContact(contactEMail) {
     renderContacts();
     let contactProfile = document.getElementById('contact-profile');
     contactProfile.innerHTML = '';
+    removePopup('edit-add-contact-pop-up');
 }
 
 
@@ -164,4 +165,5 @@ function saveEditedContact() {
         contacts.push(editedContact);
     }
     storeContacts();
+    removePopup('edit-add-contact-pop-up');
 }

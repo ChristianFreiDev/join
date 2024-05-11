@@ -255,32 +255,33 @@ async function checkSignupValues() {
     let password = document.getElementById('signup-password-input').value;
     let passwordConfirm = document.getElementById('signup-password-confirm-input').value;
     if (password === passwordConfirm) {
-        let emailAlreadyExists = checkEmail();
+        await loadUsers();
+        let emailAlreadyExists = checkEmail(email);
         let userObject = createUserObject(name, email, password);
         if (!emailAlreadyExists) {
-            signupUser(userObject);
+            await signupUser(userObject);
         }
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
     }
 }
 
-async function signupUser() {
+async function signupUser(userObject) {
     users.push(userObject);
-    await storeUsers();
+    // await storeUsers();
     showSuccessMessage();
     setTimeout(hideSuccessMessage, 1000);
 }
 
-async function checkEmail() {
-    await loadUsers();
+function checkEmail(email) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].eMail === email.toLocaleLowerCase()) {
             document.querySelector('#signup-email-input ~ p').classList.remove('display-none');
             document.querySelector('#signup-password-confirm-input ~ p').classList.add('display-none');
-            emailAlreadyExists = true;
+            return true;
         }
     }
+    return false;
 }
 
 function showSuccessMessage() {
@@ -305,17 +306,74 @@ function createUserObject(name, email, password) {
     let firstName = getUserName('first', name);
     let lastName = getUserName('last', name);
     let id = getHighestId();
-    let color = getUserColor();
-    let userPassword = `${password}`;
-    let eMail = `${email}`;
+    let color = getUsercolor();
     return {
         firstName: firstName,
         lastName: lastName,
         id: id,
         color: color,
-        password: userPassword,
-        eMail: eMail
+        password: `${password}`,
+        eMail: `${email}`
     };
+}
+
+
+function getUserName(type, name) {
+    name = name.trim();
+    let whitespaces = [];
+    let firstName = '';
+    let firstNames = [];
+    let lastName = '';
+    let whitspaceCounter = 0;
+    do {
+        if (whitespaces.length === 0) {
+            whitespaces.push(name.indexOf(' '));
+        } else if (name[whitespaces[whitespaces.length - 1] + whitspaceCounter] != ' ') {
+            whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1 + whitspaceCounter));
+            whitspaceCounter = 0;
+        } else {
+            whitspaceCounter++;
+        }
+    }
+    while (whitespaces[whitespaces.length - 1] != -1);
+    if (whitespaces.length <= 1) {
+        if (type === 'first') {
+            return formatStringAsName(name);
+        } else if (type === 'last') {
+            return ''
+        }
+    } else if (whitespaces.length === 2) {
+        if (type === 'first') {
+            return formatStringAsName(name.slice(0, whitespaces[0]));
+        } else if (type === 'last') {
+            return formatStringAsName(name.slice(whitespaces[0] + 1, name.length));
+        }
+    } else {
+        for (let i = 0; i < whitespaces.length; i++) {
+            if (i === 0) {
+                firstNames.push(formatStringAsName(name.slice(0, whitespaces[0])));
+            } else if (i < whitespaces.length - 2) {
+                firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i] + 1)));
+            } else if (i == whitespaces.length - 2) {
+                firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i])));
+            } else {
+                lastName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, name.length));
+            }
+        }
+        firstName = firstNames.toString().replace(',', ' ');
+        if (type === 'first') {
+            return firstName;
+        } else if (type === 'last') {
+            return lastName;
+        }
+    }
+    // let firstName = getFirstName(name);
+    // let lastName = getLastname(name);
+}
+
+
+function formatStringAsName(name) {
+    return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
 }
 
 
