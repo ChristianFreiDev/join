@@ -506,8 +506,8 @@ function contactProfileTemplate(contact, contactColor) {
         <div class="contact-initial-avatar-large ${contactColor}">${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}</div>
             <div class="contact-name-and-buttons-container">
                 <h3>${contact.firstName} ${contact.lastName}</h3>
-                <div class="contact-buttons" onclick="editContact('${contact.eMail}')">
-                    <div class="contact-button">
+                <div class="contact-buttons">
+                    <div class="contact-button" onclick="editContact('${contact.eMail}')">
                         ${editButtonSvg()}
                         <span>Edit</span>
                     </div>
