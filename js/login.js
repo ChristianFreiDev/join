@@ -247,13 +247,16 @@ function goToSummary() {
 /**
  * This function signs an user up.
  */
-function signup() {
+async function signup() {
     document.getElementById('signup-button').disabled = true;
-    checkSignupValues();
+    await checkSignupValues();
     document.getElementById('signup-button').disabled = false;
 }
 
 
+/**
+ * This function checks the inputed values for sign up and gives the user feedback.
+ */
 async function checkSignupValues() {
     let name = document.getElementById('signup-name-input').value;
     let email = document.getElementById('signup-email-input').value;
@@ -268,6 +271,14 @@ async function checkSignupValues() {
 }
 
 
+/**
+ * This function checks if the inputed email already exsits and sign up by success.
+ * Otherwise the function gives the user feedback.
+ * 
+ * @param {string} name 
+ * @param {string} email 
+ * @param {string} password 
+ */
 async function validateUser(name, email, password) {
     let emailAlreadyExists = checkEmailForSignup(email);
     let userObject = createUserObject(name, email, password);
@@ -277,6 +288,12 @@ async function validateUser(name, email, password) {
 }
 
 
+/**
+ * This function pushes the incoming object in the users array,
+ * stores the users array and gives the user feedback of successfull sign up.
+ * 
+ * @param {object} userObject 
+ */
 async function signupUser(userObject) {
     users.push(userObject);
     await storeUsers();
@@ -285,6 +302,12 @@ async function signupUser(userObject) {
 }
 
 
+/**
+ * This function checks if the email already exists in users array.
+ * 
+ * @param {string} email 
+ * @returns {boolean} true, if an email was found.
+ */
 function checkEmailForSignup(email) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].eMail === email.toLocaleLowerCase()) {
@@ -297,6 +320,9 @@ function checkEmailForSignup(email) {
 }
 
 
+/**
+ * This function animate the success message for sign up.
+ */
 function showSuccessMessage() {
     document.querySelector('body').style.position = 'relative';
     let overlay = document.getElementById('login-overlay');
@@ -307,6 +333,9 @@ function showSuccessMessage() {
 }
 
 
+/**
+ * This function hides the success message for sign up.
+ */
 function hideSuccessMessage() {
     let overlay = document.getElementById('login-overlay');
     let message = document.querySelector('.signupSuccessMessage');
@@ -317,6 +346,14 @@ function hideSuccessMessage() {
 }
 
 
+/**
+ * This function creates an user object.
+ * 
+ * @param {string} name 
+ * @param {string} email 
+ * @param {string} password 
+ * @returns {object} created based on user data.
+ */
 function createUserObject(name, email, password) {
     let firstName = getUserName('first', name);
     let lastName = getUserName('last', name);
@@ -333,6 +370,15 @@ function createUserObject(name, email, password) {
 }
 
 
+/**
+ * This function gets the first- or the last name(s) from input,
+ * by cutting of whitespaces at the start and end of the string,
+ * then get the used whithspace positions and saves them in an array.
+ * 
+ * @param {string} type 
+ * @param {string} name 
+ * @returns {Function} to get the users name.
+ */
 function getUserName(type, name) {
     name = name.trim();
     let whitespaces = getWhitespaces(name);
@@ -340,6 +386,14 @@ function getUserName(type, name) {
 }
 
 
+/**
+ * This function gets the user name by considering the used whitespaces under three used whitspaces.
+ * 
+ * @param {string} type 
+ * @param {Array} whitespaces 
+ * @param {string} name 
+ * @returns {Function} to format users name, or get users name considering used whitespaces over three times.
+ */
 function getNameFromUnderThreeInputs(type, whitespaces, name) {
     if (whitespaces.length <= 1 && type === 'first') {
         return formatStringAsName(name);
@@ -355,6 +409,14 @@ function getNameFromUnderThreeInputs(type, whitespaces, name) {
 }
 
 
+/**
+ * This function gets the user name by considering the uses whitespaces over three used whitespaces.
+ * 
+ * @param {string} type 
+ * @param {Array} whitespaces 
+ * @param {string} name 
+ * @returns {strin} the first or the last name.
+ */
 function getNameFromOverThreeInputs(type, whitespaces, name) {
     let firstName = '';
     let firstNames = [];
@@ -371,6 +433,15 @@ function getNameFromOverThreeInputs(type, whitespaces, name) {
 }
 
 
+/**
+ * This function gets the user name by entering multible first names.
+ * 
+ * @param {Array} whitespaces 
+ * @param {string} name 
+ * @param {string} firstNames 
+ * @param {string} lastName 
+ * @returns {object} including th fist names as an array and the last name as a string.
+ */
 function getNamesThroughWhithspaces(whitespaces, name, firstNames, lastName) {
     for (let i = 0; i < whitespaces.length; i++) {
         if (i === 0) {
@@ -387,6 +458,12 @@ function getNamesThroughWhithspaces(whitespaces, name, firstNames, lastName) {
 }
 
 
+/**
+ * This function gets the necessary whitespaces.
+ * 
+ * @param {string} name 
+ * @returns {Array} including the positions of the necessary whitespaces.
+ */
 function getWhitespaces(name) {
     let whitespaces = [];
     let whitespaceCounter = 0;
@@ -399,6 +476,17 @@ function getWhitespaces(name) {
     return whitespaces;
 }
 
+
+/**
+ * This function checks is the actual position is a necessary whithspace.
+ * If its a necessary position, the position will pushed in the whitespaces array.
+ * If its not necessary, the whithspace counter will increased.
+ * 
+ * @param {Array} whitespaces 
+ * @param {number} whitespaceCounter 
+ * @param {string} name 
+ * @returns {Array} including the whitespace array and the whitespace counter number.
+ */
 function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
     if (whitespaces.length === 0) {
         whitespaces.push(name.indexOf(' '));
@@ -411,11 +499,23 @@ function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
     return [whitespaces, whitespaceCounter];
 }
 
+
+/**
+ * This function formates the incoming string as a name.
+ * 
+ * @param {string} name 
+ * @returns {string} the name with first Character in upper case und the following characters in lower case.
+ */
 function formatStringAsName(name) {
     return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
 }
 
 
+/**
+ * This function gets the highest id and
+ * 
+ * @returns {number} id increased by 1.
+ */
 function getHighestId() {
     return users[users.length - 1].id + 1;
 }
@@ -474,6 +574,7 @@ function changePasswordVisibility(idIcon, idInput, init = false) {
         input.focus(this.value);
     }
 }
+
 
 /**
  * This function changes input icon, input type and cursor style to visibility on.
