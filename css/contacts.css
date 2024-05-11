@@ -366,6 +366,15 @@
     #contact-list {
         padding: 16px 16px 98px;
     }
+    .edit-add-contact-pop-up-right-side {
+        width: 90vw;
+    }
+    .edit-add-contact-pop-up-content, .contact-inputs, .input-box, .login-input {
+        width: 100%;
+    }
+    .edit-add-contact-pop-up-left-side {
+        padding: 0 16px;
+    }
 }
 
 @media (max-width: 420px) {
@@ -380,10 +389,13 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 360px) {
     .contact-in-list {
         gap: 18px;
         padding: 15px 15px;
+    }
+    h2 {
+        font-size: 36px;
     }
 }
 
