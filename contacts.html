@@ -21,7 +21,7 @@
 </head>
 <body onload="initContacts()">
     <div class="outer-container">
-        <nav id="mobile-menu" class="display-none" w3-include-html="assets/templates/mobile-menu.html"></nav>
+        <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="pop-up-container" class="pop-up-container" onclick="removePopups()">
             <div id="edit-add-contact-pop-up" class="pop-up very-large-pop-up" onclick="doNotClose(event)"></div>
@@ -48,6 +48,7 @@
                 </div>
             </div>
         </div>
+        <button class="button dark-button add-contact-button-mobile"><img src="assets/img/add-contact-icon.svg" alt="add contact icon" onclick="openAddContactPopup()"></button>
     </div>
 </body>
 </html>

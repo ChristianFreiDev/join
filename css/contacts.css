@@ -39,6 +39,15 @@
     font-weight: 700;
 }
 
+.add-contact-button-mobile {
+    display: none;
+    position: absolute;
+    right: 16px;
+    bottom: 112px;
+    border-radius: 50%;
+    padding: 12px;
+}
+
 #contact-list {
     position: absolute;
     top: 0;
@@ -83,6 +92,7 @@
 .contact-initial-avatar-small {
     color: #FFFFFF;
     height: 42px;
+    min-width: 42px;
     width: 42px;
     display: flex;
     justify-content: center;
@@ -285,5 +295,37 @@
     }
     .contacts-header-separator-horizontal {
         display: none;
+    }
+}
+
+@media (max-width: 920px) {
+    .add-contact-button-container, .add-contact-button {
+        display: none;
+    }
+    .add-contact-button-mobile {
+        display: flex;
+    }
+    .contacts-left-side {
+        width: 100%;
+        padding: 0;
+    }
+    #contact-list {
+        margin: 0;
+        padding: 24px 38px 104px;
+    }
+    .contacts-right-side {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    #contact-list {
+        padding: 24px 24px 104px;
+    }
+}
+
+@media (max-width: 500px) {
+    #contact-list {
+        padding: 16px 16px 98px;
     }
 }
