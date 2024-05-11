@@ -539,20 +539,20 @@ function contactEditForm(contact) {
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Edit&nbspcontact</h2>
         </div>
-        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side">
+        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(); return false">
         <div class="edit-add-contact-pop-up-content">
             ${initialAvatarVeryLargeTemplate(contact)}
             <div class="contact-inputs">
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" type="text" value="${contact.firstName} ${contact.lastName}" placeholder="Name">
+                    <input id="contact-name-input" class="input input-padding-size5 login-input" type="text" value="${contact.firstName} ${contact.lastName}" placeholder="Name" required>
                     <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
                 </div>
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" type="email" value="${contact.eMail}" placeholder="Email">
+                    <input id="contact-email-input" class="input input-padding-size5 login-input" type="email" value="${contact.eMail}" placeholder="Email" required>
                     <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
                 </div>
                 <div class="input-box">
-                    <input class="input input-padding-size5 login-input" type="text" value="${contact.phone}" placeholder="Phone">
+                    <input id="contact-phone-input" class="input input-padding-size5 login-input" type="text" value="${contact.phone}" placeholder="Phone" required>
                     <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
                 </div>
             </div>
