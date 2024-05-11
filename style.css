@@ -1,7 +1,7 @@
 :root {
     --color-large-screen-background: hsl(198, 76%, 85%);
     --color-main: hsl(210, 13%, 97%);
-    --color-menu: hsl(214, 25%, 22%);
+    --color-menu: hsl(215, 26%, 22%);
     --color-menu-hover: hsl(216, 36%, 26%);
     --color-menu-active: hsl(216, 69%, 11%);
     --color-menu-font: hsl(0, 0%, 80%);
@@ -262,15 +262,19 @@ textarea {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    gap: 4px;
 }
 
 .dark-button {
     color: #FFFFFF;
     background-color: var(--color-menu);
+    font-size: 21px;
+    font-weight: 700;
 }
 
 .dark-button:hover {
     background-color: var(--color-accent);
+    box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .dark-button:active {
@@ -287,6 +291,10 @@ textarea {
 .light-button:hover {
     color: var(--color-accent);
     outline: 2px solid var(--color-accent);
+}
+
+.button-padding-size0 {
+    padding: 12px 0;
 }
 
 .button-padding-size1 {
@@ -313,11 +321,6 @@ textarea {
     justify-content: center;
     align-items: center;
     gap: 4px;
-}
-
-.medium-dark-button:hover {
-    background-color: var(--color-accent);
-    box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .medium-dark-button-icon {
@@ -379,6 +382,12 @@ textarea {
     box-shadow: 0px 0px 4px 0px hsla(0, 0%, 0%, 0.1);
     font-size: 47px;
     font-weight: 500;
+}
+
+.login-input {
+    width: 422px;
+    z-index: 1;
+    padding-right: 64px;
 }
 
 /* Scrollbar */

@@ -33,11 +33,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-    color: #FFFFFF;
-    background-color: #2A3647;
     width: 352px;
-    padding: 12px 0;
-    border: 1px solid #2A3647;
     border-radius: 10px;
     font-size: 21px;
     font-weight: 700;
@@ -269,6 +265,14 @@
     align-items: center;
     padding-left: 97px;
     padding-right: 48px;
+}
+
+.cancel-button-icon {
+    stroke: var(--color-menu);
+}
+
+#cancel-button:hover .cancel-button-icon {
+    stroke: var(--color-accent);
 }
 
 @media (max-width: 1470px) {

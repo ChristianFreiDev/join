@@ -179,12 +179,6 @@ input[type="checkbox"] {
     width: 16px;
 }
 
-.login-input {
-    width: 422px;
-    z-index: 1;
-    padding-right: 64px;
-}
-
 form {
     display: flex;
     flex-direction: column;

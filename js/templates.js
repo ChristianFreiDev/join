@@ -494,6 +494,14 @@ function deleteButtonSvg() {
 }
 
 
+function cancelIconSVG() {
+    return /* html */ `<svg class="cancel-button-icon" width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    `;
+}
+
+
 /**
  * This function generates a contact profile HTML template.
  * @param {Object} contact 
@@ -593,7 +601,7 @@ function addContactForm(contact, index) {
             </div>
             </div>
             <div class="contact-pop-up-buttons-container">
-                <button class="button light-button button-padding-size2" type="button">Cancel</button>
+                <button id="cancel-button" class="button light-button button-padding-size2" type="button">Cancel ${cancelIconSVG()}</button>
                 <button class="button dark-button button-padding-size2">Create contact <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
             </div>
         </form>
