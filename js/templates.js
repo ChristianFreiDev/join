@@ -99,7 +99,7 @@ function editTaskTemplate(task) {
         <form class="edit-task-form" onsubmit="onSubmitEditTaskForm(${task.id}); return false">  <!--              start  -->
             <div class="open-task-pop-up-content">
                 <div class="form-label-and-input-container">
-                    <label for="edit-task-title-input" class="task-form-label">Title</label>
+                    <label for="edit-task-title-input" class="task-form-label">Title <span class="color-red">*</span></label>
                     <input id="edit-task-title-input" class="input input-padding-size4 pop-up-input" type="text" placeholder="Enter a title" value="${task.title}" autocomplete="off" onkeyup="checkEditTitleRequirement()">
                     <div class="error-message"></div>
                 </div>
@@ -108,7 +108,7 @@ function editTaskTemplate(task) {
                     <textarea id="edit-task-description-textarea" class="input pop-up-input" type="text" placeholder="Enter a description">${task.description}</textarea>
                 </div>
                 <div class="form-label-and-input-container">
-                    <label for="edit-task-due-date" class="task-form-label">Due date</label>
+                    <label for="edit-task-due-date" class="task-form-label">Due date <span class="color-red">*</span></label>
                     <input id="edit-task-due-date" class="input input-padding-size3 pop-up-input" type="date" placeholder="Enter a due date" value="${task.dueDate}" required>
                     <div class="error-message"></div>
                 </div>
