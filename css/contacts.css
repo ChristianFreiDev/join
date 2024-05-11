@@ -329,3 +329,9 @@
         padding: 16px 16px 98px;
     }
 }
+
+@media(hover: none) {
+    .contact-in-list:hover {
+        background: var(--color-menu-hover);
+    }
+}
