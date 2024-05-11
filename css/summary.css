@@ -2,7 +2,7 @@
     display: flex;
     gap: 30px;
     align-items: center;
-    font-size: 2.7rem;
+    font-size: 27px;
     margin-bottom: 56px;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .summary-header-seperator-horizontal {
-    font-size: 6rem;
+    font-size: 60px;
     color: var(--color-accent);
 }
 
@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     gap: 28px;
-    font-size: 2rem;
+    font-size: 20px;
     margin-bottom: 127px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .summary-amount {
-    font-size: 6.4rem;
+    font-size: 64px;
 }
 
 .summary-status-icon-box {
@@ -127,11 +127,11 @@
 }
 
 #summary-greeting {
-    font-size: 4.7rem;
+    font-size: 47px;
 }
 
 #summary-greeting-name {
-    font-size: 6.4rem;
+    font-size: 64px;
     color: var(--color-accent);
 }
 
@@ -175,7 +175,8 @@
         background-color: var(--color-main);
         opacity: 1;
         z-index: 2;
-    } 
+    }
+
     to {
         opacity: 0;
     }
@@ -261,7 +262,79 @@
     }
 }
 
+@media (max-width: 700px) {
+    #summary-greeting-name {
+        font-size: 58px;
+    }
+
+    #summary-greeting {
+        font-size: 42px;
+    }
+
+    .summary-amount {
+        font-size: 58px;
+    }
+
+    .summary-overview-container {
+        font-size: 18px;
+    }
+
+    .summary-header {
+        font-size: 24px;
+    }
+
+    .summary-header-seperator-horizontal {
+        font-size: 54px;
+    }
+}
+
+@media (max-width: 600px) {
+    #summary-greeting-name {
+        font-size: 51px;
+    }
+
+    #summary-greeting {
+        font-size: 38px;
+    }
+
+    .summary-amount {
+        font-size: 51px;
+    }
+
+    .summary-overview-container {
+        font-size: 16px;
+    }
+
+    .summary-header {
+        font-size: 22px;
+    }
+
+    .summary-header-seperator-horizontal {
+        font-size: 48px;
+    }
+}
+
 @media (max-width: 500px) {
+    #summary-greeting-name {
+        font-size: 45px;
+    }
+
+    #summary-greeting {
+        font-size: 33px;
+    }
+
+    .summary-amount {
+        font-size: 45px;
+    }
+
+    .summary-header-seperator-horizontal {
+        font-size: 42px;
+    }
+
+    .summary-header {
+        font-size: 19px;
+    }
+
     #summary-priority-icon-box {
         height: 40px;
         width: 40px;
