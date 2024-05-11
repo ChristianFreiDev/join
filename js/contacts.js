@@ -154,14 +154,12 @@ function saveEditedContact(index) {
         eMail: email,
         phone: phone
     }
-    let foundContact = contacts.find(contact => contact.eMail === email);
+    let foundContact = contacts[index];
     if (foundContact) {
-        let contactIndex = contacts.indexOf(foundContact);
-        let contact = contacts[contactIndex];
-        contact.firstName = getUserName('first', name);
-        contact.lastName = getUserName('last', name);
-        contact.eMail = email;
-        contact.phone = phone;
+        foundContact.firstName = getUserName('first', name);
+        foundContact.lastName = getUserName('last', name);
+        foundContact.eMail = email;
+        foundContact.phone = phone;
     } else {
         contacts.push(editedContact);
     }
