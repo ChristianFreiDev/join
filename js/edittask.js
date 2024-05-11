@@ -14,10 +14,10 @@ function validateEditInputs(inputIds) {
     }
 };
 
+
 /**
  *  This function checks the requirements of the form and activates or deactivates the OK button
  */
-
 function checkEditOkButton(){
     if (
         document.getElementById('edit-task-title-input').value.length >= 1 &&
@@ -47,6 +47,10 @@ function editTitleRequirement() {
     }
 }
 
+
+/**
+ * This function is used to check the requirements after typing into the title-input
+ */
 function checkEditTitleRequirement() {
     editTitleRequirement();
     validateEditInputs(['edit-task-title-input']);
@@ -66,6 +70,7 @@ function editDueDateRequirement() {
         checkEditOkButton();
     }
 }
+
 
 /**
  * This function is used to check the requirements after choosing a date

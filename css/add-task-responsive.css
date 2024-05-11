@@ -48,34 +48,44 @@
     }
 
     #input-title {
-        width: 90%;
+        width: 100%;
     }
 
     #input-description {
-        width: 90%;
+        width: 100%;
     }
 
-    #input-description {
-        width: 90%;
+    #add-task-drop-down-input{
+        width: 100%;
     }
 
     #input-assigned-to {
-        width: 90%;
+        width: 100%;
     }
 
     #input-due-date {
-        width: 90%;
+        width: 100%;
     }
 
     .add-task-priority {
-        width: 90%;
+        width: 100%;
     }
 
     #input-category {
-        width: 90%;
+        width: 100%;
     }
 
-    #input-subtasks {
+    #add-task-subtask-input {
+        width: 100%;
+    }
+    .add-task-user-dropdown{
         width: 90%;
+    }
+    .priority-button{
+        flex-direction: column-reverse;
+        gap: 2px;
+    }
+    .create-task{
+        width: 160px;
     }
 }

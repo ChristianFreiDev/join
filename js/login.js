@@ -174,7 +174,6 @@ function catchLoginFailure(email, password) {
             document.querySelector('#login-password-input ~ p').classList.remove('display-none');
         }
     }
-
 }
 
 
@@ -246,7 +245,6 @@ function goToSummary() {
 function signup() {
     document.getElementById('signup-button').disabled = true;
     checkSignupValues();
-
     document.getElementById('signup-button').disabled = false;
 }
 
@@ -257,24 +255,31 @@ async function checkSignupValues() {
     let password = document.getElementById('signup-password-input').value;
     let passwordConfirm = document.getElementById('signup-password-confirm-input').value;
     if (password === passwordConfirm) {
-        let emailAlreadyExists = false;
-        await loadUsers();
+        let emailAlreadyExists = checkEmail();
         let userObject = createUserObject(name, email, password);
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].eMail === email.toLocaleLowerCase()) {
-                document.querySelector('#signup-email-input ~ p').classList.remove('display-none');
-                document.querySelector('#signup-password-confirm-input ~ p').classList.add('display-none');
-                emailAlreadyExists = true;
-            }
-        }
         if (!emailAlreadyExists) {
-            users.push(userObject);
-            await storeUsers();
-            showSuccessMessage();
-            setTimeout(hideSuccessMessage, 1000);
+            signupUser(userObject);
         }
     } else {
         document.querySelector('#signup-password-confirm-input ~ p').classList.remove('display-none');
+    }
+}
+
+async function signupUser() {
+    users.push(userObject);
+    await storeUsers();
+    showSuccessMessage();
+    setTimeout(hideSuccessMessage, 1000);
+}
+
+async function checkEmail() {
+    await loadUsers();
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].eMail === email.toLocaleLowerCase()) {
+            document.querySelector('#signup-email-input ~ p').classList.remove('display-none');
+            document.querySelector('#signup-password-confirm-input ~ p').classList.add('display-none');
+            emailAlreadyExists = true;
+        }
     }
 }
 
