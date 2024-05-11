@@ -54,7 +54,7 @@ function openAddTaskPopup(status) {
     centerPopup('add-task-pop-up');
     // This should actually change the onsubmit attribute of the form once the form supports it
     let createTaskButton = document.getElementById('create-task-button');
-    createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}')`);
+    createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}'); validateInputs(['input-title', 'input-due-date', 'input-category'])`);
     addInputEventListener('add-task');
     renderAssignedToList();
 }
@@ -536,6 +536,7 @@ async function initBoard() {
     await Promise.all([loadTasks(), loadUsers()]);
     // useOfflineData();
     renderTasks(tasks);
+    initAddTask();
 }
 
 
