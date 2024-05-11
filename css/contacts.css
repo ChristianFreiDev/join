@@ -1,6 +1,7 @@
 .contact-link {
     font-size: 19px;
     color: hsla(209, 100%, 47%, 1);
+    word-break: break-all;
 }
 
 .contacts-content-container {
@@ -135,6 +136,10 @@
     border: 3px solid var(--color-accent);
     border-radius: 3px;
     margin-top: 8px;
+}
+
+.pop-up-separator {
+    display: block;
 }
 
 .contact-initial-avatar-large {
@@ -286,6 +291,7 @@
     .contacts-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 8px;
     }
     .contacts-header-separator-vertical {
         display: block;
@@ -359,6 +365,25 @@
 @media (max-width: 500px) {
     #contact-list {
         padding: 16px 16px 98px;
+    }
+}
+
+@media (max-width: 420px) {
+    #contact-list {
+        padding: 8px 8px 98px;
+    }
+    .contact-in-list-info {
+        font-size: 18px;
+    }
+    .contact-link {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 380px) {
+    .contact-in-list {
+        gap: 18px;
+        padding: 15px 15px;
     }
 }
 

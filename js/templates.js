@@ -580,6 +580,7 @@ function addContactForm(contact, index) {
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Add&nbspcontact</h2>
             <span class="add-task-slogan">Tasks are better with a team!</span>
+            <div class="contacts-header-separator-vertical pop-up-separator"></div>
         </div>
         <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="addContact(); return false">
         <div class="edit-add-contact-pop-up-content">
