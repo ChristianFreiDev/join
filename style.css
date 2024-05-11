@@ -429,6 +429,10 @@ textarea {
         font-size: 56.25%;
     }
 
+    h2 {
+        font-size: 54px;
+    }
+
     .content-container {
         padding-top: var(--padding-content-top);
         padding-left: var(--padding-content-left);
@@ -441,6 +445,10 @@ textarea {
         /* This means the font size is 90% of the standard size */
         font-size: 50%;
     }
+
+    h2 {
+        font-size: 48px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -448,6 +456,10 @@ textarea {
         /* This means the font size is 90% of the standard size */
         font-size: 43.75%;
         --padding-content-left: 16px;
+    }
+
+    h2 {
+        font-size: 42px;
     }
 }
 
