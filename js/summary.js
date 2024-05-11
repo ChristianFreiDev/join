@@ -1,3 +1,8 @@
+let currentUserIndex = 0;
+let animationOver = false;
+let taskIndex = 0;
+
+
 /**
  * This function initialize the summary page by implementing header and nav.
  * Also by showing the right values of users tasks.
@@ -24,7 +29,6 @@ function initGreeting() {
     }
 }
 
-let animationOver = false;
 
 function checkWindowWidth() {
     if (document.body.scrollWidth < 1400 && animationOver) {
@@ -46,16 +50,20 @@ async function greetUser() {
         document.getElementById('summary-greeting-punctuation-mark').classList.add('display-none');
     }
     if (document.body.scrollWidth <= 1400) {
-        if (loadVariableFromLocalStorage('fromIndex') == 'true') {
-            document.getElementById('summary-greeting-box').classList.add('greeting-overlay');
-            setTimeout(animateOverlay, 1000);
-        } else {
-            document.getElementById('summary-greeting-box').classList.add('display-none');
-            document.getElementById('summary-greeting-box').classList.remove('greeting-overlay');
-        }
+        setGreetingToSmallScreen();
         setTimeout(hideOverlay, 3000);
     }
     animationOver = true;
+}
+
+function setGreetingToSmallScreen() {
+    if (loadVariableFromLocalStorage('fromIndex') == 'true') {
+        document.getElementById('summary-greeting-box').classList.add('greeting-overlay');
+        setTimeout(animateOverlay, 1000);
+    } else {
+        document.getElementById('summary-greeting-box').classList.add('display-none');
+        document.getElementById('summary-greeting-box').classList.remove('greeting-overlay');
+    }
 }
 
 
@@ -69,18 +77,21 @@ function checkDayTime() {
     let daytimeString = '';
     let date = new Date();
     let dayTime = date.getHours();
-    if (dayTime >= 3 && dayTime < 12) {
-        daytimeString = 'morning'
-    }
-    if (dayTime >= 12 && dayTime < 18) {
-        daytimeString = 'afternoon'
-    }
-    if (dayTime >= 18 || dayTime < 3) {
-        daytimeString = 'evening'
-    }
+    daytimeString = choosedaytimeString(dayTime);
     return daytimeString + `<span id="summary-greeting-punctuation-mark">,</span>`;
 }
 
+function choosedaytimeString(dayTime) {
+    if (dayTime >= 3 && dayTime < 12) {
+        return 'morning';
+    }
+    if (dayTime >= 12 && dayTime < 18) {
+        return 'afternoon';
+    }
+    if (dayTime >= 18 || dayTime < 3) {
+        return 'evening';
+    }
+}
 
 function changeGreeting(daytimeString) {
     document.getElementById('summary-greeting').innerHTML = `Good ${daytimeString}`;
@@ -102,7 +113,6 @@ function hideOverlay() {
     document.getElementById('summary-greeting-box').style.zIndex = '-1';
 }
 
-let currentUserIndex = 0;
 
 async function getUserName() {
     for (let i = 0; i < users.length; i++) {
@@ -290,7 +300,6 @@ function findPriority(prio, foundTasks) {
     return results;
 }
 
-let taskIndex = 0;
 
 function findNextDuedate() {
     let date = Infinity;
