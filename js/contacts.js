@@ -138,7 +138,8 @@ function setActiveContact(event, index) {
 }
 
 
-function saveEditedContact() {
+function saveEditedContact(event) {
+    event.preventDefault();
     let contactNameInput = document.getElementById('contact-name-input');
     let contactEmailInput = document.getElementById('contact-email-input');
     let contactPhoneInput = document.getElementById('contact-phone-input');
@@ -152,12 +153,17 @@ function saveEditedContact() {
         eMail: email,
         phone: phone
     }
-    let foundContact = contacts.find(contact => contact.eMail === contactEMail);
+    let foundContact = contacts.find(contact => contact.eMail === email);
     if (foundContact) {
         let contactIndex = contacts.indexOf(foundContact);
-        contacts[contactIndex] = editedContact;
+        let contact = contacts[contactIndex];
+        contact.firstName = getUserName('first', name);
+        contact.lastName = getUserName('last', name);
+        contact.eMail = email;
+        contact.phone = phone;
     } else {
         contacts.push(editedContact);
     }
     storeContacts();
+    return false;
 }

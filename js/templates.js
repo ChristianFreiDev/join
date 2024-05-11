@@ -539,7 +539,7 @@ function contactEditForm(contact) {
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Edit&nbspcontact</h2>
         </div>
-        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(); return false">
+        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(event); return false">
         <div class="edit-add-contact-pop-up-content">
             ${initialAvatarVeryLargeTemplate(contact)}
             <div class="contact-inputs">
@@ -558,8 +558,8 @@ function contactEditForm(contact) {
             </div>
             </div>
             <div class="contact-pop-up-buttons-container">
-                <button class="button light-button button-padding-size3" onclick="deleteContact('${contact.eMail}')">Delete</button>
-                <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon"></button>
+                <button class="button light-button button-padding-size3" type="button" onclick="deleteContact('${contact.eMail}')">Delete</button>
+                <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
             </div>
         </form>
     </div>`;
