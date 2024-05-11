@@ -257,3 +257,9 @@ document.addEventListener('keydown', event => {
         removePopups();
     }
 })
+
+
+async function initNotProtectedPage() {
+    await init();
+    checkForLogin(false);
+}
