@@ -55,12 +55,6 @@
 }
 
 #input-due-date {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    width: 440px;
     height: 48px;
 }
 
@@ -79,10 +73,6 @@
 }
 
 #input-category {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     width: 440px;
     height: 48px;
 }
