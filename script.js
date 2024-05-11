@@ -241,6 +241,7 @@ function removePopups() {
     removePopup('open-task-pop-up');
     removePopup('move-task-pop-up');
     removePopup('edit-add-contact-pop-up');
+    clearForm();
 }
 
 
