@@ -21,6 +21,7 @@ let temporaryTask = {
 async function initAddTask() {
     await init();
     await Promise.all([loadTasks(), loadUsers()]);
+    setMinDate();
     renderAssignedToList();
     addInputEventListener('add-task');
     mouseoverCheckRequirements();
@@ -131,26 +132,26 @@ async function addTaskFromAddTaskPage() {
 }
 
 
-/**
- * This function resets all values of the form.
- */
-function resetForm() {
-    temporaryCollaborators = [];
-    temporarySubtasks = [];
-    renderInitalAvatarsLargeInPopup('add-task');
-    let title = document.getElementById('input-title');
-    let description = document.getElementById('input-description');
-    let date = document.getElementById('input-due-date');
-    let category = document.getElementById('input-category');
-    let addTaskSubtaskInput = document.getElementById('add-task-subtask-input');
-    let addTaskSubtasksList = document.getElementById('add-task-subtasks-list');
-    title.value = '';
-    description.value = '';
-    date.value = '';
-    category.value = '';
-    addTaskSubtaskInput.value = '';
-    addTaskSubtasksList.innerHTML = '';
-}
+// /**
+//  * This function resets all values of the form.    
+//  */
+// function resetForm() {
+//     temporaryCollaborators = [];
+//     temporarySubtasks = [];
+//     renderInitalAvatarsLargeInPopup('add-task');
+//     let title = document.getElementById('input-title');
+//     let description = document.getElementById('input-description');
+//     let date = document.getElementById('input-due-date');
+//     let category = document.getElementById('input-category');
+//     let addTaskSubtaskInput = document.getElementById('add-task-subtask-input');
+//     let addTaskSubtasksList = document.getElementById('add-task-subtasks-list');
+//     title.value = '';
+//     description.value = '';
+//     date.value = '';
+//     category.value = '';
+//     addTaskSubtaskInput.value = '';
+//     addTaskSubtasksList.innerHTML = '';
+// }
 
 
 /**
@@ -314,6 +315,14 @@ function checkDueDateRequirement() {
     })
 }
 
+/**
+ * This function prevents the user from using a past date.
+ */
+function setMinDate() {
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("input-due-date").setAttribute("min", today);
+  }
+
 
 /**
  * This function is used to check the requirements after choosing a category
@@ -351,7 +360,6 @@ function setBorderGrey(){
     let description = document.getElementById('input-description');
     let subTask = document.getElementById('add-task-subtask-input');
     let assignedTo = document.getElementById('add-task-drop-down-input');
-    assignedTo.value = '';
 
     title.style.border = "1px solid var(--color-input-light-gray)";
     date.style.border = "1px solid var(--color-input-light-gray)";
@@ -359,6 +367,7 @@ function setBorderGrey(){
     description.style.border = "1px solid var(--color-input-light-gray)";
     subTask.style.border = "1px solid var(--color-input-light-gray)";
     assignedTo.style.border = "1px solid var(--color-input-light-gray)";
+    assignedTo.value = '';
 }
 
 
