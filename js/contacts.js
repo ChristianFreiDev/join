@@ -138,8 +138,7 @@ function setActiveContact(event, index) {
 }
 
 
-function saveEditedContact(event) {
-    event.preventDefault();
+function saveEditedContact() {
     let contactNameInput = document.getElementById('contact-name-input');
     let contactEmailInput = document.getElementById('contact-email-input');
     let contactPhoneInput = document.getElementById('contact-phone-input');
@@ -165,5 +164,4 @@ function saveEditedContact(event) {
         contacts.push(editedContact);
     }
     storeContacts();
-    return false;
 }

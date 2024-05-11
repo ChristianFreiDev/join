@@ -539,7 +539,7 @@ function contactEditForm(contact) {
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Edit&nbspcontact</h2>
         </div>
-        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(event); return false">
+        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(); return false">
         <div class="edit-add-contact-pop-up-content">
             ${initialAvatarVeryLargeTemplate(contact)}
             <div class="contact-inputs">
