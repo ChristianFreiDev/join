@@ -547,7 +547,7 @@ function contactEditForm(contact, index) {
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Edit&nbspcontact</h2>
         </div>
-        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(${index}); return false">
+        <form class="edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(${index}); return false">
         <div class="edit-add-contact-pop-up-content">
             ${initialAvatarVeryLargeTemplate(contact)}
             <div class="contact-inputs">
@@ -578,7 +578,8 @@ function addContactForm(contact, index) {
     return /* html */ `<div class="edit-add-contact-pop-up-container">
         <div class="edit-add-contact-pop-up-left-side">
             <img src="assets/img/light-logo.svg" alt="">
-            <h2>Edit&nbspcontact</h2>
+            <h2>Add&nbspcontact</h2>
+            <span class="add-task-slogan">Tasks are better with a team!</span>
         </div>
         <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="addContact(); return false">
         <div class="edit-add-contact-pop-up-content">

@@ -44,7 +44,7 @@
     display: none;
     position: absolute;
     right: 16px;
-    bottom: 112px;
+    bottom: 32px;
     border-radius: 50%;
     padding: 12px;
 }
@@ -228,12 +228,6 @@
     gap: 72px;
 }
 
-.edit-add-contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-}
-
 .contact-inputs {
     display: flex;
     flex-direction: column;
@@ -277,6 +271,7 @@
     align-items: center;
     padding-left: 97px;
     padding-right: 48px;
+    gap: 48px;
 }
 
 .cancel-button-icon {
@@ -300,7 +295,10 @@
     }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1280px) {
+    .very-large-pop-up {
+        height: 760px;
+    }
     .add-contact-button-container, .add-contact-button {
         display: none;
     }
@@ -317,6 +315,38 @@
     }
     .contacts-right-side {
         display: none;
+    }
+    .edit-add-contact-pop-up-left-side {
+        width: 100%;
+    }
+    .edit-add-contact-pop-up-left-side img {
+        display: none;
+    }
+    .edit-add-contact-pop-up-right-side {
+        padding: 0 16px;
+    }
+    .edit-add-contact-pop-up-container {
+        flex-direction: column;
+    }
+    .edit-add-contact-pop-up-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+    .initial-avatar-very-large {
+        margin-top: -60px;
+    }
+    #cancel-button {
+        display: none;
+    }
+    .contact-pop-up-buttons-container {
+        margin-bottom: 62px;
+    }
+}
+
+@media (max-width: 920px) {
+    .add-contact-button-mobile {
+        bottom: 112px;
     }
 }
 
