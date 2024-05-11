@@ -71,6 +71,14 @@ function editDueDateRequirement() {
     }
 }
 
+/**
+ * This function prevents the user from using a past date.
+ */
+function editSetMinDate() {
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("edit-task-due-date").setAttribute("min", today);
+  }
+
 
 /**
  * This function is used to check the requirements after choosing a date
