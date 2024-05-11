@@ -146,7 +146,7 @@ function checkForLogin(protected = true) {
         window.open('./index.html', '_self');
     } else if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId')) && !protected) {
         document.querySelector('.nav-button-list').classList.add('display-none');
-        document.querySelector('.mobile-nav-button-list').classList.add('display-none');
+        document.getElementById('mobile-menu').classList.add('display-none');
     }
 }
 
