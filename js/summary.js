@@ -4,6 +4,17 @@
  */
 async function initSummary() {
     checkForLogin();
+    initGreeting();
+    await loadUsers();
+    greetUser();
+    await init();
+    await loadTasks();
+    showSummaryValues();
+    saveVariableInLocalStorage('fromIndex', false);
+}
+
+
+function initGreeting() {
     if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
         document.getElementById('summary-overlay').style.zIndex = '2';
     } else if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
@@ -11,12 +22,6 @@ async function initSummary() {
     } else if (document.body.scrollWidth > 1400) {
         document.getElementById('summary-overlay').classList.add('display-none');
     }
-    await loadUsers();
-    greetUser();
-    await init();
-    await loadTasks();
-    showSummaryValues();
-    saveVariableInLocalStorage('fromIndex', false);
 }
 
 let animationOver = false;
@@ -32,6 +37,7 @@ function checkWindowWidth() {
         document.getElementById('summary-greeting-box').style.zIndex = '0';
     }
 }
+
 
 async function greetUser() {
     checkDayTimeAndchangeGreeting();
@@ -51,6 +57,7 @@ async function greetUser() {
     }
     animationOver = true;
 }
+
 
 function checkDayTimeAndchangeGreeting() {
     let daytimeString = checkDayTime();
@@ -96,6 +103,7 @@ function hideOverlay() {
 }
 
 let currentUserIndex = 0;
+
 async function getUserName() {
     for (let i = 0; i < users.length; i++) {
         if (users[i].id == loadVariableFromLocalStorage('currentJoinUserId')) {
@@ -281,6 +289,7 @@ function findPriority(prio, foundTasks) {
     }
     return results;
 }
+
 let taskIndex = 0;
 
 function findNextDuedate() {
@@ -325,7 +334,6 @@ function rednerUpcomingDeadline(foundTasks) {
     if (foundTasks) {
         let date = findNextDuedate();
         document.getElementById('summary-due-date').innerHTML = formatDate(date);
-
         document.getElementById('summary-due-date-text').innerHTML = 'Upcoming Deadline';
     } else {
         document.getElementById('summary-due-date').innerHTML = 'No date has been specified for this task.';

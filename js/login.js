@@ -265,7 +265,7 @@ async function checkSignupValues() {
 
 
 async function validateUser(name, email, password) {
-    let emailAlreadyExists = checkEmail(email);
+    let emailAlreadyExists = checkEmailForSignup(email);
     let userObject = createUserObject(name, email, password);
     if (!emailAlreadyExists) {
         await signupUser(userObject);
@@ -275,13 +275,13 @@ async function validateUser(name, email, password) {
 
 async function signupUser(userObject) {
     users.push(userObject);
-    // await storeUsers();
+    await storeUsers();
     showSuccessMessage();
     setTimeout(hideSuccessMessage, 1000);
 }
 
 
-function checkEmail(email) {
+function checkEmailForSignup(email) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].eMail === email.toLocaleLowerCase()) {
             document.querySelector('#signup-email-input ~ p').classList.remove('display-none');
