@@ -214,7 +214,7 @@ function initialAvatarLargeTemplate(user) {
  * @returns {string} inital avatar HTML template, very large
  */
 function initialAvatarVeryLargeTemplate(user) {
-    return /* html */ `<div class="initial-avatar initial-avatar-very-large ${user.color}">${getInitials(user)}</div>`;
+    return /* html */ `<div class="initial-avatar initial-avatar-very-large ${getContactColor(user.eMail)}">${getInitials(user)}</div>`;
 }
 
 
@@ -462,7 +462,7 @@ function contactLetterTemplate(letter) {
  * @returns 
  */
 function contactInListTemplate(contact, contactColor, contactIndex) {
-    return /* html */ `<div id="contact-in-list${contactIndex}" class="contact-in-list cursor-pointer" onclick="openContact(event, ${contactIndex})">
+    return /* html */ `<div id="contact-in-list${contactIndex}" class="contact-in-list cursor-pointer" onclick="openContact(${contactIndex})">
         <div class="contact-initial-avatar-small ${contactColor}">${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}</div>
         <div class="contact-in-list-info">
             <div>${contact.firstName} ${contact.lastName}</div>
@@ -500,14 +500,14 @@ function deleteButtonSvg() {
  * @param {string} contactColor
  * @returns {string} contact profile HTML template
  */
-function contactProfileTemplate(contact, contactColor) {
+function contactProfileTemplate(contact, contactColor, index) {
     return /* html */ `
     <div class="contact-profile-header">
         <div class="contact-initial-avatar-large ${contactColor}">${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}</div>
             <div class="contact-name-and-buttons-container">
                 <h3>${contact.firstName} ${contact.lastName}</h3>
                 <div class="contact-buttons">
-                    <div class="contact-button" onclick="editContact('${contact.eMail}')">
+                    <div class="contact-button" onclick="editContact('${contact.eMail}', ${index})">
                         ${editButtonSvg()}
                         <span>Edit</span>
                     </div>
@@ -533,13 +533,13 @@ function contactProfileTemplate(contact, contactColor) {
 }
 
 
-function contactEditForm(contact) {
+function contactEditForm(contact, index) {
     return /* html */ `<div class="edit-add-contact-pop-up-container">
         <div class="edit-add-contact-pop-up-left-side">
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Edit&nbspcontact</h2>
         </div>
-        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(); return false">
+        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="saveEditedContact(${index}); return false">
         <div class="edit-add-contact-pop-up-content">
             ${initialAvatarVeryLargeTemplate(contact)}
             <div class="contact-inputs">

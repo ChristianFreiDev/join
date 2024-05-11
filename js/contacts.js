@@ -14,11 +14,12 @@ async function initContacts() {
  * @param {Object} contact 
  * @returns {string} desired contact color
  */
-function getContactColor(contact) {
-    let foundUser = users.find(user => user.eMail === contact.eMail);
+function getContactColor(contactEMail) {
+    let foundUser = users.find(user => user.eMail === contactEMail);
     if (foundUser) {
         return foundUser.color;
     } else {
+        let contact = contacts.find(contact => contact.eMail === contactEMail);
         return contact.color;
     }
 }
@@ -50,7 +51,7 @@ function renderContacts() {
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
         renderLetterIfItHasNotBeenRendered(contact, renderedLetters);
-        let contactColor = getContactColor(contact);
+        let contactColor = getContactColor(contact.eMail);
         contactList.innerHTML += contactInListTemplate(contact, contactColor, i);
     }
 }
@@ -88,11 +89,11 @@ function removeUserFromAssignedTasks(contactEMail) {
 }
 
 
-function editContact(contactEMail) {
+function editContact(contactEMail, index) {
     let contact = contacts.find(contact => contact.eMail === contactEMail);
     let openTaskPopup = document.getElementById('edit-add-contact-pop-up');
     openTaskPopup.setAttribute('onclick', 'doNotClose(event)');
-    openTaskPopup.innerHTML = contactEditForm(contact);
+    openTaskPopup.innerHTML = contactEditForm(contact, index);
     centerPopup('edit-add-contact-pop-up');
 }
 
@@ -120,16 +121,16 @@ async function deleteContact(contactEMail) {
  * This function opens a contact from the list.
  * @param {number} index contact index
  */
-function openContact(event, index) {
+function openContact(index) {
     let contact = contacts[index];
     let contactProfile = document.getElementById('contact-profile');
-    let contactColor = getContactColor(contact);
-    contactProfile.innerHTML = contactProfileTemplate(contact, contactColor);
-    setActiveContact(event, index);
+    let contactColor = getContactColor(contact.eMail);
+    contactProfile.innerHTML = contactProfileTemplate(contact, contactColor, index);
+    setActiveContact(index);
 }
 
 
-function setActiveContact(event, index) {
+function setActiveContact(index) {
     let contacts = document.querySelectorAll('.contact-in-list-active');
     for (let i = 0; i < contacts.length; i++) {
         contacts[i].classList.remove('contact-in-list-active');
@@ -139,7 +140,7 @@ function setActiveContact(event, index) {
 }
 
 
-function saveEditedContact() {
+function saveEditedContact(index) {
     let contactNameInput = document.getElementById('contact-name-input');
     let contactEmailInput = document.getElementById('contact-email-input');
     let contactPhoneInput = document.getElementById('contact-phone-input');
@@ -165,5 +166,7 @@ function saveEditedContact() {
         contacts.push(editedContact);
     }
     storeContacts();
+    renderContacts();
+    openContact(index);
     removePopup('edit-add-contact-pop-up');
 }
