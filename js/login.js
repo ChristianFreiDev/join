@@ -133,6 +133,7 @@ function checkEmail(email) {
     return true
 }
 
+
 function checkPassword(password) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].password === password) {
@@ -262,6 +263,7 @@ async function checkSignupValues() {
     }
 }
 
+
 async function validateUser(name, email, password) {
     let emailAlreadyExists = checkEmail(email);
     let userObject = createUserObject(name, email, password);
@@ -278,6 +280,7 @@ async function signupUser(userObject) {
     setTimeout(hideSuccessMessage, 1000);
 }
 
+
 function checkEmail(email) {
     for (let i = 0; i < users.length; i++) {
         if (users[i].eMail === email.toLocaleLowerCase()) {
@@ -289,6 +292,7 @@ function checkEmail(email) {
     return false;
 }
 
+
 function showSuccessMessage() {
     document.querySelector('body').style.position = 'relative';
     let overlay = document.getElementById('login-overlay');
@@ -298,6 +302,7 @@ function showSuccessMessage() {
     message.classList.add('signupSuccessMessageCenter');
 }
 
+
 function hideSuccessMessage() {
     let overlay = document.getElementById('login-overlay');
     let message = document.querySelector('.signupSuccessMessage');
@@ -306,6 +311,7 @@ function hideSuccessMessage() {
     clearSignupField();
     openLogInMenu();
 }
+
 
 function createUserObject(name, email, password) {
     let firstName = getUserName('first', name);
@@ -329,6 +335,7 @@ function getUserName(type, name) {
     return getNameFromUnderThreeInputs(type, whitespaces, name);
 }
 
+
 function getNameFromUnderThreeInputs(type, whitespaces, name) {
     if (whitespaces.length <= 1 && type === 'first') {
         return formatStringAsName(name);
@@ -345,9 +352,22 @@ function getNameFromUnderThreeInputs(type, whitespaces, name) {
 
 
 function getNameFromOverThreeInputs(type, whitespaces, name) {
-    let firstName;
-    let lastName = '';
+    let firstName = '';
     let firstNames = [];
+    let lastName = '';
+    let results = getNamesThroughWhithspaces(whitespaces, name, firstNames, lastName);
+    firstNames = results.firstNames;
+    lastName = results.lastName;
+    firstName = firstNames.toString().replace(',', ' ');
+    if (type === 'first') {
+        return firstName;
+    } else if (type === 'last') {
+        return lastName;
+    }
+}
+
+
+function getNamesThroughWhithspaces(whitespaces, name, firstNames, lastName) {
     for (let i = 0; i < whitespaces.length; i++) {
         if (i === 0) {
             firstNames.push(formatStringAsName(name.slice(0, whitespaces[0])));
@@ -359,29 +379,32 @@ function getNameFromOverThreeInputs(type, whitespaces, name) {
             lastName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, name.length));
         }
     }
-    firstName = firstNames.toString().replace(',', ' ');
-    if (type === 'first') {
-        return firstName;
-    } else if (type === 'last') {
-        return lastName;
-    }
+    return {firstNames: firstNames, lastName: lastName};
 }
+
 
 function getWhitespaces(name) {
     let whitespaces = [];
-    let whitspaceCounter = 0;
+    let whitespaceCounter = 0;
     do {
-        if (whitespaces.length === 0) {
-            whitespaces.push(name.indexOf(' '));
-        } else if (name[whitespaces[whitespaces.length - 1] + whitspaceCounter] != ' ') {
-            whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1 + whitspaceCounter));
-            whitspaceCounter = 0;
-        } else {
-            whitspaceCounter++;
-        }
+        let result = checkForWhitspaces(whitespaces, whitespaceCounter, name);
+        whitespaces = result[0];
+        whitespaceCounter = result[1];
     }
     while (whitespaces[whitespaces.length - 1] != -1);
     return whitespaces;
+}
+
+function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
+    if (whitespaces.length === 0) {
+        whitespaces.push(name.indexOf(' '));
+    } else if (name[whitespaces[whitespaces.length - 1] + whitespaceCounter] != ' ') {
+        whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1 + whitespaceCounter));
+        whitespaceCounter = 0;
+    } else {
+        whitespaceCounter++;
+    }
+    return [whitespaces, whitespaceCounter];
 }
 
 function formatStringAsName(name) {
