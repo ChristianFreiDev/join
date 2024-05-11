@@ -26,6 +26,23 @@ p {
     color: var(--color-accent);
 }
 
+#back-link {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    cursor: pointer;
+    position: absolute;
+}
+
+#back-link:hover {
+    background-color: var(--color-button-hover);
+}
+
+#back-link > img {
+    height: 24px;
+    width: 21px;
+}
+
 @media (max-width: 920px) {
     h2 {
         font-size: 47px;

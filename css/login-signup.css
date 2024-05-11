@@ -221,10 +221,11 @@ a:hover {
     cursor: pointer;
     border-radius: 16px;
     object-fit: contain;
+    background-color: white;
 }
 
 #back-to-login-button:hover {
-    background-color: var(--color-main);
+    background-color: var(--color-button-hover);
     scale: 1.05;
 }
 
