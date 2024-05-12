@@ -395,6 +395,7 @@
         font-size: 20px;
         white-space: nowrap;
         z-index: 5;
+        display: none;
     }
 
     .very-large-pop-up {
