@@ -41,13 +41,21 @@
     font-weight: 700;
 }
 
-.add-contact-button-mobile {
-    display: none;
+
+.small-round-button-mobile {
     position: absolute;
     right: 16px;
     bottom: 32px;
     border-radius: 50%;
     padding: 12px;
+}
+
+.add-contact-button-mobile {
+    display: none;
+}
+
+.contacts-more-button {
+    display: none;
 }
 
 #contact-list {
@@ -378,7 +386,7 @@
 }
 
 @media (max-width: 920px) {
-    .add-contact-button-mobile {
+    .small-round-button-mobile {
         bottom: 112px;
     }
 }

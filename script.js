@@ -199,7 +199,6 @@ checkForDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
 darkModeMediaQuery.addEventListener('change', (event) => {
     const isDarkModeOn = event.matches;
     checkForDarkMode(isDarkModeOn);
-    // console.log(`Dark mode is ${isDarkModeOn ? '🌒 on' : '☀️ off'}.`);
 });
 
 
