@@ -392,7 +392,7 @@ textarea {
 .login-input {
     width: 422px;
     z-index: 1;
-    padding-right: 64px;
+    padding-right: 36px;
 }
 
 /* Scrollbar */
