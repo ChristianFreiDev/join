@@ -39,6 +39,15 @@
 
 }
 
+@media(max-width: 920px){
+    .this-field-is-required{
+        margin-top: -24px;
+    }
+    .add-task-headline {
+        margin-bottom: 24px;
+    }
+}
+
 @media(max-width: 460px) {
     .content-container {
         display: block;
@@ -95,5 +104,8 @@
     }
     .under-form{
         min-width: unset;
+    }
+    .this-field-is-required{
+        margin-top: 0;
     }
 }
