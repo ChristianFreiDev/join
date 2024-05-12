@@ -313,7 +313,7 @@
     }
 
     100%{
-        transform: translateX(60vw);
+        transform: translateX(65vw);
     }
 }
 
@@ -324,7 +324,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transform:translateX(60vw);
+    transform:translateX(65vw);
     top: 80%;
     left: 500px;
     z-index: 5;
