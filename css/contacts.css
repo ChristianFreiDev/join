@@ -303,6 +303,20 @@
     right: 16px;
 }
 
+@keyframes move-in-and-out {
+    30%{
+        transform: translateX(0);
+    }
+
+    70%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(60vw);
+    }
+}
+
 .contactsSuccessMessage {
     position: absolute;
     background-color: var(--color-menu);
@@ -312,9 +326,9 @@
     justify-content: center;
     align-items: center;
     transform:translateX(60vw);
-    transition: transform 800ms ease-in-out;
+    /* transition: transform 200ms ease-in-out; */
     top: 80%;
-    left: 50%;
+    left: 64px;
     z-index: 5;
     padding: 25px;
     border-radius: 20px;
@@ -322,28 +336,15 @@
     white-space: nowrap;
 }
 
+.animate {
+    animation: move-in-and-out 1800ms ease-in-out;
+}
+
 #back-link {
     position: absolute;
     display: none;
     top: 128px;
     right: 16px;
-}
-
-.contactsSuccessMessageMoveIn {
-    transform:translateX(-30vw);
-    height: 74px;
-    width: unset;
-    visibility: visible;
-}
-
-.contactsSuccessMessageMoveOut {
-    transform:translateX(30vw);
-    border-radius: 20px;
-    font-size: 20px;
-    padding: 25px;
-    height: 74px;
-    width: unset;
-    visibility: visible;
 }
 
 @media (max-width: 1470px) {
