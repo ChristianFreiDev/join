@@ -251,6 +251,7 @@ function addContact() {
 
 
 function animateSuccessMessage() {
+    document.querySelector('.contactsSuccessMessage').innerHTML = 'Contact successfully created';
     document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageMoveIn');
     setTimeout(removeAnimationSuccessMessage, 1300);
 }
@@ -262,6 +263,7 @@ function removeAnimationSuccessMessage() {
 }
 
 function endAnimationSuccessMessage() {
+    document.querySelector('.contactsSuccessMessage').innerHTML = '';
     document.querySelector('.contactsSuccessMessage').classList.remove('contactsSuccessMessageMoveOut');
 
 }
