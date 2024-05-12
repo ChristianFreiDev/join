@@ -36,14 +36,13 @@ async function checkSignupValues() {
 async function validateUser(name, email, password) {
     let emailAlreadyExists = checkEmailForSignup(email);
     let color = getUserColor();
-    let nameWithYou = name + '&nbsp(You)';
-    let userObject = createUserObject(nameWithYou, email, password, color);
+    let userObject = createUserObject(name, email, password, color);
     if (!emailAlreadyExists) {
         await resetUsersTasksContacts();
         useOfflineData();
         await signupUser(userObject);
         let phone = '';
-        let newContact = createContactObject(nameWithYou, email, phone, color);
+        let newContact = createContactObject(name, email, phone, color);
         await loadContacts();
         contacts.push(newContact);
         storeContacts();
