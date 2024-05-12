@@ -142,6 +142,10 @@ p {
     overflow-x: hidden;
 }
 
+.overflowY-hidden {
+    overflow-y: hidden;
+}
+
 .input {
     background-color: #FFFFFF;
     border-radius: 10px;

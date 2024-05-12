@@ -20,7 +20,8 @@
     <script src="./js/contacts.js"></script>
 </head>
 <body class="" onload="initContacts()">
-    <div class="outer-container">
+    <div class="outer-container position-relative overflowY-hidden overflowX-hidden">
+        <p class="contacts-success-message">Contact successfully created</p>
         <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="pop-up-container" class="pop-up-container" onclick="removePopups()">
@@ -28,8 +29,7 @@
         </div>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
-            <div class="contacts-content-container position-relative overflowX-hidden">
-                    <p class="contacts-success-message">Contact successfully created</p>
+            <div class="contacts-content-container">
                     <a id="back-link" href="./contacts.html"><img src="./assets/img/signup-arrow-left.svg" alt="back"></a>
                 <div class="contacts-left-side">
                     <div class="add-contact-button-container">

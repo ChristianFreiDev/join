@@ -323,11 +323,11 @@
     }
 
     30%{
-        transform: translateY(50%);
+        transform: translateY(0);
     }
 
     70%{
-        transform: translateY(50%);
+        transform: translateY(0);
     }
 
     100%{
@@ -344,7 +344,7 @@
     align-items: center;
     transform:translateX(65vw);
     top: 80%;
-    left: 500px;
+    left: 730px;
     z-index: 5;
     padding: 25px;
     border-radius: 20px;
@@ -379,16 +379,14 @@
 }
 
 @media (max-width: 1280px) {
-
-
     .animate-success-message {
         animation: move-in-and-out-vertical 1800ms ease-in-out;
     }
     
     .contacts-success-message {
         transform:translateX(0);
-        top: 80%;
-        /* transform: translateY(50vh); */
+        top: 70%;
+        transform: translateY(50vh);
         left: calc(50% - 162px);
         z-index: 5;
         padding: 25px;
