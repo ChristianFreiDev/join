@@ -316,8 +316,9 @@
     transform:translateY(1px);
     transition: transform 800ms ease-in-out;
     top: 60%;
-    left: 80%;
+    right: 0;
     z-index: 5;
+    white-space: nowrap;
 }
 
 #back-link {
