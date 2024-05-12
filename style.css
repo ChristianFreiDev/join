@@ -202,7 +202,7 @@ p {
 
 .input-icon {
     position: absolute;
-    right: 16px;
+    right: 21px;
     z-index: 2;
 }
 
@@ -392,7 +392,7 @@ textarea {
 .login-input {
     width: 422px;
     z-index: 1;
-    padding-right: 36px;
+    padding-right: 48px;
 }
 
 /* Scrollbar */
