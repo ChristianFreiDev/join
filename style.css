@@ -395,6 +395,28 @@ textarea {
     padding-right: 48px;
 }
 
+#back-link {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    cursor: pointer;
+    position: fixed;
+    top: 225px;
+    right: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back-link:hover {
+    background-color: var(--color-button-hover);
+}
+
+#back-link > img {
+    height: 24px;
+    width: 21px;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;

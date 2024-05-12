@@ -319,6 +319,13 @@
     z-index: 5;
 }
 
+#back-link {
+    position: absolute;
+    display: none;
+    top: 128px;
+    right: 16px;
+}
+
 @media (max-width: 1470px) {
     .contacts-header {
         flex-direction: column;
