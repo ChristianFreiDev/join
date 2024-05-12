@@ -220,6 +220,12 @@ function openContact(index) {
     }
     isContactOpen = true;
     showAppropriateElements();
+    document.getElementById('contacts-more-button').setAttribute('onclick', `openMoreMenu(${index})`);
+}
+
+
+function openMoreMenu(index) {
+    
 }
 
 
