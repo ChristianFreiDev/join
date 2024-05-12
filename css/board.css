@@ -8,11 +8,6 @@
     font-size: 3.2rem;
 }
 
-h2 {
-    margin: 0;
-    font-size: 61px;
-}
-
 .board-actions-container {
     display: flex;
     align-items: center;
@@ -649,9 +644,6 @@ progress::-webkit-progress-value {
 @media (max-width: 920px) {
     .board-columns-container {
         margin-bottom: 128px;
-    }
-    h2 {
-        font-size: 47px;
     }
 }
 

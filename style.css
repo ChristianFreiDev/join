@@ -120,7 +120,7 @@ h1 {
 }
 
 h2 {
-    font-size: 60px;
+    font-size: 61px;
     margin-block-start: 0;
     margin-block-end: 0;
 }
@@ -465,7 +465,7 @@ textarea {
     }
 
     h2 {
-        font-size: 48px;
+        font-size: 47px;
     }
 }
 
@@ -475,15 +475,21 @@ textarea {
         font-size: 43.75%;
         --padding-content-left: 16px;
     }
+}
+
+@media (max-width: 420px) {
+    :root {
+        --padding-content-top: 16px;
+    }
 
     h2 {
         font-size: 42px;
     }
 }
 
-@media (max-width: 420px) {
-    :root {
-        --padding-content-top: 16px;
+@media (max-width: 360px) {
+    h2 {
+        font-size: 36px;
     }
 }
 
