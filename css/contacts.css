@@ -303,7 +303,7 @@
     right: 16px;
 }
 
-.signupSuccessMessage {
+.contactsSuccessMessage {
     position: absolute;
     background-color: var(--color-menu);
     color: white;
