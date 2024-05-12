@@ -26,28 +26,6 @@ p {
     color: var(--color-accent);
 }
 
-#back-link {
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    cursor: pointer;
-    position: fixed;
-    top: 225px;
-    right: 96px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#back-link:hover {
-    background-color: var(--color-button-hover);
-}
-
-#back-link > img {
-    height: 24px;
-    width: 21px;
-}
-
 @media (max-width: 1439px) {
     #back-link {
         position: absolute;    

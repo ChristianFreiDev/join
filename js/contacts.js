@@ -144,8 +144,7 @@ function hideLeftSideAndShowRightSide() {
  * This function hides the right side of the contacts page and shows the left side.
  */
 function hideRightSideAndShowLeftSide() {
-    let contactsLeftSide = document.querySelector('.contacts-left-side');
-    contactsLeftSide.style.display = 'block';
+    showLeftSide();
     let contactsRightSide = document.querySelector('.contacts-right-side');
     contactsRightSide.style.display = 'none';
 }
@@ -157,6 +156,34 @@ function hideRightSideAndShowLeftSide() {
 function showLeftSide() {
     let contactsLeftSide = document.querySelector('.contacts-left-side');
     contactsLeftSide.style.display = 'block';
+}
+
+
+/**
+ * This function shows the right side of the contacts page.
+ */
+function showRightSide() {
+    let contactsRigthSide = document.querySelector('.contacts-right-side');
+    contactsRigthSide.style.display = 'block';
+}
+
+
+/**
+ * This function shows both sides of the contacts page.
+ */
+function showBothSides() {
+    showLeftSide();
+    showRightSide();
+}
+
+
+/**
+ * This function hides or shows the link for returning to the contacts page.
+ * @param {string} displayProperty 
+ */
+function hideOrShowBackLink(displayProperty) {
+    let backLink = document.getElementById('back-link');
+    backLink.style.display = displayProperty;
 }
 
 
@@ -277,10 +304,12 @@ function showAppropriateElements() {
         if (isWidthSmallerThanXPixels(1280)) {
             hideLeftSideAndShowRightSide();
             changeDisplayOfContactsMoreButton('flex');
+            hideOrShowBackLink('flex');
         } else {
             showLeftSide();
             changeDisplayOfAddContactButtonMobile('none');
             changeDisplayOfContactsMoreButton('none');
+            hideOrShowBackLink('none');
         }
     } else {
         if (isWidthSmallerThanXPixels(1280)) {
@@ -288,7 +317,7 @@ function showAppropriateElements() {
             changeDisplayOfContactsMoreButton('none');
             hideRightSideAndShowLeftSide();
         } else {
-            showLeftSide();
+            showBothSides();
             changeDisplayOfAddContactButtonMobile('none');
             changeDisplayOfContactsMoreButton('none');
         }

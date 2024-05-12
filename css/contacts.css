@@ -321,6 +321,13 @@
     white-space: nowrap;
 }
 
+#back-link {
+    position: absolute;
+    display: none;
+    top: 128px;
+    right: 16px;
+}
+
 .contactsSuccessMessageMoveIn {
     transform:translateX(-30vw);
     border-radius: 20px;
