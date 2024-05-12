@@ -388,7 +388,7 @@
         transform:translateX(0);
         top: 70%;
         transform: translateY(50vh);
-        left: calc(50% - 162px);
+        left: calc(50% - 162px + 116px);
         z-index: 5;
         padding: 25px;
         border-radius: 20px;
@@ -473,6 +473,10 @@
 }
 
 @media (max-width: 920px) {
+    .contacts-success-message {
+        left: calc(50% - 162px);
+    }
+
     .small-round-button-mobile {
         bottom: 112px;
     }
