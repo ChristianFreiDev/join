@@ -182,6 +182,21 @@ function getInitials(name, i) {
 
 
 /**
+ * This function toggles the value of a checkbox and changes the image to the appropriate image.
+ * @param {string} id 
+ */
+function clickCheckbox(id) {
+    let checkbox = document.getElementById(id);
+    let checkboxIcon = document.getElementById(`${id}-icon`);
+    if (checkbox.checked) {
+        checkboxIcon.setAttribute('src', './assets/img/checkbox-icon-checked.svg');
+    } else {
+        checkboxIcon.setAttribute('src', './assets/img/checkbox-icon-unchecked.svg');
+    }
+}
+
+
+/**
  * This function checks if the "Remember me" checkbox is checked.
  * 
  * @returns {boolean} true if "Remember me" is checked.
@@ -265,7 +280,6 @@ function changePasswordVisibility(idIcon, idInput, init = false) {
         input.focus(this.value);
     }
 }
-
 
 /**
  * This function changes input icon, input type and cursor style to visibility on.

@@ -46,7 +46,7 @@
                 <div id="login-checkbox-box" class="login-checkbox-box">
                     <div class="checkbox-container" onclick="clickCheckbox('login-checkbox')">
                         <img id="login-checkbox-icon" src="./assets/img/checkbox-icon-unchecked.svg" alt="unchecked checkbox icon">
-                        <input id="login-checkbox" type="checkbox" style="visibility: hidden">
+                        <input id="login-checkbox" type="checkbox">
                     </div>
                     <label for="login-checkbox">Remember me</label>
                 </div>
@@ -85,7 +85,10 @@
                     <p class="login-input-failure display-none">Oops! Your passwords do not match.</p>
                 </div>
                 <div id="signup-checkbox-box" class="login-checkbox-box">
-                    <input id="signup-checkbox" type="checkbox" required>
+                    <div class="checkbox-container" onclick="clickCheckbox('signup-checkbox')">
+                        <input id="signup-checkbox" type="checkbox" required>
+                        <img id="signup-checkbox-icon" src="./assets/img/checkbox-icon-unchecked.svg" alt="unchecked sign-up checkbox icon">
+                    </div>
                     <label for="signup-checkbox">I accept the <span>Privacy Policy</span></label>
                 </div>
                 <div class="login-button-box">

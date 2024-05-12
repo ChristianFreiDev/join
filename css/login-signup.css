@@ -154,14 +154,12 @@ input {
 }
 
 .checkbox-container {
+    height: 19px;
+    width: 19px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#login-checkbox {
-    position: absolute;
 }
 
 .login-checkbox-box {
@@ -183,9 +181,11 @@ input {
 }
 
 input[type="checkbox"] {
-    accent-color: var(--color-menu);
-    height: 16px;
-    width: 16px;
+    opacity: 0;
+    position: absolute;
+    height: 19px;
+    width: 19px;
+    margin: 0;
 }
 
 form {
