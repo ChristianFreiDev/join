@@ -320,6 +320,16 @@
     z-index: 5;
 }
 
+.contactsSuccessMessageActive {
+    transform:translate4(-55vw);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 25px;
+    height: 74px;
+    width: unset;
+    visibility: visible;
+}
+
 @media (max-width: 1470px) {
     .contacts-header {
         flex-direction: column;
