@@ -83,7 +83,7 @@
     }
     .priority-button{
         flex-direction: column-reverse;
-        gap: 2px;
+        gap: 2px !important;
     }
     .create-task{
         width: 160px;
