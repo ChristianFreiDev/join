@@ -281,7 +281,7 @@ function animateSuccessMessage() {
     document.querySelector('body').style.overflowX = 'hidden';
     document.querySelector('.contactsSuccessMessage').innerHTML = 'Contact successfully created';
     document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageMoveIn');
-    setTimeout(removeAnimationSuccessMessage, 1300);
+    setTimeout(removeAnimationSuccessMessage, 1400);
 }
 
 function removeAnimationSuccessMessage() {
