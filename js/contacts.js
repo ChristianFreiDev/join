@@ -1,3 +1,5 @@
+let isContactOpen;
+
 /**
  * This function initializes the contacts page by calling init() and rendering all contacts.
  */
@@ -79,8 +81,6 @@ function removeUserFromAssignedTasks(contactEMail) {
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         let collaborators = task.collaborators;
-        console.log('collaborators', collaborators);
-        console.log('userId', userId);
         let collaboratorIndex = collaborators.indexOf(userId);
         if (collaboratorIndex > -1) {
             collaborators.splice(collaboratorIndex, 1);
@@ -123,6 +123,57 @@ async function deleteContact(contactEMail) {
     let contactProfile = document.getElementById('contact-profile');
     contactProfile.innerHTML = '';
     removePopup('edit-add-contact-pop-up');
+    isContactOpen = false;
+    showAppropriateElements();
+}
+
+
+/**
+ * This function hides the left side of the contacts page and shows the right side.
+ */
+function hideLeftSideAndShowRightSide() {
+    let contactsLeftSide = document.querySelector('.contacts-left-side');
+    contactsLeftSide.style.display = 'none';
+    let contactsRightSide = document.querySelector('.contacts-right-side');
+    contactsRightSide.style.display = 'block';
+}
+
+
+/**
+ * This function hides the right side of the contacts page and shows the left side.
+ */
+function hideRightSideAndShowLeftSide() {
+    let contactsLeftSide = document.querySelector('.contacts-left-side');
+    contactsLeftSide.style.display = 'block';
+    let contactsRightSide = document.querySelector('.contacts-right-side');
+    contactsRightSide.style.display = 'none';
+}
+
+
+/**
+ * This function shows the left side of the contacts page.
+ */
+function showLeftSide() {
+    let contactsLeftSide = document.querySelector('.contacts-left-side');
+    contactsLeftSide.style.display = 'block';
+}
+
+
+/**
+ * This function changes the display property of the "more" button.
+ */
+function changeDisplayOfContactsMoreButton(displayProperty) {
+    let button = document.querySelector('.contacts-more-button');
+    button.style.display = displayProperty;
+}
+
+
+/**
+ * This function changes the display property of the button for adding a contact on mobile devices.
+ */
+function changeDisplayOfAddContactButtonMobile(displayProperty) {
+    let button = document.querySelector('.add-contact-button-mobile');
+    button.style.display = displayProperty;
 }
 
 
@@ -136,6 +187,12 @@ function openContact(index) {
     let contactColor = getContactColor(contact.eMail);
     contactProfile.innerHTML = contactProfileTemplate(contact, contactColor, index);
     setActiveContact(index);
+    if (isWidthSmallerThanXPixels(1280)) {
+        hideLeftSideAndShowRightSide();
+    }
+    isContactOpen = true;
+    changeDisplayOfAddContactButtonMobile('none');
+    changeDisplayOfContactsMoreButton('flex');
 }
 
 
@@ -197,7 +254,6 @@ function addContact() {
     storeContacts();
     renderContacts();
     let contactIndex = contacts.indexOf(newContact);
-    console.log(contactIndex);
     openContact(contactIndex);
     removePopup('edit-add-contact-pop-up');
     animateSuccesMessage();
@@ -207,3 +263,33 @@ function addContact() {
 function animateSuccesMessage() {
     
 }
+
+
+/**
+ * This function shows the appropriate elements depending on the width of the screen and whether a contact has been opened or not.
+ */
+function showAppropriateElements() {
+    if (isContactOpen) {
+        if (isWidthSmallerThanXPixels(1280)) {
+            hideLeftSideAndShowRightSide();
+            changeDisplayOfContactsMoreButton('flex');
+        } else {
+            showLeftSide();
+            changeDisplayOfContactsMoreButton('none');
+        }
+    } else {
+        if (isWidthSmallerThanXPixels(1280)) {
+            changeDisplayOfAddContactButtonMobile('flex');
+            changeDisplayOfContactsMoreButton('none');
+            hideRightSideAndShowLeftSide();
+        } else {
+            showLeftSide();
+        }
+    }
+}
+
+
+/**
+ * This event listener displays the appropriate content for the contacts page depending on whether the device has a small screen or a larger screen.
+ */
+window.addEventListener('resize', showAppropriateElements);
