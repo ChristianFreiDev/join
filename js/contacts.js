@@ -278,12 +278,16 @@ function addContact() {
 
 
 function animateSuccessMessage() {
+    document.querySelector('.outer-container').style.overflow = 'hidden';
+    document.querySelector('.contacts-success-message').style.display = 'flex';
     document.querySelector('.contacts-success-message').classList.add('animate-success-message')
     setTimeout(removeAnimationSuccessMessage, 1800);
 }
 
 function removeAnimationSuccessMessage() {
     document.querySelector('.contacts-success-message').classList.remove('animate-success-message')
+    document.querySelector('.outer-container').style.overflow = 'unset';
+    document.querySelector('.contacts-success-message').style.display = 'none';
 }
 
 
