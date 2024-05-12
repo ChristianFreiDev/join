@@ -295,6 +295,22 @@
     right: 16px;
 }
 
+.signupSuccessMessage {
+    position: absolute;
+    background-color: var(--color-menu);
+    color: white;
+    display: flex;
+    height: 0;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    transform:translateY(1px);
+    transition: transform 800ms ease-in-out;
+    top: 60%;
+    left: 80%;
+    z-index: 5;
+}
+
 @media (max-width: 1470px) {
     .contacts-header {
         flex-direction: column;
