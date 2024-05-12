@@ -340,7 +340,7 @@
     position: absolute;
     background-color: var(--color-menu);
     color: white;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     transform:translateX(65vw);
