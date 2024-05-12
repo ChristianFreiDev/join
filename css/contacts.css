@@ -326,12 +326,13 @@
     align-items: center;
     transform:translateX(60vw);
     top: 80%;
-    left: 64px;
+    left: 500px;
     z-index: 5;
     padding: 25px;
     border-radius: 20px;
     font-size: 20px;
     white-space: nowrap;
+    z-index: 5;
 }
 
 .animate-success-message {
