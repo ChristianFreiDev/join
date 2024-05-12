@@ -502,6 +502,18 @@ function cancelIconSVG() {
 }
 
 
+function closeIconSvg() {
+    return /* html */ `<svg class="close-pop-up-icon close-edit-add-contact-pop-up-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="removePopup('edit-add-contact-pop-up')">
+        <mask id="mask0_71720_5848" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="24" height="24">
+        <rect x="4" y="4" width="24" height="24" fill="#D9D9D9"/>
+        </mask>
+        <g mask="url(#mask0_71720_5848)">
+        <path d="M15.9998 17.4L11.0998 22.3C10.9165 22.4834 10.6831 22.575 10.3998 22.575C10.1165 22.575 9.88314 22.4834 9.6998 22.3C9.51647 22.1167 9.4248 21.8834 9.4248 21.6C9.4248 21.3167 9.51647 21.0834 9.6998 20.9L14.5998 16L9.6998 11.1C9.51647 10.9167 9.4248 10.6834 9.4248 10.4C9.4248 10.1167 9.51647 9.88338 9.6998 9.70005C9.88314 9.51672 10.1165 9.42505 10.3998 9.42505C10.6831 9.42505 10.9165 9.51672 11.0998 9.70005L15.9998 14.6L20.8998 9.70005C21.0831 9.51672 21.3165 9.42505 21.5998 9.42505C21.8831 9.42505 22.1165 9.51672 22.2998 9.70005C22.4831 9.88338 22.5748 10.1167 22.5748 10.4C22.5748 10.6834 22.4831 10.9167 22.2998 11.1L17.3998 16L22.2998 20.9C22.4831 21.0834 22.5748 21.3167 22.5748 21.6C22.5748 21.8834 22.4831 22.1167 22.2998 22.3C22.1165 22.4834 21.8831 22.575 21.5998 22.575C21.3165 22.575 21.0831 22.4834 20.8998 22.3L15.9998 17.4Z"/>
+        </g>
+    </svg>`;
+}
+
+
 /**
  * This function generates a contact profile HTML template.
  * @param {Object} contact 
@@ -542,7 +554,8 @@ function contactProfileTemplate(contact, contactColor, index) {
 
 
 function contactEditForm(contact, index) {
-    return /* html */ `<div class="edit-add-contact-pop-up-container">
+    return /* html */ `${closeIconSvg()}
+    <div class="edit-add-contact-pop-up-container">
         <div class="edit-add-contact-pop-up-left-side">
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Edit&nbspcontact</h2>
@@ -576,6 +589,7 @@ function contactEditForm(contact, index) {
 
 function addContactForm(contact, index) {
     return /* html */ `<div class="edit-add-contact-pop-up-container">
+        ${closeIconSvg()}
         <div class="edit-add-contact-pop-up-left-side">
             <img src="assets/img/light-logo.svg" alt="">
             <h2>Add&nbspcontact</h2>

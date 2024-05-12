@@ -287,6 +287,14 @@
     stroke: var(--color-accent);
 }
 
+.close-edit-add-contact-pop-up-icon {
+    fill: var(--color-menu-active);
+    z-index: 3;
+    position: absolute;
+    top: 24px;
+    right: 16px;
+}
+
 @media (max-width: 1470px) {
     .contacts-header {
         flex-direction: column;
@@ -347,6 +355,9 @@
     }
     .contact-pop-up-buttons-container {
         margin-bottom: 62px;
+    }
+    .close-edit-add-contact-pop-up-icon {
+        fill: #FFFFFF;
     }
 }
 
