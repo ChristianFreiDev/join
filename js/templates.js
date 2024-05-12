@@ -285,10 +285,11 @@ function generateCollaboratorAvatars(collaborators) {
  * @returns {string} HTML template of collaborator name
  */
 function collaboratorNameTemplate(user) {
+    let suffix = getUserNameSuffix(user);
     return /* html */ `<div class="collaborator-name-outer-container">
         <div class="collaborator-name-container">
             ${initialAvatarLargeTemplate(user)}
-            <div class="collaborator-name">${user.firstName} ${user.lastName}</div>
+            <div class="collaborator-name">${user.firstName} ${user.lastName}${suffix}</div>
         </div>
     </div>`;
 }

@@ -70,9 +70,14 @@ function rememberedUser() {
 }
 
 
+/**
+ * This function gets the user e-mail address that matches that of the user with the id from the parameter.
+ * @param {number} id 
+ * @returns {string} user e-mail address or empty string
+ */
 function getUserEmailFromId(id) {
-    let foundUser = users.find(user => user.id === id);
-    if (foundUser > -1) {
+    let foundUser = users.find(user => user.id == id);
+    if (foundUser != -1) {
         return foundUser.eMail;
     } else {
         return '';
@@ -80,12 +85,33 @@ function getUserEmailFromId(id) {
 }
 
 
+/**
+ * This function gets the e-mail adress of the user that is currently logged in.
+ * @returns {string} user e-mail address or empty string
+ */
 function getRememberedUserEmail() {
     if (rememberedUser()) {
         return getUserEmailFromId(rememberedUser());
     } else {
         return '';
     }
+}
+
+
+/**
+ * This function determines if ' (You)' should be appended to the user name.
+ * This should be the case if the user is the user that is currently logged in.
+ * @returns {string} ' (You)' or an empty string
+ */
+function getUserNameSuffix(user) {
+    let rememberedUserEmail = getRememberedUserEmail();
+    let suffix;
+    if (rememberedUserEmail === user.eMail) {
+        suffix = ' (You)';
+    } else {
+        suffix = '';
+    }
+    return suffix;
 }
 
 
