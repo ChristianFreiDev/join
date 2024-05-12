@@ -255,7 +255,7 @@
 .very-large-pop-up {
     height: 594px;
     border-radius: 30px;
-    max-height: 98vh;
+    max-height: 98%;
     overflow-y: auto;
 }
 
@@ -421,7 +421,7 @@
     }
     .edit-add-contact-pop-up-left-side {
         height: 352px;
-        min-height: 352px;
+        min-height: 340px;
         width: 100%;
     }
     .edit-add-contact-pop-up-left-side img {
@@ -516,6 +516,12 @@
     .contact-in-list {
         gap: 18px;
         padding: 15px 15px;
+    }
+}
+
+@media (max-height: 420px) {
+    .edit-add-contact-pop-up-right-side {
+        gap: 24px;
     }
 }
 
