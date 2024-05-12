@@ -139,9 +139,9 @@ async function resetUsersTasksContacts() {
  * This function resets the tasks, users, and contacts arrays.
  */
 async function useOfflineData() {
-    tasks = offlineTasks;
-    users = offlineUsers;
-    contacts = offlineContacts;
+    tasks = [...offlineTasks];
+    users = [...offlineUsers];
+    contacts = [...offlineContacts];
 }
 
 

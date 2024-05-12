@@ -212,13 +212,8 @@ function saveEditedContact(index) {
     let name = contactNameInput.value;
     let email = contactEmailInput.value;
     let phone = contactPhoneInput.value;
-    let editedContact = {
-        firstName: getUserName('first', name),
-        lastName: getUserName('last', name),
-        color: getUserColor(),
-        eMail: email,
-        phone: phone
-    }
+    let color = getUserColor();
+    let editedContact = createContactObject(name, email, phone, color);
     let foundContact = contacts[index];
     if (foundContact) {
         foundContact.firstName = getUserName('first', name);
@@ -242,13 +237,8 @@ function addContact() {
     let name = contactNameInput.value;
     let email = contactEmailInput.value;
     let phone = contactPhoneInput.value;
-    let newContact = {
-        firstName: getUserName('first', name),
-        lastName: getUserName('last', name),
-        color: getUserColor(),
-        eMail: email,
-        phone: phone
-    }
+    let color = getUserColor();
+    let newContact = createContactObject(name, email, phone, color);
     contacts.push(newContact);
     storeContacts();
     renderContacts();

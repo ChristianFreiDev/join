@@ -35,9 +35,18 @@ async function checkSignupValues() {
  */
 async function validateUser(name, email, password) {
     let emailAlreadyExists = checkEmailForSignup(email);
-    let userObject = createUserObject(name, email, password);
+    let color = getUserColor();
+    let nameWithYou = name + '&nbsp(You)';
+    let userObject = createUserObject(nameWithYou, email, password, color);
     if (!emailAlreadyExists) {
+        await resetUsersTasksContacts();
+        useOfflineData();
         await signupUser(userObject);
+        let phone = '';
+        let newContact = createContactObject(nameWithYou, email, phone, color);
+        await loadContacts();
+        contacts.push(newContact);
+        storeContacts();
     }
 }
 
@@ -108,11 +117,10 @@ function hideSuccessMessage() {
  * @param {string} password 
  * @returns {object} created based on user data.
  */
-function createUserObject(name, email, password) {
+function createUserObject(name, email, password, color) {
     let firstName = getUserName('first', name);
     let lastName = getUserName('last', name);
     let id = getHighestId();
-    let color = getUserColor();
     return {
         firstName: firstName,
         lastName: lastName,

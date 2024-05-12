@@ -305,6 +305,27 @@ function removePopups() {
 
 
 /**
+ * This function creates a contact object.
+ * 
+ * @param {string} name
+ * @param {string} email 
+ * @param {string} phone 
+ * @returns {object} created based on user data.
+ */
+function createContactObject(name, email, phone, color) {
+    let firstName = getUserName('first', name);
+    let lastName = getUserName('last', name);
+    return {
+        firstName: firstName,
+        lastName: lastName,
+        color: color,
+        eMail: email,
+        phone: phone
+    };
+}
+
+
+/**
  * This function is used to determine if the width of the window is below a certain number of pixels.
  * @param {number} x number of pixels
  * @returns {boolean} true if the width is smaller than x
