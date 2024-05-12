@@ -19,7 +19,7 @@
     <script src="js/board.js"></script>
     <script src="./js/contacts.js"></script>
 </head>
-<body onload="initContacts()">
+<body class="" onload="initContacts()">
     <div class="outer-container">
         <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
@@ -28,8 +28,9 @@
         </div>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
-            <div class="contacts-content-container">
-                <a id="back-link" href="./contacts.html"><img src="./assets/img/signup-arrow-left.svg" alt="back"></a>
+            <div class="contacts-content-container position-relative overflowX-hidden">
+                    <p class="contacts-success-message">Contact successfully created</p>
+                    <a id="back-link" href="./contacts.html"><img src="./assets/img/signup-arrow-left.svg" alt="back"></a>
                 <div class="contacts-left-side">
                     <div class="add-contact-button-container">
                         <button class="button dark-button button-padding-size1 add-contact-button" onclick="openAddContactPopup()">Add new contact<img src="assets/img/add-contact-icon.svg" alt="add contact icon"></button>
@@ -51,7 +52,6 @@
         </div>
         <button class="button dark-button small-round-button-mobile add-contact-button-mobile"><img src="assets/img/add-contact-icon.svg" alt="add contact icon" onclick="openAddContactPopup()"></button>
         <button class="button dark-button small-round-button-mobile contacts-more-button"><img src="assets/img/more-vertical.svg" alt="add contact icon" onclick=""></button>
-        <p class="contactsSuccessMessage"></p>
     </div>
 </body>
 </html>

@@ -304,22 +304,58 @@
     right: 16px;
 }
 
-.contactsSuccessMessage {
+@keyframes move-in-and-out-horizontal {
+    30%{
+        transform: translateX(0);
+    }
+
+    70%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(65vw);
+    }
+}
+
+@keyframes move-in-and-out-vertical {
+    0%{
+        transform: translateY(110vh);
+    }
+
+    30%{
+        transform: translateY(50%);
+    }
+
+    70%{
+        transform: translateY(50%);
+    }
+
+    100%{
+        transform: translateY(110vh);
+    }
+}
+
+.contacts-success-message {
     position: absolute;
     background-color: var(--color-menu);
     color: white;
     display: flex;
-    height: 0;
-    width: 0;
-    visibility: hidden;
     justify-content: center;
     align-items: center;
-    transform:translateY(1px);
-    transition: transform 800ms ease-in-out;
-    top: 60%;
-    right: 0;
+    transform:translateX(65vw);
+    top: 80%;
+    left: 500px;
     z-index: 5;
+    padding: 25px;
+    border-radius: 20px;
+    font-size: 20px;
     white-space: nowrap;
+    z-index: 5;
+}
+
+.animate-success-message {
+    animation: move-in-and-out-horizontal 1800ms ease-in-out;
 }
 
 #back-link {
@@ -327,26 +363,6 @@
     display: none;
     top: 128px;
     right: 16px;
-}
-
-.contactsSuccessMessageMoveIn {
-    transform:translateX(-30vw);
-    border-radius: 20px;
-    font-size: 20px;
-    padding: 25px;
-    height: 74px;
-    width: unset;
-    visibility: visible;
-}
-
-.contactsSuccessMessageMoveOut {
-    transform:translateX(30vw);
-    border-radius: 20px;
-    font-size: 20px;
-    padding: 25px;
-    height: 74px;
-    width: unset;
-    visibility: visible;
 }
 
 @media (max-width: 1470px) {
@@ -364,6 +380,25 @@
 }
 
 @media (max-width: 1280px) {
+
+
+    .animate-success-message {
+        animation: move-in-and-out-vertical 1800ms ease-in-out;
+    }
+    
+    .contacts-success-message {
+        transform:translateX(0);
+        top: 80%;
+        /* transform: translateY(50vh); */
+        left: calc(50% - 162px);
+        z-index: 5;
+        padding: 25px;
+        border-radius: 20px;
+        font-size: 20px;
+        white-space: nowrap;
+        z-index: 5;
+    }
+
     .very-large-pop-up {
         height: 760px;
     }

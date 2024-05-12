@@ -138,6 +138,10 @@ p {
     position: relative;
 }
 
+.overflowX-hidden {
+    overflow-x: hidden;
+}
+
 .input {
     background-color: #FFFFFF;
     border-radius: 10px;

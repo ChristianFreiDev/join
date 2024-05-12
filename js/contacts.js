@@ -278,26 +278,12 @@ function addContact() {
 
 
 function animateSuccessMessage() {
-    document.querySelector('body').style.overflowX = 'hidden';
-    document.querySelector('.contactsSuccessMessage').innerHTML = 'Contact successfully created';
-    document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageMoveIn');
-    setTimeout(removeAnimationSuccessMessage, 1400);
+    document.querySelector('.contacts-success-message').classList.add('animate-success-message')
+    setTimeout(removeAnimationSuccessMessage, 1800);
 }
 
 function removeAnimationSuccessMessage() {
-    document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageMoveOut');
-    document.querySelector('.contactsSuccessMessage').classList.remove('contactsSuccessMessageMoveIn');
-    setTimeout(endAnimationSuccessMessage, 800);
-}
-
-function endAnimationSuccessMessage() {
-    document.querySelector('.contactsSuccessMessage').innerHTML = '';
-    document.querySelector('.contactsSuccessMessage').classList.remove('contactsSuccessMessageMoveOut');
-    setTimeout(unsetBodyOverflowX, 800);
-}
-
-function unsetBodyOverflowX() {
-    document.querySelector('body').style.overflowX = 'unset';
+    document.querySelector('.contacts-success-message').classList.remove('animate-success-message')
 }
 
 
