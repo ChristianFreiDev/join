@@ -32,8 +32,10 @@
 
     .add-task-pop-up {
         overflow-y: auto;
-        padding: 168px 0 32px 0;
-        width: 80% !important;
+        padding: 16px 25px 32px 25px;
+        width: unset !important;
+        min-width: 450px !important;
+        height: 90vh !important;
     }
 
 }
