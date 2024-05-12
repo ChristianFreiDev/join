@@ -43,6 +43,7 @@
     width: 440px;
     height: 120px;
     resize: none;
+    scrollbar-width: none;
 }
 
 #add-task-drop-down-input {
