@@ -535,6 +535,7 @@ function clearTasks() {
  * This function initializes the board by calling init() and rendering all tasks.
  */
 async function initBoard() {
+    checkForLogin();
     await init();
     await Promise.all([loadTasks(), loadUsers()]);
     // useOfflineData();

@@ -19,6 +19,7 @@ let temporaryTask = {
  * loading the required data, rendering a list of users to assign to a task, and adding an event listener.
  */
 async function initAddTask() {
+    checkForLogin();
     await init();
     await Promise.all([loadTasks(), loadUsers()]);
     setMinDate();
