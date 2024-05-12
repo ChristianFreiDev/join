@@ -461,11 +461,11 @@ function contactLetterTemplate(letter) {
  * @param {string} userColor 
  * @returns 
  */
-function contactInListTemplate(contact, contactColor, contactIndex) {
+function contactInListTemplate(contact, contactColor, contactIndex, suffix) {
     return /* html */ `<div id="contact-in-list${contactIndex}" class="contact-in-list cursor-pointer" onclick="openContact(${contactIndex})">
         <div class="contact-initial-avatar-small ${contactColor}">${contact.firstName.charAt(0)}${contact.lastName.charAt(0)}</div>
         <div class="contact-in-list-info">
-            <div>${contact.firstName} ${contact.lastName}</div>
+            <div>${contact.firstName} ${contact.lastName}${suffix}</div>
             <a class="contact-link" href="mailto:${contact.eMail}">${contact.eMail}</a>
         </div>
     </div>`;

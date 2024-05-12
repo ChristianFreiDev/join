@@ -54,7 +54,8 @@ function renderContacts() {
         let contact = contacts[i];
         renderLetterIfItHasNotBeenRendered(contact, renderedLetters);
         let contactColor = getContactColor(contact.eMail);
-        contactList.innerHTML += contactInListTemplate(contact, contactColor, i);
+        let suffix = getRememberedUserEmail();
+        contactList.innerHTML += contactInListTemplate(contact, contactColor, i, suffix);
     }
 }
 

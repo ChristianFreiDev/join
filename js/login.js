@@ -33,16 +33,6 @@ function checkForRememberedUser() {
 
 
 /**
- * This function gets the id of the remembered user from local storage.
- * 
- * @returns the remembered user id.
- */
-function rememberedUser() {
-    return loadVariableFromLocalStorage('rememberUserId');
-}
-
-
-/**
  *  This function opens the sign-up menu and hides the login menu by adding and removing the class "display-none".
  */
 function openSignUpMenu(email = false) {

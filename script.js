@@ -61,6 +61,35 @@ function sortByFirstName(a, b) {
 
 
 /**
+ * This function gets the id of the remembered user from local storage.
+ * 
+ * @returns the remembered user id.
+ */
+function rememberedUser() {
+    return loadVariableFromLocalStorage('rememberUserId');
+}
+
+
+function getUserEmailFromId(id) {
+    let foundUser = users.find(user => user.id === id);
+    if (foundUser > -1) {
+        return foundUser.eMail;
+    } else {
+        return '';
+    }
+}
+
+
+function getRememberedUserEmail() {
+    if (rememberedUser()) {
+        return getUserEmailFromId(rememberedUser());
+    } else {
+        return '';
+    }
+}
+
+
+/**
  * This function grabs the initials of a user.
  * @param {Object} user 
  * @returns {string} initial string
