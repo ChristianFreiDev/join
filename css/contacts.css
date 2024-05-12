@@ -303,12 +303,13 @@
     right: 16px;
 }
 
-.signupSuccessMessage {
+.contactsSuccessMessage {
     position: absolute;
     background-color: var(--color-menu);
     color: white;
     display: flex;
     height: 0;
+    width: 0;
     visibility: hidden;
     justify-content: center;
     align-items: center;
@@ -324,6 +325,26 @@
     display: none;
     top: 128px;
     right: 16px;
+}
+
+.contactsSuccessMessageMoveIn {
+    transform:translateX(-30vw);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 25px;
+    height: 74px;
+    width: unset;
+    visibility: visible;
+}
+
+.contactsSuccessMessageMoveOut {
+    transform:translateX(30vw);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 25px;
+    height: 74px;
+    width: unset;
+    visibility: visible;
 }
 
 @media (max-width: 1470px) {
