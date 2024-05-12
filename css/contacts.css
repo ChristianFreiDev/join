@@ -309,6 +309,7 @@
     color: white;
     display: flex;
     height: 0;
+    width: 0;
     visibility: hidden;
     justify-content: center;
     align-items: center;
