@@ -272,7 +272,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     transform:translateY(1px);
-    transition: transform 800ms ease-in-out !important;
+    transition: transform 800ms ease-in-out;
     top: 95%;
     z-index: 5;
 }

@@ -48,6 +48,14 @@ p {
     width: 21px;
 }
 
+@media (max-width: 1439px) {
+    #back-link {
+        position: absolute;    
+        top: 128px;
+        right: 16px;
+    }
+}
+
 @media (max-width: 920px) {
     h2 {
         font-size: 47px;

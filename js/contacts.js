@@ -200,4 +200,10 @@ function addContact() {
     console.log(contactIndex);
     openContact(contactIndex);
     removePopup('edit-add-contact-pop-up');
+    animateSuccesMessage();
+}
+
+
+function animateSuccesMessage() {
+    
 }
