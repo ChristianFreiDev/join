@@ -251,7 +251,12 @@ function addContact() {
 
 
 function animateSuccesMessage() {
-    
+    document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageActive');
+    setTimeout(removeAnimationSuccessMessage, 800);
+}
+
+function removeAnimationSuccessMessage() {
+    document.querySelector('.contactsSuccessMessage').classList.remove('contactsSuccessMessageActive');
 }
 
 

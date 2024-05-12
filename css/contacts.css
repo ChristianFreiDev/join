@@ -321,7 +321,7 @@
 }
 
 .contactsSuccessMessageActive {
-    transform:translate4(-55vw);
+    transform:translateX(-55vw);
     border-radius: 20px;
     font-size: 20px;
     padding: 25px;
