@@ -320,8 +320,18 @@
     z-index: 5;
 }
 
-.contactsSuccessMessageActive {
-    transform:translateX(-55vw);
+.contactsSuccessMessageMoveIn {
+    transform:translateX(-40vw);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 25px;
+    height: 74px;
+    width: unset;
+    visibility: visible;
+}
+
+.contactsSuccessMessageMoveOut {
+    transform:translateX(40vw);
     border-radius: 20px;
     font-size: 20px;
     padding: 25px;

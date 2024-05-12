@@ -246,17 +246,24 @@ function addContact() {
     let contactIndex = contacts.indexOf(newContact);
     openContact(contactIndex);
     removePopup('edit-add-contact-pop-up');
-    animateSuccesMessage();
+    animateSuccessMessage();
 }
 
 
-function animateSuccesMessage() {
-    document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageActive');
+function animateSuccessMessage() {
+    document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageMoveIn');
     setTimeout(removeAnimationSuccessMessage, 800);
 }
 
 function removeAnimationSuccessMessage() {
-    document.querySelector('.contactsSuccessMessage').classList.remove('contactsSuccessMessageActive');
+    document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageMoveOut');
+    document.querySelector('.contactsSuccessMessage').classList.remove('contactsSuccessMessageMoveIn');
+    setTimeout(endAnimationSuccessMessage, 800);
+}
+
+function endAnimationSuccessMessage() {
+    document.querySelector('.contactsSuccessMessage').classList.remove('contactsSuccessMessageMoveOut');
+
 }
 
 
