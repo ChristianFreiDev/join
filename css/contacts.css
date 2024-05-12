@@ -43,7 +43,7 @@
 
 
 .small-round-button-mobile {
-    position: absolute;
+    position: fixed;
     right: 16px;
     bottom: 32px;
     border-radius: 50%;
