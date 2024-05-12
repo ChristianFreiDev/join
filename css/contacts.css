@@ -253,9 +253,10 @@
 }
 
 .very-large-pop-up {
-    height: 592px;
+    height: 594px;
     border-radius: 30px;
-    overflow: hidden;
+    max-height: 98%;
+    overflow-y: auto;
 }
 
 .edit-add-contact-pop-up-container {
@@ -417,6 +418,8 @@
         display: none;
     }
     .edit-add-contact-pop-up-left-side {
+        height: 352px;
+        min-height: 340px;
         width: 100%;
     }
     .edit-add-contact-pop-up-left-side img {
@@ -424,6 +427,7 @@
     }
     .edit-add-contact-pop-up-right-side {
         padding: 0 16px;
+        gap: 32px;
     }
     .edit-add-contact-pop-up-container {
         flex-direction: column;
@@ -455,6 +459,9 @@
     }
     .close-edit-add-contact-pop-up-icon {
         fill: #FFFFFF;
+    }
+    .contact-inputs {
+        gap: 24px;
     }
     .contact-buttons {
         display: none;
@@ -507,6 +514,12 @@
     .contact-in-list {
         gap: 18px;
         padding: 15px 15px;
+    }
+}
+
+@media (max-height: 420px) {
+    .edit-add-contact-pop-up-right-side {
+        gap: 24px;
     }
 }
 
