@@ -1,3 +1,5 @@
+let isContactOpen;
+
 /**
  * This function initializes the contacts page by calling init() and rendering all contacts.
  */
@@ -123,6 +125,27 @@ async function deleteContact(contactEMail) {
     let contactProfile = document.getElementById('contact-profile');
     contactProfile.innerHTML = '';
     removePopup('edit-add-contact-pop-up');
+    isContactOpen = false;
+}
+
+
+/**
+ * This function hides the left side of the contacts page and shows the right side.
+ */
+function hideLeftSideAndShowRightSide() {
+    let contactsLeftSide = document.querySelector('.contacts-left-side');
+    contactsLeftSide.style.display = 'none';
+    let contactsRightSide = document.querySelector('.contacts-right-side');
+    contactsRightSide.style.display = 'block';
+}
+
+
+/**
+ * This function shows the left side of the contacts page.
+ */
+function showLeftSide() {
+    let contactsLeftSide = document.querySelector('.contacts-left-side');
+    contactsLeftSide.style.display = 'block';
 }
 
 
@@ -136,6 +159,10 @@ function openContact(index) {
     let contactColor = getContactColor(contact.eMail);
     contactProfile.innerHTML = contactProfileTemplate(contact, contactColor, index);
     setActiveContact(index);
+    if (isWidthSmallerThanXPixels(1280)) {
+        hideLeftSideAndShowRightSide();
+    }
+    isContactOpen = true;
 }
 
 
@@ -207,3 +234,17 @@ function addContact() {
 function animateSuccesMessage() {
     
 }
+
+
+/**
+ * This event listener displays the appropriate content for the contacts page depending on whether the device has a small screen or a larger screen.
+ */
+window.addEventListener('resize', () => {
+    if (isContactOpen) {
+        if (isWidthSmallerThanXPixels(1280)) {
+            hideLeftSideAndShowRightSide();
+        } else {
+            showLeftSide();
+        }
+    }
+})
