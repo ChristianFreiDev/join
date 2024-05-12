@@ -321,7 +321,7 @@
 }
 
 .contactsSuccessMessageMoveIn {
-    transform:translateX(-40vw);
+    transform:translateX(-30vw);
     border-radius: 20px;
     font-size: 20px;
     padding: 25px;
@@ -331,7 +331,7 @@
 }
 
 .contactsSuccessMessageMoveOut {
-    transform:translateX(40vw);
+    transform:translateX(30vw);
     border-radius: 20px;
     font-size: 20px;
     padding: 25px;

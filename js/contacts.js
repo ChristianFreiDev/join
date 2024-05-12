@@ -252,7 +252,7 @@ function addContact() {
 
 function animateSuccessMessage() {
     document.querySelector('.contactsSuccessMessage').classList.add('contactsSuccessMessageMoveIn');
-    setTimeout(removeAnimationSuccessMessage, 800);
+    setTimeout(removeAnimationSuccessMessage, 1300);
 }
 
 function removeAnimationSuccessMessage() {
