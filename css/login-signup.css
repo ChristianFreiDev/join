@@ -153,6 +153,17 @@ input {
     top: 12px;
 }
 
+.checkbox-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-checkbox {
+    position: absolute;
+}
+
 .login-checkbox-box {
     margin-top: 12px;
     margin-left: 39px;

@@ -44,7 +44,10 @@
                     <p class="login-input-failure display-none">Oops! Wrong password. Try again.</p>
                 </div>
                 <div id="login-checkbox-box" class="login-checkbox-box">
-                    <input id="login-checkbox" type="checkbox">
+                    <div class="checkbox-container" onclick="clickCheckbox('login-checkbox')">
+                        <img id="login-checkbox-icon" src="./assets/img/checkbox-icon-unchecked.svg" alt="unchecked checkbox icon">
+                        <input id="login-checkbox" type="checkbox" style="visibility: hidden">
+                    </div>
                     <label for="login-checkbox">Remember me</label>
                 </div>
                 <div class="login-button-box">
