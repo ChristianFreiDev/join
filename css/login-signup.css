@@ -210,19 +210,24 @@ a:hover {
     position: relative;
 }
 
-#back-to-login-button {
+.back-button-box {
+    border-radius: 16px;
+    background-color: white;
     position: absolute;
+    left: 48px;
+    top: 64px;
     width: 32px;
     height: 32px;
-    top: 64px;
-    left: 48px;
     cursor: pointer;
-    border-radius: 16px;
-    object-fit: contain;
-    background-color: white;
 }
 
-#back-to-login-button:hover {
+#back-to-login-button {
+    width: 21px;
+    height: 21px;
+    object-fit: contain;
+}
+
+.back-button-box:hover {
     background-color: var(--color-button-hover);
     scale: 1.05;
 }
