@@ -77,7 +77,7 @@ function rememberedUser() {
  */
 function getUserEmailFromId(id) {
     let foundUser = users.find(user => user.id == id);
-    if (foundUser != -1) {
+    if (foundUser) {
         return foundUser.eMail;
     } else {
         return '';
