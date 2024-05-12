@@ -250,22 +250,22 @@ a:hover {
     position: absolute;
     background-color: var(--color-menu);
     color: white;
-    font-size: 20px;
     display: flex;
     height: 0;
     visibility: hidden;
     justify-content: center;
     align-items: center;
     transform:translateY(1px);
-    border-radius: 20px;
-    padding: 25px;
     transition: transform 800ms ease-in-out !important;
-    top: 100%;
+    top: 95%;
     z-index: 5;
 }
 
 .signupSuccessMessageCenter {
     transform:translateY(-55vh);
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 25px;
     height: 74px;
     visibility: visible;
 }
