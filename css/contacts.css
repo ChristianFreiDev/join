@@ -303,7 +303,7 @@
     right: 16px;
 }
 
-@keyframes move-in-and-out {
+@keyframes move-in-and-out-horizontal {
     30%{
         transform: translateX(0);
     }
@@ -314,6 +314,24 @@
 
     100%{
         transform: translateX(65vw);
+    }
+}
+
+@keyframes move-in-and-out-vertical {
+    0%{
+        transform: translateY(110vh);
+    }
+
+    30%{
+        transform: translateY(50%);
+    }
+
+    70%{
+        transform: translateY(50%);
+    }
+
+    100%{
+        transform: translateY(110vh);
     }
 }
 
@@ -336,7 +354,7 @@
 }
 
 .animate-success-message {
-    animation: move-in-and-out 1800ms ease-in-out;
+    animation: move-in-and-out-horizontal 1800ms ease-in-out;
 }
 
 #back-link {
@@ -361,6 +379,25 @@
 }
 
 @media (max-width: 1280px) {
+
+
+    .animate-success-message {
+        animation: move-in-and-out-vertical 1800ms ease-in-out;
+    }
+    
+    .contacts-success-message {
+        transform:translateX(0);
+        top: 80%;
+        /* transform: translateY(50vh); */
+        left: calc(50% - 162px);
+        z-index: 5;
+        padding: 25px;
+        border-radius: 20px;
+        font-size: 20px;
+        white-space: nowrap;
+        z-index: 5;
+    }
+
     .very-large-pop-up {
         height: 760px;
     }
