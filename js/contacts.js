@@ -191,8 +191,7 @@ function openContact(index) {
         hideLeftSideAndShowRightSide();
     }
     isContactOpen = true;
-    changeDisplayOfAddContactButtonMobile('none');
-    changeDisplayOfContactsMoreButton('flex');
+    showAppropriateElements();
 }
 
 
@@ -275,6 +274,7 @@ function showAppropriateElements() {
             changeDisplayOfContactsMoreButton('flex');
         } else {
             showLeftSide();
+            changeDisplayOfAddContactButtonMobile('none');
             changeDisplayOfContactsMoreButton('none');
         }
     } else {
@@ -284,6 +284,8 @@ function showAppropriateElements() {
             hideRightSideAndShowLeftSide();
         } else {
             showLeftSide();
+            changeDisplayOfAddContactButtonMobile('none');
+            changeDisplayOfContactsMoreButton('none');
         }
     }
 }
