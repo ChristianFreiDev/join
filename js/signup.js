@@ -1,5 +1,5 @@
 /**
- * This function signs an user up.
+ * This function signs up a user.
  */
 async function signup() {
     document.getElementById('signup-button').disabled = true;
@@ -9,7 +9,7 @@ async function signup() {
 
 
 /**
- * This function checks the inputed values for sign up and gives the user feedback.
+ * This function checks the entered values for sign-up and gives the user feedback.
  */
 async function checkSignupValues() {
     let name = document.getElementById('signup-name-input').value;
@@ -26,8 +26,8 @@ async function checkSignupValues() {
 
 
 /**
- * This function checks if the inputed email already exsits and sign up by success.
- * Otherwise the function gives the user feedback.
+ * This function checks if the entered e-mail address already exists and registers the user if that is not the case.
+ * If the e-mail address already exists, the function gives the user feedback.
  * 
  * @param {string} name 
  * @param {string} email 
@@ -51,8 +51,8 @@ async function validateUser(name, email, password) {
 
 
 /**
- * This function pushes the incoming object in the users array,
- * stores the users array and gives the user feedback of successfull sign up.
+ * This function pushes the incoming object into the users array,
+ * stores the users array and gives the user feedback that the user has signed up successfully.
  * 
  * @param {object} userObject 
  */
@@ -65,10 +65,10 @@ async function signupUser(userObject) {
 
 
 /**
- * This function checks if the email already exists in users array.
+ * This function checks if the e-mail address already exists in the users array.
  * 
  * @param {string} email 
- * @returns {boolean} true, if an email was found.
+ * @returns {boolean} true if an e-mail address was found.
  */
 function checkEmailForSignup(email) {
     for (let i = 0; i < users.length; i++) {

@@ -16,15 +16,19 @@
     <script src="./js/storage.js"></script>
     <script src="./js/data.js"></script>
     <script src="script.js"></script>
+    <script src="js/utils.js"></script>
     <script src="/js/addtask.js"></script>
     <script src="js/templates.js"></script>
     <script src="js/board.js"></script>
+    <script src="js/popups.js"></script>
+    <script src="js/subtasks.js"></script>
+    <script src="js/search.js"></script>
 </head>
 <body class="mobile-landscape-overlay" onload="initAddTask()">
     <div id="mobile-landscape-overlay">
         <p>Please turn your device...</p>
     </div>
-    <div class="outer-container" onclick="closeAssignedToList()">
+    <div class="outer-container mobile-landscape-outer-container" onclick="closeAssignedToList()">
         <nav id="mobile-menu"  w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="main">

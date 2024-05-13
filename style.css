@@ -522,7 +522,7 @@ textarea {
         overflow: hidden;
     }
 
-    .outer-container {
+    .mobile-landscape-outer-container {
         display: none;
     }
 }
