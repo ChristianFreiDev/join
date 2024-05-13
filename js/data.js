@@ -19,11 +19,11 @@ let offlineUsers = [
     },
     {
         firstName: 'Johann',
-        lastName: 'Döhns',
+        lastName: 'Schmitt',
         id: 2,
         color: 'user-color2',
         password: 'test123',
-        eMail: 'johanndoehns@yahoo.com'
+        eMail: 'johannschmitt@yahoo.com'
     },
     {
         firstName: 'Maria',
@@ -41,6 +41,54 @@ let offlineUsers = [
         password: 'test123',
         eMail: 'awendt95@gmail.com'
     },
+    {
+        firstName: 'Alexander',
+        lastName: 'Müller',
+        id: 5,
+        color: 'user-color6',
+        password: 'test123',
+        eMail: 'alexm23452@gmail.com'
+    },
+    {
+        firstName: 'Benjamin',
+        lastName: 'Bart',
+        id: 6,
+        color: 'user-color4',
+        password: 'test123',
+        eMail: 'bbbart@web.de'
+    },
+    {
+        firstName: 'Berthold',
+        lastName: 'Sand',
+        id: 7,
+        color: 'user-color12',
+        password: 'test123',
+        eMail: 'bertsand@googlemail.com'
+    },
+    {
+        firstName: 'Martin',
+        lastName: 'Huber',
+        id: 8,
+        color: 'user-color6',
+        password: 'test123',
+        eMail: 'mhub74@gmx.net'
+    },
+    {
+        firstName: 'Ella',
+        lastName: 'Schäfer',
+        id: 9,
+        color: 'user-color7',
+        password: 'test123',
+        eMail: 'ellas99@gmail.com'
+    },
+    {
+        firstName: 'Peter',
+        lastName: 'Krüger',
+        id: 10,
+        color: 'user-color13',
+        password: 'test123',
+        eMail: 'pkrueg@gmx.net'
+    }
 ];
 
 let tasks = [];
@@ -170,9 +218,9 @@ let offlineContacts =  [
     },
     {
         firstName: 'Johann',
-        lastName: 'Döhns',
+        lastName: 'Schmitt',
         color: 'user-color2',
-        eMail: 'johanndoehns@yahoo.com',
+        eMail: 'johannschmitt@yahoo.com',
         phone: '0163 65876585'
     },
     {
@@ -188,5 +236,19 @@ let offlineContacts =  [
         color: 'user-color6',
         eMail: 'mhub74@gmx.net',
         phone: '0159 2132352537'
+    },
+    {
+        firstName: 'Ella',
+        lastName: 'Schäfer',
+        color: 'user-color7',
+        eMail: 'ellas99@gmail.com',
+        phone: '0157 123643648'
+    },
+    {
+        firstName: 'Peter',
+        lastName: 'Krüger',
+        color: 'user-color13',
+        eMail: 'pkrueg@gmx.net',
+        phone: '0171 2345234767'
     }
 ];
