@@ -7,7 +7,6 @@ function centerPopup(id) {
     let popupContainer = document.getElementById('pop-up-container');
     popupContainer.style.display = 'block';
     popup.style.display = 'flex';
-    // This is needed for the function to work:
     setTimeout(function() {
         popup.classList.add('center-pop-up')
         document.body.style.overflow = 'hidden';
@@ -106,6 +105,11 @@ function renderInitalAvatarsLargeInPopup(idPrefix) {
 }
 
 
+/**
+ * This functions opens a pop-up for editing a contact.
+ * @param {string} contactEMail e-mail address of a contact
+ * @param {number} index index of a contact in the contacts array
+ */
 function editContact(contactEMail, index) {
     let contact = contacts.find(contact => contact.eMail === contactEMail);
     let openEditAddContactPopup = document.getElementById('edit-add-contact-pop-up');
@@ -115,6 +119,11 @@ function editContact(contactEMail, index) {
 }
 
 
+/**
+ * This functions opens a pop-up for adding a contact.
+ * @param {string} contactEMail e-mail address of a contact
+ * @param {number} index index of a contact in the contacts array
+ */
 function openAddContactPopup(contactEMail, index) {
     let contact = contacts.find(contact => contact.eMail === contactEMail);
     let openEditAddContactPopup = document.getElementById('edit-add-contact-pop-up');
@@ -124,6 +133,11 @@ function openAddContactPopup(contactEMail, index) {
 }
 
 
+/**
+ * This functions opens a menu from which you can delete or edit a contact.
+ * @param {number} index index of a contact in the contacts array
+ * @param {string} email e-mail address of a contact
+ */
 function openMoreMenu(index, email) {
     let screen = document.querySelector('.contacts-content-container');
     document.querySelector('body').style.overflow = 'hidden';
@@ -133,16 +147,25 @@ function openMoreMenu(index, email) {
 }
 
 
+/**
+ * This function adds an overlay for the small menu that contains buttons for deleting or editing a contact.
+ */
 function addMoreMenuOverlay() {
     document.querySelector('body').innerHTML += '<div id="overlay-more-menu" onclick="animateMoreMenuOut()"></div>';
 }
 
 
+/**
+ * This function animates the small menu that contains buttons for deleting or editing a contact by sliding it into the window.
+ */
 function animateMoreMenuIn() {
     document.getElementById('contacts-more-menu').classList.add('animate-more-menu-in');
 }
 
 
+/**
+ * This function animates the small menu that contains buttons for deleting or editing a contact by sliding it out of the window.
+ */
 function animateMoreMenuOut() {
     document.getElementById('contacts-more-menu').classList.remove('animate-more-menu-in');
     document.getElementById('contacts-more-menu').classList.add('animate-more-menu-out');
@@ -150,6 +173,9 @@ function animateMoreMenuOut() {
 }
 
 
+/**
+ * This function removes the small menu that contains buttons for deleting or editing a contact.
+ */
 function removeMoreMenu() {
     removeChildByQuerySelectors('.contacts-content-container', '#contacts-more-menu');
     removeChildByQuerySelectors('body', '#overlay-more-menu');
@@ -157,6 +183,9 @@ function removeMoreMenu() {
 }
 
 
+/**
+ * This function displays a success message when a contact has been added successfully.
+ */
 function animateSuccessMessage() {
     document.querySelector('.outer-container').style.overflow = 'hidden';
     document.querySelector('.contacts-success-message').style.display = 'flex';
@@ -165,6 +194,9 @@ function animateSuccessMessage() {
 }
 
 
+/**
+ * This function removes the success message that is displayed when a contact has been added successfully.
+ */
 function removeAnimationSuccessMessage() {
     document.querySelector('.contacts-success-message').classList.remove('animate-success-message')
     document.querySelector('.outer-container').style.overflow = 'unset';
