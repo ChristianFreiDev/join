@@ -366,6 +366,39 @@
     right: 16px;
 }
 
+#contacts-more-menu {
+    background-color: white;
+    border-radius: 20px 20px 0 20px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    bottom: 96px;
+    right: 8px;
+    z-index: 5;
+    padding: 10px;
+}
+
+#contacts-more-menu > button {
+    cursor: pointer;
+    border: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-menu);
+    background-color: transparent;
+    padding: 8px;
+}
+
+#contacts-more-menu > button > svg {
+    width: 24px;
+    height: 24px;
+}
+
 @media (max-width: 1470px) {
     .contacts-header {
         flex-direction: column;
