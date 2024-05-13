@@ -624,3 +624,13 @@ function addContactForm(contact, index) {
         </form>
     </div>`;
 }
+
+
+function contactsMoreMenu(index) {
+    return /* html */ `
+    <div id="contacts-more-menu">
+        <button>${editButtonSvg()} Edit</button>
+        <button>${deleteButtonSvg()} Delete</button>
+    </div>
+    `;
+}
