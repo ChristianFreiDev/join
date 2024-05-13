@@ -52,7 +52,7 @@ function showSummaryValues() {
  * This function outputs the amount of tasks with status "To do".
  */
 function renderToDoButton() {
-    document.getElementById('summary-to-do-amount').innerHTML = getToDosAmount();
+    document.getElementById('summary-to-do-amount').innerHTML = getAmountOfTasksWithStatus('To do');
 }
 
 
@@ -60,7 +60,7 @@ function renderToDoButton() {
  * This function outputs the amount of tasks with status "Done".
  */
 function renderDoneButton() {
-    document.getElementById('summary-done-amount').innerHTML = getDonesAmount();
+    document.getElementById('summary-done-amount').innerHTML = getAmountOfTasksWithStatus('Done');
 }
 
 
@@ -296,7 +296,7 @@ function renderTaskButton() {
  * This function outputs the amount of tasks with status "In progress".
  */
 function renderProgressButton() {
-    document.getElementById('summary-in-progress-amount').innerHTML = getInProgressAmount();
+    document.getElementById('summary-in-progress-amount').innerHTML = getAmountOfTasksWithStatus('In progress');
 }
 
 
@@ -304,65 +304,20 @@ function renderProgressButton() {
  * This function outputs the amount of tasks with status "Await feedback".
  */
 function renderFeedbackButton() {
-    document.getElementById('summary-await-feedback-amount').innerHTML = getAwaitFeedbackAmount();
+    document.getElementById('summary-await-feedback-amount').innerHTML = getAmountOfTasksWithStatus('Await feedback');
 }
 
 
 /**
- *  This function iterates through the tasks array and increases a counter when a task with the status "To do" is found.
- * @returns the amount of current tasks with status "To do".
+ *  This function iterates through the tasks array and increases a counter when a task with the specified status is found.
+ * @returns the amount of current tasks with the specified status
  */
-function getToDosAmount() {
-    let toDoCount = 0;
+function getAmountOfTasksWithStatus(status) {
+    let count = 0;
     for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].status === 'To do') {
-            toDoCount++;
+        if (tasks[i].status === status) {
+            count++;
         }
     }
-    return toDoCount;
-}
-
-
-/**
- *  This function iterates through the tasks array and increases a counter when a task with the status "Done" is found.
- * @returns the amount of actual tasks with status "Done".
- */
-function getDonesAmount() {
-    let doneCount = 0;
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].status === 'Done') {
-            doneCount++;
-        }
-    }
-    return doneCount;
-}
-
-
-/**
- *  This function iterates through the tasks array and increases a counter when a task with the status "In progress" is found.
- * @returns the amount of actual tasks with status "In progress".
- */
-function getInProgressAmount() {
-    let inProgressCount = 0;
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].status === 'In progress') {
-            inProgressCount++;
-        }
-    }
-    return inProgressCount;
-}
-
-
-/**
- *  This function iterates through the tasks array and increases a counter when a task with the status "Await feedback" is found.
- * @returns the amount of actual tasks with status "Await feedback".
- */
-function getAwaitFeedbackAmount() {
-    let awaitFeedbackCount = 0;
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].status === 'Await feedback') {
-            awaitFeedbackCount++;
-        }
-    }
-    return awaitFeedbackCount;
+    return count;
 }
