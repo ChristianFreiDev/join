@@ -226,13 +226,14 @@ function openContact(index) {
 
 function openMoreMenu(index, email) {
     let screen = document.querySelector('.contacts-content-container');
-    screen.style.overflow = 'hidden';
+    document.querySelector('body').style.overflow = 'hidden';
     screen.innerHTML += contactsMoreMenu(index, email);
+    animateMoreMenuIn();
 }
 
 
-function animateMoreMenuIn(index) {
-
+function animateMoreMenuIn() {
+    document.getElementById('contacts-more-menu').classList.add('animate-more-menu');
 }
 
 
