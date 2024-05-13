@@ -13,7 +13,7 @@ async function initContacts() {
 
 /**
  * This function searches for a user with the same e-mail address as the contact and returns the user's color if there is a match or returns the contact's color if there is none.
- * @param {Object} contact 
+ * @param {Object} contactEMail e-mail address of a contact 
  * @returns {string} desired contact color
  */
 function getContactColor(contactEMail) {
@@ -62,7 +62,7 @@ function renderContacts() {
 
 /**
  * This function finds the user with the matching e-mail address.
- * @param {string} eMail e-mail address
+ * @param {string} eMail e-mail address of a user
  * @returns {number} id of the user with the e-mail adress
  */
 function getUserIdFromEMail(eMail) {
@@ -75,7 +75,7 @@ function getUserIdFromEMail(eMail) {
 
 /**
  * This function removes a contact from the tasks assigned to it.
- * @param {string} contactEMail e-mail adress of the contact
+ * @param {string} contactEMail e-mail address of the contact
  */
 function removeUserFromAssignedTasks(contactEMail) {
     let userId = getUserIdFromEMail(contactEMail);
@@ -92,7 +92,8 @@ function removeUserFromAssignedTasks(contactEMail) {
 
 /**
  * This function deletes a contact.
- * @param {string} contactEMail e-mail adress of the contact
+ * @param {Event} event
+ * @param {string} contactEMail e-mail address of the contact
  */
 async function deleteContact(event, contactEMail) {
     disableButton(event.target.id);
@@ -118,8 +119,7 @@ async function deleteContact(event, contactEMail) {
 function hideLeftSideAndShowRightSide() {
     let contactsLeftSide = document.querySelector('.contacts-left-side');
     contactsLeftSide.style.display = 'none';
-    let contactsRightSide = document.querySelector('.contacts-right-side');
-    contactsRightSide.style.display = 'block';
+    showRightSide();
 }
 
 
@@ -207,6 +207,10 @@ function openContact(index) {
 }
 
 
+/**
+ * This function changes the style of a contact when it is active and removes the active style from all other contacts.
+ * @param {number} index index of a contact in the contacts array
+ */
 function setActiveContact(index) {
     let contacts = document.querySelectorAll('.contact-in-list-active');
     for (let i = 0; i < contacts.length; i++) {
@@ -217,6 +221,10 @@ function setActiveContact(index) {
 }
 
 
+/**
+ * This function saves a contact after it has been edited.
+ * @param {number} index index of a contact in the contacts array
+ */
 function saveEditedContact(index) {
     disableButton('save-contact-button');
     let contactNameInput = document.getElementById('contact-name-input');
@@ -243,6 +251,9 @@ function saveEditedContact(index) {
 }
 
 
+/**
+ * This function adds a contact to the list of contacts.
+ */
 function addContact() {
     disableButton('create-contact-button');
     let contactNameInput = document.getElementById('contact-name-input');
