@@ -290,7 +290,9 @@ function updateSubtaskList(idPrefix) {
  * This function stores the current tasks in the backend once the task has been edited and the form is submitted.
  * @param {number} taskId 
  */
-function onSubmitEditTaskForm(taskId) {
+async function onSubmitEditTaskForm(taskId) {
+    let editTaskOKButton = document.getElementById('edit-task-ok-button');
+    editTaskOKButton.disabled = true;
     let task = tasks.find(task => task.id === taskId);
     task.title = document.getElementById('edit-task-title-input').value;
     task.description = document.getElementById('edit-task-description-textarea').value;
@@ -298,7 +300,7 @@ function onSubmitEditTaskForm(taskId) {
     task.dueDate = document.getElementById('edit-task-due-date').value;
     task.priority = priority;
     task.subtasks = temporarySubtasks;
-    storeTasks();
+    await storeTasks();
     renderTasks(tasks);
     fillOpenTaskPopup(taskId);
 }

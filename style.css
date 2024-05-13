@@ -278,6 +278,10 @@ textarea {
     gap: 4px;
 }
 
+.button:disabled {
+    background-color: var(--color-input-light-gray);
+}
+
 .dark-button {
     color: #FFFFFF;
     background-color: var(--color-menu);

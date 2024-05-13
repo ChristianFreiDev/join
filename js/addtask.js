@@ -93,6 +93,8 @@ function clickPriorityButton(newPriority, idPrefix) {
  * This function adds a task to the server. Before pushing a new task, the tasks are loaded from the backend to make sure they are up-to-date.
  */
 async function addTask(status) {
+    document.getElementById('create-task-button').disabled = true;
+    document.getElementById('create-task-button').classList.remove('create-task-enabled');
     let title = document.getElementById('input-title');
     let description = document.getElementById('input-description');
     let date = document.getElementById('input-due-date');
