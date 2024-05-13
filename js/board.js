@@ -292,7 +292,6 @@ async function initBoard() {
     checkForLogin();
     await init();
     await Promise.all([loadTasks(), loadUsers()]);
-    // useOfflineData();
     renderTasks(tasks);
     initAddTask();
 }
@@ -301,7 +300,7 @@ async function initBoard() {
 /**
  * This function cuts off the task description after a certain number of characters.
  * @param {string} taskDescription 
- * @returns {string}
+ * @returns {string} string with a certain length
  */
 function createTaskDescriptionPreview(taskDescription) {
     let result = '';
