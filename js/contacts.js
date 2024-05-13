@@ -233,9 +233,21 @@ function openMoreMenu(index, email) {
 
 
 function animateMoreMenuIn() {
-    document.getElementById('contacts-more-menu').classList.add('animate-more-menu');
+    document.getElementById('contacts-more-menu').classList.add('animate-more-menu-in');
 }
 
+function animateMoreMenuOut() {
+    document.getElementById('contacts-more-menu').classList.add('animate-more-menu-out');
+    document.getElementById('contacts-more-menu').classList.remove('animate-more-menu-in');
+    setTimeout(closeMoreMenu, 225);
+}
+
+
+function closeMoreMenu() {
+    let parent = document.querySelector('.contacts-content-container');
+    let child = document.getElementById('contacts-more-menu');
+    parent.removeChild(child);
+}
 
 function setActiveContact(index) {
     let contacts = document.querySelectorAll('.contact-in-list-active');

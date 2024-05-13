@@ -384,14 +384,18 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    bottom: 96px;
+    bottom: 16px;
     right: -120px;
     z-index: 5;
     padding: 10px;
 }
 
-.animate-more-menu {
+.animate-more-menu-in {
     animation: fade-in 225ms ease-in-out forwards;
+}
+
+.animate-more-menu-out {
+    animation: fade-in 225ms ease-in-out forwards reverse;
 }
 
 #contacts-more-menu > button {
@@ -521,6 +525,10 @@
 }
 
 @media (max-width: 920px) {
+    #contacts-more-menu {
+        bottom: 96px;
+    }
+
     .contacts-success-message {
         left: calc(50% - 162px);
     }

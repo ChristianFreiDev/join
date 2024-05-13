@@ -629,8 +629,8 @@ function addContactForm(contact, index) {
 function contactsMoreMenu(index, email) {
     return /* html */ `
     <div id="contacts-more-menu">
-        <button onclick="closeMoreMenu(); editContact('${email}', ${index});">${editButtonSvg()} Edit</button>
-        <button onclick="closeMoreMenu(); deleteContact('${email}')">${deleteButtonSvg()} Delete</button>
+        <button onclick="animateMoreMenuOut(); editContact('${email}', ${index});">${editButtonSvg()} Edit</button>
+        <button onclick="animateMoreMenuOut(); deleteContact('${email}')">${deleteButtonSvg()} Delete</button>
     </div>
     `;
 }
