@@ -1,11 +1,11 @@
 const BASE_URL = "https://join-91cdc-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /**
- * This function stores an object to the firebase storage.
+ * This function stores an object in the Firebase database.
  * 
  * @param {string} path 
  * @param {object} data 
- * @returns respons as Json.
+ * @returns response as Json.
  */
 async function setItem(path = "", data = {}) {
     let response = await fetch(BASE_URL + path + '.json', {
@@ -20,7 +20,7 @@ async function setItem(path = "", data = {}) {
 
 
 /**
- * This function loads data from the firebase storage.
+ * This function loads data from the Firebase database.
  * 
  * @param {string} path 
  * @returns loaded data as Json.
@@ -119,7 +119,7 @@ async function storeContacts() {
 
 
 /**
- * This function resets the remote Storage.
+ * This function resets the remote storage.
  */
 async function resetUsersTasksContacts() {
     try {
@@ -143,7 +143,7 @@ async function useOfflineData() {
 
 
 /**
- * This function saves a variable to the local storage.
+ * This function saves a variable to local storage.
  * 
  * @param {string} key 
  * @param {number, string or boolean} variable 
@@ -154,7 +154,7 @@ function saveVariableInLocalStorage(key, variable) {
 
 
 /**
- * This function loads a variable from the local storage.
+ * This function loads a variable from local storage.
  * 
  * @param {string} key 
  * @returns 
@@ -165,7 +165,7 @@ function loadVariableFromLocalStorage(key) {
 
 
 /**
- * This function saves an array to the local storage.
+ * This function saves an array to local storage.
  * 
  * @param {string} key 
  * @param {array} array 
@@ -176,7 +176,7 @@ function saveArrayInLocalStorage(key, array) {
 
 
 /**
- * This function loads an array fron the local storage.
+ * This function loads an array from local storage.
  * 
  * @param {string} key 
  * @returns 
