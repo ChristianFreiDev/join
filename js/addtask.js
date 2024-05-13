@@ -30,10 +30,10 @@ async function initAddTask() {
     checkCategoryRequirement();
 }
 
-//----------------------- Prio Buttons---------------------------------//
+//----------------------- Priority Buttons---------------------------------//
 
 /** 
- * This object is used to avoid repetitions at the prio buttons.
+ * This object is used to avoid repetitions at the priority buttons.
  */
 
 const buttonActions = {
@@ -91,6 +91,7 @@ function clickPriorityButton(newPriority, idPrefix) {
 
 /**
  * This function adds a task to the server. Before pushing a new task, the tasks are loaded from the backend to make sure they are up-to-date.
+ * @param {string} status status of the task (for example, 'In progess')
  */
 async function addTask(status) {
     document.getElementById('create-task-button').disabled = true;
@@ -135,28 +136,6 @@ async function addTaskFromAddTaskPage() {
 }
 
 
-// /**
-//  * This function resets all values of the form.    
-//  */
-// function resetForm() {
-//     temporaryCollaborators = [];
-//     temporarySubtasks = [];
-//     renderInitalAvatarsLargeInPopup('add-task');
-//     let title = document.getElementById('input-title');
-//     let description = document.getElementById('input-description');
-//     let date = document.getElementById('input-due-date');
-//     let category = document.getElementById('input-category');
-//     let addTaskSubtaskInput = document.getElementById('add-task-subtask-input');
-//     let addTaskSubtasksList = document.getElementById('add-task-subtasks-list');
-//     title.value = '';
-//     description.value = '';
-//     date.value = '';
-//     category.value = '';
-//     addTaskSubtaskInput.value = '';
-//     addTaskSubtasksList.innerHTML = '';
-// }
-
-
 /**
  * This function renders a list of users that can be assigned to a task.
  */
@@ -167,7 +146,8 @@ function renderAssignedToList() {
 
 
 /**
- * This function serves to add an event listener that adds buttons to confirm or reject a change.
+ * This function serves to add an event listener that adds buttons to confirm or reject a change
+ * and an event listener that confirms the input when the Enter key is pressed.
  * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
  */
 function addInputEventListener(idPrefix) {
@@ -189,8 +169,8 @@ function addInputEventListener(idPrefix) {
 
 /**
  * This function adds an error message below an input field if it is invalid.
- * @param {Object} element 
- * @param {string} message 
+ * @param {Object} element HTML element
+ * @param {string} message error message
  */
 function setError(element, message) {
     let inputControl = element.parentElement;
@@ -203,7 +183,7 @@ function setError(element, message) {
 
 /**
  * This function removes the error message that was displayed if the input field was invalid.
- * @param {Object} element 
+ * @param {Object} element HTML element
  */
 function setSuccess(element) {
     let inputControl = element.parentElement;
@@ -215,7 +195,8 @@ function setSuccess(element) {
 
 
 /**
- * This function validates the title and due date inputs.
+ * This function validates inputs (for example, title and due date).
+ * @param {Array} inputIds array of ID strings of the input elements
  */
 function validateInputs(inputIds) {
     for (let i = 0; i < inputIds.length; i++) {
@@ -232,7 +213,7 @@ function validateInputs(inputIds) {
 
 
 /**
- *  This function checks the requirements of the form and activates or deactivates the submit button
+ *  This function checks the requirements of the form and activates or deactivates the submit button.
  */
 function checkCreateTaskButton() { 
         if (
@@ -250,7 +231,7 @@ function checkCreateTaskButton() {
 
 
 /**
- * This function shows whether all mandatory fields have been filled out by mouseover the submit button
+ * This function checks and shows whether all mandatory fields have been filled out when the mouse is over the submit button.
  */
 function mouseoverCheckRequirements() {
     document.getElementById('create-task-button').addEventListener("mouseover", function (event) {
@@ -264,7 +245,7 @@ function mouseoverCheckRequirements() {
 
 
 /**
- * This function highlights the titles border green or red
+ * This function highlights the title input's border in green or red.
  */
 function titleRequirement() {
     let title = document.getElementById('input-title');
@@ -279,7 +260,7 @@ function titleRequirement() {
 
 
 /**
- * This function highlights the dates border green or red
+ * This function highlights the date input's border in green or red.
  */
 function dueDateRequirement() {
     let date = document.getElementById('input-due-date');
@@ -292,7 +273,7 @@ function dueDateRequirement() {
 
 
 /**
- *  This function highlights the categorys border green or red
+ *  This function highlights the category input's border in green or red.
  */
 function categoryRequirement() {
     let category = document.getElementById('input-category');
@@ -306,7 +287,7 @@ function categoryRequirement() {
 
 
 /**
- * This function is used to check the requirements after typing into the title-input
+ * This function is used to check the requirements after typing into the title input.
  */
 function checkTitleRequirement() {
     titleRequirement();
@@ -315,7 +296,7 @@ function checkTitleRequirement() {
 
 
 /**
- * This function is used to check the requirements after choosing a date
+ * This function is used to check the requirements after choosing a date.
  */
 function checkDueDateRequirement() {
         document.getElementById('input-due-date').addEventListener("change", function (event) {
@@ -334,7 +315,7 @@ function setMinDate() {
 
 
 /**
- * This function is used to check the requirements after choosing a category
+ * This function is used to check the requirements after choosing a category.
  */
 function checkCategoryRequirement(){
     document.getElementById('input-category').addEventListener("change", function (event){
@@ -345,7 +326,7 @@ function checkCategoryRequirement(){
 
 
 /**
- * This function is used to clear the form
+ * This function is used to clear the form.
  */
 function clearForm(){
     resetError(['input-title', 'input-due-date', 'input-category']);
@@ -360,7 +341,7 @@ function clearForm(){
 
 
 /**
- * This function resets the border to lightgrey after use the clear button
+ * This function resets the border to light gray after using the clear button.
  */
 function setBorderGrey(){
     let title = document.getElementById('input-title');
@@ -381,8 +362,8 @@ function setBorderGrey(){
 
 
 /**
- * This function removes the class "error" from every required input by clicking the clear button
- * @param {*} inputIds 
+ * This function removes the class "error" from every required input when the clear button is clicked.
+ * @param {Array} inputIds array of ID strings of the input elements
  */
 function resetError(inputIds){
     for (let i = 0; i < inputIds.length; i++) {
