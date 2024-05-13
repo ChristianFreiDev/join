@@ -220,14 +220,14 @@ function openContact(index) {
     }
     isContactOpen = true;
     showAppropriateElements();
-    document.getElementById('contacts-more-button').setAttribute('onclick', `openMoreMenu(${index})`);
+    document.getElementById('contacts-more-button').setAttribute('onclick', `openMoreMenu(${index}, '${contact.eMail}')`);
 }
 
 
-function openMoreMenu(index) {
+function openMoreMenu(index, email) {
     let screen = document.querySelector('.contacts-content-container');
     screen.style.overflow = 'hidden';
-    screen.innerHTML += contactsMoreMenu(index);
+    screen.innerHTML += contactsMoreMenu(index, email);
 }
 
 
