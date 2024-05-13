@@ -107,7 +107,7 @@
 
 .formular{
     display: flex;
-    gap: 96.25px;
+    gap: 48px;
 }
 
 .this-field-is-required{
