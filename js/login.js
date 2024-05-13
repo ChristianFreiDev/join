@@ -20,7 +20,7 @@ async function initIndex() {
  * This function checks if a user is remembered and if it is true, it fills the login fields with the user's data.
  */
 function checkForRememberedUser() {
-    if (rememberedUser()) {
+    if (rememberedUser() && rememberedUser() !== 'false') {
         for (let i = 0; i < users.length; i++) {
             if (users[i].id == rememberedUser()) {
                 document.getElementById('login-email-input').value = users[i].eMail;
