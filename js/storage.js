@@ -53,7 +53,6 @@ async function loadUsers() {
  */
 async function storeUsers() {
     try {
-        console.log('storing users');
         await setItem('/users', users);
     } catch (error) {
         console.error('Storage error:', error);
@@ -88,7 +87,6 @@ async function loadTasks() {
  */
 async function storeTasks() {
     try {
-        console.log('storing tasks');
         await setItem('/tasks', tasks);
     } catch (error) {
         console.error('Storage error:', error);
@@ -113,7 +111,6 @@ async function loadContacts() {
  */
 async function storeContacts() {
     try {
-        console.log('storing contacts');
         await setItem('/contacts', contacts);
     } catch (error) {
         console.error('Storage error:', error);
