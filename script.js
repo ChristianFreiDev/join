@@ -404,3 +404,8 @@ async function initNotProtectedPage() {
     await init();
     checkForLogin(false);
 }
+
+function logout() {
+    saveVariableInLocalStorage('rememberUserId', false);
+    window.open('./index.html', '_self');
+}
