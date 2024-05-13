@@ -1,3 +1,8 @@
+/**
+ * This function removes a child of a parent element using the querySelector() method.
+ * @param {string} parentId ID of parent element
+ * @param {string} childId ID of child element
+ */
 function removeChildByQuerySelectors(parentId, childId) {
     let parent = document.querySelector(parentId);
     let child = document.querySelector(childId);
