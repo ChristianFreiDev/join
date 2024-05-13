@@ -14,10 +14,11 @@
         min-width: 440px;
     }
 
-    .add-task-submit-butttons {
+    .add-task-submit-buttons {
         margin-top: 16px;
         margin-left: 0;
         gap: 16px;
+        margin-bottom: 96px;
     }
 
     .this-field-is-required {
