@@ -83,7 +83,7 @@ function checkEmailForSignup(email) {
 
 
 /**
- * This function animate the success message for sign up.
+ * This function animates the success message for sign-up.
  */
 function showSuccessMessage() {
     document.querySelector('body').style.position = 'relative';
@@ -96,7 +96,7 @@ function showSuccessMessage() {
 
 
 /**
- * This function hides the success message for sign up.
+ * This function hides the success message for sign-up.
  */
 function hideSuccessMessage() {
     let overlay = document.getElementById('login-overlay');
@@ -109,12 +109,12 @@ function hideSuccessMessage() {
 
 
 /**
- * This function creates an user object.
+ * This function creates a user object.
  * 
  * @param {string} name 
  * @param {string} email 
  * @param {string} password 
- * @returns {object} created based on user data.
+ * @returns {Object} created based on user data.
  */
 function createUserObject(name, email, password, color) {
     let firstName = getUserName('first', name);
@@ -145,7 +145,7 @@ function openLogInMenu() {
 
 
 /**
- * This function clears the inputs in the sign up field.
+ * This function clears the inputs in the sign-up fields.
  */
 function clearSignupField() {
     document.getElementById('signup-name-input').value = '';
@@ -156,7 +156,7 @@ function clearSignupField() {
 
 
  /**
-  * This function hides the failure messages in the sign up field by adding the class "displa-none".
+  * This function hides the failure messages in the sign-up field by adding the class "display-none".
   */
 function closeSignupFailureMessages() {
     document.querySelector('#signup-email-input ~ p').classList.add('display-none');
@@ -165,13 +165,13 @@ function closeSignupFailureMessages() {
 
 
 /**
- * This function gets the first- or the last name(s) from input,
- * by cutting of whitespaces at the start and end of the string,
- * then get the used whithspace positions and saves them in an array.
+ * This function gets the first or last name(s) from the input
+ * by cutting off whitespaces at the start and end of the string,
+ * then it gets the used whitespace positions and saves them in an array.
  * 
  * @param {string} type 
  * @param {string} name 
- * @returns {Function} to get the users name.
+ * @returns {Function} to get the user's name.
  */
 function getUserName(type, name) {
     name = name.trim();
@@ -181,12 +181,12 @@ function getUserName(type, name) {
 
 
 /**
- * This function gets the user name by considering the used whitespaces under three used whitspaces.
+ * This function gets the user name by considering the used whitespaces under three used whitespaces.
  * 
  * @param {string} type 
  * @param {Array} whitespaces 
  * @param {string} name 
- * @returns {Function} to format users name, or get users name considering used whitespaces over three times.
+ * @returns {Function} to format user's name, or get user's name considering used whitespaces over three times.
  */
 function getNameFromUnderThreeInputs(type, whitespaces, name) {
     if (whitespaces.length <= 1 && type === 'first') {
@@ -204,12 +204,12 @@ function getNameFromUnderThreeInputs(type, whitespaces, name) {
 
 
 /**
- * This function gets the user name by considering the uses whitespaces over three used whitespaces.
+ * This function gets the user name by considering the used whitespaces over three used whitespaces.
  * 
  * @param {string} type 
  * @param {Array} whitespaces 
  * @param {string} name 
- * @returns {strin} the first or the last name.
+ * @returns {string} the first or the last name.
  */
 function getNameFromOverThreeInputs(type, whitespaces, name) {
     let firstName = '';
@@ -228,13 +228,13 @@ function getNameFromOverThreeInputs(type, whitespaces, name) {
 
 
 /**
- * This function gets the user name by entering multible first names.
+ * This function gets the user name by entering multiple first names.
  * 
  * @param {Array} whitespaces 
  * @param {string} name 
  * @param {string} firstNames 
  * @param {string} lastName 
- * @returns {object} including th fist names as an array and the last name as a string.
+ * @returns {Object} including the first names as an array and the last name as a string.
  */
 function getNamesThroughWhithspaces(whitespaces, name, firstNames, lastName) {
     for (let i = 0; i < whitespaces.length; i++) {
@@ -272,14 +272,14 @@ function getWhitespaces(name) {
 
 
 /**
- * This function checks is the actual position is a necessary whithspace.
- * If its a necessary position, the position will pushed in the whitespaces array.
- * If its not necessary, the whithspace counter will increased.
+ * This function checks if the current position is a necessary whitespace.
+ * If it is a necessary position, the position will be pushed into the whitespaces array.
+ * If it is not necessary, the whitespace counter will increase.
  * 
  * @param {Array} whitespaces 
  * @param {number} whitespaceCounter 
  * @param {string} name 
- * @returns {Array} including the whitespace array and the whitespace counter number.
+ * @returns {Array} including the whitespaces array and the whitespace counter number.
  */
 function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
     if (whitespaces.length === 0) {
@@ -295,10 +295,10 @@ function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
 
 
 /**
- * This function formates the incoming string as a name.
+ * This function formats the incoming string as a name.
  * 
  * @param {string} name 
- * @returns {string} the name with first Character in upper case und the following characters in lower case.
+ * @returns {string} the name with first character in upper case und the following characters in lower case.
  */
 function formatStringAsName(name) {
     return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
