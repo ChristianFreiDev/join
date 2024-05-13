@@ -1,7 +1,7 @@
 let loggedIn = false;
 
 /**
- * This function initialize the log in.
+ * This function initializes the login page.
  */
 async function initIndex() {
     document.getElementById('login-overlay').classList.add('animate-overlay');
@@ -68,10 +68,10 @@ function login(guest = false) {
 
 
 /**
- * This function checks if the inputed emali exsits in the users array.
+ * This function checks if a user with the entered e-mail address exists in the users array.
  * 
  * @param {string} email 
- * @returns {boolean} true, if no email was found.
+ * @returns {boolean} true if no e-mail address was found.
  */
 function checkEmail(email) {
     for (let i = 0; i < users.length; i++) {
@@ -84,10 +84,10 @@ function checkEmail(email) {
 
 
 /**
- * This function checks if the inputed password exsits in the users array.
+ * This function checks if a user with the entered password exists in the users array.
  * 
  * @param {string} password 
- * @returns {boolean} true, if no password was found.
+ * @returns {boolean} true if no password was found.
  */
 function checkPassword(password) {
     for (let i = 0; i < users.length; i++) {
@@ -118,7 +118,7 @@ function checkUserValues() {
 
 
 /**
- * This function catches the log in failures and gives the user feedback.
+ * This function catches login failures and gives the user feedback.
  * 
  * @param {string} email 
  * @param {string} password 
@@ -175,7 +175,7 @@ function getInitials(name, i) {
 
 /**
  * This function toggles the value of a checkbox and changes the image to the appropriate image.
- * @param {string} id 
+ * @param {string} id
  */
 function clickCheckbox(id) {
     let checkbox = document.getElementById(id);
@@ -272,6 +272,7 @@ function changePasswordVisibility(idIcon, idInput, init = false) {
         input.focus(this.value);
     }
 }
+
 
 /**
  * This function changes input icon, input type and cursor style to visibility on.
