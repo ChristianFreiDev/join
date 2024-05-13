@@ -21,7 +21,10 @@
     <script src="js/addtask.js"></script>
     <script src="js/edittask.js"></script>
 </head>
-<body onload="initBoard()">
+<body class="mobile-ladnscape-overlay" onload="initBoard()">
+    <div id="mobile-ladnscape-overlay">
+        <p>Please turn your phone..</p>
+    </div>
     <div class="outer-container">
         <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>

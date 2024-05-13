@@ -509,8 +509,10 @@ textarea {
         z-index: 999;
     }
 
-    body {
+    .mobile-ladnscape-overlay {
         max-height: 100vh;
+        position: relative;
+        overflow: hidden;
     }
 }
 
