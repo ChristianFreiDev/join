@@ -112,7 +112,8 @@ function openAddContactPopup(contactEMail, index) {
  * This function deletes a contact.
  * @param {string} contactEMail e-mail adress of the contact
  */
-async function deleteContact(contactEMail) {
+async function deleteContact(event, contactEMail) {
+    disableButton(event.target.id);
     let contact = contacts.find(contact => contact.eMail === contactEMail);
     let contactIndex = contacts.indexOf(contact);
     if (contactIndex > -1) {
@@ -270,6 +271,7 @@ function setActiveContact(index) {
 
 
 function saveEditedContact(index) {
+    disableButton('save-contact-button');
     let contactNameInput = document.getElementById('contact-name-input');
     let contactEmailInput = document.getElementById('contact-email-input');
     let contactPhoneInput = document.getElementById('contact-phone-input');
@@ -295,6 +297,7 @@ function saveEditedContact(index) {
 
 
 function addContact() {
+    disableButton('create-contact-button');
     let contactNameInput = document.getElementById('contact-name-input');
     let contactEmailInput = document.getElementById('contact-email-input');
     let contactPhoneInput = document.getElementById('contact-phone-input');

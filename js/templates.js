@@ -532,7 +532,7 @@ function contactProfileTemplate(contact, contactColor, index) {
                         ${editButtonSvg()}
                         <span>Edit</span>
                     </div>
-                    <div class="contact-button" onclick="deleteContact('${contact.eMail}')">
+                    <div class="contact-button" onclick="deleteContact(event, '${contact.eMail}')">
                         ${deleteButtonSvg()}
                         <span>Delete</span>
                     </div>
@@ -580,8 +580,8 @@ function contactEditForm(contact, index) {
             </div>
             </div>
             <div class="contact-pop-up-buttons-container">
-                <button class="button light-button button-padding-size3" type="button" onclick="deleteContact('${contact.eMail}')">Delete</button>
-                <button class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
+                <button id="delete-contact-button" class="button light-button button-padding-size3" type="button" onclick="deleteContact(event, '${contact.eMail}')">Delete</button>
+                <button id="save-contact-button" class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
             </div>
         </form>
     </div>`;
@@ -619,7 +619,7 @@ function addContactForm(contact, index) {
             </div>
             <div class="contact-pop-up-buttons-container">
                 <button id="cancel-button" class="button light-button button-padding-size2" type="button">Cancel ${cancelIconSVG()}</button>
-                <button class="button dark-button button-padding-size2">Create contact <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
+                <button id="create-contact-button" class="button dark-button button-padding-size2">Create contact <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
             </div>
         </form>
     </div>`;
@@ -630,7 +630,7 @@ function contactsMoreMenu(index, email) {
     return /* html */ `
     <div id="contacts-more-menu">
         <button onclick="animateMoreMenuOut(); editContact('${email}', ${index});">${editButtonSvg()} Edit</button>
-        <button onclick="animateMoreMenuOut(); deleteContact('${email}')">${deleteButtonSvg()} Delete</button>
+        <button onclick="animateMoreMenuOut(); deleteContact(event, '${email}')">${deleteButtonSvg()} Delete</button>
     </div>
     `;
 }
