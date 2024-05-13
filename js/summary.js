@@ -4,8 +4,8 @@ let taskIndex = 0;
 
 
 /**
- * This function initialize the summary page by implementing header and nav.
- * Also by showing the right values of users tasks.
+ * This function initializes the summary page by implementing header and nav.
+ * Also by showing the right values of user tasks.
  */
 async function initSummary() {
     checkForLogin();
@@ -20,7 +20,7 @@ async function initSummary() {
 
 
 /**
- * This function changes the greeting settings for small and whide screens.
+ * This function changes the greeting settings for small and wide screens.
  */
 function checkWindowWidth() {
     if (document.body.scrollWidth < 1400 && animationOver) {
@@ -36,7 +36,7 @@ function checkWindowWidth() {
 
 
 /**
- * This function fill the summary with the actual values.
+ * This function fills the summary with the actual values.
  */
 function showSummaryValues() {
     renderToDoButton();
@@ -49,7 +49,7 @@ function showSummaryValues() {
 
 
 /**
- * This function outputs the amount of task with status "To do".
+ * This function outputs the amount of tasks with status "To do".
  */
 function renderToDoButton() {
     document.getElementById('summary-to-do-amount').innerHTML = getToDosAmount();
@@ -57,7 +57,7 @@ function renderToDoButton() {
 
 
 /**
- * This function outputs the amount of task with status "Done".
+ * This function outputs the amount of tasks with status "Done".
  */
 function renderDoneButton() {
     document.getElementById('summary-done-amount').innerHTML = getDonesAmount();
@@ -65,7 +65,7 @@ function renderDoneButton() {
 
 
 /**
- * This function renders the mid button.
+ * This function renders the button in the middle.
  */
 function renderPriorityAndDueDateButton() {
     if (tasks.length > 0) {
@@ -84,9 +84,9 @@ function renderPriorityAndDueDateButton() {
 
 
 /**
- * This function searchs for all tasks with the highest priority.
+ * This function searches for all tasks with the highest priority.
  * 
- * @returns the tasks with highest priority as an array.
+ * @returns {Array} the tasks with highest priority as an array.
  */
 function findTasks() {
     let results = [];
@@ -102,10 +102,10 @@ function findTasks() {
 
 
 /**
- * This function searches in the found tasks for the highest priority.
+ * This function searches for the highest priority in the found tasks.
  * 
  * @param {Array} foundTasks 
- * @returns {string} highest Priority that was found.
+ * @returns {string} highest priority that was found.
  */
 function findhighestPriority(foundTasks) {
     let results = findPriority("Urgent", foundTasks);
@@ -148,7 +148,7 @@ function renderPriorityIcon(prio = 'main') {
 
 
 /**
- * This function set the icon styles to "Urgent".
+ * This function sets the icon styles to "Urgent".
  * 
  * @param {Element} icon 
  */
@@ -161,7 +161,7 @@ function setIconStylesToUrgent(icon) {
 
 
 /**
- * This function set the icon styles to "Medium".
+ * This function sets the icon styles to "Medium".
  * 
  * @param {Element} icon 
  */
@@ -174,7 +174,7 @@ function setIconStylesToMedium(icon) {
 
 
 /**
- * This function set the icon styles to "Low".
+ * This function sets the icon styles to "Low".
  * 
  * @param {Element} icon 
  */
@@ -187,7 +187,7 @@ function setIconStylesToLow(icon) {
 
 
 /**
- * This function set the icon styles to "Low".
+ * This function sets the icon styles to the default value.
  * 
  * @param {Element} icon 
  */
@@ -197,7 +197,7 @@ function setIconStylesToDefault(icon) {
 
 
 /**
- * This function searchs in the aray tasks for all tasks with the same priority.
+ * This function searches for all tasks with the same priority in the tasks array.
  * 
  * @param {string} prio 
  * @returns the tasks with the same priority as an array.
@@ -214,9 +214,9 @@ function findPriority(prio, foundTasks) {
 
 
 /**
- * This function searches in the tasks array for the next duedate.
+ * This function searches for the next due date in the tasks array.
  * 
- * @returns {number} value of next duedate.
+ * @returns {number} value of next due date.
  */
 function findNextDuedate() {
     let date = Infinity;
@@ -232,7 +232,7 @@ function findNextDuedate() {
 
 
 /**
- *  This function outputs the amount of Tasks with the highest priority.
+ *  This function outputs the amount of tasks with the highest priority.
  * 
  * @param {Array} foundTasks 
  */
@@ -252,7 +252,7 @@ function renderPriorityValue(priority) {
 
 
 /**
- * This function searchs for the upcoming due date and outputs it.
+ * This function searches for the upcoming due date and outputs it.
  * 
  * @param {Array} foundTasks 
  */
@@ -285,7 +285,7 @@ function formatDate(date) {
 
 
 /**
- * This function outputs the amount of all tasks on Board.
+ * This function outputs the amount of all tasks on the board.
  */
 function renderTaskButton() {
     document.getElementById('summary-tasks-amount').innerHTML = tasks.length;
@@ -309,8 +309,8 @@ function renderFeedbackButton() {
 
 
 /**
- *  This function iterates through the array tasks and increases its counter when a task is found including status "To do".
- * @returns the amount of actual tasks with status "To do".
+ *  This function iterates through the tasks array and increases a counter when a task with the status "To do" is found.
+ * @returns the amount of current tasks with status "To do".
  */
 function getToDosAmount() {
     let toDoCount = 0;
@@ -324,7 +324,7 @@ function getToDosAmount() {
 
 
 /**
- *  This function iterates through the array tasks and increases its counter when a task is found including status "Done".
+ *  This function iterates through the tasks array and increases a counter when a task with the status "Done" is found.
  * @returns the amount of actual tasks with status "Done".
  */
 function getDonesAmount() {
@@ -339,7 +339,7 @@ function getDonesAmount() {
 
 
 /**
- *  This function iterates through the array tasks and increases its counter when a task is found including status "In progress".
+ *  This function iterates through the tasks array and increases a counter when a task with the status "In progress" is found.
  * @returns the amount of actual tasks with status "In progress".
  */
 function getInProgressAmount() {
@@ -354,7 +354,7 @@ function getInProgressAmount() {
 
 
 /**
- *  This function iterates through the array tasks and increases its counter when a task is found including status "Await feedback".
+ *  This function iterates through the tasks array and increases a counter when a task with the status "Await feedback" is found.
  * @returns the amount of actual tasks with status "Await feedback".
  */
 function getAwaitFeedbackAmount() {
