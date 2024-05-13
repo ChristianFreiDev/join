@@ -1,5 +1,5 @@
 /**
- * This function greets the user considering the scrollwidth.
+ * This function greets the user considering the scroll width.
  */
 function initGreeting() {
     if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
@@ -13,7 +13,7 @@ function initGreeting() {
 
 
 /**
- * This function greets the user considering the day time and scrollwidth.
+ * This function greets the user considering the time of day and scroll width.
  */
 async function greetUser() {
     checkDayTimeAndchangeGreeting();
@@ -45,7 +45,7 @@ function setGreetingToSmallScreen() {
 
 
 /**
- * This function checks the day time and changes the greeting.
+ * This function checks the time of day and changes the greeting.
  */
 function checkDayTimeAndchangeGreeting() {
     let daytimeString = checkDayTime();
@@ -54,9 +54,9 @@ function checkDayTimeAndchangeGreeting() {
 
 
 /**
- * This function gets the day tim in hours and
+ * This function gets the time of day in hours and
  * 
- * @returns {string} formated to include in html.
+ * @returns {string} formatted to include in html.
  */
 function checkDayTime() {
     let daytimeString = '';
@@ -68,7 +68,7 @@ function checkDayTime() {
 
 
 /**
- * This function checks the day time in hours and
+ * This function checks the time of day in hours and
  * 
  * @param {number} dayTime 
  * @returns {string} the greeting.
@@ -97,7 +97,7 @@ function changeGreeting(daytimeString) {
 
 
 /**
- * This function animates the overlay.
+ * This function animates the summary overlay.
  */
 function animateOverlay() {
     document.getElementById('summary-overlay').classList.add('animate-overlay');
@@ -107,7 +107,7 @@ function animateOverlay() {
 
 
 /**
- * This function removes the animation classes.
+ * This function removes the animation classes for the summary overlay.
  */
 function removeAnimation() {
     document.getElementById('summary-overlay').classList.remove('animate-overlay');
@@ -117,7 +117,7 @@ function removeAnimation() {
 
 
 /**
- * This function hides the overlay.
+ * This function hides the summary overlay.
  */
 function hideOverlay() {
     document.getElementById('summary-overlay').style.zIndex = '-1';
@@ -126,7 +126,7 @@ function hideOverlay() {
 
 
 /**
- * This function gets the user name of in logged user.
+ * This function gets the user name of the user that has been logged in.
  * 
  * @returns {string} full name of current user.
  */
