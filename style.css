@@ -441,6 +441,12 @@ textarea {
     margin-top: 8px;
 }
 
+.privacy-policy-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
