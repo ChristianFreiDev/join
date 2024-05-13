@@ -35,6 +35,10 @@ p {
 }
 
 @media (max-width: 920px) {
+    .content-container {
+        margin-bottom: 96px;
+    }
+
     h2 {
         font-size: 47px;
     }
