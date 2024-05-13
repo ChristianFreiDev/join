@@ -229,24 +229,34 @@ function openMoreMenu(index, email) {
     document.querySelector('body').style.overflow = 'hidden';
     screen.innerHTML += contactsMoreMenu(index, email);
     animateMoreMenuIn();
+    addMoreMenuOverlay();
 }
 
+function addMoreMenuOverlay() {
+    document.querySelector('body').innerHTML += '<div id="overlay-more-menu" onclick="animateMoreMenuOut()"></div>';
+}
 
 function animateMoreMenuIn() {
     document.getElementById('contacts-more-menu').classList.add('animate-more-menu-in');
 }
 
 function animateMoreMenuOut() {
-    document.getElementById('contacts-more-menu').classList.add('animate-more-menu-out');
     document.getElementById('contacts-more-menu').classList.remove('animate-more-menu-in');
-    setTimeout(closeMoreMenu, 225);
+    document.getElementById('contacts-more-menu').classList.add('animate-more-menu-out');
+    setTimeout(removeMoreMenu, 225);
+}
+
+function removeChildByQuerySelectors(parentId, childId) {
+    let parent = document.querySelector(parentId);
+    let child = document.querySelector(childId);
+    parent.removeChild(child);
 }
 
 
-function closeMoreMenu() {
-    let parent = document.querySelector('.contacts-content-container');
-    let child = document.getElementById('contacts-more-menu');
-    parent.removeChild(child);
+function removeMoreMenu() {
+    removeChildByQuerySelectors('.contacts-content-container', '#contacts-more-menu');
+    removeChildByQuerySelectors('body', '#overlay-more-menu');
+    document.querySelector('body').style.overflow = 'unset';
 }
 
 function setActiveContact(index) {

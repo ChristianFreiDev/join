@@ -376,6 +376,16 @@
     }
 }
 
+@keyframes fade-out {
+    0%{
+        transform: translateX(-128px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
 #contacts-more-menu {
     background-color: white;
     border-radius: 20px 20px 0 20px;
@@ -395,7 +405,7 @@
 }
 
 .animate-more-menu-out {
-    animation: fade-in 225ms ease-in-out forwards reverse;
+    animation: fade-out 225ms ease-in-out forwards;
 }
 
 #contacts-more-menu > button {
@@ -415,6 +425,15 @@
 #contacts-more-menu > button > svg {
     width: 24px;
     height: 24px;
+}
+
+#overlay-more-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
 }
 
 @media (max-width: 1470px) {
