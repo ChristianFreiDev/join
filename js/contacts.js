@@ -91,17 +91,26 @@ function removeUserFromAssignedTasks(contactEMail) {
 
 
 /**
+ * This functions finds a user using an e-mail address and if there is such a user, it removes the user from the contacts array.
+ * @param {string} contactEMail 
+ */
+function findAndSpliceContact(contactEMail) {
+    let contact = contacts.find(contact => contact.eMail === contactEMail);
+    let contactIndex = contacts.indexOf(contact);
+    if (contactIndex > -1) {
+        contacts.splice(contactIndex, 1);
+    }
+}
+
+
+/**
  * This function deletes a contact.
  * @param {Event} event
  * @param {string} contactEMail e-mail address of the contact
  */
 async function deleteContact(event, contactEMail) {
     disableButton(event.target.id);
-    let contact = contacts.find(contact => contact.eMail === contactEMail);
-    let contactIndex = contacts.indexOf(contact);
-    if (contactIndex > -1) {
-        contacts.splice(contactIndex, 1);
-    }
+    findAndSpliceContact(contactEMail);
     removeUserFromAssignedTasks(contactEMail);
     await Promise.all([storeTasks(), storeContacts()]);
     renderContacts();
@@ -114,93 +123,13 @@ async function deleteContact(event, contactEMail) {
 
 
 /**
- * This function hides the left side of the contacts page.
+ * This function sets the display property of an element with a certain ID.
+ * @param {string} queryString string used for querySelector() method
+ * @param {string} targetDisplayProperty display property of target HTML element
  */
-function hideLeftSide() {
-    let contactsLeftSide = document.querySelector('.contacts-left-side');
-    contactsLeftSide.style.display = 'none';
-}
-
-
-/**
- * This function shows the left side of the contacts page.
- */
-function showLeftSide() {
-    let contactsLeftSide = document.querySelector('.contacts-left-side');
-    contactsLeftSide.style.display = 'block';
-}
-
-
-/**
- * This function shows the right side of the contacts page.
- */
-function showRightSide() {
-    let contactsRigthSide = document.querySelector('.contacts-right-side');
-    contactsRigthSide.style.display = 'block';
-}
-
-
-/**
- * This function shows the right side of the contacts page.
- */
-function hideRightSide() {
-    let contactsRigthSide = document.querySelector('.contacts-right-side');
-    contactsRigthSide.style.display = 'none';
-}
-
-
-/**
- * This function hides the left side of the contacts page and shows the right side.
- */
-function hideLeftSideAndShowRightSide() {
-    hideLeftSide();
-    showRightSide();
-}
-
-
-/**
- * This function hides the right side of the contacts page and shows the left side.
- */
-function hideRightSideAndShowLeftSide() {
-    hideRightSide();
-    showLeftSide();
-}
-
-
-/**
- * This function shows both sides of the contacts page.
- */
-function showBothSides() {
-    showLeftSide();
-    showRightSide();
-}
-
-
-/**
- * This function hides or shows the link for returning to the contacts page.
- * @param {string} displayProperty 
- */
-function hideOrShowBackLink(displayProperty) {
-    let backLink = document.getElementById('back-link');
-    backLink.style.display = displayProperty;
-}
-
-
-/**
- * This function changes the display property of the "more" button.
- */
-function changeDisplayOfContactsMoreButton(displayProperty) {
-    let button = document.querySelector('.contacts-more-button');
-    button.style.display = displayProperty;
-}
-
-
-/**
- * This function changes the display property of the button for adding a contact on mobile devices.
- */
-function changeDisplayOfAddContactButtonMobile(displayProperty) {
-    let button = document.querySelector('.add-contact-button-mobile');
-    button.style.display = displayProperty;
+function changeDisplayProperty(queryString, targetDisplayProperty) {
+    let targetElement = document.querySelector(queryString);
+    targetElement.style.display = targetDisplayProperty;
 }
 
 
@@ -238,11 +167,10 @@ function setActiveContact(index) {
 
 
 /**
- * This function saves a contact after it has been edited.
- * @param {number} index index of a contact in the contacts array
+ * This function gets the input values for creating a contact and creates a contact object and
+ * @returns {Object} the new contact
  */
-function saveEditedContact(index) {
-    disableButton('save-contact-button');
+function createNewContact() {
     let contactNameInput = document.getElementById('contact-name-input');
     let contactEmailInput = document.getElementById('contact-email-input');
     let contactPhoneInput = document.getElementById('contact-phone-input');
@@ -250,7 +178,16 @@ function saveEditedContact(index) {
     let email = contactEmailInput.value;
     let phone = contactPhoneInput.value;
     let color = getUserColor();
-    let editedContact = createContactObject(name, email, phone, color);
+    let newContact = createContactObject(name, email, phone, color);
+    return newContact;
+}
+
+
+/**
+ * This function performs actions for saving a contact after it has been edited.
+ * @param {*} index index of a contact in the contacts array
+ */
+function saveEditedContactHelper(index) {
     let foundContact = contacts[index];
     if (foundContact) {
         foundContact.firstName = getUserName('first', name);
@@ -258,8 +195,19 @@ function saveEditedContact(index) {
         foundContact.eMail = email;
         foundContact.phone = phone;
     } else {
+        let editedContact = createNewContact();
         contacts.push(editedContact);
     }
+}
+
+
+/**
+ * This function saves a contact after it has been edited.
+ * @param {number} index index of a contact in the contacts array
+ */
+function saveEditedContact(index) {
+    disableButton('save-contact-button');
+    saveEditedContactHelper(index);
     storeContacts();
     renderContacts();
     openContact(index);
@@ -272,14 +220,7 @@ function saveEditedContact(index) {
  */
 function addContact() {
     disableButton('create-contact-button');
-    let contactNameInput = document.getElementById('contact-name-input');
-    let contactEmailInput = document.getElementById('contact-email-input');
-    let contactPhoneInput = document.getElementById('contact-phone-input');
-    let name = contactNameInput.value;
-    let email = contactEmailInput.value;
-    let phone = contactPhoneInput.value;
-    let color = getUserColor();
-    let newContact = createContactObject(name, email, phone, color);
+    let newContact = createNewContact();
     contacts.push(newContact);
     storeContacts();
     renderContacts();
@@ -291,29 +232,64 @@ function addContact() {
 
 
 /**
+ * This function shows the appropriate elements when a contact has been opened and the screen is small.
+ */
+function onContactIsOpenOnSmallScreen() {
+    changeDisplayProperty('.contacts-left-side', 'none');
+    changeDisplayProperty('.contacts-right-side', 'block');
+    changeDisplayProperty('.contacts-more-button', 'flex');
+    changeDisplayProperty('#back-link', 'flex');
+}
+
+
+/**
+ * This function shows the appropriate elements when a contact has been opened and the screen is large.
+ */
+function onContactIsOpenOnLargeScreen() {
+    changeDisplayProperty('.contacts-left-side', 'block');
+    changeDisplayProperty('.add-contact-button-mobile', 'none');
+    changeDisplayProperty('.contacts-more-button', 'none');
+    changeDisplayProperty('#back-link', 'none');
+}
+
+
+/**
+ * This function shows the appropriate elements when no contact has been opened and the screen is small.
+ */
+function onContactIsNotOpenOnSmallScreen() {
+    changeDisplayProperty('.add-contact-button-mobile', 'flex');
+    changeDisplayProperty('.contacts-more-button', 'none');
+    changeDisplayProperty('.contacts-right-side', 'none');
+    changeDisplayProperty('.contacts-left-side', 'block');
+}
+
+
+/**
+ * This function shows the appropriate elements when no contact been opened and the screen is large.
+ */
+function onContactIsNotOpenOnLargeScreen() {
+    changeDisplayProperty('.contacts-left-side', 'block');
+    changeDisplayProperty('.contacts-right-side', 'block');
+    changeDisplayProperty('.add-contact-button-mobile', 'none');
+    changeDisplayProperty('.contacts-more-button', 'none');
+}
+
+
+/**
  * This function shows the appropriate elements depending on the width of the screen and whether a contact has been opened or not.
  */
 function showAppropriateElements() {
     if (isContactOpen) {
         if (isWidthSmallerThanXPixels(1280)) {
-            hideLeftSideAndShowRightSide();
-            changeDisplayOfContactsMoreButton('flex');
-            hideOrShowBackLink('flex');
+            onContactIsOpenOnSmallScreen();
         } else {
-            showLeftSide();
-            changeDisplayOfAddContactButtonMobile('none');
-            changeDisplayOfContactsMoreButton('none');
-            hideOrShowBackLink('none');
+            onContactIsOpenOnLargeScreen();
         }
     } else {
         if (isWidthSmallerThanXPixels(1280)) {
-            changeDisplayOfAddContactButtonMobile('flex');
-            changeDisplayOfContactsMoreButton('none');
-            hideRightSideAndShowLeftSide();
+            onContactIsNotOpenOnSmallScreen();
         } else {
-            showBothSides();
-            changeDisplayOfAddContactButtonMobile('none');
-            changeDisplayOfContactsMoreButton('none');
+            onContactIsNotOpenOnLargeScreen();
         }
     }
 }
