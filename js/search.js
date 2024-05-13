@@ -20,7 +20,7 @@ function searchTasks() {
  * This function filters the user names using a search string.
  * @returns {Array} users whose names match the search string
  */
-function filterUserNames() {
+function filterUserNames(searchString) {
     return users.filter(user => {
         let fullUserName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
         return fullUserName.includes(searchString);
@@ -60,5 +60,5 @@ function searchUsers(taskId, idPrefix) {
     let searchInput = document.getElementById(`${idPrefix}-drop-down-input`);
     let searchString = searchInput.value.toLowerCase();
     foundUsers = filterUserNames(searchString);
-    showFoundUsers();
+    showFoundUsers(task, foundUsers, idPrefix);
 }
