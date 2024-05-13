@@ -120,10 +120,23 @@
 }
 
 #summary-priority-icon {
-    width: 35px;
-    height: 26px;
     object-fit: cover;
     object-position: center;
+}
+
+.summary-priority-icon-urgent {
+    width: 35px;
+    height: 26px;
+}
+
+.summary-priority-icon-medium {
+    width: 30px;
+    height: 16px;
+}
+
+.summary-priority-icon-low {
+    width: 35px;
+    height: 26px;
 }
 
 #summary-greeting {
@@ -342,9 +355,22 @@
     }
 
     #summary-priority-icon {
+        object-fit: cover;
+    }
+
+    .summary-priority-icon-urgent {
         width: 23px;
         height: 17px;
-        object-fit: cover;
+    }
+    
+    .summary-priority-icon-medium {
+        width: 23px;
+        height: 10px;
+    }
+    
+    .summary-priority-icon-low {
+        width: 23px;
+        height: 17px;
     }
 
     .summary-status-icon-box {

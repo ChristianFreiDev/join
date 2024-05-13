@@ -155,6 +155,7 @@ function renderPriorityIcon(prio = 'main') {
 function setIconStylesToUrgent(icon) {
     icon.src = './assets/img/summary-priority-up-down.svg';
     icon.style.transform = 'unset';
+    icon.classList.add('summary-priority-icon-urgent');
     icon.style.display = 'flex';
 }
 
@@ -167,8 +168,7 @@ function setIconStylesToUrgent(icon) {
 function setIconStylesToMedium(icon) {
     icon.src = './assets/img/priority-icon-medium-white.svg';
     icon.style.transform = 'unset';
-    icon.style.width = '30px';
-    icon.style.height = '16px';
+    icon.classList.add('summary-priority-icon-medium');
     icon.style.display = 'flex';
 }
 
@@ -181,8 +181,7 @@ function setIconStylesToMedium(icon) {
 function setIconStylesToLow(icon) {
     icon.src = './assets/img/summary-priority-up-down.svg';
     icon.style.transform = 'rotateZ(180deg)';
-    icon.style.width = '35px';
-    icon.style.height = '26px';
+    icon.classList.add('summary-priority-icon-low');
     icon.style.display = 'flex';
 }
 
