@@ -123,17 +123,6 @@ async function deleteContact(event, contactEMail) {
 
 
 /**
- * This function sets the display property of an element with a certain ID.
- * @param {string} queryString string used for querySelector() method
- * @param {string} targetDisplayProperty display property of target HTML element
- */
-function changeDisplayProperty(queryString, targetDisplayProperty) {
-    let targetElement = document.querySelector(queryString);
-    targetElement.style.display = targetDisplayProperty;
-}
-
-
-/**
  * This function opens a contact from the list.
  * @param {number} index contact index
  */

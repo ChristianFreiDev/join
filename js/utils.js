@@ -22,6 +22,17 @@ function disableButton(id) {
 
 
 /**
+ * This function sets the display property of an element with a certain ID.
+ * @param {string} queryString string used for querySelector() method
+ * @param {string} targetDisplayProperty display property of target HTML element
+ */
+function changeDisplayProperty(queryString, targetDisplayProperty) {
+    let targetElement = document.querySelector(queryString);
+    targetElement.style.display = targetDisplayProperty;
+}
+
+
+/**
  * This function is used to determine if the width of the window is below a certain number of pixels.
  * @param {number} x number of pixels
  * @returns {boolean} true if the width is smaller than x
