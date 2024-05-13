@@ -121,14 +121,11 @@ function editContact(contactEMail, index) {
 
 /**
  * This functions opens a pop-up for adding a contact.
- * @param {string} contactEMail e-mail address of a contact
- * @param {number} index index of a contact in the contacts array
  */
-function openAddContactPopup(contactEMail, index) {
-    let contact = contacts.find(contact => contact.eMail === contactEMail);
+function openAddContactPopup() {
     let openEditAddContactPopup = document.getElementById('edit-add-contact-pop-up');
     openEditAddContactPopup.setAttribute('onclick', 'doNotClose(event)');
-    openEditAddContactPopup.innerHTML = addContactForm(contact, index);
+    openEditAddContactPopup.innerHTML = addContactForm();
     centerPopup('edit-add-contact-pop-up');
 }
 

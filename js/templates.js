@@ -495,6 +495,10 @@ function deleteButtonSvg() {
 }
 
 
+/**
+ * This function returns a cancel icon as svg.
+ * @returns {string} svg template of button icon for canceling something
+ */
 function cancelIconSVG() {
     return /* html */ `<svg class="cancel-button-icon" width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
         <path d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -503,6 +507,10 @@ function cancelIconSVG() {
 }
 
 
+/**
+ * This function returns a close icon as svg.
+ * @returns {string} svg template of button icon for closing something
+ */
 function closeIconSvg() {
     return /* html */ `<svg class="close-pop-up-icon close-edit-add-contact-pop-up-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="removePopup('edit-add-contact-pop-up')">
         <mask id="mask0_71720_5848" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="24" height="24">
@@ -554,6 +562,12 @@ function contactProfileTemplate(contact, contactColor, index) {
 }
 
 
+/**
+ * This function returns an HTML string of the form for editing a contact.
+ * @param {Object} contact 
+ * @param {number} index index of a contact in the contacts array
+ * @returns HTML string of the form for editing a contact
+ */
 function contactEditForm(contact, index) {
     return /* html */ `${closeIconSvg()}
     <div class="edit-add-contact-pop-up-container">
@@ -588,7 +602,13 @@ function contactEditForm(contact, index) {
 }
 
 
-function addContactForm(contact, index) {
+/**
+ * This function returns an HTML string of the form for editing a contact.
+ * @param {Object} contact 
+ * @param {number} index index of a contact in the contacts array
+ * @returns HTML string of the form for editing a contact
+ */
+function addContactForm() {
     return /* html */ `<div class="edit-add-contact-pop-up-container">
         ${closeIconSvg()}
         <div class="edit-add-contact-pop-up-left-side">
