@@ -3,7 +3,7 @@
  */
 function initGreeting() {
     if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'true') {
-        document.getElementById('summary-overlay').style.zIndex = '2';
+        document.getElementById('summary-overlay').style.zIndex = '4';
     } else if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
         document.getElementById('summary-greeting-box').classList.add('display-none');
     } else if (document.body.scrollWidth > 1400) {
@@ -34,6 +34,7 @@ async function greetUser() {
  */
 function setGreetingToSmallScreen() {
     if (loadVariableFromLocalStorage('fromIndex') == 'true') {
+        document.querySelector('body').style.overflow = 'hidden';
         document.getElementById('summary-greeting-box').classList.add('greeting-overlay');
         setTimeout(animateOverlay, 1000);
     } else {
@@ -111,6 +112,7 @@ function animateOverlay() {
 function removeAnimation() {
     document.getElementById('summary-overlay').classList.remove('animate-overlay');
     document.getElementById('summary-greeting-box').classList.remove('animate-overlay');
+    document.querySelector('body').style.overflow = 'unset';
 }
 
 
