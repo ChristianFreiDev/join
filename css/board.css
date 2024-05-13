@@ -370,6 +370,10 @@ progress::-webkit-progress-value {
     object-fit: scale-down;
 }
 
+.edit-task-assigned-to-container {
+    width: 100%;
+}
+
 .open-task-buttons-container {
     width: 100%;
     justify-content: flex-end;

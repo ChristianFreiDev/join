@@ -429,6 +429,14 @@ textarea {
     width: 21px;
 }
 
+.task-drop-down {
+    margin-top: 8px;
+}
+
+.initial-avatars-large-container {
+    margin-top: 8px;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;

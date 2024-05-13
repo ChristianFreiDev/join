@@ -129,7 +129,7 @@ function editTaskTemplate(task) {
                         </button>
                     </div>
                 </div>
-                <div class="form-label-and-input-container">
+                <div class="edit-task-assigned-to-container">
                     ${editTaskAssignedToItemsTemplate(task, 'edit-task')}
                 </div>
                 <div class="form-label-and-input-container">
