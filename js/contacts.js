@@ -114,22 +114,11 @@ async function deleteContact(event, contactEMail) {
 
 
 /**
- * This function hides the left side of the contacts page and shows the right side.
+ * This function hides the left side of the contacts page.
  */
-function hideLeftSideAndShowRightSide() {
+function hideLeftSide() {
     let contactsLeftSide = document.querySelector('.contacts-left-side');
     contactsLeftSide.style.display = 'none';
-    showRightSide();
-}
-
-
-/**
- * This function hides the right side of the contacts page and shows the left side.
- */
-function hideRightSideAndShowLeftSide() {
-    showLeftSide();
-    let contactsRightSide = document.querySelector('.contacts-right-side');
-    contactsRightSide.style.display = 'none';
 }
 
 
@@ -148,6 +137,33 @@ function showLeftSide() {
 function showRightSide() {
     let contactsRigthSide = document.querySelector('.contacts-right-side');
     contactsRigthSide.style.display = 'block';
+}
+
+
+/**
+ * This function shows the right side of the contacts page.
+ */
+function hideRightSide() {
+    let contactsRigthSide = document.querySelector('.contacts-right-side');
+    contactsRigthSide.style.display = 'none';
+}
+
+
+/**
+ * This function hides the left side of the contacts page and shows the right side.
+ */
+function hideLeftSideAndShowRightSide() {
+    hideLeftSide();
+    showRightSide();
+}
+
+
+/**
+ * This function hides the right side of the contacts page and shows the left side.
+ */
+function hideRightSideAndShowLeftSide() {
+    hideRightSide();
+    showLeftSide();
 }
 
 
