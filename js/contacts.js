@@ -144,7 +144,8 @@ function openContact(index) {
     contactProfile.innerHTML = contactProfileTemplate(contact, contactColor, index);
     setActiveContact(index);
     if (isWidthSmallerThanXPixels(1280)) {
-        hideLeftSideAndShowRightSide();
+        changeDisplayProperty('.contacts-left-side', 'none');
+        changeDisplayProperty('.contacts-right-side', 'block');
     }
     isContactOpen = true;
     showAppropriateElements();
@@ -171,12 +172,9 @@ function setActiveContact(index) {
  * @returns {Object} the new contact
  */
 function createNewContact() {
-    let contactNameInput = document.getElementById('contact-name-input');
-    let contactEmailInput = document.getElementById('contact-email-input');
-    let contactPhoneInput = document.getElementById('contact-phone-input');
-    let name = contactNameInput.value;
-    let email = contactEmailInput.value;
-    let phone = contactPhoneInput.value;
+    let name = document.getElementById('contact-name-input').value;
+    let email = document.getElementById('contact-email-input').value;
+    let phone = document.getElementById('contact-phone-input').value;
     let color = getUserColor();
     let newContact = createContactObject(name, email, phone, color);
     return newContact;
@@ -188,6 +186,9 @@ function createNewContact() {
  * @param {*} index index of a contact in the contacts array
  */
 function saveEditedContactHelper(index) {
+    let name = document.getElementById('contact-name-input').value;
+    let email = document.getElementById('contact-email-input').value;
+    let phone = document.getElementById('contact-phone-input').value;
     let foundContact = contacts[index];
     if (foundContact) {
         foundContact.firstName = getUserName('first', name);
@@ -195,7 +196,7 @@ function saveEditedContactHelper(index) {
         foundContact.eMail = email;
         foundContact.phone = phone;
     } else {
-        let editedContact = createNewContact();
+        let editedContact = createContactObject(name, email, phone, color);
         contacts.push(editedContact);
     }
 }
