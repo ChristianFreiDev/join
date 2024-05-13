@@ -155,8 +155,6 @@ function renderPriorityIcon(prio = 'main') {
 function setIconStylesToUrgent(icon) {
     icon.src = './assets/img/summary-priority-up-down.svg';
     icon.style.transform = 'unset';
-    icon.style.width = '35px';
-    icon.style.height = '26px';
     icon.style.display = 'flex';
 }
 
