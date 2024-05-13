@@ -178,6 +178,12 @@ function addInputEventListener(idPrefix) {
         let confirmationFunctionName = `confirmSubtaskInput('${idPrefix}')`;
         inputIconsContainer.innerHTML = confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName);
     });
+    subtaskInput.addEventListener('keypress', (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            confirmSubtaskInput(idPrefix);
+        }
+    })
 }
 
 
