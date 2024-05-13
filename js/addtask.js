@@ -90,20 +90,14 @@ function clickPriorityButton(newPriority, idPrefix) {
 
 
 /**
- * This function adds a task to the server. Before pushing a new task, the tasks are loaded from the backend to make sure they are up-to-date.
+ * This functions sets up the temporary task so that it can be stored.
  * @param {string} status status of the task (for example, 'In progess')
  */
-async function addTask(status) {
-    document.getElementById('create-task-button').disabled = true;
-    document.getElementById('create-task-button').classList.remove('create-task-enabled');
-    let title = document.getElementById('input-title');
-    let description = document.getElementById('input-description');
-    let date = document.getElementById('input-due-date');
-    let category = document.getElementById('input-category');
-    temporaryTask.title = title.value;
-    temporaryTask.description = description.value;
-    temporaryTask.dueDate = date.value;
-    temporaryTask.category = category.value;
+async function setUpTemporaryTask(status) {
+    temporaryTask.title = document.getElementById('input-title').value;
+    temporaryTask.description = document.getElementById('input-description').value;
+    temporaryTask.dueDate = document.getElementById('input-due-date').value;
+    temporaryTask.category = document.getElementById('input-category').value;
     temporaryTask.priority = priority;
     temporaryTask.status = status;
     temporaryTask.id = tasks.length;
@@ -111,6 +105,18 @@ async function addTask(status) {
     temporaryTask.subtasks = temporarySubtasks;
     await loadTasks();
     temporaryTask.id = getHighestTaskId() + 1;
+}
+
+
+/**
+ * This function adds a task to the server. Before pushing a new task, the tasks are loaded from the backend to make sure they are up-to-date.
+ * @param {string} status status of the task (for example, 'In progess')
+ */
+async function addTask(status) {
+    document.getElementById('create-task-button').disabled = true;
+    document.getElementById('create-task-button').classList.remove('create-task-enabled');
+    setUpTemporaryTask()
+    await setUpTemporaryTask(status);
     tasks.push(temporaryTask);
     await storeTasks();
 }
