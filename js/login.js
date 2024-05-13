@@ -52,6 +52,7 @@ function openSignUpMenu(email = false) {
  * @param {Boolean} guest 
  */
 function login(guest = false) {
+    document.getElementById('login-button').disabled = true;
     if (guest) {
         setRememberMeValues(guest, 0);
         saveVariableInLocalStorage('currentJoinUserId', 0);
@@ -62,6 +63,7 @@ function login(guest = false) {
             goToSummary();
         }
     }
+    document.getElementById('login-button').disabled = false;
 }
 
 
