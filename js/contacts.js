@@ -225,7 +225,14 @@ function openContact(index) {
 
 
 function openMoreMenu(index) {
-    
+    let screen = document.querySelector('.contacts-content-container');
+    screen.style.overflow = 'hidden';
+    screen.innerHTML += contactsMoreMenu(index);
+}
+
+
+function animateMoreMenuIn(index) {
+
 }
 
 
