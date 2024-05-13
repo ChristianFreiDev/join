@@ -90,24 +90,6 @@ function removeUserFromAssignedTasks(contactEMail) {
 }
 
 
-function editContact(contactEMail, index) {
-    let contact = contacts.find(contact => contact.eMail === contactEMail);
-    let openEditAddContactPopup = document.getElementById('edit-add-contact-pop-up');
-    openEditAddContactPopup.setAttribute('onclick', 'doNotClose(event)');
-    openEditAddContactPopup.innerHTML = contactEditForm(contact, index);
-    centerPopup('edit-add-contact-pop-up');
-}
-
-
-function openAddContactPopup(contactEMail, index) {
-    let contact = contacts.find(contact => contact.eMail === contactEMail);
-    let openEditAddContactPopup = document.getElementById('edit-add-contact-pop-up');
-    openEditAddContactPopup.setAttribute('onclick', 'doNotClose(event)');
-    openEditAddContactPopup.innerHTML = addContactForm(contact, index);
-    centerPopup('edit-add-contact-pop-up');
-}
-
-
 /**
  * This function deletes a contact.
  * @param {string} contactEMail e-mail adress of the contact
@@ -225,41 +207,6 @@ function openContact(index) {
 }
 
 
-function openMoreMenu(index, email) {
-    let screen = document.querySelector('.contacts-content-container');
-    document.querySelector('body').style.overflow = 'hidden';
-    screen.innerHTML += contactsMoreMenu(index, email);
-    animateMoreMenuIn();
-    addMoreMenuOverlay();
-}
-
-function addMoreMenuOverlay() {
-    document.querySelector('body').innerHTML += '<div id="overlay-more-menu" onclick="animateMoreMenuOut()"></div>';
-}
-
-function animateMoreMenuIn() {
-    document.getElementById('contacts-more-menu').classList.add('animate-more-menu-in');
-}
-
-function animateMoreMenuOut() {
-    document.getElementById('contacts-more-menu').classList.remove('animate-more-menu-in');
-    document.getElementById('contacts-more-menu').classList.add('animate-more-menu-out');
-    setTimeout(removeMoreMenu, 225);
-}
-
-function removeChildByQuerySelectors(parentId, childId) {
-    let parent = document.querySelector(parentId);
-    let child = document.querySelector(childId);
-    parent.removeChild(child);
-}
-
-
-function removeMoreMenu() {
-    removeChildByQuerySelectors('.contacts-content-container', '#contacts-more-menu');
-    removeChildByQuerySelectors('body', '#overlay-more-menu');
-    document.querySelector('body').style.overflow = 'unset';
-}
-
 function setActiveContact(index) {
     let contacts = document.querySelectorAll('.contact-in-list-active');
     for (let i = 0; i < contacts.length; i++) {
@@ -313,20 +260,6 @@ function addContact() {
     openContact(contactIndex);
     removePopup('edit-add-contact-pop-up');
     animateSuccessMessage();
-}
-
-
-function animateSuccessMessage() {
-    document.querySelector('.outer-container').style.overflow = 'hidden';
-    document.querySelector('.contacts-success-message').style.display = 'flex';
-    document.querySelector('.contacts-success-message').classList.add('animate-success-message')
-    setTimeout(removeAnimationSuccessMessage, 1800);
-}
-
-function removeAnimationSuccessMessage() {
-    document.querySelector('.contacts-success-message').classList.remove('animate-success-message')
-    document.querySelector('.outer-container').style.overflow = 'unset';
-    document.querySelector('.contacts-success-message').style.display = 'none';
 }
 
 
