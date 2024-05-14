@@ -439,6 +439,7 @@ textarea {
 
 .initial-avatars-large-container {
     margin-top: 8px;
+    max-width: 440px;
 }
 
 .privacy-policy-list{
