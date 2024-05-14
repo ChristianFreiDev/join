@@ -599,17 +599,20 @@ progress::-webkit-progress-value {
         flex-direction: column;
         gap: 26px
     }
+
     #board-column-headers-container-desktop {
         display: none;
     }
+
     .board-column-header-mobile {
         display: flex;
     }
+
     .board-column {
         width: auto;
-        /* This makes the task card shadows less pretty but is needed for horizontal scrolling: */
         overflow-x: auto;
     }
+
     .board-column-tasks-container {
         flex-direction: row;
     }
@@ -619,17 +622,21 @@ progress::-webkit-progress-value {
     .add-task-button-desktop {
         display: none;
     }
+
     .add-task-button-tablet {
         display: flex;
     }
+
     .board-top-container {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
     }
+
     .board-actions-container {
         justify-content: flex-start;
     }
+
     .page-heading-and-mobile-button-container {
         width: 100%;
         display: flex;
@@ -651,23 +658,29 @@ progress::-webkit-progress-value {
         justify-content: center;
         align-items: center;
     }
+
     .add-task-button-tablet {
         display: none;
     }
+
     .board-column {
         width: 100%;
     }
+
     .board-top-container, .board-columns-container {
         padding: 0 40px;
     }
+
     .board-actions-container, .board-search-input-container, .board-search-input-container form, #board-search-input {
         width: 100%;
     }
+
     .medium-pop-up {
         padding: 32px 24px;
         width: 396px;
         gap: 16px;
     }
+
     .medium-pop-up h2 {
         font-size: 36px;
     }
@@ -677,6 +690,7 @@ progress::-webkit-progress-value {
     .board-top-container, .board-columns-container {
         padding: 0 16px;
     }
+    
     .medium-pop-up {
         padding: 24px 16px;
         width: calc(100% - 32px);

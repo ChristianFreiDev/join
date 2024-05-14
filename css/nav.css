@@ -110,6 +110,7 @@ nav a {
     #desktop-menu {
         display: none;
     }
+    
     #mobile-menu {
         display: flex;
     }
@@ -143,10 +144,12 @@ nav a {
     .nav-button-list {
         gap: 4px;
     }
+
     .logo {
         width: 80px;
         margin-bottom: 5px;
     }
+
     #desktop-menu {
         padding: 24px 0;
         font-size: 14px;
@@ -157,17 +160,21 @@ nav a {
     .nav-button-list {
         gap: 0;
     }
+
     .nav-button-list a {
         padding: 0px 56px;
         height: 36px;
     }
+
     .logo {
         width: 60px;
         margin-bottom: 5px;
     }
+
     .privacy-and-legal-links-container {
         gap: 0;
     }
+
     #desktop-menu {
         padding: 16px 0;
     }
