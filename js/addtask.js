@@ -369,12 +369,26 @@ function checkCategoryRequirement(){
 
 
 /**
+ * This function resets all values of the form.
+ */
+function resetForm() {
+    document.getElementById('input-title').value = '';
+    document.getElementById('input-description').value = '';
+    document.getElementById('input-due-date').value = '';
+    document.getElementById('input-category').value = '';
+    document.getElementById('add-task-subtask-input').value = '';
+    document.getElementById('add-task-subtasks-list').innerHTML = '';
+}
+
+
+/**
  * This function is used to clear the form.
  */
 function clearForm(){
     resetError(['input-title', 'input-due-date', 'input-category']);
     temporaryCollaborators = [];
     temporarySubtasks = [];
+    resetForm();
     renderInitalAvatarsLargeInPopup('add-task');
     document.getElementById('create-task-button').disabled = true;
     document.getElementById('create-task-button').classList.remove('create-task-enabled');
