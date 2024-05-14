@@ -142,9 +142,9 @@ function renderSelectOptions(task, usersToBeRendered, idPrefix) {
  * This function toggles the display property of the drop-down list of users.
  * @param {string} taskAssignedToId 
  */
-function onTaskDropDownInputClick(taskAssignedToId) {
+function onTaskDropDownInputClick(taskAssignedToId, assignedToArrow) {
     let taskAssignedTo = document.getElementById(taskAssignedToId);
-    let rotateArrow = document.getElementById('arrow-drop-down')
+    let rotateArrow = document.getElementById(assignedToArrow)
 
     if (taskAssignedTo.classList.contains('display-none')) {
         taskAssignedTo.classList.remove('display-none');
