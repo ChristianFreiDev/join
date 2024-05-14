@@ -151,7 +151,7 @@ let offlineTasks = [
     },
     {
         title: 'Remember Me',
-        description: 'Users want to be remembered so that they do not have to log in every time they visit the page.',
+        description: 'Users want to be remembered so that they do not have to log in every time they visit the website.',
         id: 3,
         collaborators: [1, 2, 3, 4], // user id
         dueDate: '2024-05-03',
