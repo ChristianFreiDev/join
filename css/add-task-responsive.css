@@ -55,6 +55,9 @@
     .add-task-submit-buttons {
         margin-bottom: 96px;
     }
+    .clear-task {
+        display: none;
+    }
 }
 
 @media(max-width: 460px) {

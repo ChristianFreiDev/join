@@ -49,6 +49,36 @@ function removeAddTaskPopup() {
 
 
 /**
+ * This function removes a pop-up.
+ * @param {string} id pop-up id
+ */
+function removePopup(id) {
+    let popup = document.getElementById(id);
+    if (popup) {
+        let popupContainer = document.getElementById('pop-up-container');
+        popup.classList.remove('center-pop-up');
+        // Wait for transition to end, then hide pop-up container and enable scrolling again:
+        setTimeout(function () {
+            popup.style.display = 'none';
+            popupContainer.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }, 126);
+    }
+}
+
+
+/**
+ * This function closes any pop-up that may be open.
+ */
+function removePopups() {
+    removeAddTaskPopup();
+    removePopup('open-task-pop-up');
+    removePopup('move-task-pop-up');
+    removePopup('edit-add-contact-pop-up');
+}
+
+
+/**
  * This function opens the add-task popup.
  * @param {string} statusId task status ID
  */

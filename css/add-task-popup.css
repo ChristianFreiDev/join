@@ -7,3 +7,16 @@
 .add-task-submit-buttons {
     margin-bottom: 16px;
 }
+
+@media (max-width: 920px) {
+    .under-form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .this-field-is-required {
+        margin-top: 32px;
+        width: 161px;
+    }
+}
