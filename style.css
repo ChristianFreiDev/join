@@ -391,6 +391,7 @@ textarea {
 .initial-avatars-large-container {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .initial-avatar-very-large {
@@ -438,6 +439,7 @@ textarea {
 
 .initial-avatars-large-container {
     margin-top: 8px;
+    max-width: 440px;
 }
 
 .privacy-policy-list{
