@@ -214,3 +214,7 @@ cursor: pointer;
 .collaborator-focus:hover {
     background-color: var(--color-menu-active) !important;
 }
+
+#assigned-to-list{
+    position: relative;
+}
