@@ -479,6 +479,81 @@ textarea {
     display: none;
 }
 
+.success-message {
+    position: absolute;
+    background-color: var(--color-menu);
+    color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    transform:translateX(65vw);
+    top: 80%;
+    left: 730px;
+    z-index: 5;
+    padding: 25px;
+    border-radius: 20px;
+    font-size: 20px;
+    white-space: nowrap;
+    z-index: 5;
+}
+
+.animate-success-message {
+    animation: move-in-and-out-horizontal 1800ms ease-in-out;
+}
+
+@keyframes move-in-and-out-horizontal {
+    30%{
+        transform: translateX(0);
+    }
+
+    70%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(65vw);
+    }
+}
+
+@keyframes move-in-and-out-vertical {
+    0%{
+        transform: translateY(110vh);
+    }
+
+    30%{
+        transform: translateY(0);
+    }
+
+    70%{
+        transform: translateY(0);
+    }
+
+    100%{
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes fade-in {
+    0%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(-128px);
+    }
+}
+
+@keyframes fade-out {
+    0%{
+        transform: translateX(-128px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     #light-scheme-icon {
         display: none;
@@ -495,6 +570,26 @@ textarea {
     :root {
         --padding-content-left: 64px;
         --padding-content-top: 48px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .animate-success-message {
+        animation: move-in-and-out-vertical 1800ms ease-in-out;
+    }
+    
+    .success-message {
+        transform:translateX(0);
+        top: 70%;
+        transform: translateY(50vh);
+        left: calc(50% - 162px + 116px);
+        z-index: 5;
+        padding: 25px;
+        border-radius: 20px;
+        font-size: 20px;
+        white-space: nowrap;
+        z-index: 5;
+        display: none;
     }
 }
 
