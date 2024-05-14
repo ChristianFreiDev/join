@@ -95,48 +95,52 @@ let tasks = [];
 
 let offlineTasks = [
     {
-        title: 'Contact Form & Imprint',
-        description: 'Create a contact form and imprint page.',
+        title: 'Implement Drag & Drop Feature',
+        description: 'It must be possible to drag a task from one column (or row) to another. The user will be given feedback by slightly rotating the task once the user clicks on the task to drag it and by highlighting the area in which the task can be dropped.',
         id: 0,
         collaborators: [1, 2], // user id
-        dueDate: '2024-05-06',
+        dueDate: '2024-05-20',
         priority: 'Urgent',
         category: 'User Story',
         status: 'To do',
         subtasks: [
             {
-                title: 'Create contact form',
-                done: false
+                title: 'Enable drag & drop.',
+                done: true
             },
             {
-                title: 'Create imprint page.',
-                done: false
+                title: 'Implement task rotation feature.',
+                done: true
             }
         ]
     },
     {
-        title: 'Kochwelt Page & Recipe Recommender',
-        description: 'Build start page with recipe recommendation',
+        title: 'Create Contacts Page',
+        description: 'Build a contacts page where users can add contacts, edit them, or delete them.',
         id: 1,
         collaborators: [1, 3, 4], // user id
-        dueDate: '2024-05-06',
+        dueDate: '2024-05-26',
         priority: 'Medium',
         category: 'User Story',
         status: 'In progress',
         subtasks: [
             {
-                title: 'Create start page',
+                title: 'Create contacts page.',
                 done: true
             },
             {
-                title: 'Add recommendation.',
+                title: 'Implement editing feature.',
+                done: false
+            },
+            {
+                title: 'Implement deletion.',
                 done: false
             }
         ]
     },
     {
-        title: 'HTML Base Templates Creation',
-        description: 'Create reusable HTML base templates for Header and footer.',
+        title: 'Create Database Connection',
+        description: 'Enable storing data in/retrieving data from a remote database.',
         id: 2,
         collaborators: [2, 3], // user id
         dueDate: '2024-05-05',
@@ -146,32 +150,43 @@ let offlineTasks = [
         subtasks: []
     },
     {
-        title: 'Daily Kochwelt Recipe',
-        description: 'Implement daily recipe and portion calculator. Able to calculate are only positive values',
+        title: 'Remember Me',
+        description: 'Users want to be remembered so that they do not have to log in every time they visit the page.',
         id: 3,
         collaborators: [1, 2, 3, 4], // user id
         dueDate: '2024-05-03',
         priority: 'Medium',
         category: 'User Story',
         status: 'Await feedback',
-        subtasks: []
+        subtasks: [            {
+            title: 'Add checkbox.',
+            done: true
+        },
+        {
+            title: 'Store required user data.',
+            done: false
+        },
+        {
+            title: 'Delete user data when user logs out.',
+            done: true
+        }]
     },
     {
-        title: 'CSS Architecture Planning',
-        description: 'Define CSS naming conventions and structure.',
+        title: 'Adding Tasks',
+        description: 'Users want to add tasks to the board.',
         id: 4,
         collaborators: [1, 2], // user id
         dueDate: '2024-05-01',
         priority: 'Urgent',
-        category: 'Technical Task',
+        category: 'User Story',
         status: 'Done',
         subtasks: [
             {
-                title: 'Define CSS naming conventions',
+                title: 'Create form for adding tasks.',
                 done: true
             },
             {
-                title: 'Define CSS structure.',
+                title: 'Validate inputs.',
                 done: true
             }
         ]
