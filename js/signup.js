@@ -119,7 +119,7 @@ function hideSuccessMessage() {
 function createUserObject(name, email, password, color) {
     let firstName = getUserName('first', name);
     let lastName = getUserName('last', name);
-    let id = getHighestId();
+    let id = getHighestUserId() + 1;
     return {
         firstName: firstName,
         lastName: lastName,
@@ -306,10 +306,11 @@ function formatStringAsName(name) {
 
 
 /**
- * This function gets the highest id and
- * 
- * @returns {number} id increased by 1.
+ * This function determines the highest id of the user ids of the existing users.
+ * @returns {number} highest id of a user in the users array
  */
-function getHighestId() {
-    return users[users.length - 1].id + 1;
+function getHighestUserId() {
+    let userIds = users.map(user => user.id);
+    let highestId = Math.max(...userIds);
+    return highestId;
 }
