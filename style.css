@@ -389,6 +389,8 @@ textarea {
 }
 
 .initial-avatars-large-container {
+    margin-top: 8px;
+    max-width: 440px;
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
@@ -435,11 +437,6 @@ textarea {
 
 .task-drop-down {
     margin-top: 8px;
-}
-
-.initial-avatars-large-container {
-    margin-top: 8px;
-    max-width: 440px;
 }
 
 .privacy-policy-list{
