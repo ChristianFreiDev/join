@@ -46,6 +46,10 @@
     #add-task-form {
         flex-wrap: nowrap;
     }
+
+    #add-task-pop-up {
+        max-height: unset;
+    }
 }
 
 @media(max-width: 920px){
