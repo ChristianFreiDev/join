@@ -1,7 +1,7 @@
 /**
  * This function returns an HTML template of a plus icon for adding subtasks.
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
- * @returns {string} HTML template of plus icon
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
+ * @returns {string} HTML template of plus icon.
  */
 function subtaskInputPlusIcon(idPrefix) {
     return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput('${idPrefix}-subtask-input')">
@@ -13,7 +13,7 @@ function subtaskInputPlusIcon(idPrefix) {
 /**
  * This function returns an initial avatar HTML template for a user.
  * @param {Object} user 
- * @returns {string} inital avatar HTML template
+ * @returns {string} inital avatar HTML template.
  */
 function initialAvatarTemplate(user) {
     return /* html */ `<div class="initial-avatar ${user.color}">${getInitials(user)}</div>`;
@@ -23,7 +23,7 @@ function initialAvatarTemplate(user) {
 /**
  * This function returns an initial avatar HTML template for a user.
  * @param {Object} user 
- * @returns {string} inital avatar HTML template, large
+ * @returns {string} inital avatar HTML template, large.
  */
 function initialAvatarLargeTemplate(user) {
     return /* html */ `<div class="initial-avatar initial-avatar-large ${user.color}">${getInitials(user)}</div>`;
@@ -33,7 +33,7 @@ function initialAvatarLargeTemplate(user) {
 /**
  * This function returns an HTML template with inital avatars of all the collaborators of a task.
  * @param {Object} task 
- * @returns {string} HTML string of initial avatar divs
+ * @returns {string} HTML string of initial avatar divs.
  */
 function generateInitialAvatarsTemplate(task) {
     let collaborators = getCollaborators(task);
@@ -51,7 +51,7 @@ function generateInitialAvatarsTemplate(task) {
 /**
  * This function returns a template with the names of the collaborators on a task.
  * @param {Object} task 
- * @returns {string} HTML template of collaborators
+ * @returns {string} HTML template of collaborators.
  */
 function generateCollaboratorNames(task) {
     let collaborators = getCollaborators(task);
@@ -76,7 +76,7 @@ function generateCollaboratorNames(task) {
 /**
  * This function renders the avatars of the collaborators with their initials.
  * @param {Array} collaborators 
- * @returns {string} HTML template of collaborator avatars
+ * @returns {string} HTML template of collaborator avatars.
  */
 function generateCollaboratorAvatars(collaborators) {
     let HTMLString = '';
@@ -93,7 +93,7 @@ function generateCollaboratorAvatars(collaborators) {
 /**
  * This function returns a collaborator name template with first and last name.
  * @param {Object} user 
- * @returns {string} HTML template of collaborator name
+ * @returns {string} HTML template of collaborator name.
  */
 function collaboratorNameTemplate(user) {
     let suffix = getUserNameSuffix(user);
@@ -113,7 +113,7 @@ function collaboratorNameTemplate(user) {
  * @param {Object} subtask 
  * @param {number} subtaskIndex 
  * @param {number} taskId 
- * @returns {string} HTML template of subtask for pop-up
+ * @returns {string} HTML template of subtask for pop-up.
  */
 function subTaskTemplate(subtask, subtaskIndex, taskId) {
     return /* html */ `
@@ -129,8 +129,8 @@ function subTaskTemplate(subtask, subtaskIndex, taskId) {
  * This function returns a template of a subtask with buttons to edit or delete it.
  * @param {Object} subtask 
  * @param {number} subtaskIndex 
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
- * @returns {string} HTML template of subtask
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
+ * @returns {string} HTML template of subtask.
  */
 function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
     return /* html */ `
@@ -156,8 +156,8 @@ function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
  * This function returns a subtask as an input so that it can be edited.
  * @param {number} subtaskIndex 
  * @param {string} subtaskTitle 
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
- * @returns {string} HTML template of subtask being edited
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
+ * @returns {string} HTML template of subtask being edited.
  */
 function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) {
     return /* html */ `<div class="edit-task-subtask-input-container">
@@ -197,8 +197,8 @@ function generateSubtasks(task, subtasks) {
 /**
  * This function returns an HTML template of subtasks with edit and delete buttons.
  * @param {Array} subtasks 
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
- * @returns {string} HTML template of subtasks with edit and delete buttons
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
+ * @returns {string} HTML template of subtasks with edit and delete buttons.
  */
 function generateSubtasksTemporary(subtasks, idPrefix) {
     let HTMLString = '';
@@ -217,7 +217,7 @@ function generateSubtasksTemporary(subtasks, idPrefix) {
 /**
  * This function returns an HTML template of the form section for assigning users to a task.
  * @param {Object} task 
- * @returns {string} HTML template of assignment section
+ * @returns {string} HTML template of assignment section.
  */
 function editTaskAssignedToItemsTemplate(task, idPrefix) {
     return /* html */ `
@@ -240,7 +240,7 @@ function editTaskAssignedToItemsTemplate(task, idPrefix) {
  * This function returns an HTML template of buttons to reject or confirm a change.
  * @param {*} deletionFunctionName 
  * @param {*} confirmationFunctionName 
- * @returns {string} HTML template of icons for confirmation or deletion
+ * @returns {string} HTML template of icons for confirmation or deletion.
  */
 function confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName) {
     return /* html */ `<div class="input-icon-container" onclick="${deletionFunctionName}">

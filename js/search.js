@@ -18,7 +18,7 @@ function searchTasks() {
 
 /**
  * This function filters the user names using a search string.
- * @returns {Array} users whose names match the search string
+ * @returns {Array} users whose names match the search string.
  */
 function filterUserNames(searchString) {
     return users.filter(user => {
@@ -32,7 +32,7 @@ function filterUserNames(searchString) {
  * This function displays the users that were found as a list of options.
  * @param {Object} task 
  * @param {Array} foundUsers 
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task' 
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function showFoundUsers(task, foundUsers, idPrefix) {
     let taskAssignedTo = document.getElementById(`${idPrefix}-assigned-to`);
@@ -48,7 +48,7 @@ function showFoundUsers(task, foundUsers, idPrefix) {
 /**
  * This function searches for users matching the search criteria.
  * @param {number} taskId 
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task' 
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function searchUsers(taskId, idPrefix) {
     let task;

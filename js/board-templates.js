@@ -1,7 +1,7 @@
 /**
  * This function returns an HTML template showing the progress of a task or an empty string if there are no subtasks.
  * @param {Object} task 
- * @param {number} doneSubtasks number of completed subtasks
+ * @param {number} doneSubtasks number of completed subtasks.
  * @returns 
  */
 function generateTaskProgressContainerTemplate(task, doneSubtasks) {
@@ -20,8 +20,8 @@ function generateTaskProgressContainerTemplate(task, doneSubtasks) {
 /**
  * This function returns an HTML template of a task.
  * @param {Object} task
- * @param {number} doneSubtasks number of completed subtasks
- * @returns {string} task HTML template
+ * @param {number} doneSubtasks number of completed subtasks.
+ * @returns {string} task HTML template.
  */
 function taskTemplate(task, doneSubtasks) {
     return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)" onclick="openTask(${task.id})">
@@ -45,7 +45,7 @@ function taskTemplate(task, doneSubtasks) {
 /**
  * This function returns an HTML template of a task opened in a pop-up.
  * @param {Object} task 
- * @returns {string} task pop-up HTML template
+ * @returns {string} task pop-up HTML template.
  */
 function openTaskPopupTemplate(task) {
     return /* html */ `<div class="open-task-pop-up-header">
@@ -87,7 +87,7 @@ function openTaskPopupTemplate(task) {
 /**
  * This function returns an HTML template of a task being edited in a pop-up.
  * @param {Object} task 
- * @returns {string} HTML template of task for editing
+ * @returns {string} HTML template of task for editing.
  */
 function editTaskTemplate(task) {
     return /* html */ `
@@ -156,7 +156,7 @@ function editTaskTemplate(task) {
  * This function returns a task category with an appropriate class (different color depending on the category)
  * for the pop-up for opening tasks.
  * @param {Object} task 
- * @returns {string} HTML template of task category for pop-up
+ * @returns {string} HTML template of task category for pop-up.
  */
 function openTaskPopupCategoryTemplate(task) {
     return /* html */ `<div class="task-category task-category-large ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>`;
@@ -167,7 +167,7 @@ function openTaskPopupCategoryTemplate(task) {
  * This function returns an HTMl template of a task priority including the corresponding icon
  * for the pop-up for opening tasks.
  * @param {Object} task 
- * @returns {string} HTML template of task priority for pop-up
+ * @returns {string} HTML template of task priority for pop-up.
  */
 function openTaskPopupPriorityTemplate(task) {
     return /* html */ `<div>${task.priority}</div>

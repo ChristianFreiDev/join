@@ -16,7 +16,7 @@ let temporaryTask = {
 
 /**
  * This function gets a status from local storage.
- * @returns {string} status of task to be added
+ * @returns {string} status of task to be added.
  */
 function getStatus() {
     let status = loadVariableFromLocalStorage('status');
@@ -87,8 +87,8 @@ const buttonActions = {
 /**
  * This function is used to change the color of the priority buttons.
  * 
- * @param {string} newPriority - this is the name of the priority. ('Urgent', 'Medium' or 'Low')
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} newPriority - this is the name of the priority. ('Urgent', 'Medium' or 'Low').
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function clickPriorityButton(newPriority, idPrefix) {
     let priorities = ['Urgent', 'Medium', 'Low'];
@@ -105,7 +105,7 @@ function clickPriorityButton(newPriority, idPrefix) {
 
 /**
  * This functions sets up the temporary task so that it can be stored.
- * @param {string} status status of the task (for example, 'In progess')
+ * @param {string} status status of the task (for example, 'In progess').
  */
 async function setUpTemporaryTask(status) {
     temporaryTask.title = document.getElementById('input-title').value;
@@ -124,7 +124,7 @@ async function setUpTemporaryTask(status) {
 
 /**
  * This function adds a task to the server. Before pushing a new task, the tasks are loaded from the backend to make sure they are up-to-date.
- * @param {string} status status of the task (for example, 'In progess')
+ * @param {string} status status of the task (for example, 'In progess').
  */
 async function addTask(status) {
     document.getElementById('create-task-button').disabled = true;
@@ -137,7 +137,7 @@ async function addTask(status) {
 
 /**
  * This function determines the highest id of the task ids of the existing tasks.
- * @returns {number} highest id of a task in the tasks array
+ * @returns {number} highest id of a task in the tasks array.
  */
 function getHighestTaskId() {
     let taskIds = tasks.map(task => task.id);
@@ -175,7 +175,7 @@ function renderAssignedToList() {
 /**
  * This function serves to add an event listener that adds buttons to confirm or reject a change
  * and an event listener that confirms the input when the Enter key is pressed.
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function addInputEventListener(idPrefix) {
     let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
@@ -196,8 +196,8 @@ function addInputEventListener(idPrefix) {
 
 /**
  * This function adds an error message below an input field if it is invalid.
- * @param {Object} element HTML element
- * @param {string} message error message
+ * @param {Object} element HTML element.
+ * @param {string} message error message.
  */
 function setError(element, message) {
     let inputControl = element.parentElement;
@@ -210,7 +210,7 @@ function setError(element, message) {
 
 /**
  * This function removes the error message that was displayed if the input field was invalid.
- * @param {Object} element HTML element
+ * @param {Object} element HTML element.
  */
 function setSuccess(element) {
     let inputControl = element.parentElement;
@@ -223,7 +223,7 @@ function setSuccess(element) {
 
 /**
  * This function validates inputs (for example, title and due date).
- * @param {Array} inputIds array of ID strings of the input elements
+ * @param {Array} inputIds array of ID strings of the input elements.
  */
 function validateInputs(inputIds) {
     for (let i = 0; i < inputIds.length; i++) {
@@ -404,7 +404,7 @@ function setBorderGrey(){
 
 /**
  * This function removes the class "error" from every required input when the clear button is clicked.
- * @param {Array} inputIds array of ID strings of the input elements
+ * @param {Array} inputIds array of ID strings of the input elements.
  */
 function resetError(inputIds){
     for (let i = 0; i < inputIds.length; i++) {

@@ -13,8 +13,8 @@ async function initContacts() {
 
 /**
  * This function searches for a user with the same e-mail address as the contact and returns the user's color if there is a match or returns the contact's color if there is none.
- * @param {Object} contactEMail e-mail address of a contact 
- * @returns {string} desired contact color
+ * @param {Object} contactEMail e-mail address of a contact .
+ * @returns {string} desired contact color.
  */
 function getContactColor(contactEMail) {
     let foundUser = users.find(user => user.eMail === contactEMail);
@@ -30,7 +30,7 @@ function getContactColor(contactEMail) {
 /**
  * This function renders the first letter of the first name of a contact if the letter has not been rendered yet.
  * @param {Object} contact 
- * @param {Array} renderedLetters letters that have already been rendered
+ * @param {Array} renderedLetters letters that have already been rendered.
  */
 function renderLetterIfItHasNotBeenRendered(contact, renderedLetters) {
     let contactList = document.getElementById('contact-list');
@@ -62,8 +62,8 @@ function renderContacts() {
 
 /**
  * This function finds the user with the matching e-mail address.
- * @param {string} eMail e-mail address of a user
- * @returns {number} id of the user with the e-mail adress
+ * @param {string} eMail e-mail address of a user.
+ * @returns {number} id of the user with the e-mail adress.
  */
 function getUserIdFromEMail(eMail) {
     let user = users.find(user => user.eMail === eMail);
@@ -75,7 +75,7 @@ function getUserIdFromEMail(eMail) {
 
 /**
  * This function removes a contact from the tasks assigned to it.
- * @param {string} contactEMail e-mail address of the contact
+ * @param {string} contactEMail e-mail address of the contact.
  */
 function removeUserFromAssignedTasks(contactEMail) {
     let userId = getUserIdFromEMail(contactEMail);
@@ -106,7 +106,7 @@ function findAndSpliceContact(contactEMail) {
 /**
  * This function deletes a contact.
  * @param {Event} event
- * @param {string} contactEMail e-mail address of the contact
+ * @param {string} contactEMail e-mail address of the contact.
  */
 async function deleteContact(event, contactEMail) {
     disableButton(event.target.id);
@@ -124,7 +124,7 @@ async function deleteContact(event, contactEMail) {
 
 /**
  * This function opens a contact from the list.
- * @param {number} index contact index
+ * @param {number} index contact index.
  */
 function openContact(index) {
     let contact = contacts[index];
@@ -144,7 +144,7 @@ function openContact(index) {
 
 /**
  * This function changes the style of a contact when it is active and removes the active style from all other contacts.
- * @param {number} index index of a contact in the contacts array
+ * @param {number} index index of a contact in the contacts array.
  */
 function setActiveContact(index) {
     let contacts = document.querySelectorAll('.contact-in-list-active');
@@ -158,7 +158,7 @@ function setActiveContact(index) {
 
 /**
  * This function gets the input values for creating a contact and creates a contact object and
- * @returns {Object} the new contact
+ * @returns {Object} the new contact.
  */
 function createNewContact() {
     let name = document.getElementById('contact-name-input').value;
@@ -172,7 +172,7 @@ function createNewContact() {
 
 /**
  * This function performs actions for saving a contact after it has been edited.
- * @param {*} index index of a contact in the contacts array
+ * @param {*} index index of a contact in the contacts array.
  */
 function saveEditedContactHelper(index) {
     let name = document.getElementById('contact-name-input').value;
@@ -193,7 +193,7 @@ function saveEditedContactHelper(index) {
 
 /**
  * This function saves a contact after it has been edited.
- * @param {number} index index of a contact in the contacts array
+ * @param {number} index index of a contact in the contacts array.
  */
 function saveEditedContact(index) {
     disableButton('save-contact-button');

@@ -1,6 +1,6 @@
 /**
  * This function centers a pop-up with a certain id.
- * @param {string} id pop-up id
+ * @param {string} id pop-up id.
  */
 function centerPopup(id) {
     let popup = document.getElementById(id);
@@ -31,7 +31,7 @@ function centerAddTaskPopup() {
 
 /**
  * This function removes a pop-up.
- * @param {string} id pop-up id
+ * @param {string} id pop-up id.
  */
 function removeAddTaskPopup() {
     let popup = document.getElementById('add-task-pop-up');
@@ -50,7 +50,7 @@ function removeAddTaskPopup() {
 
 /**
  * This function removes a pop-up.
- * @param {string} id pop-up id
+ * @param {string} id pop-up id.
  */
 function removePopup(id) {
     let popup = document.getElementById(id);
@@ -85,7 +85,7 @@ function saveStatus(status) {
 
 /**
  * This function opens the add-task popup.
- * @param {string} statusId task status ID
+ * @param {string} statusId task status ID.
  */
 function openAddTaskPopup(status) {
     if (isWidthSmallerThanXPixels(920)) {
@@ -152,7 +152,7 @@ function moveTaskFromPopup(status) {
 /**
  * This function checks the collaborator checkbox in the list of assigned users.
  * @param {number} userId
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function checkOrUncheckCollaboratorBox(userId, idPrefix) {
     let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
@@ -172,7 +172,7 @@ function checkOrUncheckCollaboratorBox(userId, idPrefix) {
 
 /**
  * This function renders the large initial avatars below the drop-down list in a pop-up.
- * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function renderInitalAvatarsLargeInPopup(idPrefix) {
     let initialAvatarsLargeContainer = document.getElementById(`${idPrefix}-initial-avatars-large-container`);
@@ -182,8 +182,8 @@ function renderInitalAvatarsLargeInPopup(idPrefix) {
 
 /**
  * This functions opens a pop-up for editing a contact.
- * @param {string} contactEMail e-mail address of a contact
- * @param {number} index index of a contact in the contacts array
+ * @param {string} contactEMail e-mail address of a contact.
+ * @param {number} index index of a contact in the contacts array.
  */
 function editContact(contactEMail, index) {
     let contact = contacts.find(contact => contact.eMail === contactEMail);
@@ -207,8 +207,8 @@ function openAddContactPopup() {
 
 /**
  * This functions opens a menu from which you can delete or edit a contact.
- * @param {number} index index of a contact in the contacts array
- * @param {string} email e-mail address of a contact
+ * @param {number} index index of a contact in the contacts array.
+ * @param {string} email e-mail address of a contact.
  */
 function openMoreMenu(index, email) {
     let screen = document.querySelector('.contacts-content-container');

@@ -5,7 +5,7 @@ const BASE_URL = "https://join-91cdc-default-rtdb.europe-west1.firebasedatabase.
  * 
  * @param {string} path 
  * @param {object} data 
- * @returns response as Json.
+ * @returns response as JSON.
  */
 async function setItem(path = "", data = {}) {
     let response = await fetch(BASE_URL + path + '.json', {
@@ -23,7 +23,7 @@ async function setItem(path = "", data = {}) {
  * This function loads data from the Firebase database.
  * 
  * @param {string} path 
- * @returns loaded data as Json.
+ * @returns loaded data as JSON.
  */
 async function getItem(path = "") {
     let response = await fetch(BASE_URL + path + '.json');

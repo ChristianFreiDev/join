@@ -16,7 +16,7 @@ function validateEditInputs(inputIds) {
 
 
 /**
- *  This function checks the requirements of the form and activates or deactivates the OK button
+ *  This function checks the requirements of the form and activates or deactivates the OK button.
  */
 function checkEditOkButton(){
     if (
@@ -33,7 +33,7 @@ function checkEditOkButton(){
 
 
 /**
- * This function highlights the titles border green or red
+ * This function highlights the title's border in green or red.
  */
 function editTitleRequirement() {
     let title = document.getElementById('edit-task-title-input');
@@ -49,7 +49,7 @@ function editTitleRequirement() {
 
 
 /**
- * This function is used to check the requirements after typing into the title-input
+ * This function is used to check the requirements after typing into the title-input.
  */
 function checkEditTitleRequirement() {
     editTitleRequirement();
@@ -58,7 +58,7 @@ function checkEditTitleRequirement() {
 
 
 /**
- * This function highlights the dates border green or red
+ * This function highlights the date's border green or red.
  */
 function editDueDateRequirement() {
     let date = document.getElementById('edit-task-due-date');
@@ -82,7 +82,7 @@ function editSetMinDate() {
 
 
 /**
- * This function is used to check the requirements after choosing a date
+ * This function is used to check the requirements after choosing a date.
  */
 function checkEditDueDateRequirement() {
     document.getElementById('edit-task-due-date').addEventListener("change", function (event) {

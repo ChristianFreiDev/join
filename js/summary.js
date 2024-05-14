@@ -272,7 +272,7 @@ function rednerUpcomingDeadline(foundTasks) {
  * This function formats the date.
  * 
  * @param {number} date 
- * @returns {string} of next duedate.
+ * @returns {string} next due date.
  */
 function formatDate(date) {
     return date.toLocaleString("en-US",
@@ -310,7 +310,7 @@ function renderFeedbackButton() {
 
 /**
  *  This function iterates through the tasks array and increases a counter when a task with the specified status is found.
- * @returns the amount of current tasks with the specified status
+ * @returns the amount of current tasks with the specified status.
  */
 function getAmountOfTasksWithStatus(status) {
     let count = 0;

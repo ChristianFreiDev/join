@@ -1,7 +1,7 @@
 /**
  * This function generates an HTML template for the letter that is used as a heading for contacts with first names beginning with the same letter.
  * @param {string} letter 
- * @returns {string} contact letter HTML template
+ * @returns {string} contact letter HTML template.
  */
 function contactLetterTemplate(letter) {
     return /* html */ `<div class="contact-letter">${letter}</div>
@@ -30,7 +30,7 @@ function contactInListTemplate(contact, contactColor, contactIndex, suffix) {
 
 /**
  * This function returns a pencil icon as svg.
- * @returns {string} svg template of button icon for editing contacts
+ * @returns {string} svg template of button icon for editing contacts.
  */
 function editButtonSvg() {
     return /* html */ `<svg class="contact-button-icon" width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +41,7 @@ function editButtonSvg() {
 
 /**
  * This function returns a trash can icon as svg.
- * @returns {string} svg template of button icon for deleting contacts
+ * @returns {string} svg template of button icon for deleting contacts.
  */
 function deleteButtonSvg() {
     return /* html */ `<svg class="contact-button-icon" width="17" height="18" viewBox="0 0 17 18" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@ function deleteButtonSvg() {
 
 /**
  * This function returns a cancel icon as svg.
- * @returns {string} svg template of button icon for canceling something
+ * @returns {string} svg template of button icon for canceling something.
  */
 function cancelIconSVG() {
     return /* html */ `<svg class="cancel-button-icon" width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +64,7 @@ function cancelIconSVG() {
 
 /**
  * This function returns a close icon as svg.
- * @returns {string} svg template of button icon for closing something
+ * @returns {string} svg template of button icon for closing something.
  */
 function closeIconSvg() {
     return /* html */ `<svg class="close-pop-up-icon close-edit-add-contact-pop-up-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="removePopup('edit-add-contact-pop-up')">
@@ -82,7 +82,7 @@ function closeIconSvg() {
  * This function generates a contact profile HTML template.
  * @param {Object} contact 
  * @param {string} contactColor
- * @returns {string} contact profile HTML template
+ * @returns {string} contact profile HTML template.
  */
 function contactProfileTemplate(contact, contactColor, index) {
     return /* html */ `
@@ -120,8 +120,8 @@ function contactProfileTemplate(contact, contactColor, index) {
 /**
  * This function returns an HTML string of the form for editing a contact.
  * @param {Object} contact 
- * @param {number} index index of a contact in the contacts array
- * @returns HTML string of the form for editing a contact
+ * @param {number} index index of a contact in the contacts array.
+ * @returns HTML string of the form for editing a contact.
  */
 function contactEditForm(contact, index) {
     return /* html */ `${closeIconSvg()}
@@ -160,8 +160,8 @@ function contactEditForm(contact, index) {
 /**
  * This function returns an HTML string of the form for editing a contact.
  * @param {Object} contact 
- * @param {number} index index of a contact in the contacts array
- * @returns HTML string of the form for editing a contact
+ * @param {number} index index of a contact in the contacts array.
+ * @returns HTML string of the form for editing a contact.
  */
 function addContactForm() {
     return /* html */ `<div class="edit-add-contact-pop-up-container">
@@ -205,7 +205,7 @@ function addContactForm() {
  * This functions opens a small menu for editing or deleting a contact on small screens.
  * @param {number} index 
  * @param {string} email 
- * @returns {string} HTML string of small menu for editing or deleting a contact
+ * @returns {string} HTML string of small menu for editing or deleting a contact.
  */
 function contactsMoreMenu(index, email) {
     return /* html */ `
@@ -220,7 +220,7 @@ function contactsMoreMenu(index, email) {
 /**
  * This function returns an initial avatar HTML template for a user.
  * @param {Object} user 
- * @returns {string} inital avatar HTML template, very large
+ * @returns {string} inital avatar HTML template, very large.
  */
 function initialAvatarVeryLargeTemplate(user) {
     return /* html */ `<div class="initial-avatar initial-avatar-very-large ${getContactColor(user.eMail)}">${getInitials(user)}</div>`;

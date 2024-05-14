@@ -31,7 +31,7 @@ function activateSubtaskInput(inputId) {
 
 /**
  * This function clears the subtask input.
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function deleteSubtaskInput(idPrefix) {
     let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
@@ -44,7 +44,7 @@ function deleteSubtaskInput(idPrefix) {
 /**
  * This function clears the input used for editing an existing subtask.
  * @param {number} subtaskIndex 
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function deleteSubtaskInputForEditing(subtaskIndex, idPrefix) {
     let subtask = temporarySubtasks[subtaskIndex];
@@ -56,7 +56,7 @@ function deleteSubtaskInputForEditing(subtaskIndex, idPrefix) {
 /**
  * This function confirms that the value of the input used for editing an existing subtask can be stored when the check mark is clicked.
  * @param {number} subtaskIndex 
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function confirmSubtaskInputForEditing(subtaskIndex, idPrefix) {
     let subtaskTitleInputEditable = document.getElementById(`${idPrefix}-subtask-title-input-editable-${subtaskIndex}`);
@@ -71,7 +71,7 @@ function confirmSubtaskInputForEditing(subtaskIndex, idPrefix) {
 
 /**
  * This function confirms that the value of the input used for adding a new subtask can be stored when the check mark is clicked.
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function confirmSubtaskInput(idPrefix) {
     let subtaskInput = document.getElementById(`${idPrefix}-subtask-input`);
@@ -91,7 +91,7 @@ function confirmSubtaskInput(idPrefix) {
 /**
  * This function opens a subtask for editing.
  * @param {number} subtaskIndex 
- * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function editSubtask(subtaskIndex, idPrefix) {
     let subtaskContainer = document.getElementById(`${idPrefix}-subtask-container-${subtaskIndex}`);
@@ -102,7 +102,7 @@ function editSubtask(subtaskIndex, idPrefix) {
 /**
  * This function deletes a subtask.
  * @param {number} subtaskIndex 
- * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function deleteSubtask(subtaskIndex, idPrefix) {
     temporarySubtasks.splice(subtaskIndex, 1);
@@ -112,7 +112,7 @@ function deleteSubtask(subtaskIndex, idPrefix) {
 
 /**
  * This function updates the list of subtasks to reflect the current subtasks.
- * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
+ * @param {string} idPrefix idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
 function updateSubtaskList(idPrefix) {
     let subtaskListId = `${idPrefix}-subtasks-list`;
@@ -124,7 +124,7 @@ function updateSubtaskList(idPrefix) {
 /**
  * This function calculates the number of completed subtasks of a task.
  * @param {Object} task 
- * @returns {number} number of done subtasks
+ * @returns {number} number of done subtasks.
  */
 function calculateSubtasks(task) {
     let doneSubtasks = 0;

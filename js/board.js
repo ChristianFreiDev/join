@@ -30,7 +30,7 @@ function endDraggingTask(event) {
 
 /**
  * This function finds the temporary collaborators in the users array and returns them as objects.
- * @returns {Array} collaborators as objects
+ * @returns {Array} collaborators as objects.
  */
 function getTemporaryCollaborators() {
     let foundCollaborators = [];
@@ -102,7 +102,7 @@ async function onSubmitEditTaskForm(taskId) {
  * This function checks if a certain user is assigned to a certain task.
  * @param {Object} user
  * @param {Object} task
- * @returns {boolean} has the user been assigned to the task or not
+ * @returns {boolean} has the user been assigned to the task or not.
  */
 function isAssigned(user, task) {
     let collaborators = getCollaborators(task);
@@ -118,8 +118,8 @@ function isAssigned(user, task) {
  * This function displays users as options.
  * @param {Object} task 
  * @param {Array} usersToBeRendered
- * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'
- * @returns {string} HTML template string
+ * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
+ * @returns {string} HTML template string.
  */
 function renderSelectOptions(task, usersToBeRendered, idPrefix) {
     usersToBeRendered.sort(sortByFirstName);
@@ -158,7 +158,7 @@ function onTaskDropDownInputClick(taskAssignedToId, assignedToArrow) {
 
 /**
  * This function creates a task from the board's task pop-up.
- * @param {string} statusId task status ID
+ * @param {string} statusId task status ID.
  */
 async function createTaskFromBoard(status) {
     await addTask(status);
@@ -192,7 +192,7 @@ function dropTaskInArea(id, status) {
 
 /**
  * This function highlights an area when a task hovers over it.
- * @param {string} id drop area/task column (or row)
+ * @param {string} id drop area/task column (or row).
  */
 function highlightArea(id) {
     let area = document.getElementById(id);
@@ -202,7 +202,7 @@ function highlightArea(id) {
 
 /**
  * This function removes the highlight from a drop area.
- * @param {string} id drop area/task column (or row)
+ * @param {string} id drop area/task column (or row).
  */
 function stopHighlightingArea(id) {
     let area = document.getElementById(id);
@@ -213,7 +213,7 @@ function stopHighlightingArea(id) {
 /**
  * This function returns all the collaborators of a task.
  * @param {Object} task 
- * @returns {Array} collaborators
+ * @returns {Array} collaborators.
  */
 function getCollaborators(task) {
     let collaborators = [];
@@ -229,7 +229,7 @@ function getCollaborators(task) {
 /**
  * This function converts a status (e.g., "Await feedback") to an ID (e.g., "await-feedback").
  * @param {string} status 
- * @returns {string} statusId (id of an HTML element)
+ * @returns {string} statusId (id of an HTML element).
  */
 function statusToStatusId(status) {
     let statusId = status.toLowerCase().replace(' ', '-');
@@ -306,7 +306,7 @@ async function initBoard() {
 /**
  * This function cuts off the task description after a certain number of characters.
  * @param {string} taskDescription 
- * @returns {string} string with a certain length
+ * @returns {string} string with a certain length.
  */
 function createTaskDescriptionPreview(taskDescription) {
     let result = '';

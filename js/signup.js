@@ -307,7 +307,7 @@ function formatStringAsName(name) {
 
 /**
  * This function determines the highest id of the user ids of the existing users.
- * @returns {number} highest id of a user in the users array
+ * @returns {number} highest id of a user in the users array.
  */
 function getHighestUserId() {
     let userIds = users.map(user => user.id);
