@@ -1,0 +1,9 @@
+#add-task-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.add-task-submit-buttons {
+    margin-bottom: 16px;
+}

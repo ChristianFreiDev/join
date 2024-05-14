@@ -31,11 +31,18 @@
 
     .add-task-pop-up {
         overflow-y: auto;
-        padding: 16px 25px 32px 25px;
+        padding: 48px 25px 32px 25px;
         width: unset !important;
-        height: 90vh !important;
+        height: 98% !important;
     }
 
+    .open-add-task-pop-up {
+        display: block !important;
+    }
+
+    #add-task-form {
+        flex-wrap: nowrap;
+    }
 }
 
 @media(max-width: 920px){
@@ -102,7 +109,7 @@
     }
     .add-task-pop-up{
         display: block !important;
-        width: 100% !important;
+        width: 98% !important;
     }
     .under-form{
         min-width: unset;

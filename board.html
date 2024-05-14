@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/add-task.css">
     <link rel="stylesheet" href="css/add-task-responsive.css">
+    <link rel="stylesheet" href="css/add-task-popup.css">
     <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="css/priority-buttons.css">
     <script src="script.js"></script>
@@ -36,7 +37,7 @@
         <div id="pop-up-container" class="pop-up-container" onclick="removePopups()">
             <div id="add-task-pop-up" class="add-task-pop-up pop-up" onclick="closeAssignedToList() | doNotClose(event)">
                 <div w3-include-html="assets/templates/add-task-template.html"></div>
-                <img class="close-pop-up-icon close-add-task-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('add-task-pop-up')">
+                <img class="close-pop-up-icon close-add-task-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removeAddTaskPopup()">
             </div>
             <div id="open-task-pop-up" class="medium-pop-up pop-up" onclick="doNotClose(event)"></div>
             <div id="move-task-pop-up" class="medium-pop-up pop-up" onclick="doNotClose(event)">

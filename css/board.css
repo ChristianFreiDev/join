@@ -273,13 +273,6 @@ progress::-webkit-progress-value {
     overflow: hidden;
 }
 
-.add-task-pop-up {
-    height: 870px;
-    width: 1126px;
-    justify-content: center;
-    align-items: center;
-}
-
 .medium-pop-up {
     display: flex;
     flex-direction: column;

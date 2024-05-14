@@ -15,12 +15,46 @@ function centerPopup(id) {
 
 
 /**
+ * This function centers the add-task pop-up.
+ */
+function centerAddTaskPopup() {
+    let popup = document.getElementById('add-task-pop-up');
+    let popupContainer = document.getElementById('pop-up-container');
+    popupContainer.style.display = 'block';
+    popup.classList.add('open-add-task-pop-up');
+    setTimeout(function() {
+        popup.classList.add('center-pop-up')
+        document.body.style.overflow = 'hidden';
+    }, 0);
+}
+
+
+/**
+ * This function removes a pop-up.
+ * @param {string} id pop-up id
+ */
+function removeAddTaskPopup() {
+    let popup = document.getElementById('add-task-pop-up');
+    if (popup) {
+        let popupContainer = document.getElementById('pop-up-container');
+        popup.classList.remove('center-pop-up');
+        // Wait for transition to end, then hide pop-up container and enable scrolling again:
+        setTimeout(function () {
+            popup.classList.remove('open-add-task-pop-up');
+            popupContainer.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }, 126);
+    }
+}
+
+
+/**
  * This function opens the add-task popup.
  * @param {string} statusId task status ID
  */
 function openAddTaskPopup(status) {
     clearForm();
-    centerPopup('add-task-pop-up');
+    centerAddTaskPopup();
     let createTaskButton = document.getElementById('create-task-button');
     createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}'); validateInputs(['input-title', 'input-due-date', 'input-category'])`);
     addInputEventListener('add-task');
