@@ -391,6 +391,7 @@ textarea {
 .initial-avatars-large-container {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .initial-avatar-very-large {
