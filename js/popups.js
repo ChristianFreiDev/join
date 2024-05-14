@@ -83,16 +83,12 @@ function removePopups() {
  * @param {string} statusId task status ID
  */
 function openAddTaskPopup(status) {
-    if (isWidthSmallerThanXPixels(920)) {
-        window.open('add-task.html', '_self');
-    } else {
-        clearForm();
-        centerAddTaskPopup();
-        let createTaskButton = document.getElementById('create-task-button');
-        createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}'); validateInputs(['input-title', 'input-due-date', 'input-category'])`);
-        addInputEventListener('add-task');
-        renderAssignedToList();
-    }
+    clearForm();
+    centerAddTaskPopup();
+    let createTaskButton = document.getElementById('create-task-button');
+    createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}'); validateInputs(['input-title', 'input-due-date', 'input-category'])`);
+    addInputEventListener('add-task');
+    renderAssignedToList();
 }
 
 
