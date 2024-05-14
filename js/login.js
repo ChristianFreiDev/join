@@ -49,7 +49,7 @@ function openSignUpMenu(email = false) {
 /**
  * This function logs in the user or a guest and gives the user feedback if the user's data was wrong.
  * 
- * @param {Boolean} guest 
+ * @param {boolean} guest 
  */
 function login(guest = false) {
     document.getElementById('login-button').disabled = true;
@@ -201,9 +201,9 @@ function rememberUser() {
 /**
  * This function checks the user data input.
  * 
- * @param {String} email 
- * @param {String} password 
- * @param {Number} i 
+ * @param {string} email 
+ * @param {string} password 
+ * @param {number} i 
  * @returns {boolean} true if the user has been logged in successfully.
  */
 function userLoggedInSuccessfully(email, password, i) {
