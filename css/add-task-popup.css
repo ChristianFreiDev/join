@@ -1,3 +1,7 @@
+.add-task-headline {
+    margin-top: 64px;
+}
+
 #add-task-form {
     display: flex;
     flex-direction: column;
@@ -6,6 +10,16 @@
 
 .add-task-submit-buttons {
     margin-bottom: 16px;
+}
+
+#add-task-pop-up {
+    height: 100%;
+    overflow-y: auto;
+    max-height: 870px;
+}
+
+.add-task-pop-up-wrapper {
+    height: 100%;
 }
 
 @media (max-width: 920px) {

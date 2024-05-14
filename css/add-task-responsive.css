@@ -1,4 +1,7 @@
 @media(max-width: 1336px) {
+    .add-task-headline {
+        margin-top: 0;
+    }
     .add-task-vector {
         display: none;
     }
