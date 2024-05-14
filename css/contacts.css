@@ -251,6 +251,7 @@
 .contact-pop-up-buttons-container {
     display: flex;
     gap: 25px;
+    margin-left: 96px;
 }
 
 .very-large-pop-up {
@@ -529,6 +530,7 @@
     }
     .contact-pop-up-buttons-container {
         margin-bottom: 62px;
+        margin-left: 0;
     }
     .close-edit-add-contact-pop-up-icon {
         fill: #FFFFFF;
