@@ -223,8 +223,8 @@ function editTaskAssignedToItemsTemplate(task, idPrefix) {
     return /* html */ `
         <label for="edit-task-drop-down-input" class="task-form-label" onclick="event.preventDefault()">Assigned to</label>
         <div class="task-drop-down" onclick="doNotClose(event)">
-            <input id="edit-task-drop-down-input" type="text" class="input input-padding-size4 pop-up-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to')" oninput="searchUsers(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
-            <img class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
+            <input id="edit-task-drop-down-input" type="text" class="input input-padding-size4 pop-up-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to','edit-arrow-drop-down')" oninput="searchUsers(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
+            <img id="edit-arrow-drop-down" class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
         <div id="edit-task-assigned-to" class="task-user-dropdown display-none" onclick="doNotClose(event)">
             ${renderSelectOptions(task, users, idPrefix)}
