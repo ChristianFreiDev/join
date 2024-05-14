@@ -14,6 +14,21 @@ let temporaryTask = {
 }
 
 
+function resetTemporaryTask() {
+    temporaryTask = {
+        title: undefined,
+        description: undefined,
+        id: undefined,
+        collaborators: temporaryCollaborators, // user id
+        dueDate: undefined,
+        priority: 'Medium',
+        category: undefined,
+        status: undefined,
+        subtasks: temporarySubtasks
+    }
+}
+
+
 /**
  * This function gets a status from local storage.
  * @returns {string} status of task to be added
