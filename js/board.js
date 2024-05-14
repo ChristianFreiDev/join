@@ -144,10 +144,14 @@ function renderSelectOptions(task, usersToBeRendered, idPrefix) {
  */
 function onTaskDropDownInputClick(taskAssignedToId) {
     let taskAssignedTo = document.getElementById(taskAssignedToId);
+    let rotateArrow = document.getElementById('arrow-drop-down')
+
     if (taskAssignedTo.classList.contains('display-none')) {
         taskAssignedTo.classList.remove('display-none');
+        rotateArrow.style.transform = "rotate(180deg)";
     } else {
         taskAssignedTo.classList.add('display-none');
+        rotateArrow.style.transform = null;
     }
 }
 
