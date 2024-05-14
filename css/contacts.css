@@ -1,7 +1,7 @@
 .contact-link {
     font-size: 19px;
     color: hsla(209, 100%, 47%, 1);
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .contacts-content-container {
