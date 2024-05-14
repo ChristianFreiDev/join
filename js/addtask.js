@@ -15,6 +15,20 @@ let temporaryTask = {
 
 
 /**
+ * This function gets a status from local storage.
+ * @returns {string} status of task to be added
+ */
+function getStatus() {
+    let status = loadVariableFromLocalStorage('status');
+    if (status) {
+        return status;
+    } else {
+        return false;
+    }
+}
+
+
+/**
  * This function initializes the Add Task page by calling init(),
  * loading the required data, rendering a list of users to assign to a task, and adding an event listener.
  */
@@ -137,7 +151,12 @@ function getHighestTaskId() {
  * This functions adds a task from the Add Task page.
  */
 async function addTaskFromAddTaskPage() {
-    await addTask('To do');
+    let status = getStatus();
+    if (status) {
+        await addTask(status);
+    } else {
+        await addTask('To do');
+    }
     window.open('./board.html', '_self');
 }
 

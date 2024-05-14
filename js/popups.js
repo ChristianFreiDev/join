@@ -78,17 +78,27 @@ function removePopups() {
 }
 
 
+function saveStatus(status) {
+    saveVariableInLocalStorage('status', status);
+}
+
+
 /**
  * This function opens the add-task popup.
  * @param {string} statusId task status ID
  */
 function openAddTaskPopup(status) {
-    clearForm();
-    centerAddTaskPopup();
-    let createTaskButton = document.getElementById('create-task-button');
-    createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}'); validateInputs(['input-title', 'input-due-date', 'input-category'])`);
-    addInputEventListener('add-task');
-    renderAssignedToList();
+    if (isWidthSmallerThanXPixels(920)) {
+        saveStatus(status);
+        window.open('./add-task.html', '_self');
+    } else {
+        clearForm();
+        centerAddTaskPopup();
+        let createTaskButton = document.getElementById('create-task-button');
+        createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}'); validateInputs(['input-title', 'input-due-date', 'input-category'])`);
+        addInputEventListener('add-task');
+        renderAssignedToList();
+    }
 }
 
 
