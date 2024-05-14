@@ -415,7 +415,7 @@ textarea {
     height: 32px;
     border-radius: 16px;
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     top: 225px;
     right: 96px;
     display: flex;
