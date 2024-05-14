@@ -14,21 +14,6 @@ let temporaryTask = {
 }
 
 
-function resetTemporaryTask() {
-    temporaryTask = {
-        title: undefined,
-        description: undefined,
-        id: undefined,
-        collaborators: temporaryCollaborators, // user id
-        dueDate: undefined,
-        priority: 'Medium',
-        category: undefined,
-        status: undefined,
-        subtasks: temporarySubtasks
-    }
-}
-
-
 /**
  * This function gets a status from local storage.
  * @returns {string} status of task to be added
@@ -144,7 +129,6 @@ async function setUpTemporaryTask(status) {
 async function addTask(status) {
     document.getElementById('create-task-button').disabled = true;
     document.getElementById('create-task-button').classList.remove('create-task-enabled');
-    setUpTemporaryTask()
     await setUpTemporaryTask(status);
     tasks.push(temporaryTask);
     await storeTasks();
