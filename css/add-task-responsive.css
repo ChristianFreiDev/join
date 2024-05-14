@@ -101,7 +101,7 @@
         width: 100%;
     }
     .add-task-user-dropdown{
-        width: 90%;
+        width: 100%;
     }
     .priority-button{
         flex-direction: column-reverse;
