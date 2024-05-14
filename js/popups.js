@@ -94,8 +94,10 @@ function openAddTaskPopup(status) {
     } else {
         clearForm();
         centerAddTaskPopup();
+        let addTaskForm = document.getElementById('add-task-form');
+        addTaskForm.setAttribute('onsubmit', `createTaskFromBoard('${status}'); return false`);
         let createTaskButton = document.getElementById('create-task-button');
-        createTaskButton.setAttribute('onclick', `createTaskFromBoard('${status}'); validateInputs(['input-title', 'input-due-date', 'input-category'])`);
+        createTaskButton.setAttribute('onclick', `validateInputs(['input-title', 'input-due-date', 'input-category'])`);
         addInputEventListener('add-task');
         renderAssignedToList();
     }
@@ -258,8 +260,8 @@ function removeMoreMenu() {
  */
 function animateSuccessMessage() {
     document.querySelector('.outer-container').style.overflow = 'hidden';
-    document.querySelector('.contacts-success-message').style.display = 'flex';
-    document.querySelector('.contacts-success-message').classList.add('animate-success-message')
+    document.querySelector('.success-message').style.display = 'flex';
+    document.querySelector('.success-message').classList.add('animate-success-message')
     setTimeout(removeAnimationSuccessMessage, 1800);
 }
 
@@ -268,7 +270,7 @@ function animateSuccessMessage() {
  * This function removes the success message that is displayed when a contact has been added successfully.
  */
 function removeAnimationSuccessMessage() {
-    document.querySelector('.contacts-success-message').classList.remove('animate-success-message')
+    document.querySelector('.success-message').classList.remove('animate-success-message')
     document.querySelector('.outer-container').style.overflow = 'unset';
-    document.querySelector('.contacts-success-message').style.display = 'none';
+    document.querySelector('.success-message').style.display = 'none';
 }

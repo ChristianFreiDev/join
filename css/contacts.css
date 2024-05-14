@@ -306,85 +306,11 @@
     right: 16px;
 }
 
-@keyframes move-in-and-out-horizontal {
-    30%{
-        transform: translateX(0);
-    }
-
-    70%{
-        transform: translateX(0);
-    }
-
-    100%{
-        transform: translateX(65vw);
-    }
-}
-
-@keyframes move-in-and-out-vertical {
-    0%{
-        transform: translateY(110vh);
-    }
-
-    30%{
-        transform: translateY(0);
-    }
-
-    70%{
-        transform: translateY(0);
-    }
-
-    100%{
-        transform: translateY(110vh);
-    }
-}
-
-.contacts-success-message {
-    position: absolute;
-    background-color: var(--color-menu);
-    color: white;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    transform:translateX(65vw);
-    top: 80%;
-    left: 730px;
-    z-index: 5;
-    padding: 25px;
-    border-radius: 20px;
-    font-size: 20px;
-    white-space: nowrap;
-    z-index: 5;
-}
-
-.animate-success-message {
-    animation: move-in-and-out-horizontal 1800ms ease-in-out;
-}
-
 #back-link {
     position: absolute;
     display: none;
     top: 128px;
     right: 16px;
-}
-
-@keyframes fade-in {
-    0%{
-        transform: translateX(0);
-    }
-
-    100%{
-        transform: translateX(-128px);
-    }
-}
-
-@keyframes fade-out {
-    0%{
-        transform: translateX(-128px);
-    }
-
-    100%{
-        transform: translateX(0);
-    }
 }
 
 #contacts-more-menu {
@@ -453,24 +379,6 @@
 }
 
 @media (max-width: 1280px) {
-    .animate-success-message {
-        animation: move-in-and-out-vertical 1800ms ease-in-out;
-    }
-    
-    .contacts-success-message {
-        transform:translateX(0);
-        top: 70%;
-        transform: translateY(50vh);
-        left: calc(50% - 162px + 116px);
-        z-index: 5;
-        padding: 25px;
-        border-radius: 20px;
-        font-size: 20px;
-        white-space: nowrap;
-        z-index: 5;
-        display: none;
-    }
-
     .very-large-pop-up {
         height: 760px;
     }
