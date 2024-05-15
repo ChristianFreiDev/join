@@ -499,6 +499,11 @@ textarea {
     animation: move-in-and-out-horizontal 1800ms ease-in-out;
 }
 
+.priority-button {
+    width: 136px;
+    height: 56px;
+}
+
 @keyframes move-in-and-out-horizontal {
     30%{
         transform: translateX(0);
@@ -634,6 +639,11 @@ textarea {
         padding-left: var(--padding-content-left);
         padding-right: var(--padding-content-left);
     }
+
+    .priority-button {
+        flex-direction: column-reverse;
+        gap: 2px !important;
+    }
 }
 
 @media (max-width: 600px) {
@@ -655,6 +665,16 @@ textarea {
 
     h2 {
         font-size: 42px;
+    }
+
+    .edit-task-priority-buttons-container, .priority-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .priority-button {
+        flex-direction: row;
+        gap: 8px !important;
     }
 }
 
