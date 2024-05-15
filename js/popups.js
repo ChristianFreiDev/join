@@ -38,7 +38,6 @@ function removeAddTaskPopup() {
     if (popup) {
         let popupContainer = document.getElementById('pop-up-container');
         popup.classList.remove('center-pop-up');
-        // Wait for transition to end, then hide pop-up container and enable scrolling again:
         setTimeout(function () {
             popup.classList.remove('open-add-task-pop-up');
             popupContainer.style.display = 'none';
@@ -57,7 +56,6 @@ function removePopup(id) {
     if (popup) {
         let popupContainer = document.getElementById('pop-up-container');
         popup.classList.remove('center-pop-up');
-        // Wait for transition to end, then hide pop-up container and enable scrolling again:
         setTimeout(function () {
             popup.style.display = 'none';
             popupContainer.style.display = 'none';

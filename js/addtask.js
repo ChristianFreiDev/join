@@ -5,7 +5,7 @@ let temporaryTask = {
     title: undefined,
     description: undefined,
     id: undefined,
-    collaborators: temporaryCollaborators, // user id
+    collaborators: temporaryCollaborators,
     dueDate: undefined,
     priority: 'Medium',
     category: undefined,
@@ -44,12 +44,10 @@ async function initAddTask() {
     checkCategoryRequirement();
 }
 
-//----------------------- Priority Buttons---------------------------------//
 
 /** 
  * This object is used to avoid repetitions at the priority buttons.
  */
-
 const buttonActions = {
     'Urgent': {
         'clicked': function (idPrefix) {

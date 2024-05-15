@@ -98,7 +98,7 @@ let offlineTasks = [
         title: 'Implement Drag & Drop Feature',
         description: 'It must be possible to drag a task from one column (or row) to another. The user will be given feedback by slightly rotating the task once the user clicks on the task to drag it and by highlighting the area in which the task can be dropped.',
         id: 0,
-        collaborators: [1, 2], // user id
+        collaborators: [1, 2],
         dueDate: '2024-05-20',
         priority: 'Urgent',
         category: 'User Story',
@@ -118,7 +118,7 @@ let offlineTasks = [
         title: 'Create Contacts Page',
         description: 'Build a contacts page where users can add contacts, edit them, or delete them.',
         id: 1,
-        collaborators: [1, 3, 4], // user id
+        collaborators: [1, 3, 4],
         dueDate: '2024-05-26',
         priority: 'Medium',
         category: 'User Story',
@@ -142,7 +142,7 @@ let offlineTasks = [
         title: 'Create Database Connection',
         description: 'Enable storing data in/retrieving data from a remote database.',
         id: 2,
-        collaborators: [2, 3], // user id
+        collaborators: [2, 3],
         dueDate: '2024-05-05',
         priority: 'Low',
         category: 'Technical Task',
@@ -153,7 +153,7 @@ let offlineTasks = [
         title: 'Remember Me',
         description: 'Users want to be remembered so that they do not have to log in every time they visit the website.',
         id: 3,
-        collaborators: [1, 2, 3, 4], // user id
+        collaborators: [1, 2, 3, 4],
         dueDate: '2024-05-03',
         priority: 'Medium',
         category: 'User Story',
@@ -175,7 +175,7 @@ let offlineTasks = [
         title: 'Adding Tasks',
         description: 'Users want to add tasks to the board.',
         id: 4,
-        collaborators: [1, 2], // user id
+        collaborators: [1, 2],
         dueDate: '2024-05-01',
         priority: 'Urgent',
         category: 'User Story',
