@@ -174,7 +174,10 @@ async function createTaskFromBoard(status) {
  * @param {string} status 
  */
 function moveTaskToStatus(taskId, status) {
-    tasks[taskId].status = status;
+    let foundTask = tasks.find(task => task.id === taskId);
+    if (foundTask) {
+        foundTask.status = status;
+    }
     storeTasks();
 }
 
