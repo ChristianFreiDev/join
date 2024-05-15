@@ -6,6 +6,7 @@ let loggedIn = false;
 async function initIndex() {
     document.getElementById('login-overlay').classList.add('animate-overlay');
     document.getElementById('login-logo').classList.add('animate-logo');
+    setTimeout(showPageContent, 225);
     await loadUsers();
     saveVariableInLocalStorage('currentJoinUserId', -1);
     checkForRememberedUser();
@@ -13,6 +14,17 @@ async function initIndex() {
     saveVariableInLocalStorage('currentJoinUserFirstCharacterLastName', '');
     changePasswordVisibility('login-password-icon', 'login-password-input', true);
     saveVariableInLocalStorage('fromIndex', true);
+}
+
+
+/**
+ * This function shows the content of the page.
+ */
+function showPageContent() {
+    document.getElementById('login-signup-box-header').classList.remove('display-none');
+    document.getElementById('login-feld').classList.remove('display-none');
+    document.getElementById('login-signup-box-footer').classList.remove('display-none');
+    document.getElementById('login-link-box').classList.remove('display-none');
 }
 
 
