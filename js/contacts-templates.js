@@ -91,11 +91,11 @@ function contactProfileTemplate(contact, contactColor, index) {
             <div class="contact-name-and-buttons-container">
                 <h3>${contact.firstName} ${contact.lastName}</h3>
                 <div class="contact-buttons">
-                    <div class="contact-button" onclick="editContact('${contact.eMail}', ${index})">
+                    <div class="contact-button" onclick="editContact(${contact.id}, ${index})">
                         ${editButtonSvg()}
                         <span>Edit</span>
                     </div>
-                    <div class="contact-button" onclick="deleteContact(event, '${contact.eMail}')">
+                    <div class="contact-button" onclick="deleteContact(event, ${contact.id})">
                         ${deleteButtonSvg()}
                         <span>Delete</span>
                     </div>
@@ -149,7 +149,7 @@ function contactEditForm(contact, index) {
             </div>
             </div>
             <div class="contact-pop-up-buttons-container">
-                <button id="delete-contact-button" class="button light-button button-padding-size3" type="button" onclick="deleteContact(event, '${contact.eMail}')">Delete</button>
+                <button id="delete-contact-button" class="button light-button button-padding-size3" type="button" onclick="deleteContact(event, ${contact.id})">Delete</button>
                 <button id="save-contact-button" class="button dark-button button-padding-size2">Save <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
             </div>
         </form>
@@ -204,24 +204,24 @@ function addContactForm() {
 /**
  * This functions opens a small menu for editing or deleting a contact on small screens.
  * @param {number} index 
- * @param {string} email 
+ * @param {number} id 
  * @returns {string} HTML string of small menu for editing or deleting a contact.
  */
-function contactsMoreMenu(index, email) {
+function contactsMoreMenu(index, id) {
     return /* html */ `
     <div id="contacts-more-menu">
-        <button onclick="animateMoreMenuOut(); editContact('${email}', ${index});">${editButtonSvg()} Edit</button>
-        <button onclick="animateMoreMenuOut(); deleteContact(event, '${email}')">${deleteButtonSvg()} Delete</button>
+        <button onclick="animateMoreMenuOut(); editContact(${id}, ${index});">${editButtonSvg()} Edit</button>
+        <button onclick="animateMoreMenuOut(); deleteContact(event, ${id})">${deleteButtonSvg()} Delete</button>
     </div>
     `;
 }
 
 
 /**
- * This function returns an initial avatar HTML template for a user.
- * @param {Object} user 
+ * This function returns an initial avatar HTML template for a user or contact.
+ * @param {Object} userOrContact 
  * @returns {string} inital avatar HTML template, very large.
  */
-function initialAvatarVeryLargeTemplate(user) {
-    return /* html */ `<div class="initial-avatar initial-avatar-very-large ${getContactColor(user.eMail)}">${getInitials(user)}</div>`;
+function initialAvatarVeryLargeTemplate(userOrContact) {
+    return /* html */ `<div class="initial-avatar initial-avatar-very-large ${getContactColor(userOrContact.eMail)}">${getInitials(userOrContact)}</div>`;
 }

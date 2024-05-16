@@ -119,7 +119,7 @@ function hideSuccessMessage() {
 function createUserObject(name, email, password, color) {
     let firstName = getUserName('first', name);
     let lastName = getUserName('last', name);
-    let id = getHighestUserId() + 1;
+    let id = getHighestId(users) + 1;
     return {
         firstName: firstName,
         lastName: lastName,
@@ -302,15 +302,4 @@ function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
  */
 function formatStringAsName(name) {
     return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
-}
-
-
-/**
- * This function determines the highest id of the user ids of the existing users.
- * @returns {number} highest id of a user in the users array.
- */
-function getHighestUserId() {
-    let userIds = users.map(user => user.id);
-    let highestId = Math.max(...userIds);
-    return highestId;
 }

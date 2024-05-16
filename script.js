@@ -117,11 +117,11 @@ function getUserNameSuffix(user) {
 
 /**
  * This function grabs the initials of a user.
- * @param {Object} user 
+ * @param {Object} userOrContact 
  * @returns {string} initial string
  */
-function getInitials(user) {
-    let initials = user.firstName.charAt(0) + user.lastName.charAt(0);
+function getInitials(userOrContact) {
+    let initials = userOrContact.firstName.charAt(0) + userOrContact.lastName.charAt(0);
     return initials;
 }
 
@@ -185,8 +185,6 @@ function getUserName(type, name) {
             return lastName;
         }
     }
-    // let firstName = getFirstName(name);
-    // let lastName = getLastname(name);
 }
 
 
@@ -340,9 +338,11 @@ function doNotClose(event) {
 function createContactObject(name, email, phone, color) {
     let firstName = getUserName('first', name);
     let lastName = getUserName('last', name);
+    let id = getHighestId(contacts) + 1;
     return {
         firstName: firstName,
         lastName: lastName,
+        id: id,
         color: color,
         eMail: email,
         phone: phone

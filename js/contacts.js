@@ -61,28 +61,14 @@ function renderContacts() {
 
 
 /**
- * This function finds the user with the matching e-mail address.
- * @param {string} eMail e-mail address of a user.
- * @returns {number} id of the user with the e-mail adress.
- */
-function getUserIdFromEMail(eMail) {
-    let user = users.find(user => user.eMail === eMail);
-    if (user) {
-        return user.id;
-    }
-}
-
-
-/**
  * This function removes a contact from the tasks assigned to it.
- * @param {string} contactEMail e-mail address of the contact.
+ * @param {number} contactId id of the contact.
  */
-function removeUserFromAssignedTasks(contactEMail) {
-    let userId = getUserIdFromEMail(contactEMail);
+function removeUserFromAssignedTasks(contactId) {
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         let collaborators = task.collaborators;
-        let collaboratorIndex = collaborators.indexOf(userId);
+        let collaboratorIndex = collaborators.indexOf(contactId);
         if (collaboratorIndex > -1) {
             collaborators.splice(collaboratorIndex, 1);
         }
@@ -91,11 +77,11 @@ function removeUserFromAssignedTasks(contactEMail) {
 
 
 /**
- * This functions finds a user using an e-mail address and if there is such a user, it removes the user from the contacts array.
- * @param {string} contactEMail 
+ * This functions finds a contact using an id and if there is such a contact, it removes the contact from the contacts array.
+ * @param {number} contactId 
  */
-function findAndSpliceContact(contactEMail) {
-    let contact = contacts.find(contact => contact.eMail === contactEMail);
+function findAndSpliceContact(contactId) {
+    let contact = contacts.find(contact => contact.id === contactId);
     let contactIndex = contacts.indexOf(contact);
     if (contactIndex > -1) {
         contacts.splice(contactIndex, 1);
@@ -106,12 +92,12 @@ function findAndSpliceContact(contactEMail) {
 /**
  * This function deletes a contact.
  * @param {Event} event
- * @param {string} contactEMail e-mail address of the contact.
+ * @param {number} contactId id of the contact.
  */
-async function deleteContact(event, contactEMail) {
+async function deleteContact(event, contactId) {
     disableButton(event.target.id);
-    findAndSpliceContact(contactEMail);
-    removeUserFromAssignedTasks(contactEMail);
+    findAndSpliceContact(contactId);
+    removeUserFromAssignedTasks(contactId);
     await Promise.all([storeTasks(), storeContacts()]);
     renderContacts();
     let contactProfile = document.getElementById('contact-profile');
@@ -138,7 +124,7 @@ function openContact(index) {
     }
     isContactOpen = true;
     showAppropriateElements();
-    document.getElementById('contacts-more-button').setAttribute('onclick', `openMoreMenu(${index}, '${contact.eMail}')`);
+    document.getElementById('contacts-more-button').setAttribute('onclick', `openMoreMenu(${index}, '${contact.id}')`);
 }
 
 
