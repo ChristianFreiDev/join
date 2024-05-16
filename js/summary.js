@@ -69,7 +69,7 @@ function renderDoneButton() {
  */
 function renderPriorityAndDueDateButton() {
     if (tasks.length > 0) {
-        let foundTasks = findTasks();
+        let foundTasks = findTasksHighestPriority();
         renderPriorityIcon(findhighestPriority(foundTasks));
         renderPriorityAmount(foundTasks);
         renderPriorityValue(findhighestPriority(foundTasks));
@@ -83,17 +83,27 @@ function renderPriorityAndDueDateButton() {
 }
 
 
+function findTasksHighestPriority() {
+    let tasksWithHighestPriority = findTasks('Urgent');
+    if (tasksWithHighestPriority.length === 0) {
+        tasksWithHighestPriority = findTasks('Medium');
+    }
+    if (tasksWithHighestPriority.length === 0) {
+        tasksWithHighestPriority = findTasks('Low');
+    }
+    return tasksWithHighestPriority;
+}
+
+
 /**
  * This function searches for all tasks with the highest priority.
  * 
  * @returns {Array} the tasks with highest priority as an array.
  */
-function findTasks() {
+function findTasks(priority) {
     let results = [];
-    let nextDuedate = new Date(findNextDuedate()).getTime();
     for (let i = 0; i < tasks.length; i++) {
-        let date = new Date(tasks[i].dueDate).getTime();
-        if ((date <= nextDuedate) && tasks[i].dueDate && tasks[i].status !== 'Done') {
+        if (tasks[i].priority === priority && tasks[i].status !== 'Done') {
             results.push(tasks[i]);
         }
     }
@@ -244,7 +254,7 @@ function renderPriorityAmount(foundTasks = []) {
 /**
  * This function outputs the value of the highest priority.
  * 
- * @param {string} prioritiy 
+ * @param {string} priority 
  */
 function renderPriorityValue(priority) {
     document.getElementById('summary-priority-value').innerHTML = priority;
@@ -260,7 +270,7 @@ function rednerUpcomingDeadline(foundTasks) {
     if (foundTasks) {
         let date = findNextDuedate();
         document.getElementById('summary-due-date').innerHTML = formatDate(date);
-        document.getElementById('summary-due-date-text').innerHTML = 'Upcoming Deadline';
+        // document.getElementById('summary-due-date-text').innerHTML = 'Upcoming Deadline';
     } else {
         document.getElementById('summary-due-date').innerHTML = 'No date has been specified for this task.';
         document.getElementById('summary-due-date-text').innerHTML = '';
@@ -275,12 +285,17 @@ function rednerUpcomingDeadline(foundTasks) {
  * @returns {string} next due date.
  */
 function formatDate(date) {
-    return date.toLocaleString("en-US",
+    if (date === Infinity) {
+        document.getElementById('summary-due-date').innerHTML = 'Nothing to do.';
+    } else {
+        return date.toLocaleString("en-US",
         {
             year: "numeric",
             month: "long",
             day: "numeric"
         });
+    }
+
 }
 
 
