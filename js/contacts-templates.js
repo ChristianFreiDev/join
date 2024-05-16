@@ -187,7 +187,7 @@ function addContactForm() {
                     <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
                 </div>
                 <div class="input-box">
-                    <input id="contact-phone-input" class="input input-padding-size5 login-input" type="text" placeholder="Phone" pattern="^[0-9]{3,}$" title="Just input numbers" required>
+                    <input id="contact-phone-input" class="input input-padding-size5 login-input" type="number" placeholder="Phone" title="Just input numbers" required>
                     <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
                 </div>
             </div>
