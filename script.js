@@ -185,8 +185,6 @@ function getUserName(type, name) {
             return lastName;
         }
     }
-    // let firstName = getFirstName(name);
-    // let lastName = getLastname(name);
 }
 
 
