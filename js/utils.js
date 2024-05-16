@@ -40,3 +40,15 @@ function changeDisplayProperty(queryString, targetDisplayProperty) {
 function isWidthSmallerThanXPixels(x) {
     return window.matchMedia(`(max-width: ${x}px)`).matches;
 }
+
+
+/**
+ * This function determines the highest id of items in an array.
+ * @param {Array} items an array of things.
+ * @returns {number} highest id.
+ */
+function getHighestId(items) {
+    let itemIds = items.map(item => item.id);
+    let highestId = Math.max(...itemIds);
+    return highestId;
+}

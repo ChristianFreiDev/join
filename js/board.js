@@ -29,16 +29,16 @@ function endDraggingTask(event) {
 
 
 /**
- * This function finds the temporary collaborators in the users array and returns them as objects.
+ * This function finds the temporary collaborators in the contacts array and returns them as objects.
  * @returns {Array} collaborators as objects.
  */
 function getTemporaryCollaborators() {
     let foundCollaborators = [];
     for (let i = 0; i < temporaryCollaborators.length; i++) {
         let collaboratorId = temporaryCollaborators[i];
-        let user = users.find(user => user.id === collaboratorId);
-        if (user !== -1) {
-            foundCollaborators.push(user);
+        let contact = contacts.find(contact => contact.id === collaboratorId);
+        if (contact !== -1) {
+            foundCollaborators.push(contact);
         }
     }
     return foundCollaborators;
@@ -100,13 +100,13 @@ async function onSubmitEditTaskForm(taskId) {
 
 /**
  * This function checks if a certain user is assigned to a certain task.
- * @param {Object} user
+ * @param {Object} contact
  * @param {Object} task
  * @returns {boolean} has the user been assigned to the task or not.
  */
-function isAssigned(user, task) {
+function isAssigned(contact, task) {
     let collaborators = getCollaborators(task);
-    if (collaborators.indexOf(user) === -1) {
+    if (collaborators.indexOf(contact) === -1) {
         return false;
     } else {
         return true;
@@ -115,22 +115,22 @@ function isAssigned(user, task) {
 
 
 /**
- * This function displays users as options.
+ * This function displays contacts as options.
  * @param {Object} task 
- * @param {Array} usersToBeRendered
+ * @param {Array} contactsToBeRendered
  * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  * @returns {string} HTML template string.
  */
-function renderSelectOptions(task, usersToBeRendered, idPrefix) {
-    usersToBeRendered.sort(sortByFirstName);
+function renderSelectOptions(task, contactsToBeRendered, idPrefix) {
+    contactsToBeRendered.sort(sortByFirstName);
     let selectOptions = '';
-    for (let i = 0; i < usersToBeRendered.length; i++) {
-        let user = usersToBeRendered[i];
-        if (user.id != 0) {
-            let suffix = getUserNameSuffix(user);
-            selectOptions += `<div id="${idPrefix}-collaborator-option-${user.id}" class="collaborator-option ${isAssigned(user, task) ? 'collaborator-focus' : ''}" value="${user.eMail} "onclick="checkOrUncheckCollaboratorBox(${user.id}, '${idPrefix}') ">
-                <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(user)} ${user.firstName} ${user.lastName}${suffix}</div>
-                <img id="${idPrefix}-collaborator-checkbox-${user.id}" class="cursor-pointer" src="${isAssigned(user, task) ? 'assets/img/checkbox-icon-checked-white.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
+    for (let i = 0; i < contactsToBeRendered.length; i++) {
+        let contact = contactsToBeRendered[i];
+        if (contact.id != 0) {
+            let suffix = getUserNameSuffix(contact);
+            selectOptions += `<div id="${idPrefix}-collaborator-option-${contact.id}" class="collaborator-option ${isAssigned(contact, task) ? 'collaborator-focus' : ''}" value="${contact.eMail} "onclick="checkOrUncheckCollaboratorBox(${contact.id}, '${idPrefix}') ">
+                <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(contact)} ${contact.firstName} ${contact.lastName}${suffix}</div>
+                <img id="${idPrefix}-collaborator-checkbox-${contact.id}" class="cursor-pointer" src="${isAssigned(contact, task) ? 'assets/img/checkbox-icon-checked-white.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
             </div>`;
         }
     }
@@ -139,7 +139,7 @@ function renderSelectOptions(task, usersToBeRendered, idPrefix) {
 
 
 /**
- * This function toggles the display property of the drop-down list of users.
+ * This function toggles the display property of the drop-down list of contacts.
  * @param {string} taskAssignedToId 
  */
 function onTaskDropDownInputClick(taskAssignedToId, assignedToArrow) {
@@ -222,8 +222,8 @@ function getCollaborators(task) {
     let collaborators = [];
     for (let i = 0; i < task.collaborators.length; i++) {
         let collaboratorId = task.collaborators[i];
-        let user = users.filter(user => user.id === collaboratorId)[0];
-        collaborators.push(user);
+        let contact = contacts.filter(contact => contact.id === collaboratorId)[0];
+        collaborators.push(contact);
     }
     return collaborators;
 }
@@ -300,7 +300,7 @@ function clearTasks() {
 async function initBoard() {
     checkForLogin();
     await init();
-    await Promise.all([loadTasks(), loadUsers()]);
+    await Promise.all([loadTasks(), loadUsers(), loadContacts()]);
     renderTasks(tasks);
     initAddTask();
 }

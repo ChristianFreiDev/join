@@ -29,7 +29,7 @@ let offlineUsers = [
         firstName: 'Maria',
         lastName: 'Heck',
         id: 3,
-        color: 'user-color2',
+        color: 'user-color8',
         password: 'test123',
         eMail: 'maria-heck@web.de'
     },

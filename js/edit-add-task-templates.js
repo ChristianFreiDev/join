@@ -11,22 +11,22 @@ function subtaskInputPlusIcon(idPrefix) {
 
 
 /**
- * This function returns an initial avatar HTML template for a user.
- * @param {Object} user 
- * @returns {string} inital avatar HTML template.
+ * This function returns an initial avatar HTML template for a user or contact.
+ * @param {Object} user user or contact
+ * @returns {string} initial avatar HTML template.
  */
-function initialAvatarTemplate(user) {
-    return /* html */ `<div class="initial-avatar ${user.color}">${getInitials(user)}</div>`;
+function initialAvatarTemplate(userOrContact) {
+    return /* html */ `<div class="initial-avatar ${userOrContact.color}">${getInitials(userOrContact)}</div>`;
 }
 
 
 /**
- * This function returns an initial avatar HTML template for a user.
- * @param {Object} user 
- * @returns {string} inital avatar HTML template, large.
+ * This function returns an initial avatar HTML template for a user or contact.
+ * @param {Object} userOrContact user or contact 
+ * @returns {string} initial avatar HTML template, large.
  */
-function initialAvatarLargeTemplate(user) {
-    return /* html */ `<div class="initial-avatar initial-avatar-large ${user.color}">${getInitials(user)}</div>`;
+function initialAvatarLargeTemplate(userOrContact) {
+    return /* html */ `<div class="initial-avatar initial-avatar-large ${userOrContact.color}">${getInitials(userOrContact)}</div>`;
 }
 
 
@@ -92,15 +92,15 @@ function generateCollaboratorAvatars(collaborators) {
 
 /**
  * This function returns a collaborator name template with first and last name.
- * @param {Object} user 
+ * @param {Object} contact 
  * @returns {string} HTML template of collaborator name.
  */
-function collaboratorNameTemplate(user) {
-    let suffix = getUserNameSuffix(user);
+function collaboratorNameTemplate(contact) {
+    let suffix = getUserNameSuffix(contact);
     return /* html */ `<div class="collaborator-name-outer-container">
         <div class="collaborator-name-container">
-            ${initialAvatarLargeTemplate(user)}
-            <div class="collaborator-name">${user.firstName} ${user.lastName}${suffix}</div>
+            ${initialAvatarLargeTemplate(contact)}
+            <div class="collaborator-name">${contact.firstName} ${contact.lastName}${suffix}</div>
         </div>
     </div>`;
 }
@@ -215,7 +215,7 @@ function generateSubtasksTemporary(subtasks, idPrefix) {
 
 
 /**
- * This function returns an HTML template of the form section for assigning users to a task.
+ * This function returns an HTML template of the form section for assigning contacts to a task.
  * @param {Object} task 
  * @returns {string} HTML template of assignment section.
  */
@@ -223,11 +223,11 @@ function editTaskAssignedToItemsTemplate(task, idPrefix) {
     return /* html */ `
         <label for="edit-task-drop-down-input" class="task-form-label" onclick="event.preventDefault()">Assigned to</label>
         <div class="task-drop-down" onclick="doNotClose(event)">
-            <input id="edit-task-drop-down-input" type="text" class="input input-padding-size4 pop-up-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to','edit-arrow-drop-down')" oninput="searchUsers(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
+            <input id="edit-task-drop-down-input" type="text" class="input input-padding-size4 pop-up-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to','edit-arrow-drop-down')" oninput="searchContacts(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
             <img id="edit-arrow-drop-down" class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
         <div id="edit-task-assigned-to" class="task-user-dropdown display-none" onclick="doNotClose(event)">
-            ${renderSelectOptions(task, users, idPrefix)}
+            ${renderSelectOptions(task, contacts, idPrefix)}
         </div>
         <div id="${idPrefix}-initial-avatars-large-container" class="initial-avatars-large-container">
             ${generateCollaboratorAvatars(getCollaborators(task))}

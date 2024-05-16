@@ -17,40 +17,40 @@ function searchTasks() {
 
 
 /**
- * This function filters the user names using a search string.
- * @returns {Array} users whose names match the search string.
+ * This function filters the contact names using a search string.
+ * @returns {Array} contacts whose names match the search string.
  */
-function filterUserNames(searchString) {
-    return users.filter(user => {
-        let fullUserName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
-        return fullUserName.includes(searchString);
+function filterContactNames(searchString) {
+    return contacts.filter(contact => {
+        let fullContactName = `${contact.firstName.toLowerCase()} ${contact.lastName.toLowerCase()}`;
+        return fullContactName.includes(searchString);
     });
 }
 
 
 /**
- * This function displays the users that were found as a list of options.
+ * This function displays the contacts that were found as a list of options.
  * @param {Object} task 
- * @param {Array} foundUsers 
+ * @param {Array} foundContacts 
  * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
-function showFoundUsers(task, foundUsers, idPrefix) {
+function showFoundContacts(task, foundContacts, idPrefix) {
     let taskAssignedTo = document.getElementById(`${idPrefix}-assigned-to`);
-    if (foundUsers.length > 0) {
-        taskAssignedTo.innerHTML = renderSelectOptions(task, foundUsers, idPrefix);
+    if (foundContacts.length > 0) {
+        taskAssignedTo.innerHTML = renderSelectOptions(task, foundContacts, idPrefix);
     } else {
-        taskAssignedTo.innerHTML = '<div class="no-users-message">No users found</div>';
+        taskAssignedTo.innerHTML = '<div class="no-users-message">No contacts found</div>';
     }
     taskAssignedTo.classList.remove('display-none');
 }
 
 
 /**
- * This function searches for users matching the search criteria.
+ * This function searches for contacts matching the search criteria.
  * @param {number} taskId 
  * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
-function searchUsers(taskId, idPrefix) {
+function searchContacts(taskId, idPrefix) {
     let task;
     if (taskId === undefined) {
         task = temporaryTask;
@@ -59,6 +59,6 @@ function searchUsers(taskId, idPrefix) {
     }
     let searchInput = document.getElementById(`${idPrefix}-drop-down-input`);
     let searchString = searchInput.value.toLowerCase();
-    foundUsers = filterUserNames(searchString);
-    showFoundUsers(task, foundUsers, idPrefix);
+    foundContacts = filterContactNames(searchString);
+    showFoundContacts(task, foundContacts, idPrefix);
 }

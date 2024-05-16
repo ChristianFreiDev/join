@@ -148,20 +148,20 @@ function moveTaskFromPopup(status) {
 
 
 /**
- * This function checks the collaborator checkbox in the list of assigned users.
- * @param {number} userId
+ * This function checks the collaborator checkbox in the list of assigned contacts.
+ * @param {number} contactId
  * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  */
-function checkOrUncheckCollaboratorBox(userId, idPrefix) {
-    let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === userId);
-    let checkBox = document.getElementById(`${idPrefix}-collaborator-checkbox-${userId}`);
-    let collaboratorOption = document.getElementById(`${idPrefix}-collaborator-option-${userId}`);
+function checkOrUncheckCollaboratorBox(contactId, idPrefix) {
+    let collaboratorIndex = temporaryCollaborators.findIndex(collaboratorId => collaboratorId === contactId);
+    let checkBox = document.getElementById(`${idPrefix}-collaborator-checkbox-${contactId}`);
+    let collaboratorOption = document.getElementById(`${idPrefix}-collaborator-option-${contactId}`);
     if (collaboratorIndex > -1) {
         temporaryCollaborators.splice(collaboratorIndex, 1);
         checkBox.src = 'assets/img/checkbox-icon-unchecked.svg';
     } else {
         checkBox.src = 'assets/img/checkbox-icon-checked-white.svg';
-        temporaryCollaborators.push(userId);
+        temporaryCollaborators.push(contactId);
     }
     collaboratorOption.classList.toggle('collaborator-focus');
     renderInitalAvatarsLargeInPopup(idPrefix);
@@ -180,11 +180,11 @@ function renderInitalAvatarsLargeInPopup(idPrefix) {
 
 /**
  * This functions opens a pop-up for editing a contact.
- * @param {string} contactEMail e-mail address of a contact.
+ * @param {number} contactId id of a contact.
  * @param {number} index index of a contact in the contacts array.
  */
-function editContact(contactEMail, index) {
-    let contact = contacts.find(contact => contact.eMail === contactEMail);
+function editContact(contactId, index) {
+    let contact = contacts.find(contact => contact.id === contactId);
     let openEditAddContactPopup = document.getElementById('edit-add-contact-pop-up');
     openEditAddContactPopup.setAttribute('onclick', 'doNotClose(event)');
     openEditAddContactPopup.innerHTML = contactEditForm(contact, index);
@@ -206,12 +206,12 @@ function openAddContactPopup() {
 /**
  * This functions opens a menu from which you can delete or edit a contact.
  * @param {number} index index of a contact in the contacts array.
- * @param {string} email e-mail address of a contact.
+ * @param {string} id id of a contact.
  */
-function openMoreMenu(index, email) {
+function openMoreMenu(index, id) {
     let screen = document.querySelector('.contacts-content-container');
     document.querySelector('body').style.overflow = 'hidden';
-    screen.innerHTML += contactsMoreMenu(index, email);
+    screen.innerHTML += contactsMoreMenu(index, id);
     animateMoreMenuIn();
     addMoreMenuOverlay();
 }

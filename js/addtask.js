@@ -116,7 +116,7 @@ async function setUpTemporaryTask(status) {
     temporaryTask.collaborators = temporaryCollaborators;
     temporaryTask.subtasks = temporarySubtasks;
     await loadTasks();
-    temporaryTask.id = getHighestTaskId() + 1;
+    temporaryTask.id = getHighestId(tasks) + 1;
 }
 
 
@@ -130,17 +130,6 @@ async function addTask(status) {
     await setUpTemporaryTask(status);
     tasks.push(temporaryTask);
     await storeTasks();
-}
-
-
-/**
- * This function determines the highest id of the task ids of the existing tasks.
- * @returns {number} highest id of a task in the tasks array.
- */
-function getHighestTaskId() {
-    let taskIds = tasks.map(task => task.id);
-    let highestId = Math.max(...taskIds);
-    return highestId;
 }
 
 
@@ -166,7 +155,7 @@ async function addTaskFromAddTaskPage() {
  */
 function renderAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
-    assignedTo.innerHTML = renderSelectOptions(temporaryTask, users, 'add-task');
+    assignedTo.innerHTML = renderSelectOptions(temporaryTask, contacts, 'add-task');
 }
 
 
