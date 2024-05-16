@@ -142,3 +142,9 @@
         margin-top: 0;
     }
 }
+
+@media (max-width: 360px){
+    .create-task {
+        width: 136px;
+    }
+}
