@@ -4,7 +4,7 @@
 }
 
 .animate-logo {
-    animation: 2s move-to-corner ease-in-out;
+    animation: 2s move-to-corner ease-in-out both;
 }
 
 @keyframes fade-out {
