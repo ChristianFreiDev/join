@@ -669,18 +669,25 @@ textarea {
 
     .edit-task-priority-buttons-container, .priority-buttons {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .priority-button {
         flex-direction: row;
         gap: 8px !important;
+        width: 80%;
     }
 }
 
 @media (max-width: 360px) {
     h2 {
         font-size: 36px;
+    }
+}
+
+@media (max-width: 300px) {
+    .clear-task{
+        display: none !important;
     }
 }
 
