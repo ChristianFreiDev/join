@@ -259,6 +259,7 @@ progress::-webkit-progress-value {
 }
 
 #initial-avatars {
+    color: #A8A8A8;
     display: flex;
 }
 
