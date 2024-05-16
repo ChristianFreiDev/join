@@ -77,6 +77,10 @@
     height: 48px;
 }
 
+.subtask-container{
+    position: relative;
+}
+
 ::placeholder {
     width: 398px;
     height: 24px;
