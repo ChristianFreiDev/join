@@ -257,8 +257,6 @@ function renderPriorityValue(priority) {
 
 /**
  * This function searches for the upcoming due date and outputs it.
- * 
- * @param {Array} foundTasks 
  */
 function rednerUpcomingDeadline() {
     if (tasks) {

@@ -31,6 +31,7 @@ async function getItem(path = "") {
     return responseToJSON;
 }
 
+
 /**
  * This function loads the users array.
  */
