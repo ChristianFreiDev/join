@@ -4,8 +4,6 @@ let loggedIn = false;
  * This function initializes the login page.
  */
 async function initIndex() {
-    document.getElementById('login-overlay').classList.add('animate-overlay');
-    document.getElementById('login-logo').classList.add('animate-logo');
     setTimeout(showPageContent, 225);
     await loadUsers();
     saveVariableInLocalStorage('currentJoinUserId', -1);
