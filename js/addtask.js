@@ -35,7 +35,7 @@ function getStatus() {
 async function initAddTask() {
     checkForLogin();
     await init();
-    await Promise.all([loadTasks(), loadUsers()]);
+    await Promise.all([loadTasks(), loadUsers(), loadContacts()]);
     setMinDate();
     renderAssignedToList();
     addInputEventListener('add-task');
