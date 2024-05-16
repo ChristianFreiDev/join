@@ -199,6 +199,7 @@ let offlineContacts =  [
     {
         firstName: 'Alexander',
         lastName: 'Müller',
+        id: 5,
         color: 'user-color6',
         eMail: 'alexm23452@gmail.com',
         phone: '0160 246466363'
@@ -206,6 +207,7 @@ let offlineContacts =  [
     {
         firstName: 'Anne',
         lastName: 'Wendt',
+        id: 4,
         color: 'user-color9',
         eMail: 'awendt95@gmail.com',
         phone: '0170 234664577'
@@ -213,6 +215,7 @@ let offlineContacts =  [
     {
         firstName: 'Benjamin',
         lastName: 'Bart',
+        id: 6,
         color: 'user-color4',
         eMail: 'bbbart@web.de',
         phone: '0153 3466363646'
@@ -220,6 +223,7 @@ let offlineContacts =  [
     {
         firstName: 'Berthold',
         lastName: 'Sand',
+        id: 7,
         color: 'user-color12',
         eMail: 'bertsand@googlemail.com',
         phone: '0150 24624628'
@@ -227,6 +231,7 @@ let offlineContacts =  [
     {
         firstName: 'Max',
         lastName: 'Zeller',
+        id: 1,
         color: 'user-color2',
         eMail: 'max-zeller35@gmail.com',
         phone: '0148 23552873'
@@ -234,6 +239,7 @@ let offlineContacts =  [
     {
         firstName: 'Johann',
         lastName: 'Schmitt',
+        id: 2,
         color: 'user-color2',
         eMail: 'johannschmitt@yahoo.com',
         phone: '0163 65876585'
@@ -241,6 +247,7 @@ let offlineContacts =  [
     {
         firstName: 'Maria',
         lastName: 'Heck',
+        id: 3,
         color: 'user-color8',
         eMail: 'maria-heck@web.de',
         phone: '0154 312748983'
@@ -248,6 +255,7 @@ let offlineContacts =  [
     {
         firstName: 'Martin',
         lastName: 'Huber',
+        id: 8,
         color: 'user-color6',
         eMail: 'mhub74@gmx.net',
         phone: '0159 2132352537'
@@ -255,6 +263,7 @@ let offlineContacts =  [
     {
         firstName: 'Ella',
         lastName: 'Schäfer',
+        id: 9,
         color: 'user-color7',
         eMail: 'ellas99@gmail.com',
         phone: '0157 123643648'
@@ -262,6 +271,7 @@ let offlineContacts =  [
     {
         firstName: 'Peter',
         lastName: 'Krüger',
+        id: 10,
         color: 'user-color13',
         eMail: 'pkrueg@gmx.net',
         phone: '0171 2345234767'
