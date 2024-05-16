@@ -39,9 +39,12 @@ function generateInitialAvatarsTemplate(task) {
     let collaborators = getCollaborators(task);
     let HTMLString = '';
     if (collaborators) {
-        for (let i = 0; i < collaborators.length; i++) {
+        for (let i = 0; i < collaborators.length && i < 3; i++) {
             let collaborator = collaborators[i];
             HTMLString += initialAvatarTemplate(collaborator);
+        }
+        if (collaborators.length > 3) {
+            HTMLString += `+${collaborators.length - 3}`;
         }
     }
     return HTMLString;
