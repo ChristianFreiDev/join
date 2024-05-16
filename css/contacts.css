@@ -128,12 +128,12 @@
     display: flex;
     gap: 30px;
     align-items: center;
-    font-size: 2.7rem;
+    font-size: 27px;
     margin-bottom: 56px;
 }
 
 .contacts-header-separator-horizontal {
-    font-size: 6rem;
+    font-size: 60px;
     color: var(--color-accent);
 }
 
