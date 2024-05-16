@@ -71,9 +71,9 @@
     }
 
     .subtasks{
-        position: relative;
-        margin-top: 0;
-        max-height: 104px;
+        position: relative !important;
+        margin-top: 0 !important;
+        max-height: 104px !important;
     }
     .under-form{
         margin-top: 40px;
