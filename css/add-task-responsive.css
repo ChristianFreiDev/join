@@ -16,6 +16,7 @@
     .under-form {
         display: block;
         min-width: 440px;
+        margin-top: 96px;
     }
 
     .add-task-submit-buttons {
@@ -51,6 +52,9 @@
     #add-task-pop-up {
         max-height: unset;
     }
+    .positioning-input{
+        gap: 24px;
+    }
 }
 
 @media(max-width: 920px){
@@ -59,15 +63,15 @@
     }
 
     .add-task-headline {
-        margin-bottom: 24px;
+        margin-bottom: 16px;
     }
 
     .add-task-submit-buttons {
         margin-bottom: 96px;
     }
 
-    .clear-task {
-        display: none;
+    .subtasks{
+        max-height: 80px;
     }
 }
 
