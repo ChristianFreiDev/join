@@ -118,16 +118,10 @@ function findTasks(priority) {
  * @returns {string} highest priority that was found.
  */
 function findhighestPriority(foundTasks) {
-    let results = findPriority("Urgent", foundTasks);
-    if (results.length === 0) {
-        results = findPriority("Medium", foundTasks);
-        if (results.length === 0) {
-            return 'Low';
-        } else {
-            return 'Medium';
-        }
+    if (foundTasks.length > 0) {
+        return foundTasks[0].priority;
     } else {
-        return 'Urgent';
+        return 'main';
     }
 }
 
@@ -266,14 +260,16 @@ function renderPriorityValue(priority) {
  * 
  * @param {Array} foundTasks 
  */
-function rednerUpcomingDeadline(foundTasks) {
-    if (foundTasks) {
+function rednerUpcomingDeadline() {
+    if (tasks) {
         let date = findNextDuedate();
-        document.getElementById('summary-due-date').innerHTML = formatDate(date);
-        // document.getElementById('summary-due-date-text').innerHTML = 'Upcoming Deadline';
-    } else {
-        document.getElementById('summary-due-date').innerHTML = 'No date has been specified for this task.';
-        document.getElementById('summary-due-date-text').innerHTML = '';
+        if (date === Infinity) {
+            document.getElementById('summary-due-date').innerHTML = 'Nothing to do.';
+            document.getElementById('summary-due-date-text').innerHTML = '';
+        } else {
+            document.getElementById('summary-due-date').innerHTML = formatDate(date);
+            document.getElementById('summary-due-date-text').innerHTML = 'Upcoming Deadline';
+        }
     }
 }
 
@@ -285,17 +281,12 @@ function rednerUpcomingDeadline(foundTasks) {
  * @returns {string} next due date.
  */
 function formatDate(date) {
-    if (date === Infinity) {
-        document.getElementById('summary-due-date').innerHTML = 'Nothing to do.';
-    } else {
-        return date.toLocaleString("en-US",
+    return date.toLocaleString("en-US",
         {
             year: "numeric",
             month: "long",
             day: "numeric"
         });
-    }
-
 }
 
 
