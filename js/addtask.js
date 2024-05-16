@@ -151,7 +151,7 @@ async function addTaskFromAddTaskPage() {
 
 
 /**
- * This function renders a list of users that can be assigned to a task.
+ * This function renders a list of contacts that can be assigned to a task.
  */
 function renderAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
