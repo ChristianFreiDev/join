@@ -24,6 +24,7 @@ function checkForRememberedUser() {
                 document.getElementById('login-email-input').value = users[i].eMail;
                 document.getElementById('login-password-input').value = users[i].password;
                 document.getElementById('login-checkbox').checked = true;
+                document.getElementById('login-checkbox-icon').src = './assets/img/checkbox-icon-checked.svg';
             }
         }
     }
