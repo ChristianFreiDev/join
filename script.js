@@ -61,6 +61,16 @@ function sortByFirstName(a, b) {
 
 
 /**
+ * This function gets the id of the remembered user from local storage.
+ * 
+ * @returns the remembered user id.
+ */
+function rememberedUser() {
+    return loadVariableFromLocalStorage('rememberUserId');
+}
+
+
+/**
  * This function gets the id of the current user from local storage.
  * 
  * @returns the current user id.
