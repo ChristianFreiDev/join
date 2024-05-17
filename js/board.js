@@ -259,9 +259,11 @@ function renderTask(task) {
 function renderTasks(tasks) {
     clearTasks();
     addNoTasksMessage();
-    for (let i = 0; i < tasks.length; i++) {
-        let task = tasks[i];
-        renderTask(task);
+    if (tasks) {
+        for (let i = 0; i < tasks.length; i++) {
+            let task = tasks[i];
+            renderTask(task);
+        }
     }
 }
 

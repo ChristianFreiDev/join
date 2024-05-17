@@ -38,10 +38,14 @@ async function getItem(path = "") {
 async function loadUsers() {
     try {
         users = await getItem("/users");
-        for (let i = 0; i < users.length; i++) {
-            if (!users[i].lastName) {
-                users[i].lastName = '';
+        if (users) {
+            for (let i = 0; i < users.length; i++) {
+                if (!users[i].lastName) {
+                    users[i].lastName = '';
+                }
             }
+        } else {
+            users = [];
         }
     } catch (error) {
         console.error('Loading error:', error);
@@ -68,14 +72,18 @@ async function storeUsers() {
 async function loadTasks() {
     try {
         tasks = await getItem('/tasks');
-        for (let i = 0; i < tasks.length; i++) {
-            let task = tasks[i];
-            if (!task.subtasks) {
-                task.subtasks = [];
+        if (tasks) {
+            for (let i = 0; i < tasks.length; i++) {
+                let task = tasks[i];
+                if (!task.subtasks) {
+                    task.subtasks = [];
+                }
+                if (!task.collaborators) {
+                    task.collaborators = [];
+                }
             }
-            if (!task.collaborators) {
-                task.collaborators = [];
-            }
+        } else {
+            tasks = [];
         }
     } catch (error) {
         console.error('Loading error:', error);
@@ -101,6 +109,9 @@ async function storeTasks() {
 async function loadContacts() {
     try {
         contacts = await getItem('/contacts');
+        if (!contacts) {
+            contacts = [];
+        }
     } catch (error) {
         console.error('Loading error:', error);
     }
