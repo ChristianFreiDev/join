@@ -45,7 +45,7 @@ p {
 }
 
 @media (max-width: 400px) {
-    #back-link {
+    #back-link:not(.help-back-link) {
         position: absolute;    
         top: 180px;
     }
