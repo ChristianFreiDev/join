@@ -61,12 +61,12 @@ function sortByFirstName(a, b) {
 
 
 /**
- * This function gets the id of the remembered user from local storage.
+ * This function gets the id of the current user from local storage.
  * 
- * @returns the remembered user id.
+ * @returns the current user id.
  */
-function rememberedUser() {
-    return loadVariableFromLocalStorage('rememberUserId');
+function getCurrentJoinUserId() {
+    return loadVariableFromLocalStorage('currentJoinUserId');
 }
 
 
@@ -89,9 +89,10 @@ function getUserEmailFromId(id) {
  * This function gets the e-mail adress of the user that is currently logged in.
  * @returns {string} user e-mail address or empty string
  */
-function getRememberedUserEmail() {
-    if (rememberedUser()) {
-        return getUserEmailFromId(rememberedUser());
+function getCurrentUserEmail() {
+    let currentJoinUserId = getCurrentJoinUserId();
+    if (currentJoinUserId) {
+        return getUserEmailFromId(currentJoinUserId);
     } else {
         return '';
     }
@@ -104,7 +105,7 @@ function getRememberedUserEmail() {
  * @returns {string} ' (You)' or an empty string
  */
 function getUserNameSuffix(user) {
-    let rememberedUserEmail = getRememberedUserEmail();
+    let rememberedUserEmail = getCurrentUserEmail();
     let suffix;
     if (rememberedUserEmail === user.eMail) {
         suffix = ' (You)';
