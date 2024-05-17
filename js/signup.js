@@ -162,5 +162,3 @@ function closeSignupFailureMessages() {
     document.querySelector('#signup-email-input ~ p').classList.add('display-none');
     document.querySelector('#signup-password-confirm-input ~ p').classList.add('display-none');
 }
-
-
