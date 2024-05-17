@@ -1,3 +1,11 @@
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+let faviconElement = document.getElementById('favicon-icon');
+
+
+// Call checkForDarkMode every time script.js is loaded
+checkForDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+
 /**
  * This function includes the HTML templates in the page
  */
@@ -288,7 +296,11 @@ function formatStringAsName(name) {
 }
 
 
-
+/**
+ * This function checks if a user is logged in and hides elements if thats not the case or links to the index.html.
+ * 
+ * @param {boolean} protected 
+ */
 function checkForLogin(protected = true) {
     if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId')) && protected) {
         window.open('./index.html', '_self');
@@ -300,6 +312,9 @@ function checkForLogin(protected = true) {
 }
 
 
+/**
+ * This function hides the menu buttons by adding the class "display-none".
+ */
 function hideMenu() {
     if ((loadVariableFromLocalStorage('currentJoinUserId') < 0 || !loadVariableFromLocalStorage('currentJoinUserId')) && protected) {
         document.querySelector('nav-button-list').classList.add('display-none');
@@ -308,14 +323,13 @@ function hideMenu() {
 }
 
 
+/**
+ * This function outputs the users initials.
+ */
 function showUserInitials() {
     document.getElementById('firstname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterFirstName');
     document.getElementById('lastname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterLastName');
 }
-
-
-const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-let faviconElement = document.getElementById('favicon-icon');
 
 
 /**
@@ -338,9 +352,6 @@ function checkForDarkMode(isDarkModeOn) {
         changeFavicon('./assets/img/dark-logo.svg');
     }
 }
-
-// Call checkForDarkMode every time script.js is loaded
-checkForDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
 
 // When the user changes the theme preference setting, call checkForDarkMode again
@@ -455,12 +466,18 @@ document.addEventListener('keydown', event => {
 })
 
 
+/**
+ * This function inits not protected pages.
+ */
 async function initNotProtectedPage() {
     await init();
     checkForLogin(false);
 }
 
 
+/**
+ * This function loggs a user out, remove the id for remembered user and links to the index.html.
+ */
 function logout() {
     saveVariableInLocalStorage('rememberUserId', false);
     window.open('./index.html', '_self');
