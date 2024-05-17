@@ -16,7 +16,7 @@ function initGreeting() {
  * This function greets the user considering the time of day and scroll width.
  */
 async function greetUser() {
-    checkDayTimeAndchangeGreeting();
+    checkDayTimeAndChangeGreeting();
     document.getElementById('summary-greeting-name').innerHTML = await getUserName();
     if (loadVariableFromLocalStorage('currentJoinUserId') == 0) {
         document.getElementById('summary-greeting-punctuation-mark').classList.add('display-none');
@@ -47,7 +47,7 @@ function setGreetingToSmallScreen() {
 /**
  * This function checks the time of day and changes the greeting.
  */
-function checkDayTimeAndchangeGreeting() {
+function checkDayTimeAndChangeGreeting() {
     let daytimeString = checkDayTime();
     changeGreeting(daytimeString);
 }
