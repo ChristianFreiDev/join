@@ -63,10 +63,10 @@ function deleteTask(taskId) {
  * This function opens a task for editing.
  * @param {number} taskId 
  */
-function editTask(taskId) {
+function editTask(taskId, className) {
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
-    openTaskPopup.innerHTML = editTaskTemplate(task);
+    openTaskPopup.innerHTML = editTaskTemplate(task, 'board-subtasks');
     openTaskPopup.setAttribute('onclick', 'closeEditAssignedToList() | doNotClose(event)');
     priority = task.priority;
     temporarySubtasks = [...task.subtasks];

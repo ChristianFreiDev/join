@@ -37,8 +37,8 @@
     gap: 4px;
     position: absolute;
     width: 100%;
-    margin-top: 80px;
-    max-height: 88px;
+    /* margin-top: 80px; */
+    max-height: 72px;
     overflow-y: auto;
 }
 
@@ -200,6 +200,15 @@
     border-bottom: 1px solid var(--color-accent);
 }
 
+.board-subtasks{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 128px;
+    width: 440px;
+    overflow-y: auto;
+}
+
 @media (max-width: 1439px) {
     .board-columns-container {
         flex-direction: column;
@@ -290,6 +299,10 @@
     .medium-pop-up h2 {
         font-size: 36px;
     }
+
+    .board-subtasks{
+        width: 344px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -301,6 +314,10 @@
         padding: 24px 16px;
         width: calc(100% - 32px);
         gap: 12px;
+    }
+
+    .board-subtasks {
+        width: unset;
     }
 }
 

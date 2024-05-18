@@ -178,12 +178,12 @@ function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) 
  * @param {Array} subtasks 
  * @returns {string} HTML template of subtasks with checkboxes.
  */
-function generateSubtasks(task, subtasks) {
+function generateSubtasks(task, subtasks, className) {
     let HTMLString = '';
     if (subtasks.length > 0) {
         HTMLString = `<div class="subtasks-container">
         <div>Subtasks</div>
-        <div class="subtasks">`;
+        <div class="${className}">`;
             if (subtasks) {
                 for (let i = 0; i < subtasks.length; i++) {
                     let subtask = subtasks[i];
@@ -203,7 +203,7 @@ function generateSubtasks(task, subtasks) {
  * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  * @returns {string} HTML template of subtasks with edit and delete buttons.
  */
-function generateSubtasksTemporary(subtasks, idPrefix) {
+function generateSubtasksTemporary(subtasks, idPrefix,) {
     let HTMLString = '';
     if (subtasks.length > 0) {
             if (subtasks) {

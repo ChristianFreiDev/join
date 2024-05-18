@@ -67,7 +67,7 @@ function openTaskPopupTemplate(task) {
             <div id="open-task-collaborators">${generateCollaboratorNames(task)}</div>
         </div>
         <div class="open-task-subtasks-outer-container">
-            <div id="open-task-subtasks">${generateSubtasks(task, task.subtasks)}</div>
+            <div id="open-task-subtasks">${generateSubtasks(task, task.subtasks, 'board-subtasks')}</div>
         </div>
         <div class="open-task-buttons-container">
             <div id="open-task-delete-button" class="open-task-button cursor-pointer" onclick="deleteTask(${task.id})">
@@ -75,7 +75,7 @@ function openTaskPopupTemplate(task) {
                 <span>Delete</span>
             </div>
             <div class="open-task-button-separator"></div>
-            <div id="open-task-edit-button" class="open-task-button cursor-pointer" onclick="editTask(${task.id})">
+            <div id="open-task-edit-button" class="open-task-button cursor-pointer" onclick="editTask(${task.id},'board-subtasks')">
                 <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
                 <span>Edit</span>
             </div>
@@ -89,7 +89,7 @@ function openTaskPopupTemplate(task) {
  * @param {Object} task 
  * @returns {string} HTML template of task for editing.
  */
-function editTaskTemplate(task) {
+function editTaskTemplate(task, className) {
     return /* html */ `
         <div class="edit-task-pop-up-header">
             <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
@@ -140,7 +140,7 @@ function editTaskTemplate(task) {
                                     ${subtaskInputPlusIcon('edit-task')}
                                 </div>
                             </div>
-                            <ul id="edit-task-subtasks-list" class="subtasks">
+                            <ul id="edit-task-subtasks-list" class="${className}">
                                 ${generateSubtasksTemporary(task.subtasks, 'edit-task')}
                             </ul>
                         </div>
