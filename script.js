@@ -154,7 +154,7 @@ function getUserColor() {
 
 
 /**
- * This function gets an inputed full Name and by considering the type it
+ * This function gets an inputed full name and by considering the type it
  * 
  * @param {string} type 
  * @param {string} name 
