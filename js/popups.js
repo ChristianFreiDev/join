@@ -256,12 +256,9 @@ function removeMoreMenu() {
 /**
  * This function displays a success message when a contact has been added successfully.
  * 
- * @param {*} fromAddTask 
  */
-function animateSuccessMessage(fromAddTask = false) {
-    if (!fromAddTask) {
-        document.querySelector('.outer-container').style.overflow = 'hidden';
-    }
+function animateSuccessMessage() {
+    document.querySelector('.outer-container').style.overflow = 'hidden';
     document.querySelector('.success-message').style.display = 'flex';
     document.querySelector('.success-message').classList.add('animate-success-message')
     setTimeout(removeAnimationSuccessMessage, 1800);

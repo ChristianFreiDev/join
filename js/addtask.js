@@ -142,7 +142,7 @@ async function addTaskFromAddTaskPage() {
     } else {
         await addTask('To do');
     }
-    animateSuccessMessage(true);
+    animateSuccessMessage();
     setTimeout(function () {
         window.open('./board.html', '_self');
     }, 1800);
