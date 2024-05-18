@@ -479,7 +479,7 @@ textarea {
     justify-content: center;
     align-items: center;
     gap: 16px;
-    transform:translateX(65vw);
+    /* transform:translateX(65vw); */
     top: 80%;
     left: 730px;
     z-index: 5;
@@ -500,6 +500,10 @@ textarea {
 }
 
 @keyframes move-in-and-out-horizontal {
+    0%{
+        transform: translateX(65vw);
+    }
+    
     30%{
         transform: translateX(0);
     }
@@ -620,6 +624,12 @@ textarea {
     }
 }
 
+@media (max-width: 920px) {
+    .success-message {
+        left: calc(50% - 162px);
+    }
+}
+
 @media (max-width: 700px) {
     :root {
         --padding-content-left: 40px;
@@ -671,6 +681,12 @@ textarea {
         flex-direction: row;
         gap: 8px !important;
         width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    .success-message {
+        scale: 0.8;
     }
 }
 
