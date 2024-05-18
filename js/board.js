@@ -74,7 +74,6 @@ function editTask(taskId) {
     clickPriorityButton(priority, 'edit-task');
     addInputEventListener('edit-task');
     checkEditDueDateRequirement();
-    editSetMinDate();
 }
 
 
