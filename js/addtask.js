@@ -112,7 +112,6 @@ async function setUpTemporaryTask(status) {
     temporaryTask.category = document.getElementById('input-category').value;
     temporaryTask.priority = priority;
     temporaryTask.status = status;
-    temporaryTask.id = tasks.length;
     temporaryTask.collaborators = temporaryCollaborators;
     temporaryTask.subtasks = temporarySubtasks;
     await loadTasks();
@@ -143,7 +142,7 @@ async function addTaskFromAddTaskPage() {
     } else {
         await addTask('To do');
     }
-    animateSuccessMessage();
+    animateSuccessMessage(true);
     setTimeout(function () {
         window.open('./board.html', '_self');
     }, 1800);

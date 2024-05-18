@@ -69,7 +69,7 @@ function renderDoneButton() {
  */
 function renderPriorityAndDueDateButton() {
     if (tasks.length > 0) {
-        let foundTasks = findTasksHighestPriority();
+        let foundTasks = findTasksWithHighestPriority();
         renderPriorityIcon(findhighestPriority(foundTasks));
         renderPriorityAmount(foundTasks);
         renderPriorityValue(findhighestPriority(foundTasks));
@@ -83,7 +83,7 @@ function renderPriorityAndDueDateButton() {
 }
 
 
-function findTasksHighestPriority() {
+function findTasksWithHighestPriority() {
     let tasksWithHighestPriority = findTasks('Urgent');
     if (tasksWithHighestPriority.length === 0) {
         tasksWithHighestPriority = findTasks('Medium');

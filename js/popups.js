@@ -7,7 +7,7 @@ function centerPopup(id) {
     let popupContainer = document.getElementById('pop-up-container');
     popupContainer.style.display = 'block';
     popup.style.display = 'flex';
-    setTimeout(function() {
+    setTimeout(function () {
         popup.classList.add('center-pop-up')
         document.body.style.overflow = 'hidden';
     }, 0);
@@ -22,7 +22,7 @@ function centerAddTaskPopup() {
     let popupContainer = document.getElementById('pop-up-container');
     popupContainer.style.display = 'block';
     popup.classList.add('open-add-task-pop-up');
-    setTimeout(function() {
+    setTimeout(function () {
         popup.classList.add('center-pop-up')
         document.body.style.overflow = 'hidden';
     }, 0);
@@ -255,9 +255,13 @@ function removeMoreMenu() {
 
 /**
  * This function displays a success message when a contact has been added successfully.
+ * 
+ * @param {*} fromAddTask 
  */
-function animateSuccessMessage() {
-    document.querySelector('.outer-container').style.overflow = 'hidden';
+function animateSuccessMessage(fromAddTask = false) {
+    if (!fromAddTask) {
+        document.querySelector('.outer-container').style.overflow = 'hidden';
+    }
     document.querySelector('.success-message').style.display = 'flex';
     document.querySelector('.success-message').classList.add('animate-success-message')
     setTimeout(removeAnimationSuccessMessage, 1800);
