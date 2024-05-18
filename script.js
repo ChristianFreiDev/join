@@ -190,7 +190,6 @@ function formatStringAsName(name) {
     if (name.indexOf('-') > -1) {
         let names = name.split('-');
         let multipleName = '';
-        console.log(names);
         for (let i = 0; i < names.length - 1; i++) {
             if (names[i] === '-') {
                 multipleName += '-';
