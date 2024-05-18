@@ -62,6 +62,7 @@ header nav {
 
 header nav a {
     padding: 8px 16px;
+    cursor: pointer;
 }
 
 header nav a:hover {
