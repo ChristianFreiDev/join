@@ -1,13 +1,11 @@
 const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 let faviconElement = document.getElementById('favicon-icon');
 
-
-// Call checkForDarkMode every time script.js is loaded
 checkForDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
 
 /**
- * This function includes the HTML templates in the page
+ * This function includes the HTML templates in the page.
  */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
@@ -25,7 +23,7 @@ async function includeHTML() {
 
 
 /**
- * This function hightlights the active link in the menus
+ * This function highlights the active link in the menus.
  */
 function highlightActiveLink() {
     let activeLinkHref = location.pathname.slice(1);
@@ -40,7 +38,7 @@ function highlightActiveLink() {
 
 
 /**
- * This function initializes the page by including the HTML templates and highlighting the active link in the menus
+ * This function initializes the page by including the HTML templates, highlighting the active link in the menus and showing the user's initials.
  */
 async function init() {
     await includeHTML();
@@ -50,10 +48,10 @@ async function init() {
 
 
 /**
- * This function is used to sort users or contacts by first name
- * @param {Object} a first contact for comparison
- * @param {Object} b second contact for comparison
- * @returns {number} number that the sort function expects
+ * This function is used to sort users or contacts by first name.
+ * @param {Object} a first contact for comparison.
+ * @param {Object} b second contact for comparison.
+ * @returns {number} number that the sort function expects.
  */
 function sortByFirstName(a, b) {
     firstNameA = a.firstName.toLowerCase();
@@ -91,7 +89,7 @@ function getCurrentJoinUserId() {
 /**
  * This function gets the user e-mail address that matches that of the user with the id from the parameter.
  * @param {number} id 
- * @returns {string} user e-mail address or empty string
+ * @returns {string} user e-mail address or empty string.
  */
 function getUserEmailFromId(id) {
     let foundUser = users.find(user => user.id == id);
@@ -105,7 +103,7 @@ function getUserEmailFromId(id) {
 
 /**
  * This function gets the e-mail adress of the user that is currently logged in.
- * @returns {string} user e-mail address or empty string
+ * @returns {string} user e-mail address or empty string.
  */
 function getCurrentUserEmail() {
     let currentJoinUserId = getCurrentJoinUserId();
@@ -120,7 +118,7 @@ function getCurrentUserEmail() {
 /**
  * This function determines if ' (You)' should be appended to the user name.
  * This should be the case if the user is the user that is currently logged in.
- * @returns {string} ' (You)' or an empty string
+ * @returns {string} ' (You)' or an empty string.
  */
 function getUserNameSuffix(user) {
     let rememberedUserEmail = getCurrentUserEmail();
@@ -137,7 +135,7 @@ function getUserNameSuffix(user) {
 /**
  * This function grabs the initials of a user.
  * @param {Object} userOrContact 
- * @returns {string} initial string
+ * @returns {string} initial string.
  */
 function getInitials(userOrContact) {
     let initials = userOrContact.firstName.charAt(0) + userOrContact.lastName.charAt(0);
@@ -147,7 +145,7 @@ function getInitials(userOrContact) {
 
 /**
  * This function returns a random user color.
- * @returns {string} random user color, values ranging from user-color0 to user-color14
+ * @returns {string} random user color, values ranging from user-color0 to user-color14.
  */
 function getUserColor() {
     let colorNumber = Math.floor(Math.random() * 15);
@@ -206,7 +204,7 @@ function getNameFromOverThreeInputs(type, whitespaces, name) {
    let firstName = '';
    let firstNames = [];
    let lastName = '';
-   let results = getNamesThroughWhithspaces(whitespaces, name, firstNames, lastName);
+   let results = getNamesThroughWhitespaces(whitespaces, name, firstNames, lastName);
    firstNames = results.firstNames;
    lastName = results.lastName;
    firstName = firstNames.toString().replace(',', ' ');
@@ -227,7 +225,7 @@ function getNameFromOverThreeInputs(type, whitespaces, name) {
 * @param {string} lastName 
 * @returns {Object} including the first names as an array and the last name as a string.
 */
-function getNamesThroughWhithspaces(whitespaces, name, firstNames, lastName) {
+function getNamesThroughWhitespaces(whitespaces, name, firstNames, lastName) {
    for (let i = 0; i < whitespaces.length; i++) {
        if (i === 0) {
            firstNames.push(formatStringAsName(name.slice(0, whitespaces[0])));
@@ -297,7 +295,7 @@ function formatStringAsName(name) {
 
 
 /**
- * This function checks if a user is logged in and hides elements if thats not the case or links to the index.html.
+ * This function checks if a user is logged in and hides elements if that is not the case or navigates to index.html.
  * 
  * @param {boolean} protected 
  */
@@ -324,7 +322,7 @@ function hideMenu() {
 
 
 /**
- * This function outputs the users initials.
+ * This function displays the user's initials.
  */
 function showUserInitials() {
     document.getElementById('firstname-first-character').innerHTML = loadVariableFromLocalStorage('currentJoinUserFirstCharacterFirstName');
@@ -333,7 +331,7 @@ function showUserInitials() {
 
 
 /**
- * This function changes the href attribute of the favicon element
+ * This function changes the href attribute of the favicon element.
  * @param {string} href 
  */
 function changeFavicon(href) {
@@ -342,8 +340,8 @@ function changeFavicon(href) {
 
 
 /**
- * This function checks if dark mode is enabled and exchanges the href of the favicon accordingly
- * @param {boolean} isDarkModeOn 
+ * This function checks if dark mode is enabled and exchanges the href of the favicon accordingly.
+ * @param {boolean} isDarkModeOn true if dark mode is enabled.
  */
 function checkForDarkMode(isDarkModeOn) {
     if (isDarkModeOn) {
@@ -354,16 +352,18 @@ function checkForDarkMode(isDarkModeOn) {
 }
 
 
-// When the user changes the theme preference setting, call checkForDarkMode again
+/**
+ * This event listener calls checkForDarkMode when the user changes the theme preference setting.
+ */
 darkModeMediaQuery.addEventListener('change', (event) => {
     const isDarkModeOn = event.matches;
     checkForDarkMode(isDarkModeOn);
 });
 
 
-// /**
-//  * This function opens or closes the drop down menu in the header.
-//  */
+/**
+ * This function opens or closes the drop-down menu in the header.
+ */
 function showHideDropDownMenu() {
     let nav = document.getElementById('drop-down-menu');
     if (navIsClosed(nav)) {
@@ -375,9 +375,9 @@ function showHideDropDownMenu() {
 
 
 /**
- * This function returns true, when the drop down menu is hidden.
+ * This function returns true when the drop-down menu is hidden.
  * @param {Element} nav 
- * @returns boolean
+ * @returns {boolean}
  */
 function navIsClosed(nav) {
     return nav.classList.contains('display-none')
@@ -385,7 +385,7 @@ function navIsClosed(nav) {
 
 
 /**
- * This function shows the drop down menu, by removing the class "display-none"
+ * This function shows the drop-down menu by removing the class "display-none".
  * @param {Element} nav 
  */
 function openNav(nav) {
@@ -398,7 +398,7 @@ function openNav(nav) {
 
 
 /**
- * This function hides the drop down menu, by adding the class "display-none"
+ * This function hides the drop-down menu by adding the class "display-none".
  * @param {Element} nav 
  */
 function closeNav(nav) {
@@ -407,7 +407,8 @@ function closeNav(nav) {
 
 
 /**
- * This function closes the assigned to drop-down list by clicking the outside the list.
+ * This function closes the "Assigned to" drop-down list when the user clicks outside the list.
+ * For Add Task page and pop-up.
  */
 function closeAssignedToList() {
     let assignedTo = document.getElementById('add-task-assigned-to');
@@ -416,7 +417,8 @@ function closeAssignedToList() {
 
 
 /**
- * This function closes the assigned to drop-down list by clicking the outside the list.
+ * This function closes the "Assigned to" drop-down list when the user clicks outside the list.
+ * For pop-up for editing tasks.
  */
 function closeEditAssignedToList() {
     let editAssignedTo = document.getElementById('edit-task-assigned-to');
@@ -425,7 +427,7 @@ function closeEditAssignedToList() {
 
 
 /**
- * This function is used to prevent the container from being closed
+ * This function is used to prevent the container from being closed.
  * @param {*} event 
  */
 function doNotClose(event) {
@@ -436,10 +438,10 @@ function doNotClose(event) {
 /**
  * This function creates a contact object.
  * 
- * @param {string} name
- * @param {string} email 
- * @param {string} phone 
- * @returns {object} created based on user data.
+ * @param {string} name full name of the contact.
+ * @param {string} email e-mail address of the contact.
+ * @param {string} phone phone number of the contact.
+ * @returns {Object} created based on user data.
  */
 function createContactObject(name, email, phone, color) {
     let firstName = getUserName('first', name);
@@ -467,7 +469,7 @@ document.addEventListener('keydown', event => {
 
 
 /**
- * This function inits not protected pages.
+ * This function inits unprotected pages.
  */
 async function initNotProtectedPage() {
     await init();
@@ -476,7 +478,7 @@ async function initNotProtectedPage() {
 
 
 /**
- * This function loggs a user out, remove the id for remembered user and links to the index.html.
+ * This function logs a user out, removes the id for the remembered user and navigates to index.html.
  */
 function logout() {
     saveVariableInLocalStorage('rememberUserId', false);
