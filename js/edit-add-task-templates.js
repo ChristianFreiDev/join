@@ -203,7 +203,7 @@ function generateSubtasks(task, subtasks, className) {
  * @param {string} idPrefix prefix for selecting the correct element ids, either 'add-task' or 'edit-task'.
  * @returns {string} HTML template of subtasks with edit and delete buttons.
  */
-function generateSubtasksTemporary(subtasks, idPrefix,) {
+function generateSubtasksTemporary(subtasks, idPrefix) {
     let HTMLString = '';
     if (subtasks.length > 0) {
             if (subtasks) {
