@@ -166,7 +166,11 @@ function getUserName(type, name) {
     fullNameAsArray = fullNameAsArray.filter(name => name != '');
     if (type === 'first') {
         for (let i = 0; i < fullNameAsArray.length - 1; i++) {
-            firstNames.push(formatStringAsName(fullNameAsArray[i]));
+            if (fullNameAsArray[i] !== '-') {
+                firstNames.push(formatStringAsName(fullNameAsArray[i]));
+            } else {
+                firstNames[i - 1] = firstNames[i - 1] + '-';
+            }
         }
         firstNames = firstNames.toString();
         return firstNames.replace(',', ' ');
@@ -186,8 +190,13 @@ function formatStringAsName(name) {
     if (name.indexOf('-') > -1) {
         let names = name.split('-');
         let multipleName = '';
+        console.log(names);
         for (let i = 0; i < names.length - 1; i++) {
-            multipleName += names[i].trim().charAt(0).toLocaleUpperCase() + names[i].trim().slice(1, names[i].length).toLocaleLowerCase() + '-';            
+            if (names[i] === '-') {
+                multipleName += '-';
+            } else {
+                multipleName += names[i].trim().charAt(0).toLocaleUpperCase() + names[i].trim().slice(1, names[i].length).toLocaleLowerCase() + '-';            
+            }
         }
         multipleName += names[names.length - 1].trim().charAt(0).toLocaleUpperCase() + names[names.length - 1].trim().slice(1, names[names.length - 1].length).toLocaleLowerCase();
         return multipleName;
