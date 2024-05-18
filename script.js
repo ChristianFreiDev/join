@@ -170,12 +170,12 @@ function getUserName(type, name) {
 
 
 /**
-* This function gets the user name by considering the used whitespaces under three used whitespaces.
+* This function gets the user name when less than three used whitespaces are used.
 * 
 * @param {string} type 
 * @param {Array} whitespaces 
 * @param {string} name 
-* @returns {Function} to format user's name, or get user's name considering used whitespaces over three times.
+* @returns {Function} to format user's name, or get user's name considering more than three whitespaces.
 */
 function getNameFromUnderThreeInputs(type, whitespaces, name) {
    if (whitespaces.length <= 1 && type === 'first') {
@@ -193,7 +193,7 @@ function getNameFromUnderThreeInputs(type, whitespaces, name) {
 
 
 /**
-* This function gets the user name by considering the used whitespaces over three used whitespaces.
+* This function gets the user name when more than three whitespaces are used.
 * 
 * @param {string} type 
 * @param {Array} whitespaces 
@@ -217,7 +217,7 @@ function getNameFromOverThreeInputs(type, whitespaces, name) {
 
 
 /**
-* This function gets the user name by entering multiple first names.
+* This function gets the user name when the user enters multiple first names.
 * 
 * @param {Array} whitespaces 
 * @param {string} name 
@@ -251,7 +251,7 @@ function getWhitespaces(name) {
    let whitespaces = [];
    let whitespaceCounter = 0;
    do {
-       let result = checkForWhitspaces(whitespaces, whitespaceCounter, name);
+       let result = checkForWhitespaces(whitespaces, whitespaceCounter, name);
        whitespaces = result[0];
        whitespaceCounter = result[1];
    }
@@ -264,13 +264,14 @@ function getWhitespaces(name) {
 * This function checks if the current position is a necessary whitespace.
 * If it is a necessary position, the position will be pushed into the whitespaces array.
 * If it is not necessary, the whitespace counter will increase.
+* A whitespace is unnecessary if there is more than one whitespace between first/last names.
 * 
 * @param {Array} whitespaces 
 * @param {number} whitespaceCounter 
 * @param {string} name 
 * @returns {Array} including the whitespaces array and the whitespace counter number.
 */
-function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
+function checkForWhitespaces(whitespaces, whitespaceCounter, name) {
    if (whitespaces.length === 0) {
        whitespaces.push(name.indexOf(' '));
    } else if (name[whitespaces[whitespaces.length - 1] + whitespaceCounter] != ' ') {
