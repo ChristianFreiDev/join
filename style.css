@@ -361,11 +361,6 @@ textarea {
     margin-bottom: -20px;
 }
 
-/* .success {
-    border-color: var(--color-low);
-} */
-
-
 .initial-avatar {
     display: flex;
     justify-content: center;
@@ -477,7 +472,7 @@ textarea {
 }
 
 .success-message {
-    position: absolute;
+    position: fixed;
     background-color: var(--color-menu);
     color: white;
     display: none;

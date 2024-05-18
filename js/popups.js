@@ -258,7 +258,6 @@ function removeMoreMenu() {
  * 
  */
 function animateSuccessMessage() {
-    document.querySelector('.outer-container').style.overflow = 'hidden';
     document.querySelector('.success-message').style.display = 'flex';
     document.querySelector('.success-message').classList.add('animate-success-message')
     setTimeout(removeAnimationSuccessMessage, 1800);
