@@ -216,3 +216,7 @@
 #assigned-to-list{
     position: relative;
 }
+
+#add-task-subtask-input, #edit-task-subtask-input {
+    padding-right: 72px;
+}
