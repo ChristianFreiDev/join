@@ -184,7 +184,13 @@ function getUserName(type, name) {
 */
 function formatStringAsName(name) {
     if (name.indexOf('-') > -1) {
-        return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.indexOf('-') + 1).toLocaleLowerCase() + name.trim().slice(name.indexOf('-') + 1, name.indexOf('-') + 2).toLocaleUpperCase() + name.trim().slice(name.indexOf('-') + 2, name.length).toLocaleLowerCase();
+        let names = name.split('-');
+        let multipleName = '';
+        for (let i = 0; i < names.length - 1; i++) {
+            multipleName += names[i].trim().charAt(0).toLocaleUpperCase() + names[i].trim().slice(1, names[i].length).toLocaleLowerCase() + '-';            
+        }
+        multipleName += names[names.length - 1].trim().charAt(0).toLocaleUpperCase() + names[names.length - 1].trim().slice(1, names[names.length - 1].length).toLocaleLowerCase();
+        return multipleName;
     } else {
         return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
     }
