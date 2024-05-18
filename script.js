@@ -165,13 +165,13 @@ function getUserName(type, name) {
     let firstNames = [];
     fullNameAsArray = fullNameAsArray.filter(name => name != '');
     if (type === 'first') {
-        for (let i = 0; i < fullNameAsArray.length -1; i++) {
+        for (let i = 0; i < fullNameAsArray.length - 1; i++) {
             firstNames.push(formatStringAsName(fullNameAsArray[i]));
         }
         firstNames = firstNames.toString();
         return firstNames.replace(',', ' ');
     } else if (type === 'last') {
-        return formatStringAsName(fullNameAsArray[fullNameAsArray.length -1]);
+        return formatStringAsName(fullNameAsArray[fullNameAsArray.length - 1]);
     }
 }
 
@@ -183,7 +183,11 @@ function getUserName(type, name) {
 * @returns {string} the name with first character in upper case und the following characters in lower case.
 */
 function formatStringAsName(name) {
-    return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
+    if (name.indexOf('-') > -1) {
+        return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.indexOf('-') + 1).toLocaleLowerCase() + name.trim().slice(name.indexOf('-') + 1, name.indexOf('-') + 2).toLocaleUpperCase() + name.trim().slice(name.indexOf('-') + 2, name.length).toLocaleLowerCase();
+    } else {
+        return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
+    }
 }
 
 
