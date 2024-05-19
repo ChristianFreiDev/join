@@ -1,15 +1,15 @@
+.board-top-container, .board-columns-container, #no-results {
+    padding: 0 96px;
+    max-width: 1688px;
+}
+
 .board-top-container {
     position: relative;
     height: 232px;
-    padding: 0 64px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 3.2rem;
-}
-
-.board-top-container, #board-columns-container {
-    max-width: 1688px;
 }
 
 .board-actions-container {
@@ -61,10 +61,6 @@
 
 .board-columns-container {
     margin-bottom: 96px;
-}
-
-#no-results, .board-columns-container {
-    padding: 0 64px;
 }
 
 #no-results {
@@ -396,9 +392,4 @@ progress::-webkit-progress-value {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.task-category-large {
-    padding: 4px 24px;
-    font-size: 23px;
 }

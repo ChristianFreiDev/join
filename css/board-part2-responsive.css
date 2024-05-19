@@ -1,3 +1,8 @@
+.task-category-large {
+    padding: 4px 24px;
+    font-size: 23px;
+}
+
 .collaborator-names-container {
     display: flex;
     flex-direction: column;
@@ -206,6 +211,12 @@
     max-height: 128px;
     width: 440px;
     overflow-y: auto;
+}
+
+@media (max-width: 1600px) {
+    .board-top-container, .board-columns-container, #no-results {
+        padding: 0 64px;
+    }
 }
 
 @media (max-width: 1439px) {
