@@ -16,12 +16,12 @@
 </head>
 <body onload="initNotProtectedPage()">
     <div class="outer-container position-relative">
-        <a id="back-link" onclick="history.back()"><img src="assets/img/signup-arrow-left.svg" alt="back"></a>
         <nav id="mobile-menu" w3-include-html="assets/templates/mobile-menu.html"></nav>
         <nav id="desktop-menu" w3-include-html="assets/templates/desktop-menu.html"></nav>
         <div id="main">
             <header w3-include-html="assets/templates/header.html"></header>
-            <div class="content-container">
+            <div class="content-container position-relative">
+                <a id="back-link" onclick="history.back()"><img src="assets/img/signup-arrow-left.svg" alt="back"></a>
                 <h2>Legal Notice</h2>
                 <h3>Imprint</h3>
                 <ul>
