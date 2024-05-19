@@ -628,6 +628,12 @@ textarea {
     .success-message {
         left: calc(50% - 162px);
     }
+
+    .content-container {
+        padding-top: var(--padding-content-top);
+        padding-left: var(--padding-content-left);
+        padding-right: var(--padding-content-left);
+    }
 }
 
 @media (max-width: 700px) {
@@ -637,12 +643,6 @@ textarea {
 
     h2 {
         font-size: 54px;
-    }
-
-    .content-container {
-        padding-top: var(--padding-content-top);
-        padding-left: var(--padding-content-left);
-        padding-right: var(--padding-content-left);
     }
 
     .priority-button {
@@ -703,9 +703,9 @@ textarea {
 }
 
 @media (min-width: 1921px) {
-    body {
+    /* body {
         background-color: var(--color-large-screen-background);
-    }
+    } */
     .outer-container {
         box-shadow: rgba(100, 100, 100, 0.2) 0px 2px 8px 0px;
     }
