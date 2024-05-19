@@ -50,6 +50,10 @@
     height: 48px;
 }
 
+#add-task-drop-down-input, #edit-task-drop-down-input, .arrow-drop-down {
+    cursor: pointer;
+}
+
 #input-due-date {
     height: 48px;
     cursor: pointer;
