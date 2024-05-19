@@ -245,6 +245,10 @@
     .summary-overview-container {
         margin-bottom: 127px;
     }
+
+    .summary-content {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 750px) {
