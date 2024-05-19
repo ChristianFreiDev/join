@@ -391,7 +391,7 @@ a:hover {
         gap: 16px;
     }
 
-    #back-to-login-button {
+    .back-button-box {
         top: 16px;
         left: 16px;
     }

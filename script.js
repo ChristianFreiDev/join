@@ -154,132 +154,29 @@ function getUserColor() {
 
 
 /**
- * This function gets the first or last name(s) from the input
-* by cutting off whitespaces at the start and end of the string,
-* then it gets the used whitespace positions and saves them in an array.
-* 
-* @param {string} type 
-* @param {string} name 
-* @returns {Function} to get the user's name.
-*/
+ * This function gets an inputed full name and by considering the type it
+ * 
+ * @param {string} type 
+ * @param {string} name 
+ * @returns {string} the last or first name.
+ */
 function getUserName(type, name) {
-   name = name.trim();
-   let whitespaces = getWhitespaces(name);
-   return getNameFromUnderThreeInputs(type, whitespaces, name);
-}
-
-
-/**
-* This function gets the user name by considering the used whitespaces under three used whitespaces.
-* 
-* @param {string} type 
-* @param {Array} whitespaces 
-* @param {string} name 
-* @returns {Function} to format user's name, or get user's name considering used whitespaces over three times.
-*/
-function getNameFromUnderThreeInputs(type, whitespaces, name) {
-   if (whitespaces.length <= 1 && type === 'first') {
-       return formatStringAsName(name);
-   } else if (whitespaces.length <= 1 && type === 'last') {
-       return ''
-   } else if (whitespaces.length === 2 && type === 'first') {
-       return formatStringAsName(name.slice(0, whitespaces[0]));
-   } else if (whitespaces.length === 2 && type === 'last') {
-       return formatStringAsName(name.slice(whitespaces[0] + 1, name.length));
-   } else {
-       return getNameFromOverThreeInputs(type, whitespaces, name);
-   }
-}
-
-
-/**
-* This function gets the user name by considering the used whitespaces over three used whitespaces.
-* 
-* @param {string} type 
-* @param {Array} whitespaces 
-* @param {string} name 
-* @returns {string} the first or the last name.
-*/
-function getNameFromOverThreeInputs(type, whitespaces, name) {
-   let firstName = '';
-   let firstNames = [];
-   let lastName = '';
-   let results = getNamesThroughWhitespaces(whitespaces, name, firstNames, lastName);
-   firstNames = results.firstNames;
-   lastName = results.lastName;
-   firstName = firstNames.toString().replace(',', ' ');
-   if (type === 'first') {
-       return firstName;
-   } else if (type === 'last') {
-       return lastName;
-   }
-}
-
-
-/**
-* This function gets the user name by entering multiple first names.
-* 
-* @param {Array} whitespaces 
-* @param {string} name 
-* @param {string} firstNames 
-* @param {string} lastName 
-* @returns {Object} including the first names as an array and the last name as a string.
-*/
-function getNamesThroughWhitespaces(whitespaces, name, firstNames, lastName) {
-   for (let i = 0; i < whitespaces.length; i++) {
-       if (i === 0) {
-           firstNames.push(formatStringAsName(name.slice(0, whitespaces[0])));
-       } else if (i < whitespaces.length - 2) {
-           firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i] + 1)));
-       } else if (i == whitespaces.length - 2) {
-           firstNames.push(formatStringAsName(name.slice(whitespaces[i - 1] + 1, whitespaces[i])));
-       } else {
-           lastName += formatStringAsName(name.slice(whitespaces[i - 1] + 1, name.length));
-       }
-   }
-   return {firstNames: firstNames, lastName: lastName};
-}
-
-
-/**
-* This function gets the necessary whitespaces.
-* 
-* @param {string} name 
-* @returns {Array} including the positions of the necessary whitespaces.
-*/
-function getWhitespaces(name) {
-   let whitespaces = [];
-   let whitespaceCounter = 0;
-   do {
-       let result = checkForWhitspaces(whitespaces, whitespaceCounter, name);
-       whitespaces = result[0];
-       whitespaceCounter = result[1];
-   }
-   while (whitespaces[whitespaces.length - 1] != -1);
-   return whitespaces;
-}
-
-
-/**
-* This function checks if the current position is a necessary whitespace.
-* If it is a necessary position, the position will be pushed into the whitespaces array.
-* If it is not necessary, the whitespace counter will increase.
-* 
-* @param {Array} whitespaces 
-* @param {number} whitespaceCounter 
-* @param {string} name 
-* @returns {Array} including the whitespaces array and the whitespace counter number.
-*/
-function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
-   if (whitespaces.length === 0) {
-       whitespaces.push(name.indexOf(' '));
-   } else if (name[whitespaces[whitespaces.length - 1] + whitespaceCounter] != ' ') {
-       whitespaces.push(name.indexOf(' ', whitespaces[whitespaces.length - 1] + 1 + whitespaceCounter));
-       whitespaceCounter = 0;
-   } else {
-       whitespaceCounter++;
-   }
-   return [whitespaces, whitespaceCounter];
+    let fullNameAsArray = name.split(' ');
+    let firstNames = [];
+    fullNameAsArray = fullNameAsArray.filter(name => name != '');
+    if (type === 'first') {
+        for (let i = 0; i < fullNameAsArray.length - 1; i++) {
+            if (fullNameAsArray[i] !== '-') {
+                firstNames.push(formatStringAsName(fullNameAsArray[i]));
+            } else {
+                firstNames[i - 1] = firstNames[i - 1] + '-';
+            }
+        }
+        firstNames = firstNames.toString();
+        return firstNames.replace(',', ' ');
+    } else if (type === 'last') {
+        return formatStringAsName(fullNameAsArray[fullNameAsArray.length - 1]);
+    }
 }
 
 
@@ -290,7 +187,21 @@ function checkForWhitspaces(whitespaces, whitespaceCounter, name) {
 * @returns {string} the name with first character in upper case und the following characters in lower case.
 */
 function formatStringAsName(name) {
-   return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
+    if (name.indexOf('-') > -1) {
+        let names = name.split('-');
+        let multipleName = '';
+        for (let i = 0; i < names.length - 1; i++) {
+            if (names[i] === '-') {
+                multipleName += '-';
+            } else {
+                multipleName += names[i].trim().charAt(0).toLocaleUpperCase() + names[i].trim().slice(1, names[i].length).toLocaleLowerCase() + '-';            
+            }
+        }
+        multipleName += names[names.length - 1].trim().charAt(0).toLocaleUpperCase() + names[names.length - 1].trim().slice(1, names[names.length - 1].length).toLocaleLowerCase();
+        return multipleName;
+    } else {
+        return name.trim().charAt(0).toLocaleUpperCase() + name.trim().slice(1, name.length).toLocaleLowerCase();
+    }
 }
 
 

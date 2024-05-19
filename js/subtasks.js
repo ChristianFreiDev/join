@@ -13,7 +13,7 @@ function checkOrUncheckSubtaskBox(taskId, subtaskIndex) {
         subtask.done = true;
     }
     let openTaskPopupSubtasks = document.getElementById('open-task-subtasks');
-    openTaskPopupSubtasks.innerHTML = generateSubtasks(task, subtasks);
+    openTaskPopupSubtasks.innerHTML = generateSubtasks(task, subtasks, 'board-subtasks');
     storeTasks();
     renderTasks(tasks);
 }

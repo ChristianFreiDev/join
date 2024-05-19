@@ -6,6 +6,7 @@ function initGreeting() {
         document.getElementById('summary-overlay').style.zIndex = '4';
     } else if (document.body.scrollWidth <= 1400 && loadVariableFromLocalStorage('fromIndex') == 'false') {
         document.getElementById('summary-greeting-box').classList.add('display-none');
+        document.getElementById('summary-overlay').style.zIndex = '-1';
     } else if (document.body.scrollWidth > 1400) {
         document.getElementById('summary-overlay').classList.add('display-none');
     }
