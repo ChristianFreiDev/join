@@ -154,11 +154,11 @@ function getUserColor() {
 
 
 /**
- * This function gets an inputed full name and by considering the type it
+ * This function takes in the user's full name and outputs the user's first or last name depending on the type that is passed into it.
  * 
- * @param {string} type 
- * @param {string} name 
- * @returns {string} the last or first name.
+ * @param {string} type first or last name.
+ * @param {string} name the user's full name.
+ * @returns {string} the first or last name.
  */
 function getUserName(type, name) {
     let fullNameAsArray = name.split(' ');
