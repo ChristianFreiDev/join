@@ -256,13 +256,13 @@ textarea {
 
 #main {
     width: 100%;
-    max-width: 1920px;
     overflow: auto;
 }
 
 .content-container {
     padding-top: var(--padding-content-top);
     padding-left: var(--padding-content-left);
+    max-width: 1920px;
 }
 
 .button {
