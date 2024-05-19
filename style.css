@@ -111,6 +111,7 @@
 body {
     font-size: 16px;
     margin: 0;
+    background-color: var(--color-main);
 }
 
 h1 {
@@ -703,11 +704,5 @@ textarea {
 @media (max-width: 300px) {
     .clear-task{
         display: none !important;
-    }
-}
-
-@media (min-width: 1921px) {
-    body {
-        background-color: var(--color-main);
     }
 }
