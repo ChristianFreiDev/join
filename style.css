@@ -631,7 +631,7 @@ textarea {
 
     .content-container {
         padding-top: var(--padding-content-top);
-        padding-left: var(--padding-content-left);
+        padding-left: var(--padding-content-left) !important;
         padding-right: var(--padding-content-left);
     }
 }
