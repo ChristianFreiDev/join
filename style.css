@@ -266,7 +266,7 @@ textarea {
 .content-container {
     padding-top: var(--padding-content-top);
     padding-left: var(--padding-content-left);
-    max-width: 1920px;
+    max-width: 1688px;
 }
 
 .button {
@@ -707,9 +707,6 @@ textarea {
 }
 
 @media (min-width: 1921px) {
-    .outer-container {
-        /* box-shadow: rgba(100, 100, 100, 0.2) 0px 2px 8px 0px; */
-    }
     body {
         background-color: var(--color-main);
     }
