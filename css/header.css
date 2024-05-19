@@ -5,10 +5,16 @@ header {
     padding-right: 40px;
     box-shadow: var(--box-shadow);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     font-size: 20px;
     position: relative;
+}
+
+.header-box {
+    width: 100%;
+    max-width: 1920px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .header-img-box {
