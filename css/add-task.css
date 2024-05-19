@@ -52,6 +52,7 @@
 
 #input-due-date {
     height: 48px;
+    cursor: pointer;
 }
 
 .priority-button:hover {
@@ -66,6 +67,7 @@
 #input-category {
     width: 440px;
     height: 48px;
+    cursor: pointer;
 }
 
 #add-task-subtask-input {
