@@ -11,13 +11,6 @@ header {
     justify-content: space-between;
 }
 
-.header-box {
-    width: 100%;
-    max-width: 1688px;
-    display: flex;
-    align-items: center;
-}
-
 .header-img-box {
     display: flex;
     align-items: center;
