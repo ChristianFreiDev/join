@@ -80,7 +80,7 @@ function openTaskPopupTemplate(task) {
                 <span>Delete</span>
             </div>
             <div class="open-task-button-separator"></div>
-            <div id="open-task-edit-button" class="open-task-button cursor-pointer" onclick="editTask(${task.id},'board-subtasks')">
+            <div id="open-task-edit-button" class="open-task-button cursor-pointer" onclick="editTask(${task.id})">
                 <img src="assets/img/open-task-edit-button-icon.svg" alt="open task edit button icon">
                 <span>Edit</span>
             </div>

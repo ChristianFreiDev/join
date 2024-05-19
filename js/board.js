@@ -63,7 +63,7 @@ function deleteTask(taskId) {
  * This function opens a task for editing.
  * @param {number} taskId 
  */
-function editTask(taskId, className) {
+function editTask(taskId) {
     let task = tasks.find(task => task.id === taskId);
     let openTaskPopup = document.getElementById('open-task-pop-up');
     openTaskPopup.innerHTML = editTaskTemplate(task, 'board-subtasks');
