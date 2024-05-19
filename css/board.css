@@ -8,6 +8,10 @@
     font-size: 3.2rem;
 }
 
+.board-top-container, #board-columns-container {
+    max-width: 1688px;
+}
+
 .board-actions-container {
     display: flex;
     align-items: center;
