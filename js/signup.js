@@ -135,7 +135,7 @@ function createUserObject(name, email, password, color) {
  *  This function opens the login menu and hides the sign-up menu by adding and removing the class "display-none".
  */
 function openLogInMenu() {
-    document.getElementById('login-feld').classList.remove('display-none');
+    document.getElementById('login-field').classList.remove('display-none');
     document.getElementById('login-signup-box-footer').classList.remove('display-none');
     document.getElementById('login-signup-box-header').classList.remove('display-none');
     clearSignupField();

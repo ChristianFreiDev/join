@@ -118,7 +118,7 @@
     font-size: 16px;
 }
 
-.login-feld {
+.login-field {
     background-color: white;
     border-radius: 30px;
     display: flex;
@@ -324,7 +324,7 @@ a:hover {
         padding: 40px;
     }
 
-    .login-feld {
+    .login-field {
         padding: 32px 16px;
         gap: 32px;
     }
@@ -413,4 +413,10 @@ a:hover {
             left: 0;
         }
     }   
+}
+
+@media (max-height: 1080px) and (min-width: 1180px) {
+	.login-field {
+		margin-top: -128px;
+	}
 }

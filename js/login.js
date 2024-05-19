@@ -35,7 +35,7 @@ function checkForRememberedUser() {
  *  This function opens the sign-up menu and hides the login menu by adding and removing the class "display-none".
  */
 function openSignUpMenu(email = false) {
-    document.getElementById('login-feld').classList.add('display-none');
+    document.getElementById('login-field').classList.add('display-none');
     document.getElementById('login-signup-box-footer').classList.add('display-none');
     document.getElementById('login-signup-box-header').classList.add('display-none');
     document.getElementById('signup-feld').classList.remove('display-none');
