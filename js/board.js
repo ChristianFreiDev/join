@@ -127,10 +127,12 @@ function renderSelectOptions(task, contactsToBeRendered, idPrefix) {
         let contact = contactsToBeRendered[i];
         if (contact.id != 0) {
             let suffix = getUserNameSuffix(contact);
-            selectOptions += `<div id="${idPrefix}-collaborator-option-${contact.id}" class="collaborator-option ${isAssigned(contact, task) ? 'collaborator-focus' : ''}" value="${contact.eMail} "onclick="checkOrUncheckCollaboratorBox(${contact.id}, '${idPrefix}') ">
+            selectOptions += `
+            <div id="${idPrefix}-collaborator-option-${contact.id}" class="collaborator-option ${isAssigned(contact, task) ? 'collaborator-focus' : ''}" value="${contact.eMail} "onclick="checkOrUncheckCollaboratorBox(${contact.id}, '${idPrefix}') ">
                 <div class="collaborator-option-name-and-initial-avatar">${initialAvatarLargeTemplate(contact)} ${contact.firstName} ${contact.lastName}${suffix}</div>
                 <img id="${idPrefix}-collaborator-checkbox-${contact.id}" class="cursor-pointer" src="${isAssigned(contact, task) ? 'assets/img/checkbox-icon-checked-white.svg' : 'assets/img/checkbox-icon-unchecked.svg'}" alt="collaborator checkbox icon">
-            </div>`;
+            </div>
+            `;
         }
     }
     return selectOptions;

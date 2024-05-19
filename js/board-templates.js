@@ -6,11 +6,13 @@
  */
 function generateTaskProgressContainerTemplate(task, doneSubtasks) {
     if (task.subtasks.length > 0) {
-        return /* html */ `<div class="task-progress-container">
-            <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
-            <span>${doneSubtasks}/${task.subtasks.length} subtasks</span>
-            <span class="subtask-tooltip">${doneSubtasks} of ${task.subtasks.length} subtasks completed</span>
-        </div>`;
+        return /* html */ `
+            <div class="task-progress-container">
+                <progress class="task-progress" max="100" value="${doneSubtasks/task.subtasks.length * 100}"></progress>
+                <span>${doneSubtasks}/${task.subtasks.length} subtasks</span>
+                <span class="subtask-tooltip">${doneSubtasks} of ${task.subtasks.length} subtasks completed</span>
+            </div>
+        `;
     } else {
         return '';
     }
@@ -24,7 +26,8 @@ function generateTaskProgressContainerTemplate(task, doneSubtasks) {
  * @returns {string} task HTML template.
  */
 function taskTemplate(task, doneSubtasks) {
-    return /* html */ `<div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)" onclick="openTask(${task.id})">
+    return /* html */ `
+        <div class="task" draggable="true" ondragstart="startDraggingTask(event, ${task.id})" ondragend="endDraggingTask(event)" onclick="openTask(${task.id})">
             <div class="task-category-and-mobile-drag-arrows-container">
                 <div class="task-category task-category-small ${task.category === 'Technical Task' ? 'technical-task' : 'user-story'}">${task.category}</div>
                 <div class="move-arrows" onclick="openMoveTaskPopup(event, ${task.id})">⇵</div>
@@ -38,7 +41,8 @@ function taskTemplate(task, doneSubtasks) {
                 <div id="initial-avatars">${generateInitialAvatarsTemplate(task)}</div>
                 <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">
             </div>
-        </div>`;
+        </div>
+        `;
 }
 
 
@@ -48,7 +52,8 @@ function taskTemplate(task, doneSubtasks) {
  * @returns {string} task pop-up HTML template.
  */
 function openTaskPopupTemplate(task) {
-    return /* html */ `<div class="open-task-pop-up-header">
+    return /* html */ `
+    <div class="open-task-pop-up-header">
         <div id="open-task-pop-up-category">${openTaskPopupCategoryTemplate(task)}</div>
         <img class="close-pop-up-icon" src="assets/img/close-pop-up-icon.svg" alt="close pop-up icon" onclick="removePopup('open-task-pop-up')">
     </div>
@@ -80,7 +85,8 @@ function openTaskPopupTemplate(task) {
                 <span>Edit</span>
             </div>
         </div>
-    </div>`;
+    </div>
+    `;
 }
 
 
@@ -148,7 +154,8 @@ function editTaskTemplate(task, className) {
                 </div>
             </div>
             <button class="button dark-button button-padding-size3 edit-task-ok-button" id="edit-task-ok-button" onclick="validateEditInputs(['edit-task-title-input', 'edit-task-due-date'])">OK</button>
-        </form>`;
+        </form>
+        `;
 }
 
 

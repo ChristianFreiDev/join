@@ -164,40 +164,42 @@ function contactEditForm(contact, index) {
  * @returns HTML string of the form for editing a contact.
  */
 function addContactForm() {
-    return /* html */ `<div class="edit-add-contact-pop-up-container">
-        ${closeIconSvg()}
-        <div class="edit-add-contact-pop-up-left-side">
-            <img src="assets/img/light-logo.svg" alt="">
-            <h2>Add&nbspcontact</h2>
-            <span class="add-task-slogan">Tasks are better with a team!</span>
-            <div class="contacts-header-separator-vertical pop-up-separator"></div>
+    return /* html */ `
+        <div class="edit-add-contact-pop-up-container">
+            ${closeIconSvg()}
+            <div class="edit-add-contact-pop-up-left-side">
+                <img src="assets/img/light-logo.svg" alt="">
+                <h2>Add&nbspcontact</h2>
+                <span class="add-task-slogan">Tasks are better with a team!</span>
+                <div class="contacts-header-separator-vertical pop-up-separator"></div>
+            </div>
+            <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="addContact(); return false">
+            <div class="edit-add-contact-pop-up-content">
+                <div class="initial-avatar initial-avatar-very-large background-color-gray">
+                    <img src="../assets/img/person-large.svg" alt="person">
+                </div>
+                <div class="contact-inputs">
+                    <div class="input-box">
+                        <input id="contact-name-input" class="input input-padding-size5 login-input" type="text" placeholder="Name" required>
+                        <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
+                    </div>
+                    <div class="input-box">
+                        <input id="contact-email-input" class="input input-padding-size5 login-input" type="email" placeholder="Email" required>
+                        <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
+                    </div>
+                    <div class="input-box">
+                        <input id="contact-phone-input" class="input input-padding-size5 login-input" type="tel" pattern="[+\\(\\)0-9\\-\\s]{7,25}" placeholder="Phone" title="Just input numbers" required>
+                        <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
+                    </div>
+                </div>
+                </div>
+                <div class="contact-pop-up-buttons-container">
+                    <button id="cancel-button" class="button light-button button-padding-size2" type="button">Cancel ${cancelIconSVG()}</button>
+                    <button id="create-contact-button" class="button dark-button button-padding-size2">Create contact <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
+                </div>
+            </form>
         </div>
-        <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="addContact(); return false">
-        <div class="edit-add-contact-pop-up-content">
-            <div class="initial-avatar initial-avatar-very-large background-color-gray">
-                <img src="../assets/img/person-large.svg" alt="person">
-            </div>
-            <div class="contact-inputs">
-                <div class="input-box">
-                    <input id="contact-name-input" class="input input-padding-size5 login-input" type="text" placeholder="Name" required>
-                    <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
-                </div>
-                <div class="input-box">
-                    <input id="contact-email-input" class="input input-padding-size5 login-input" type="email" placeholder="Email" required>
-                    <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
-                </div>
-                <div class="input-box">
-                    <input id="contact-phone-input" class="input input-padding-size5 login-input" type="tel" pattern="[+\\(\\)0-9\\-\\s]{7,25}" placeholder="Phone" title="Just input numbers" required>
-                    <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
-                </div>
-            </div>
-            </div>
-            <div class="contact-pop-up-buttons-container">
-                <button id="cancel-button" class="button light-button button-padding-size2" type="button">Cancel ${cancelIconSVG()}</button>
-                <button id="create-contact-button" class="button dark-button button-padding-size2">Create contact <img src="assets/img/check-create-task.svg" alt="check icon" type="submit"></button>
-            </div>
-        </form>
-    </div>`;
+    `;
 }
 
 

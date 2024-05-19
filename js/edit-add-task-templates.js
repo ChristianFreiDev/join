@@ -4,9 +4,11 @@
  * @returns {string} HTML template of plus icon.
  */
 function subtaskInputPlusIcon(idPrefix) {
-    return /* html */ `<div class="input-icon-container" onclick="activateSubtaskInput('${idPrefix}-subtask-input')">
-        <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
-    </div>`;
+    return /* html */ `
+        <div class="input-icon-container" onclick="activateSubtaskInput('${idPrefix}-subtask-input')">
+            <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
+        </div>
+    `;
 }
 
 
@@ -60,17 +62,19 @@ function generateCollaboratorNames(task) {
     let collaborators = getCollaborators(task);
     let HTMLString = '';
     if (collaborators) {
-        HTMLString = `<div class="collaborator-names-container">
-        <div>Assigned to:</div>
-        <div class="collaborator-names">`;
-            if (collaborators) {
-                for (let i = 0; i < collaborators.length; i++) {
-                    let collaborator = collaborators[i];
-                    HTMLString += collaboratorNameTemplate(collaborator);
-                }
-            }
-        HTMLString += `</div>
-        </div>`;
+        HTMLString = `
+            <div class="collaborator-names-container">
+                <div>Assigned to:</div>
+                <div class="collaborator-names">`;
+                    if (collaborators) {
+                        for (let i = 0; i < collaborators.length; i++) {
+                            let collaborator = collaborators[i];
+                            HTMLString += collaboratorNameTemplate(collaborator);
+                        }
+                    }
+                HTMLString += `</div>
+            </div>
+        `;
     }
     return HTMLString;
 }
@@ -100,12 +104,14 @@ function generateCollaboratorAvatars(collaborators) {
  */
 function collaboratorNameTemplate(contact) {
     let suffix = getUserNameSuffix(contact);
-    return /* html */ `<div class="collaborator-name-outer-container">
-        <div class="collaborator-name-container">
-            ${initialAvatarLargeTemplate(contact)}
-            <div class="collaborator-name">${contact.firstName} ${contact.lastName}${suffix}</div>
+    return /* html */ `
+        <div class="collaborator-name-outer-container">
+            <div class="collaborator-name-container">
+                ${initialAvatarLargeTemplate(contact)}
+                <div class="collaborator-name">${contact.firstName} ${contact.lastName}${suffix}</div>
+            </div>
         </div>
-    </div>`;
+    `;
 }
 
 
@@ -163,12 +169,14 @@ function subTaskTemplateTemporary(subtask, subtaskIndex, idPrefix) {
  * @returns {string} HTML template of subtask being edited.
  */
 function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) {
-    return /* html */ `<div class="edit-task-subtask-input-container">
-        <input id="${idPrefix}-subtask-title-input-editable-${subtaskIndex}" class="input-padding-size1 subtask-title-input-editable" type="text" value="${subtaskTitle}">
-        <div id="${idPrefix}-input-icons-container" class="input-icons-container">
-            ${confirmOrDeleteIcons(`deleteSubtaskInputForEditing(${subtaskIndex}, '${idPrefix}')`, `confirmSubtaskInputForEditing(${subtaskIndex}, '${idPrefix}')`)}
+    return /* html */ `
+        <div class="edit-task-subtask-input-container">
+            <input id="${idPrefix}-subtask-title-input-editable-${subtaskIndex}" class="input-padding-size1 subtask-title-input-editable" type="text" value="${subtaskTitle}">
+            <div id="${idPrefix}-input-icons-container" class="input-icons-container">
+                ${confirmOrDeleteIcons(`deleteSubtaskInputForEditing(${subtaskIndex}, '${idPrefix}')`, `confirmSubtaskInputForEditing(${subtaskIndex}, '${idPrefix}')`)}
+            </div>
         </div>
-    </div>`;
+    `;
 }
 
 
@@ -181,17 +189,18 @@ function subTaskTemplateTemporaryEditable(subtaskIndex, subtaskTitle, idPrefix) 
 function generateSubtasks(task, subtasks, className) {
     let HTMLString = '';
     if (subtasks.length > 0) {
-        HTMLString = `<div class="subtasks-container">
-        <div>Subtasks</div>
-        <div class="${className}">`;
-            if (subtasks) {
-                for (let i = 0; i < subtasks.length; i++) {
-                    let subtask = subtasks[i];
-                    HTMLString += subTaskTemplate(subtask, i, task.id);
+        HTMLString = `
+            <div class="subtasks-container">
+                <div>Subtasks</div>
+            <div class="${className}">
+            `;
+                if (subtasks) {
+                    for (let i = 0; i < subtasks.length; i++) {
+                        let subtask = subtasks[i];
+                        HTMLString += subTaskTemplate(subtask, i, task.id);
+                    }
                 }
-            }
-        HTMLString += `</div>
-        </div>`;
+            HTMLString += `</div></div>`;
     }
     return HTMLString;
 }
@@ -246,10 +255,12 @@ function editTaskAssignedToItemsTemplate(task, idPrefix) {
  * @returns {string} HTML template of icons for confirmation or deletion.
  */
 function confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName) {
-    return /* html */ `<div class="input-icon-container" onclick="${deletionFunctionName}">
+    return /* html */ `
+        <div class="input-icon-container" onclick="${deletionFunctionName}">
             <img src="../assets/img/open-task-delete-button-icon.svg" alt="delete icon">
         </div>
         <div class="input-icon-container" onclick="${confirmationFunctionName}">
             <img src="../assets/img/edit-task-confirm-button-icon.svg" alt="confirm icon">
-        </div>`;
+        </div>
+    `;
 }
