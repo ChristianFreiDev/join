@@ -136,15 +136,15 @@ function contactEditForm(contact, index) {
             <div class="contact-inputs">
                 <div class="input-box">
                     <input id="contact-name-input" class="input input-padding-size5 login-input" type="text" value="${contact.firstName} ${contact.lastName}" placeholder="Name" required>
-                    <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
+                    <img class="input-icon" src="assets/img/person.svg" alt="person icon">
                 </div>
                 <div class="input-box">
                     <input id="contact-email-input" class="input input-padding-size5 login-input" type="email" value="${contact.eMail}" placeholder="Email" required>
-                    <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
+                    <img class="input-icon" src="assets/img/mail.svg" alt="e-mail icon">
                 </div>
                 <div class="input-box">
                 <input id="contact-phone-input" class="input input-padding-size5 login-input" type="tel" pattern="[+\\(\\)0-9\\-\\s]{7,25}" value="${contact.phone}" placeholder="Phone" required>
-                    <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
+                    <img class="input-icon" src="assets/img/phone.svg" alt="phone icon">
                 </div>
             </div>
             </div>
@@ -176,20 +176,20 @@ function addContactForm() {
             <form class="edit-add-contact-form edit-add-contact-pop-up-right-side" onsubmit="addContact(); return false">
             <div class="edit-add-contact-pop-up-content">
                 <div class="initial-avatar initial-avatar-very-large background-color-gray">
-                    <img src="../assets/img/person-large.svg" alt="person">
+                    <img src="assets/img/person-large.svg" alt="person">
                 </div>
                 <div class="contact-inputs">
                     <div class="input-box">
                         <input id="contact-name-input" class="input input-padding-size5 login-input" type="text" placeholder="Name" required>
-                        <img class="input-icon" src="../assets/img/person.svg" alt="person icon">
+                        <img class="input-icon" src="assets/img/person.svg" alt="person icon">
                     </div>
                     <div class="input-box">
                         <input id="contact-email-input" class="input input-padding-size5 login-input" type="email" placeholder="Email" required>
-                        <img class="input-icon" src="../assets/img/mail.svg" alt="e-mail icon">
+                        <img class="input-icon" src="assets/img/mail.svg" alt="e-mail icon">
                     </div>
                     <div class="input-box">
                         <input id="contact-phone-input" class="input input-padding-size5 login-input" type="tel" pattern="[+\\(\\)0-9\\-\\s]{7,25}" placeholder="Phone" title="Just input numbers" required>
-                        <img class="input-icon" src="../assets/img/phone.svg" alt="phone icon">
+                        <img class="input-icon" src="assets/img/phone.svg" alt="phone icon">
                     </div>
                 </div>
                 </div>

@@ -6,7 +6,7 @@
 function subtaskInputPlusIcon(idPrefix) {
     return /* html */ `
         <div class="input-icon-container" onclick="activateSubtaskInput('${idPrefix}-subtask-input')">
-            <img class="edit-task-plus-icon" src="../assets/img/add-dark.svg" alt="plus icon">
+            <img class="edit-task-plus-icon" src="assets/img/add-dark.svg" alt="plus icon">
         </div>
     `;
 }
@@ -236,7 +236,7 @@ function editTaskAssignedToItemsTemplate(task, idPrefix) {
         <label for="edit-task-drop-down-input" class="task-form-label" onclick="event.preventDefault()">Assigned to</label>
         <div class="task-drop-down" onclick="doNotClose(event)">
             <input id="edit-task-drop-down-input" type="text" class="input input-padding-size4 pop-up-input" onclick="onTaskDropDownInputClick('edit-task-assigned-to','edit-arrow-drop-down')" oninput="searchContacts(${task.id}, '${idPrefix}')" placeholder="Select contacts to assign">
-            <img id="edit-arrow-drop-down" class="arrow-drop-down" src="../assets/img/arrow-drop-down.svg" alt="drop-down arrow">
+            <img id="edit-arrow-drop-down" class="arrow-drop-down" src="assets/img/arrow-drop-down.svg" alt="drop-down arrow">
         </div>
         <div id="edit-task-assigned-to" class="task-user-dropdown display-none" onclick="doNotClose(event)">
             ${renderSelectOptions(task, contacts, idPrefix)}
@@ -257,10 +257,10 @@ function editTaskAssignedToItemsTemplate(task, idPrefix) {
 function confirmOrDeleteIcons(deletionFunctionName, confirmationFunctionName) {
     return /* html */ `
         <div class="input-icon-container" onclick="${deletionFunctionName}">
-            <img src="../assets/img/open-task-delete-button-icon.svg" alt="delete icon">
+            <img src="assets/img/open-task-delete-button-icon.svg" alt="delete icon">
         </div>
         <div class="input-icon-container" onclick="${confirmationFunctionName}">
-            <img src="../assets/img/edit-task-confirm-button-icon.svg" alt="confirm icon">
+            <img src="assets/img/edit-task-confirm-button-icon.svg" alt="confirm icon">
         </div>
     `;
 }

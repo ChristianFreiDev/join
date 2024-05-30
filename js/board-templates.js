@@ -39,7 +39,7 @@ function taskTemplate(task, doneSubtasks) {
             ${generateTaskProgressContainerTemplate(task, doneSubtasks)}
             <div class="initial-avatars-and-priority-container">
                 <div id="initial-avatars">${generateInitialAvatarsTemplate(task)}</div>
-                <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">
+                <img src="${'assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">
             </div>
         </div>
         `;
@@ -121,15 +121,15 @@ function editTaskTemplate(task, className) {
                     <div class="edit-task-priority-buttons-container">
                         <button id="edit-task-priority-button-urgent" class="priority-button" type="button" onclick="clickPriorityButton('Urgent', 'edit-task')">
                             <span>Urgent</span>
-                            <img id="edit-task-priority-icon-urgent" src="../assets/img/priority-icon-urgent.svg" alt="priority icon urgent">
+                            <img id="edit-task-priority-icon-urgent" src="assets/img/priority-icon-urgent.svg" alt="priority icon urgent">
                         </button>
                         <button id="edit-task-priority-button-medium" class="priority-button" type="button" onclick="clickPriorityButton('Medium', 'edit-task')">
                             <span>Medium</span>
-                            <img id="edit-task-priority-icon-medium" src="../assets/img/priority-icon-medium.svg" alt="priority icon medium">
+                            <img id="edit-task-priority-icon-medium" src="assets/img/priority-icon-medium.svg" alt="priority icon medium">
                         </button>
                         <button id="edit-task-priority-button-low" class="priority-button" type="button" onclick="clickPriorityButton('Low', 'edit-task')">
                             <span>Low</span>
-                            <img id="edit-task-priority-icon-low" src="../assets/img/priority-icon-low.svg" alt="priority icon low">
+                            <img id="edit-task-priority-icon-low" src="assets/img/priority-icon-low.svg" alt="priority icon low">
                         </button>
                     </div>
                 </div>
@@ -178,5 +178,5 @@ function openTaskPopupCategoryTemplate(task) {
  */
 function openTaskPopupPriorityTemplate(task) {
     return /* html */ `<div>${task.priority}</div>
-        <img src="${'../assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">`;
+        <img src="${'assets/img/' + task.priority.toLowerCase() + '-board-priority-icon.svg'}" class="priority-icon">`;
 }
