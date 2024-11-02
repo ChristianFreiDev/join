@@ -37,16 +37,7 @@ async function getItem(path = "") {
  */
 async function loadUsers() {
     try {
-        users = await getItem("/users");
-        if (users) {
-            for (let i = 0; i < users.length; i++) {
-                if (!users[i].lastName) {
-                    users[i].lastName = '';
-                }
-            }
-        } else {
-            users = [];
-        }
+        users = await sanitizeUsers(await getItem("/users"));
     } catch (error) {
         console.error('Loading error:', error);
     }
@@ -71,20 +62,7 @@ async function storeUsers() {
  */
 async function loadTasks() {
     try {
-        tasks = await getItem('/tasks');
-        if (tasks) {
-            for (let i = 0; i < tasks.length; i++) {
-                let task = tasks[i];
-                if (!task.subtasks) {
-                    task.subtasks = [];
-                }
-                if (!task.collaborators) {
-                    task.collaborators = [];
-                }
-            }
-        } else {
-            tasks = [];
-        }
+        tasks = sanitizeTasks(await getItem('/tasks'));
     } catch (error) {
         console.error('Loading error:', error);
     }
@@ -108,10 +86,7 @@ async function storeTasks() {
  */
 async function loadContacts() {
     try {
-        contacts = await getItem('/contacts');
-        if (!contacts) {
-            contacts = [];
-        }
+        contacts = sanitizeContacts(await getItem('/contacts'));
     } catch (error) {
         console.error('Loading error:', error);
     }
