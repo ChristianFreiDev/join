@@ -267,7 +267,7 @@ progress::-webkit-progress-value {
     background-color: rgba(0, 0, 0, 0.2);
     display: none;
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     top: 0;
     left: 0;
     height: 100%;
