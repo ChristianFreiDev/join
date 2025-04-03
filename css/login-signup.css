@@ -295,6 +295,24 @@ a:hover {
     z-index: 4;
 }
 
+.btn-highlight {
+    animation: 1600ms ease-in-out btnHighlight;
+    animation-delay: 1600ms;
+}
+  
+@keyframes btnHighlight {
+    0% {
+  
+    }
+    50% {
+      color: var(--color-accent);
+      outline: 2px solid var(--color-accent);
+    }
+    0% {
+  
+    }
+}
+
 @media (max-width: 960px) {
     .login-button {
         padding: 15px 24px;
